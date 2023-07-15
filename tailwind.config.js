@@ -11,6 +11,9 @@ module.exports = {
       'lg-x2':{"min":"1201px"},
      
     },
+    borderWidth:{
+      '1': '1px',
+    },
     fontFamily:{
       "vazirBold" : 'vazirBold',
       "vazirMedium" : 'vazirMedium',
