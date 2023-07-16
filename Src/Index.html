@@ -14,26 +14,31 @@
 
 <body>
   <header
-    class="fixed border-2 flex-row-reverse z-50 px-12 border-b-[#2b2b31] border-solid  py-8 flex justify-between items-center  -left-2 w-[102%] -top-2   bg-[#18191d]">
+    class=" dark:!bg-white  fixed border-2 flex-row-reverse z-[900] px-12 border-b-[#2b2b31] border-solid  py-8 flex justify-between items-center  -left-2 w-[102%] -top-2 bg-[#18191d]">
     <div class="flex gap-2 flex-row-reverse items-center">
-      <button class="text-white p-2 px-3 hover:opacity-80 transition   border-1 font-vazirLight rounded-md"> ورود / عضویت
+      <button class="text-white p-2 px-3 hover:opacity-80 transition   border-1 font-vazirLight rounded-md"> ورود /
+        عضویت
       </button>
 
       <div class=" relative cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 text-[#ffffff90]" fill="none" viewBox="0 0 24 24"
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 text-[#ffffff90] dark:text-[#000000]" fill="none" viewBox="0 0 24 24"
           strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round"
             d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
         </svg>
-        <span class=" rounded-full bg-white text-black right-0 -top-1 text-[10px] px-1 pb-[1px] absolute">0</span>
+        <span class=" rounded-full dark:text-white dark:bg-black bg-white text-black right-0 -top-1 text-[10px] px-1 pb-[1px] absolute">0</span>
       </div>
 
+      <div> 
+        <input type="checkbox" id="dark-mode">
+        <label id="toggle" class="cursor-pointer w-16 h-8 block bg-[#d9d9d9] rounded-[100px] relative" for="dark-mode"></label> 
+      </div>
     </div>
 
     <div
-      class="flex w-1/3 items-center   justify-between   border-[#ffffff3b]  border-1 border-solid rounded-md py-3 p-2">
+      class="flex w-1/3 items-center   justify-between dark:border-black  border-[#ffffff3b]  border-1 border-solid rounded-md py-3 p-2">
       <input placeholder=" جستجو در onlyMusic "
-        class=" w-full placeholder:text-[#ffffff58] text-right text-white bg-transparent border-[0px] border-none outline-0 font-vazirLight "
+        class=" w-full placeholder:text-[#ffffff58] text-right dark:placeholder:text-black  dark:text-black  text-white bg-transparent border-[0px] border-none outline-0 font-vazirLight "
         type="text">
       <img class="mr-5 ml-2" src="https://musicfa.co/images/search.svg?a477b581a8a60e79604e1b0323e9916d" alt="">
     </div>
@@ -82,13 +87,47 @@
         <li>
           <a href="#" class="flex items-center text-secondText pr-10">
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round"
+                d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
             </svg>
-        
-         
+
+
             <span class="mr-4">
               موزیک ویئدو ها
+            </span>
+
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center text-secondText pr-10">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+            </svg>
+
+
+
+            <span class="mr-4">
+              پلی لیست ها
+            </span>
+
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center text-secondText pr-10">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+            </svg>
+            
+
+
+            <span class="mr-4">
+              هنرمندان 
             </span>
 
           </a>
@@ -107,7 +146,7 @@
 
 
   </main>
-
+  <script src="../JavaScript/utilis/shared.js"></script>
   <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
 </body>
 

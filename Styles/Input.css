@@ -16,3 +16,38 @@
         src: url('../Fonts/vazir/Vazir-Bold.woff2');
     }
 }
+
+@layer utilities{
+    
+header label{
+   
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.3), inset 0px -5px 15px rgba(255,255,255,0.3);
+  }
+  header label:after{
+    content: '';
+    position: absolute;
+    height: 50%;
+    width: 17px;
+    background: #ebff0e;
+    border-radius: 100px;
+    top: 8px;
+    left: 10px;
+    transition: 0.5s;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  }
+  #dark-mode:checked ~ label:after{
+    right: 0px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg,#777,#3a3a3a);
+  }
+  #dark-mode:checked ~ label{
+    background: #242424;
+  }
+   
+  #dark-mode:checked + label + .background{
+    background: #242424;
+  }
+  #dark-mode{
+    display: none;
+  }
+}
