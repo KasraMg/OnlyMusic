@@ -1126,12 +1126,24 @@ input:checked + .toggle-bg {
   margin-bottom: 0.25rem;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
 }
 
 .mr-4 {
@@ -1186,6 +1198,10 @@ input:checked + .toggle-bg {
   display: none;
 }
 
+.h-36 {
+  height: 9rem;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -1210,6 +1226,10 @@ input:checked + .toggle-bg {
   height: 96rem;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -1232,6 +1252,10 @@ input:checked + .toggle-bg {
 
 .w-32 {
   width: 8rem;
+}
+
+.w-36 {
+  width: 9rem;
 }
 
 .w-4 {
@@ -1260,6 +1284,10 @@ input:checked + .toggle-bg {
 
 .w-\[14px\] {
   width: 14px;
+}
+
+.w-\[45rem\] {
+  width: 45rem;
 }
 
 .w-full {
@@ -1382,6 +1410,12 @@ input:checked + .toggle-bg {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-y-12 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(3rem * var(--tw-space-y-reverse));
+}
+
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1394,12 +1428,26 @@ input:checked + .toggle-bg {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
 
 .overflow-y-auto {
   overflow-y: auto;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-\[100px\] {
@@ -1448,6 +1496,16 @@ input:checked + .toggle-bg {
   border-style: none;
 }
 
+.border-\[\#2b2b31\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(43 43 49 / var(--tw-border-opacity));
+}
+
+.border-\[\#ff0038\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 0 56 / var(--tw-border-opacity));
+}
+
 .border-\[\#ffffff3b\] {
   border-color: #ffffff3b;
 }
@@ -1492,6 +1550,11 @@ input:checked + .toggle-bg {
   background-color: rgb(225 225 225 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#ff0038\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 0 56 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#ffffff6f\] {
   background-color: #ffffff6f;
 }
@@ -1529,6 +1592,11 @@ input:checked + .toggle-bg {
 .bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.bg-mainBg {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 18 23 / var(--tw-bg-opacity));
 }
 
 .bg-secondText {
@@ -1573,6 +1641,10 @@ input:checked + .toggle-bg {
   padding: 1rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .p-\[\.55rem\] {
   padding: .55rem;
 }
@@ -1585,6 +1657,11 @@ input:checked + .toggle-bg {
 .px-12 {
   padding-left: 3rem;
   padding-right: 3rem;
+}
+
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .px-2 {
@@ -1661,6 +1738,10 @@ input:checked + .toggle-bg {
   text-align: right;
 }
 
+.font-vazirBold {
+  font-family: vazirBold;
+}
+
 .font-vazirLight {
   font-family: vazirLight;
 }
@@ -1668,6 +1749,11 @@ input:checked + .toggle-bg {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-\[10px\] {
@@ -1722,6 +1808,11 @@ input:checked + .toggle-bg {
   color: rgb(28 100 242 / var(--tw-text-opacity));
 }
 
+.text-golden {
+  --tw-text-opacity: 1;
+  color: rgb(255 197 66 / var(--tw-text-opacity));
+}
+
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -1730,6 +1821,11 @@ input:checked + .toggle-bg {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
+}
+
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(224 36 36 / var(--tw-text-opacity));
 }
 
 .text-secondText {
@@ -1892,6 +1988,12 @@ header label:after{
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.focus\:ring-0:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
 .focus\:ring-2:focus {
@@ -2061,6 +2163,11 @@ header label:after{
   .sm\:w-\[6rem\] {
     width: 6rem;
   }
+
+  .sm\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2074,6 +2181,10 @@ header label:after{
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:w-full {
+    width: 100%;
   }
 
   .md\:\!px-\[24px\] {
