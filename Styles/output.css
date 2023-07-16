@@ -78,9 +78,7 @@ hr {
   border-top-width: 1px;
   /* 3 */
 }
-input{
-  outline: 0;
-}
+
 /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
@@ -1424,11 +1422,6 @@ input:checked + .toggle-bg {
   background-color: rgb(24 25 29 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#d9d9d9\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(217 217 217 / var(--tw-bg-opacity));
-}
-
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(26 86 219 / var(--tw-bg-opacity));
@@ -1495,6 +1488,10 @@ input:checked + .toggle-bg {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-\[\.55rem\] {
+  padding: .55rem;
 }
 
 .px-1 {
