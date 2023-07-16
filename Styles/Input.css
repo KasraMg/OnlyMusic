@@ -40,12 +40,13 @@ header label{
     transform: translateX(-100%);
     background: linear-gradient(180deg,rgb(176, 240, 0),#d49605);
   }
-  
    
-  /* #dark-mode:checked + label + .background{
-    background: #fcfcfc !important;
-  } */
-  #dark-mode{
-    display: none;
+  .dark  .active_Link{
+    background-color: #d49605;
+    color: black;
+  }
+  .active_Link{
+  background-color: red;
+  color: white;
   }
 }
