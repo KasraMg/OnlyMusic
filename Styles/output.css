@@ -1360,20 +1360,20 @@ input:checked + .toggle-bg {
   border-bottom-right-radius: 0.5rem;
 }
 
-.border {
+.border-1 {
   border-width: 1px;
 }
 
-.border-0 {
+.border-\[0px\] {
   border-width: 0px;
-}
-
-.border-2 {
-  border-width: 2px;
 }
 
 .border-solid {
   border-style: solid;
+}
+
+.border-none {
+  border-style: none;
 }
 
 .border-\[\#ffffff3b\] {

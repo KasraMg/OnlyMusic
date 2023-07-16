@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.{html,js}", "./node_modules/flowbite/**/*.js"],
+  content: [
+    "./src/**/*.{js,html}",
+  "./node_modules/flowbite/**/*.js"],
   darkMode: 'class',
   theme: {
     screens: {
@@ -11,6 +13,9 @@ module.exports = {
       'lg': { "max": "1200px" },
       'lg-x2': { "min": "1201px" },
 
+    },
+    borderWidth:{
+      '1': '1px',
     },
     fontFamily: {
       "vazirBold": 'vazirBold',
