@@ -27,6 +27,7 @@ module.exports = {
       colors: {
         'secondText': '#8d8d8d',
         'golden': '#ffc542',
+        'redBg': '#ff4242',
         'hederBg': '#18191d',
         'mainBg': '#111217'
       }
