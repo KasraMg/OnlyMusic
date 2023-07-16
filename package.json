@@ -6,6 +6,7 @@
     "tailwind": "npx tailwindcss -i ./Styles/Input.css -o ./Styles/output.css --watch "
   },
   "dependencies": {
+    "flowbite": "^1.7.0",
     "swiper": "^10.0.4"
   }
 }
