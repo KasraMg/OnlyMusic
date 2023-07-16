@@ -1100,6 +1100,10 @@ input:checked + .toggle-bg {
   z-index: 50;
 }
 
+.z-\[900\] {
+  z-index: 900;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1699,7 +1703,8 @@ input:checked + .toggle-bg {
 }
 
 header label{
-  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.3), inset 0px -5px 15px rgba(255,255,255,0.3);
+  box-shadow: inset 0px 5px 15px rgb(0 0 0 / 30%), inset 0px -5px 15px rgb(45 6 6 / 30%);
+  background-color: #000;
 }
 
 header label:after{
@@ -1707,27 +1712,23 @@ header label:after{
   position: absolute;
   height: 50%;
   width: 17px;
-  background: #ebff0e;
+  background: linear-gradient(#000000,#4a4a4a);
   border-radius: 100px;
   top: 8px;
   left: 10px;
   transition: 0.5s;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 #dark-mode:checked ~ label:after{
   right: 0px;
   transform: translateX(-100%);
-  background: linear-gradient(180deg,#777,#3a3a3a);
+  background: linear-gradient(180deg,rgb(176, 240, 0),#d49605);
 }
 
-#dark-mode:checked ~ label{
-  background: #242424;
-}
-
-#dark-mode:checked + label + .background{
-  background: #242424;
-}
+/* #dark-mode:checked + label + .background{
+    background: #fcfcfc !important;
+  } */
 
 #dark-mode{
   display: none;
