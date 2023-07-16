@@ -16,22 +16,25 @@
   <header
     class=" dark:!bg-white  fixed border-2 flex-row-reverse z-[900] px-12 border-b-[#2b2b31] border-solid  py-8 flex justify-between items-center  -left-2 w-[102%] -top-2 bg-[#18191d]">
     <div class="flex gap-2 flex-row-reverse items-center">
-      <button class="dark:text-black dark:border-black text-white p-[.55rem] px-3 hover:opacity-80 transition   border-1 font-vazirLight rounded-md"> ورود /
+      <button
+        class="dark:text-black dark:border-black text-white p-[.55rem] px-3 hover:opacity-80 transition   border-1 font-vazirLight rounded-md">
+        ورود /
         عضویت
       </button>
 
       <div class=" relative cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 text-[#ffffff90] dark:text-[#000000]" fill="none" viewBox="0 0 24 24"
-          strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 text-[#ffffff90] dark:text-[#000000]" fill="none"
+          viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
           <path strokeLinecap="round" strokeLinejoin="round"
             d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
         </svg>
-        <span class=" rounded-full dark:text-white dark:bg-black bg-white text-black right-0 -top-1 text-[10px] px-1 pb-[1px] absolute">0</span>
+        <span
+          class=" rounded-full dark:text-white dark:bg-black bg-white text-black right-0 -top-1 text-[10px] px-1 pb-[1px] absolute">0</span>
       </div>
 
-      <div> 
+      <div>
         <input type="checkbox" id="dark-mode">
-        <label id="toggle" class="cursor-pointer w-16 h-8 block   rounded-[100px] relative" for="dark-mode"></label> 
+        <label id="toggle" class="cursor-pointer w-16 h-8 block   rounded-[100px] relative" for="dark-mode"></label>
       </div>
     </div>
 
@@ -49,23 +52,33 @@
 
   <main>
     <!-- Sidebar -->
-    <aside class="fixed bg-mainBg w-64 h-screen z-40 mt-28 text-white py-12">
-      
-      <ul class="flex flex-col space-y-14 text-[14.4px] font-bold">
-        <li>
-          <a href="#" class="flex items-center text-white pr-10">
+    <aside
+      class="fixed w-64  z-40 mt-28 py-12 bg-white dark:bg-mainBg  text-secondText text-[14.4px] font-bold">
 
-            <i class="fa-solid fa-house"></i>            <span class="mr-4">
-              صفحه اصلی
-            </span>
+      <ul class="flex flex-col space-y-12 ">
+        <li>
+          <a href="#" class="flex items-center text-black dark:text-white pr-10">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+            </svg>
+
+            <span class="mr-4">
+              صفحه اصلی </span>
 
           </a>
         </li>
 
         <li>
-          <a href="#" class="flex items-center text-secondText pr-10">
+          <a href="#" class="flex items-center pr-10">
 
-            <i class="fa-solid fa-music"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+            </svg>
             <span class="mr-4">
               آهنگ ها
             </span>
@@ -74,9 +87,13 @@
         </li>
 
         <li>
-          <a href="#" class="flex items-center text-secondText pr-10">
+          <a href="#" class="flex items-center pr-10">
 
-            <i class="fa-solid fa-compact-disc"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round"
+                d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+            </svg>
 
             <span class="mr-4">
               موزیک ویئدو ها
@@ -86,13 +103,32 @@
         </li>
 
         <li>
-          <a href="#" class="flex items-center text-secondText pr-10">
+          <a href="#" class="flex items-center pr-10">
 
-            <i class="fa-sharp fa-solid fa-list-music"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" />
+            </svg>
 
             <span class="mr-4">
               پلی لیست ها
             </span>
+
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="flex items-center pr-10">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+            </svg>
+
+            <span class="mr-4">
+              هنرمندان </span>
 
           </a>
         </li>
@@ -100,53 +136,40 @@
 
       </ul>
 
-      <ul class="flex flex-col space-y-14 text-[14.4px] font-bold">
+      <div class="w-3/4 h-[1px] my-10 mx-auto bg-secondText"></div>
+
+      <ul class="flex flex-col space-y-8">
         <li>
-          <a href="#" class="flex items-center text-white pr-10">
-
-            <i class="fa-solid fa-house"></i>            <span class="mr-4">
-              صفحه اصلی
-            </span>
-
+          <a href="#" class="pr-10">
+            درباره ما
           </a>
         </li>
-
         <li>
-          <a href="#" class="flex items-center text-secondText pr-10">
-
-            <i class="fa-solid fa-music"></i>
-            <span class="mr-4">
-              آهنگ ها
-            </span>
-
+          <a href="#" class="pr-10">
+            تماس با ما
           </a>
         </li>
-
         <li>
-          <a href="#" class="flex items-center text-secondText pr-10">
+          <a href="#" class="pr-10">
+            قوانین و مقررات </a>
+        </li>
+      </ul>
 
-            <i class="fa-solid fa-compact-disc"></i>
-
-            <span class="mr-4">
-              موزیک ویئدو ها
-            </span>
-
+      <ul class="flex flex-col space-y-8 mt-4">
+        <li>
+          <a href="#" class="pr-10">
+            درباره ما
           </a>
         </li>
-
         <li>
-          <a href="#" class="flex items-center text-secondText pr-10">
-
-            <i class="fa-sharp fa-solid fa-list-music"></i>
-
-            <span class="mr-4">
-              پلی لیست ها
-            </span>
-
+          <a href="#" class="pr-10">
+            تماس با ما
           </a>
         </li>
-
-
+        <li>
+          <a href="#" class="pr-10">
+            قوانین و مقررات </a>
+        </li>
       </ul>
 
     </aside>

@@ -11,4 +11,5 @@ toggle.addEventListener('click',()=>{
         document.documentElement.classList.remove('dark') 
         toggle.style.background='#000'
     }
+    console.log(darkMode);
 })
