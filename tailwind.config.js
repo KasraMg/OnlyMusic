@@ -21,7 +21,8 @@ module.exports = {
     fontFamily: {
       "vazirBold": 'vazirBold',
       "vazirMedium": 'vazirMedium',
-      "vazirLight": 'vazirLight'
+      "vazirLight": 'vazirLight',
+      "cursive":"cursive"
     },
     extend: {
       colors: {
