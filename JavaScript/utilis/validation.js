@@ -24,7 +24,7 @@ const validation = (data, type, mainCaptcha) => {
     }
     ////////////////
     if (type === 'login') {
-
+      
         if (data.captcha === '') {
             errors.captchaError = 'لطفا کد امنتی را وارد کنید'
         } else if (data.captcha.toLowerCase() !== mainCaptcha) {

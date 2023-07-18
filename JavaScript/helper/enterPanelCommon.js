@@ -125,7 +125,7 @@ const setError = (errors) => {
 const submitHandler = (event, completeHandler) => {
     event.preventDefault();
 
-    if (!Object.keys(validation(data, type)).length) {
+    if (!Object.keys(validation(data, type, rightCode)).length) {
         completeHandler()
 
     } else {

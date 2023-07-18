@@ -1,6 +1,5 @@
 import { submitHandler, data } from "./helper/enterPanelCommon.js"
 import { rightCode } from "./helper/captchaCreator.js"
-import { showSwal } from "./utilis/utils.js"
 /////////////////////////////////////////////////////////
 const registerBtn = document.querySelector('#registerBtn')
 

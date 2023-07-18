@@ -1068,6 +1068,10 @@ input:checked + .toggle-bg {
   bottom: 0.25rem;
 }
 
+.bottom-5 {
+  bottom: 1.25rem;
+}
+
 .bottom-\[60px\] {
   bottom: 60px;
 }
@@ -1084,12 +1088,20 @@ input:checked + .toggle-bg {
   right: 0px;
 }
 
+.right-5 {
+  right: 1.25rem;
+}
+
 .top-0 {
   top: 0px;
 }
 
 .top-5 {
   top: 1.25rem;
+}
+
+.top-\[10px\] {
+  top: 10px;
 }
 
 .z-10 {
@@ -1112,6 +1124,10 @@ input:checked + .toggle-bg {
   z-index: 50;
 }
 
+.z-\[44\] {
+  z-index: 44;
+}
+
 .z-\[900\] {
   z-index: 900;
 }
@@ -1123,6 +1139,11 @@ input:checked + .toggle-bg {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .my-14 {
@@ -1139,8 +1160,16 @@ input:checked + .toggle-bg {
   margin-bottom: 0.25rem;
 }
 
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .ml-2 {
@@ -1167,12 +1196,20 @@ input:checked + .toggle-bg {
   margin-right: 1.25rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
 
 .mt-28 {
   margin-top: 7rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .mt-5 {
@@ -1223,6 +1260,10 @@ input:checked + .toggle-bg {
   height: 1.5rem;
 }
 
+.h-72 {
+  height: 18rem;
+}
+
 .h-8 {
   height: 2rem;
 }
@@ -1233,10 +1274,6 @@ input:checked + .toggle-bg {
 
 .h-\[20px\] {
   height: 20px;
-}
-
-.h-\[96rem\] {
-  height: 96rem;
 }
 
 .h-full {
@@ -1293,6 +1330,10 @@ input:checked + .toggle-bg {
 
 .w-80 {
   width: 20rem;
+}
+
+.w-\[1000px\] {
+  width: 1000px;
 }
 
 .w-\[102\%\] {
@@ -1552,19 +1593,9 @@ input:checked + .toggle-bg {
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.border-b-\[\#2b2b31\] {
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(43 43 49 / var(--tw-border-opacity));
-}
-
 .border-l-\[\#2b2b31\] {
   --tw-border-opacity: 1;
   border-left-color: rgb(43 43 49 / var(--tw-border-opacity));
-}
-
-.bg-\[\#e1e1e1\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(225 225 225 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#ff0038\] {
@@ -1638,8 +1669,24 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 0.5;
 }
 
-.bg-\[url\(\/Images\/projectBg\.jpg\)\] {
-  background-image: url(/Images/projectBg.jpg);
+.bg-\[url\(https\:\/\/bp1\.blogger\.com\/_zb325Z5dM2g\/RrLjoxtuWDI\/AAAAAAAAAB8\/EtwEcCnK9Ck\/s320\/HichKas-Ghaf-pishro\.jpg\)\] {
+  background-image: url(https://bp1.blogger.com/_zb325Z5dM2g/RrLjoxtuWDI/AAAAAAAAAB8/EtwEcCnK9Ck/s320/HichKas-Ghaf-pishro.jpg);
+}
+
+.bg-\[url\(https\:\/\/media\.musicfa\.co\/\/slid\/photo_2023-06-02_18-43-56\.jpg\)\] {
+  background-image: url(https://media.musicfa.co//slid/photo_2023-06-02_18-43-56.jpg);
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .p-1 {
@@ -1731,12 +1778,20 @@ input:checked + .toggle-bg {
   padding-bottom: 7px;
 }
 
+.\!pt-0 {
+  padding-top: 0px !important;
+}
+
 .pb-\[1px\] {
   padding-bottom: 1px;
 }
 
 .pr-10 {
   padding-right: 2.5rem;
+}
+
+.pr-\[250px\] {
+  padding-right: 250px;
 }
 
 .pt-2 {
@@ -1747,6 +1802,10 @@ input:checked + .toggle-bg {
   padding-top: 1rem;
 }
 
+.pt-40 {
+  padding-top: 10rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1755,12 +1814,25 @@ input:checked + .toggle-bg {
   text-align: right;
 }
 
+.\!font-vazirMedium {
+  font-family: vazirMedium !important;
+}
+
+.font-cursive {
+  font-family: cursive;
+}
+
 .font-vazirBold {
   font-family: vazirBold;
 }
 
 .font-vazirLight {
   font-family: vazirLight;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-3xl {
@@ -1838,6 +1910,11 @@ input:checked + .toggle-bg {
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .text-gray-900 {
@@ -1962,6 +2039,16 @@ header label:after{
 
 .active_Link{
   background-color: red;
+  color: white;
+}
+
+.introSwiper .swiper-button-prev:after,.introSwiper .swiper-button-next:after {
+  font-size: 20px;
+  color: white;
+}
+
+.introSwiper2 .swiper-button-prev:after,.introSwiper2 .swiper-button-next:after {
+  font-size: 20px;
   color: white;
 }
 
@@ -2257,6 +2344,10 @@ header label:after{
     display: none;
   }
 
+  .md\:\!w-\[100\%\] {
+    width: 100% !important;
+  }
+
   .md\:w-full {
     width: 100%;
   }
@@ -2266,7 +2357,18 @@ header label:after{
     padding-right: 24px !important;
   }
 
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .md\:text-\[14px\] {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .lg\:w-\[700px\] {
+    width: 700px;
   }
 }

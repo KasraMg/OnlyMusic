@@ -49,4 +49,15 @@ header label{
   background-color: red;
   color: white;
   }
+
+  .introSwiper .swiper-button-prev:after,.introSwiper .swiper-button-next:after {
+    font-size: 20px;
+    color: white;
+  }
+  .introSwiper2 .swiper-button-prev:after,.introSwiper2 .swiper-button-next:after {
+    font-size: 20px;
+    color: white;
+  }
+  
+
 }
