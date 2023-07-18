@@ -23,6 +23,15 @@ window.addEventListener('load', () => {
         toggleBtn[0].checked = true
         toggleBtn[1].checked = true
     }
+
+    let showData = JSON.parse(localStorage.getItem('showData'));
+    console.log(showData);
+    if (showData) {
+        loginBtn.innerHTML = ''
+        loginBtn.innerHTML = showData.userInfo.name
+    } else {
+        loginBtn.innerHTML = `ورود / عضویت`
+    }
 })
 
 
