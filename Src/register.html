@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ثبت‌نام در موزیکفا</title>
+    <title>ثبت‌ نام در موزیکفا</title>
     <link rel="stylesheet" href="../Styles/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -28,52 +28,116 @@
 
         <form action="" class="w-[45rem] md:w-full px-16 sm:px-8 flex flex-col items-center justify-center space-y-8 ">
 
-            <input type="text" placeholder="نام و نام خانوادگی"
-                class="w-full p-5 rounded-md bg-mainBg text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]">
-
-            <input type="text" placeholder="نام کاربری"
-                class="w-full p-5 rounded-md bg-mainBg text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]">
-
-            <input type="email" placeholder="ایمیل"
-                class="w-full p-5 rounded-md bg-mainBg text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]">
-
-            <input type="password" placeholder="گذرواژه"
-                class="w-full p-5 rounded-md bg-mainBg text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]">
-
-            <input type="password" placeholder="تکرار گذرواژه"
-                class="w-full p-5 rounded-md bg-mainBg text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]">
+            <div class="w-full">
+                <input type="text" placeholder="نام و نام خانوادگی"
+                    class="w-full p-5 rounded-md bg-mainBg text-white font-vazirLight border-1 border-solid border-[#2b2b31]  focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                    id="name">
+                <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="nameError"></p>
+            </div>
 
 
-            <div class="self-start flex items-center ">
-                <input id="red-checkbox" type="checkbox" value=""
-                    class="w-6 h-6 text-red-600 bg-gray-100  rounded  focus:outline-none focus:ring-0">
-                <label for="red-checkbox"
-                    class="flex items-center mr-3 text-sm text-secondText font-vazirLight font-bold">
-                    <span>
-                        قوانین و مقررات را خوانده‌ام و می‌پذیرم.
-                    </span>
-                    <a href="#" class="mr-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 text-golden">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                        </svg>
-                    </a>
-                </label>
+            <div class="w-full">
+                <input type="text" placeholder="ایمیل"
+                    class="w-full p-5 rounded-md bg-mainBg text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                    id="email">
+
+                <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="emailError"></p>
+            </div>
+
+            <div class="w-full relative">
+                <input type="password" placeholder="گذرواژه"
+                    class="w-full p-5 rounded-md bg-mainBg text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                    id="password">
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 cursor-pointer text-secondText absolute top-5 left-4"
+                    id="eyePassword">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 cursor-pointer text-white absolute top-5 left-4 hidden"
+                    id="eyePassword">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                </svg>
+
+
+                <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="passwordError"></p>
+
+
+            </div>
+
+            <div class="w-full relative">
+                <input type="password" placeholder="تکرار گذرواژه"
+                    class="w-full p-5 rounded-md bg-mainBg text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                    id="confirmPassword">
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 cursor-pointer text-secondText absolute top-5 left-4"
+                    id="eyeConfirmPassword">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6 cursor-pointer text-white absolute top-5 left-4 hidden"
+                    id="eyeConfirmPassword">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                </svg>
+
+
+                <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="confirmPasswordError"></p>
+
+
+            </div>
+
+
+
+            <div class="self-start ">
+                <div class="flex items-center ">
+                    <input id="checkBox" type="checkbox"
+                        class="w-6 h-6 text-red-600 bg-gray-100  rounded  focus:outline-none focus:ring-0">
+                    <label for="checkBox"
+                        class="flex items-center mr-3 text-sm text-secondText font-vazirLight font-bold">
+                        <span>
+                            قوانین و مقررات را خوانده‌ام و می‌پذیرم.
+                        </span>
+                        <a href="#" class="mr-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 text-golden">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                            </svg>
+                        </a>
+                    </label>
+                </div>
+
+
+                <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="checkBoxError"></p>
 
             </div>
 
             <div class="flex flex-col space-y-4 w-full text-white ">
-                <button class="w-fll border-1 border-solid border-[#ff0038] rounded-md p-4 bg-[#ff0038] hover:filter transition-all duration-200">ثبت‌
+                <button
+                    class="w-fll border-1 border-solid border-[#ff0038] rounded-md p-4 bg-[#ff0038] hover:brightness-[0.85] transition-all duration-200"
+                    id="registerBtn">ثبت‌
                     نام</button>
                 <button
-                    class="w-fll border-1 border-solid border-[#ff0038] rounded-md p-4 hover:bg-[#ff0038] transition-all duration-200">ورود
-                    به حساب کاربری</button>
+                    class="w-fll border-1 border-solid border-[#ff0038] rounded-md p-4 hover:bg-[#ff0038] transition-all duration-200"
+                    id="loginBtn">ورود به حساب کاربری</button>
             </div>
 
         </form>
 
 
+        <script src="../JavaScript/register.js" type="module"></script>
+        <script src="../JavaScript/helper/enterPanelCommon.js" type="module"></script>
+        <script src="../vendor/sweetalert2/sweetalert2.js"></script>
 
 </body>
 

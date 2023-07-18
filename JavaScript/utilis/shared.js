@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
         console.log(darkMode);
     }
 
-    if (darkMode==='dark') {
+    if (darkMode === 'dark') {
         document.documentElement.classList.add('dark')
         AllToggle[0].style.background = '#fff'
         AllToggle[1].style.background = '#fff'
@@ -28,9 +28,9 @@ window.addEventListener('load', () => {
 
 
 
-AllToggle.forEach((toggle,index) => {
-    toggle.addEventListener('click', ()=>{
-    
+AllToggle.forEach((toggle, index) => {
+    toggle.addEventListener('click', () => {
+
         if (darkMode === 'dark') {
             darkMode = 'light';
             localStorage.setItem('darkMode', darkMode);
@@ -39,20 +39,20 @@ AllToggle.forEach((toggle,index) => {
             localStorage.setItem('darkMode', darkMode);
         }
 
-        if(darkMode==='dark'){
+        if (darkMode === 'dark') {
             document.documentElement.classList.add('dark')
             AllToggle[0].style.background = '#fff'
-            AllToggle[1].style.background = '#fff' 
+            AllToggle[1].style.background = '#fff'
             toggleBtn[1].checked = false
-                      }else{
-                        document.documentElement.classList.remove('dark')
-                        AllToggle[0].style.background = '#000'
-                        AllToggle[1].style.background = '#000';
-                        toggleBtn[1].checked = true
-                      }
-        
-       })
-    
+        } else {
+            document.documentElement.classList.remove('dark')
+            AllToggle[0].style.background = '#000'
+            AllToggle[1].style.background = '#000';
+            toggleBtn[1].checked = true
+        }
+
+    })
+
 })
 
 
