@@ -101,7 +101,7 @@ const setError = (errors) => {
         element.classList.remove('ring-[#d3282842]')
         element.classList.remove('ring-4')
         element.classList.remove('focus:ring-[#d3282842]');
-        element.classList.add('focus:!ring-[#285ed342]')
+        element.classList.add('focus:ring-[#285ed342]')
 
     })
 
