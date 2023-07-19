@@ -1,6 +1,7 @@
 let darkMode = false;
 const AllToggle = document.querySelectorAll('#toggle');
 const toggleBtn = document.querySelectorAll('#dark-mode');
+const today = document.querySelector('#today');
 
 
 window.addEventListener('load', () => {
@@ -9,7 +10,6 @@ window.addEventListener('load', () => {
         darkMode = 'dark'
     } else {
         darkMode = localStorage.getItem('darkMode');
-        console.log(darkMode);
     }
 
     if (darkMode === 'dark') {
@@ -24,8 +24,11 @@ window.addEventListener('load', () => {
         toggleBtn[1].checked = true
     }
 
+
+    today.innerHTML = dateToDay()
+
+
     let showData = JSON.parse(localStorage.getItem('showData'));
-    console.log(showData);
     if (showData) {
         loginBtn.innerHTML = ''
         loginBtn.innerHTML = showData.userInfo.name
@@ -63,5 +66,19 @@ AllToggle.forEach((toggle, index) => {
     })
 
 })
+
+
+const dateToDay = () => {
+    const date = new Date();
+    const configs = {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric'
+    }
+
+    const toDay = date.toLocaleDateString('fa-IR', configs)
+
+    return toDay
+}
 
 
