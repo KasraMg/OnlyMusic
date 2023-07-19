@@ -2,7 +2,10 @@ let darkMode = false;
 const AllToggle = document.querySelectorAll('#toggle');
 const toggleBtn = document.querySelectorAll('#dark-mode');
 const today = document.querySelector('#today');
-
+const loginBtn = document.querySelector('#loginBtn');
+loginBtn.addEventListener('click', () => {
+    location.href = 'login.html'
+})
 
 window.addEventListener('load', () => {
     if (!localStorage.getItem('darkMode')) {

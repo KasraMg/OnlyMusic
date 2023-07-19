@@ -1,8 +1,3 @@
-const loginBtn = document.querySelector('#loginBtn');
-loginBtn.addEventListener('click', () => {
-    location.href = 'login.html'
-})
-
 let swiper = new Swiper(".mySwiper", {
     rewind: true,
     navigation: {
