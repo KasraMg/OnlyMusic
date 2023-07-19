@@ -1,4 +1,3 @@
-
 let swiper = new Swiper(".mySwiper", {
     rewind: true,
     navigation: {
@@ -8,6 +7,7 @@ let swiper = new Swiper(".mySwiper", {
 });
 
 let introSwiper2 = new Swiper(".introSwiper2", {
+    rewind: true,
     slidesPerView: 2,
     spaceBetween: 10,
     navigation: {
