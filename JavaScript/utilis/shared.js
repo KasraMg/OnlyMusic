@@ -3,9 +3,27 @@ const AllToggle = document.querySelectorAll('#toggle');
 const toggleBtn = document.querySelectorAll('#dark-mode');
 const today = document.querySelector('#today');
 const loginBtn = document.querySelector('#loginBtn');
+const aside = document.querySelectorAll('aside li>a');
+const hamburgerLi = document.querySelectorAll('#hamburger-menu li>a');
+
+let url = window.location.pathname;
+let fileName = url.substring(url.lastIndexOf('/') + 1);
+const route = fileName.replace('.html', '');
+
+aside.forEach(link => {
+    link.classList.remove('active_Link');
+    (link.id === route) && link.classList.add('active_Link')
+});
+
+hamburgerLi.forEach(link => {
+    link.classList.remove('active_Link');
+    (link.id === route) && link.classList.add('active_Link')
+});
+
+
 loginBtn.addEventListener('click', () => {
     location.href = 'login.html'
-})
+});
 
 window.addEventListener('load', () => {
     if (!localStorage.getItem('darkMode')) {
@@ -33,8 +51,8 @@ window.addEventListener('load', () => {
 
     let showData = JSON.parse(localStorage.getItem('showData'));
     if (showData) {
-        loginBtn.innerHTML = ''
-        loginBtn.innerHTML = showData.userInfo.name
+        loginBtn.innerHTML = '';
+        loginBtn.innerHTML = showData[0].userInfo.name;
     } else {
         loginBtn.innerHTML = `ورود / عضویت`
     }
