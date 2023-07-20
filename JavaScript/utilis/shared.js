@@ -52,7 +52,7 @@ window.addEventListener('load', () => {
     let showData = JSON.parse(localStorage.getItem('showData'));
     if (showData) {
         loginBtn.innerHTML = '';
-        loginBtn.innerHTML = showData[0].userInfo.name;
+        loginBtn.innerHTML = showData.userInfo.name;
     } else {
         loginBtn.innerHTML = `ورود / عضویت`
     }

@@ -3,73 +3,84 @@
 @tailwind utilities;
 
 @layer base {
-    @font-face {
-        font-family: vazirLight;
-        src: url('../Fonts/vazir/Vazir-Light.woff2');
-    }
-    @font-face {
-        font-family: vazirBold;
-        src: url('../Fonts/vazir/Vazir-Bold.woff2');
-    }
-    @font-face {
-        font-family: vazirMedium;
-        src: url('../Fonts/vazir/Vazir-Bold.woff2');
-    }
+  @font-face {
+    font-family: vazirLight;
+    src: url('../Fonts/vazir/Vazir-Light.woff2');
+  }
+
+  @font-face {
+    font-family: vazirBold;
+    src: url('../Fonts/vazir/Vazir-Bold.woff2');
+  }
+
+  @font-face {
+    font-family: vazirMedium;
+    src: url('../Fonts/vazir/Vazir-Bold.woff2');
+  }
 }
 
-@layer utilities{
-    
-header label{
-  box-shadow: inset 0px 5px 15px rgb(0 0 0 / 30%), inset 0px -5px 15px rgb(45 6 6 / 30%);
- background-color: #000;
+@layer utilities {
+
+  header label {
+    box-shadow: inset 0px 5px 15px rgb(0 0 0 / 30%), inset 0px -5px 15px rgb(45 6 6 / 30%);
+    background-color: #000;
   }
-  header label:after{
+
+  header label:after {
     content: '';
     position: absolute;
     height: 50%;
     width: 17px;
-    background: linear-gradient(#000000,#4a4a4a);
+    background: linear-gradient(#000000, #4a4a4a);
     border-radius: 100px;
     top: 8px;
     left: 10px;
     transition: 0.5s;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
-  #dark-mode:checked ~ label:after{
+
+  #dark-mode:checked~label:after {
     right: 0px;
     transform: translateX(-100%);
-    background: linear-gradient(180deg,rgb(176, 240, 0),#d49605);
+    background: linear-gradient(180deg, rgb(176, 240, 0), #d49605);
   }
-   
-  .dark  .active_Link{
+
+  .dark .active_Link {
     background-color: #d49605;
     color: black;
   }
-  .active_Link{
-  background-color: red;
-  color: white;
+
+  .active_Link {
+    background-color: red;
+    color: white;
   }
 
-  .introSwiper .swiper-button-prev:after,.introSwiper .swiper-button-next:after {
+  .introSwiper .swiper-button-prev:after,
+  .introSwiper .swiper-button-next:after {
     font-size: 20px;
     color: white;
   }
-  .introSwiper2 .swiper-button-prev:after,.introSwiper2 .swiper-button-next:after {
+
+  .introSwiper2 .swiper-button-prev:after,
+  .introSwiper2 .swiper-button-next:after {
     font-size: 20px;
     color: white;
   }
-  
-.music-controll-bg{
-  background-color: rgba(0,0,0,.5);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
 
-}.play-icon-bg:hover{
-  box-shadow: 0 0 15px hsla(0,0%,100%,.2); 
-}
-@media (min-width:769px) {
-  #drawer-example{
-    display: none;
+  .music-controll-bg {
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+
   }
-}
+
+  .play-icon-bg:hover {
+    box-shadow: 0 0 15px hsla(0, 0%, 100%, .2);
+  }
+
+  @media (min-width:769px) {
+    #drawer-example {
+      display: none;
+    }
+  }
 }
