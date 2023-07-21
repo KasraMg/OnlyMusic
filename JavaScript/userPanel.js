@@ -41,8 +41,9 @@ logoutBtn.addEventListener('click', () => {
 });
 
 editIcon.addEventListener('click', () => {
+    document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
     editInfoForm.classList.replace("hidden", "flex");
-    mainPanel.classList.add('hidden')
+    mainPanel.classList.add('hidden');
     allInputs.forEach((element, index) => {
         if (index !== 3) {
             element.value = data[element.id]
