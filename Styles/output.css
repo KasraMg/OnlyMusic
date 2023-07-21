@@ -1112,6 +1112,10 @@ input:checked + .toggle-bg {
   top: 10px;
 }
 
+.top-\[3px\] {
+  top: 3px;
+}
+
 .top-\[5px\] {
   top: 5px;
 }
@@ -1240,6 +1244,10 @@ input:checked + .toggle-bg {
 
 .mr-\[26rem\] {
   margin-right: 26rem;
+}
+
+.mt-0 {
+  margin-top: 0px;
 }
 
 .mt-10 {
@@ -1454,10 +1462,6 @@ input:checked + .toggle-bg {
   width: 100%;
 }
 
-.w-\[1000px\] {
-  width: 1000px;
-}
-
 .w-\[102\%\] {
   width: 102%;
 }
@@ -1472,6 +1476,10 @@ input:checked + .toggle-bg {
 
 .w-\[45rem\] {
   width: 45rem;
+}
+
+.w-\[98\%\] {
+  width: 98%;
 }
 
 .w-fit {
@@ -2193,8 +2201,16 @@ input:checked + .toggle-bg {
   padding-bottom: 1px;
 }
 
+.pb-\[6px\] {
+  padding-bottom: 6px;
+}
+
 .pl-24 {
   padding-left: 6rem;
+}
+
+.pl-3 {
+  padding-left: 0.75rem;
 }
 
 .pl-4 {
@@ -2217,8 +2233,12 @@ input:checked + .toggle-bg {
   padding-right: 18rem;
 }
 
-.pr-\[250px\] {
-  padding-right: 250px;
+.pr-\[\.8rem\] {
+  padding-right: .8rem;
+}
+
+.pr-\[270px\] {
+  padding-right: 270px;
 }
 
 .pt-2 {
@@ -2243,6 +2263,10 @@ input:checked + .toggle-bg {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pt-\[8px\] {
+  padding-top: 8px;
 }
 
 .text-left {
@@ -2582,6 +2606,55 @@ header label:after {
 @media (min-width:769px) {
   #drawer-example {
     display: none;
+  }
+}
+
+input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+  -webkit-transition: background-color 600000s 0s, color 600000s 0s;
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+
+.appearance-none {
+  -webkit-appearance: auto !important;
+     -moz-appearance: auto !important;
+          appearance: auto !important;
+}
+
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 40px 20px;
+  height: 5px;
+  width: 90%;
+}
+
+.progress {
+  background: #000000;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  position: relative;
+  height:5px;
+  transition: width 0.1s linear;
+  left: -1px;
+  margin-right: auto;
+}
+
+@media (min-width:1200px) {
+  .more-songs section{
+    width: 350px;
+  }
+}
+
+@media (min-width:1300px) {
+  .more-songs section{
+    width: 450px !important;
   }
 }
 
@@ -3023,6 +3096,10 @@ header label:after {
 
   .sm\:mt-4 {
     margin-top: 1rem;
+  }
+
+  .sm\:mt-8 {
+    margin-top: 2rem;
   }
 
   .sm\:\!block {
