@@ -13,7 +13,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body class="dark:bg-darkBg font-vazirLight">
   <header
     class=" dark:!bg-[#18191d] md:!px-[24px] sm:!w-[105%]  fixed border-2 flex-row-reverse z-[900] px-12  border-1   dark:border-b-[#fff] border-black border-solid  py-8 flex justify-between items-center  -left-2 w-[102%] -top-2 bg-lightBg">
 
@@ -63,15 +63,21 @@
         alt="">
     </div>
 
-    <a href="/Index.html"><img src="../Images/logo.svg" class="w-32 sm:!w-[6rem] h-8" alt="topBarLogo"> </a>
+    <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg" class="w-32 sm:!w-[6rem] h-8"
+        alt="topBarLogo"> </a>
+    <a href="Index.html" class="dark:hidden"><img src="../Images/logoL.svg" class="w-32 sm:!w-[6rem] h-8"
+        alt="topBarLogo"> </a>
 
     <div id="drawer-example"
       class="fixed  z-[999] top-0 right-0 border-r    h-screen py-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-black"
       tabindex="-1" aria-labelledby="drawer-label">
       <div class="flex px-4 justify-between items-center py-3   border-b dark:border-gray-700">
-        <a href="/Index.html" class="w-1/2"><img src="../Images/logo.svg" class="w-32 sm:!w-[6rem] h-8"
-            alt="topBarLogo">
-        </a>
+
+        <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg" class="w-32 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+        <a href="Index.html" class="dark:hidden"><img src="../Images/logoL.svg" class="w-32 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+
         <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example">
           <svg class=" h-[20px] w-[14px] relative bottom-1 dark:text-white text-black" width="8" height="8"
             viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,10 +88,10 @@
         </button>
       </div>
 
-      <section class="font-vazirLight mt-5 dark:text-white text-black">
+      <section class="font-vazirLight mt-5 dark:text-white text-black" id="hamburger-menu">
         <ul class="flex flex-col space-y-4 ">
           <li>
-            <a href="Index.html" class="flex items-center  active_Link  p-4">
+            <a href="Index.html" class="flex items-center  active_Link  p-4" id="Index">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -100,7 +106,7 @@
           </li>
 
           <li>
-            <a href="musics.html" class="flex items-center  p-4">
+            <a href="musics.html" class="flex items-center  p-4" id="musics">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -115,7 +121,7 @@
           </li>
 
           <li>
-            <a href="musicVideo.html" class="flex items-center  p-4">
+            <a href="musicVideo.html" class="flex items-center  p-4" id="musicVideo">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -131,7 +137,7 @@
           </li>
 
           <li>
-            <a href="playlists.html" class="flex items-center  p-4">
+            <a href="playlists.html" class="flex items-center  p-4" id="playlists">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -147,7 +153,7 @@
           </li>
 
           <li>
-            <a href="artists.html" class="flex items-center  p-4">
+            <a href="artists.html" class="flex items-center  p-4" id="artists">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -168,7 +174,7 @@
 
         <ul class="flex flex-col space-y-2">
           <li>
-            <a href="contactUs.html" class="flex items-center  p-4">
+            <a href="contactUs.html" class="flex items-center  p-4" id="contactUs">
 
               <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                 stroke="currentColor" class="w-6 h-6">
@@ -183,7 +189,7 @@
             </a>
           </li>
           <li>
-            <a href="aboutUs.html" class="flex items-center  p-4">
+            <a href="aboutUs.html" class="flex items-center  p-4" id="aboutUs">
 
               <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                 stroke="currentColor" class="w-6 h-6">
@@ -218,11 +224,11 @@
   <main class="flex">
     <!-- Sidebar -->
     <aside style="border-top: 0px;"
-      class="fixed top-[10px]    bottom-0 font-vazirLight overflow-y-auto  md:hidden w-64  z-[44] !pt-0 mt-28 py-8 border-1 border-solid border-l-[#2b2b31] bg-[#ffffff6f] dark:bg-darkBg  text-secondText text-[14.4px] font-bold">
+      class="fixed top-[10px]  bottom-0 font-vazirLight overflow-y-auto  md:hidden w-64  z-[44] !pt-0 mt-28 py-8 border-1 border-solid border-l-[#2b2b31] bg-[#ffffff] dark:bg-darkBg  text-secondText text-[14.4px] font-bold">
 
       <ul class="flex flex-col space-y-4 ">
         <li>
-          <a href="Index.html" class="flex items-center  active_Link pr-10 py-4">
+          <a href="Index.html" class="flex items-center  active_Link pr-10 py-4" id="Index">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -237,7 +243,7 @@
         </li>
 
         <li>
-          <a href="musics.html" class="flex items-center pr-10 py-4">
+          <a href="musics.html" class="flex items-center pr-10 py-4" id="musics">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -252,7 +258,7 @@
         </li>
 
         <li>
-          <a href="musicVideo.html" class="flex items-center pr-10 py-4">
+          <a href="musicVideo.html" class="flex items-center pr-10 py-4" id="musicVideo">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -268,7 +274,7 @@
         </li>
 
         <li>
-          <a href="playlists.html" class="flex items-center pr-10 py-4">
+          <a href="playlists.html" class="flex items-center pr-10 py-4" id="playlists">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -284,7 +290,7 @@
         </li>
 
         <li>
-          <a href="artists.html" class="flex items-center pr-10 py-4">
+          <a href="artists.html" class="flex items-center pr-10 py-4" id="artists">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-6 h-6">
@@ -301,11 +307,11 @@
 
       </ul>
 
-      <div class="w-3/4 h-[1px] my-8 mx-auto bg-secondText"></div>
+      <div class="w-3/4 h-[1px] my-8 mx-auto bg-[#2b2b31]"></div>
 
       <ul class="flex flex-col space-y-2">
         <li>
-          <a href="contactUs.html" class="flex items-center pr-10 py-4">
+          <a href="contactUs.html" class="flex items-center pr-10 py-4" id="contactUs">
 
             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
               stroke="currentColor" class="w-6 h-6">
@@ -320,7 +326,7 @@
           </a>
         </li>
         <li>
-          <a href="aboutUs.html" class="flex items-center pr-10 py-4">
+          <a href="aboutUs.html" class="flex items-center pr-10 py-4" id="aboutUs">
 
             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
               stroke="currentColor" class="w-6 h-6">
@@ -341,11 +347,11 @@
 
     </aside>
 
-    <section class="dark:bg-darkBg pt-40 text-center w-full md:px-6 pr-[250px]">
+    <section class="dark:bg-darkBg pt-40 text-center w-full md:px-6 pr-[270px]">
       <p class="text-black text-3xl dark:text-white font-cursive">OnlyMusic</p>
       <p class=" font-vazirLight text-gray-600 mt-3 mb-5">پخش آنلاین آهنگ جدید و ساخت پلی‌لیست اختصاصی</p>
 
-      <div class="swiper introSwiper mySwiper lg:w-[700px] md:!w-[100%]  w-[1000px] my-10">
+      <div class="swiper introSwiper mySwiper lg:w-[700px] md:!w-[100%]  w-[98%] my-10">
         <div class="swiper-wrapper">
           <div
             class="swiper-slide h-72 rounded-md bg-no-repeat bg-cover bg-center bg-[url(https://bp1.blogger.com/_zb325Z5dM2g/RrLjoxtuWDI/AAAAAAAAAB8/EtwEcCnK9Ck/s320/HichKas-Ghaf-pishro.jpg)]    ">
@@ -424,7 +430,7 @@
         <div class="swiper-button-prev"></div>
       </div>
 
-      <div class="swiper introSwiper2  lg:w-[700px] md:!w-[100%]  w-[1000px] mt-10 mb-16">
+      <div class="swiper introSwiper2  lg:w-[700px] md:!w-[100%]  w-[98%] mt-10 mb-16">
         <div class="swiper-wrapper">
           <div
             class="swiper-slide h-72 rounded-md bg-no-repeat bg-cover bg-center bg-[url(https://media.musicfa.co//slid/photo_2023-06-02_18-43-56.jpg)]    ">
@@ -514,7 +520,7 @@
 
       <div class="flex justify-between items-center ">
         <h2
-          class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text- darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[12rem]  before:md:right-[10.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
+          class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[12rem]  before:md:right-[10.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           آهنگ‌های ویژه</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
           <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
@@ -537,7 +543,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">آدم سابق اجرای زنده</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">آدم سابق اجرای زنده</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
           </div>
 
@@ -556,7 +562,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">آدم سابق اجرای زنده</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">آدم سابق اجرای زنده</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
           </div>
 
@@ -575,7 +581,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">آدم سابق اجرای زنده</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">آدم سابق اجرای زنده</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
           </div>
 
@@ -594,7 +600,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">آدم سابق اجرای زنده</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">آدم سابق اجرای زنده</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
           </div>
 
@@ -610,7 +616,7 @@
 
       <div class="flex justify-between items-center ">
         <h2
-          class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text- darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[15rem]  before:md:right-[12.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
+          class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[15rem]  before:md:right-[12.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           جدیدترین آهنگ‌ها</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
           <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
@@ -633,7 +639,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">کوی عشق</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">کوی عشق</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">سالار عقیلی</h4>
           </div>
 
@@ -652,7 +658,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">کوی عشق</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">کوی عشق</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">سالار عقیلی</h4>
           </div>
 
@@ -671,7 +677,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">کوی عشق</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">کوی عشق</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">سالار عقیلی</h4>
           </div>
 
@@ -690,7 +696,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">کوی عشق</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">کوی عشق</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">سالار عقیلی</h4>
           </div>
 
@@ -709,7 +715,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">کوی عشق</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">کوی عشق</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">سالار عقیلی</h4>
           </div>
 
@@ -728,7 +734,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">کوی عشق</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">کوی عشق</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">سالار عقیلی</h4>
           </div>
 
@@ -747,7 +753,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">کوی عشق</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">کوی عشق</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">سالار عقیلی</h4>
           </div>
 
@@ -766,7 +772,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">کوی عشق</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">کوی عشق</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">سالار عقیلی</h4>
           </div>
 
@@ -785,7 +791,7 @@
 
       <div class="flex justify-between items-center ">
         <h2
-          class="flex -translate-y-1  items-center relative h-20 overflow-hidden  z-10  ml-4 w-full font-bold sm:text-xl md:text-2xl text-3xl text- darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[21rem]  before:md:right-[16.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
+          class="flex -translate-y-1  items-center relative h-20 overflow-hidden  z-10  ml-4 w-full font-bold sm:text-xl md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[21rem]  before:md:right-[16.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           جدیدترین موزیک ویدئوها</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
           <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
@@ -809,7 +815,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">پریشانی</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
           </div>
 
@@ -829,7 +835,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">پریشانی</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
           </div>
 
@@ -849,7 +855,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">پریشانی</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
           </div>
 
@@ -869,7 +875,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">پریشانی</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
           </div>
 
@@ -886,7 +892,7 @@
 
       <div class="flex justify-between items-center ">
         <h2
-          class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text- darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[12rem]  before:md:right-[10.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
+          class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[12rem]  before:md:right-[10.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           پلی لیست ها</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
           <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
@@ -910,7 +916,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md text- darkBg dark:text-white">بهترین موزیکهای فصل تابستان</h3>
+            <h3 class="font-bold text-lg md:text-md text-darkBg dark:text-white">بهترین موزیکهای فصل تابستان</h3>
           </div>
 
         </div>
@@ -929,7 +935,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md text- darkBg dark:text-white">بهترین موزیکهای فصل تابستان</h3>
+            <h3 class="font-bold text-lg md:text-md text-darkBg dark:text-white">بهترین موزیکهای فصل تابستان</h3>
           </div>
 
         </div>
@@ -948,7 +954,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md text- darkBg dark:text-white">بهترین موزیکهای فصل تابستان</h3>
+            <h3 class="font-bold text-lg md:text-md text-darkBg dark:text-white">بهترین موزیکهای فصل تابستان</h3>
           </div>
 
         </div>
@@ -967,7 +973,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-lg md:text-md text- darkBg dark:text-white">بهترین موزیکهای فصل تابستان</h3>
+            <h3 class="font-bold text-lg md:text-md text-darkBg dark:text-white">بهترین موزیکهای فصل تابستان</h3>
           </div>
 
         </div>
@@ -981,7 +987,7 @@
 
       <div class="flex justify-between items-center ">
         <h2
-          class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text- darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[8rem]  before:md:right-[6.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
+          class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[8rem]  before:md:right-[6.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           هنرمندان</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
           <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
@@ -997,7 +1003,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-center text-lg md:text-md text- darkBg dark:text-white">محسن یگانه</h3>
+            <h3 class="font-bold text-center text-lg md:text-md text-darkBg dark:text-white">محسن یگانه</h3>
           </div>
 
         </div>
@@ -1008,7 +1014,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-center text-lg md:text-md text- darkBg dark:text-white">محسن یگانه</h3>
+            <h3 class="font-bold text-center text-lg md:text-md text-darkBg dark:text-white">محسن یگانه</h3>
           </div>
 
         </div>
@@ -1019,7 +1025,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-center text-lg md:text-md text- darkBg dark:text-white">محسن یگانه</h3>
+            <h3 class="font-bold text-center text-lg md:text-md text-darkBg dark:text-white">محسن یگانه</h3>
           </div>
 
         </div>
@@ -1030,7 +1036,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-center text-lg md:text-md text- darkBg dark:text-white">محسن یگانه</h3>
+            <h3 class="font-bold text-center text-lg md:text-md text-darkBg dark:text-white">محسن یگانه</h3>
           </div>
 
         </div>
@@ -1041,7 +1047,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-center text-lg md:text-md text- darkBg dark:text-white">محسن یگانه</h3>
+            <h3 class="font-bold text-center text-lg md:text-md text-darkBg dark:text-white">محسن یگانه</h3>
           </div>
 
         </div>
@@ -1052,7 +1058,7 @@
           </div>
 
           <div class="mt-4">
-            <h3 class="font-bold text-center text-lg md:text-md text- darkBg dark:text-white">محسن یگانه</h3>
+            <h3 class="font-bold text-center text-lg md:text-md text-darkBg dark:text-white">محسن یگانه</h3>
           </div>
 
         </div>
@@ -1072,9 +1078,15 @@
 
     <div class="flex flex-col space-y-6">
 
-      <a href="#" class="w-20">
-        <img src="../Images/logo.svg" alt="logo" class="w-full">
-      </a>
+      <div>
+        <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg" class="w-28 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+        <a href="Index.html" class="block dark:hidden"><img src="../Images/logoL.svg" class="w-28 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+      </div>
+
+
+
 
 
       <div class="text-secondText w-2/3 md:w-full">
@@ -1109,7 +1121,7 @@
       </div>
     </div>
 
-    <div class="self-end w-32 h-32 md:mt-6 flex justify-center items-center rounded-md bg-[#1a1b1f]">
+    <div class="self-end w-32 h-32 md:mt-6 flex justify-center items-center rounded-md bg-lightBg dark:bg-[#1a1b1f]">
       <img src="../Images/enamad.png" alt="enamad">
     </div>
 
