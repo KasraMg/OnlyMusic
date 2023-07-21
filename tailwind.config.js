@@ -15,11 +15,11 @@ module.exports = {
       'lg-x2': { "min": "1201px" },
 
     },    
-    borderWidth:{
+    borderWidth:{    
       '1': '1px',
-    },
+    }, 
     fontFamily: {
-      "vazirBold": 'vazirBold',
+      "vazirBold": 'vazirBold',   
       "vazirMedium": 'vazirMedium',
       "vazirLight": 'vazirLight',
       "cursive":"cursive"
@@ -37,6 +37,6 @@ module.exports = {
   },   
   plugins: [
     require('flowbite/plugin')
-  ]
+  ]    
 }
 
