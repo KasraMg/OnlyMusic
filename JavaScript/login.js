@@ -36,7 +36,7 @@ loginBtn.addEventListener('click', (event) => submitHandler(event, () => {
     localStorage.setItem('showData', JSON.stringify(checkEmailUser));
 
     window.location.reload();
-    window.location.href = 'Index.html'
+    window.location.href = 'userPanel.html'
 }
 ))
 

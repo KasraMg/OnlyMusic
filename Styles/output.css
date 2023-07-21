@@ -1564,6 +1564,10 @@ input:checked + .toggle-bg {
           appearance: none;
 }
 
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1574,6 +1578,10 @@ input:checked + .toggle-bg {
 
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-row-reverse {
@@ -1952,11 +1960,6 @@ input:checked + .toggle-bg {
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
-.bg-green-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(4 108 78 / var(--tw-bg-opacity));
-}
-
 .bg-lightBg {
   --tw-bg-opacity: 1;
   background-color: rgb(227 227 227 / var(--tw-bg-opacity));
@@ -2257,8 +2260,8 @@ input:checked + .toggle-bg {
   padding-top: 1.25rem;
 }
 
-.pt-56 {
-  padding-top: 14rem;
+.pt-52 {
+  padding-top: 13rem;
 }
 
 .pt-6 {
@@ -2581,6 +2584,16 @@ header label:after {
   color: white;
 }
 
+.dark .active__Btn {
+  background: #ffc64216;
+  color: #ffc542;
+}
+
+.active__Btn {
+  background: #ff424257;
+  color: #ff4242;
+}
+
 .introSwiper .swiper-button-prev:after,
   .introSwiper .swiper-button-next:after {
   font-size: 20px;
@@ -2640,20 +2653,20 @@ input[data-autocompleted] {
   height: 100%;
   width: 0%;
   position: relative;
-  height:5px;
+  height: 5px;
   transition: width 0.1s linear;
   left: -1px;
   margin-right: auto;
 }
 
 @media (min-width:1200px) {
-  .more-songs section{
+  .more-songs section {
     width: 350px;
   }
 }
 
 @media (min-width:1300px) {
-  .more-songs section{
+  .more-songs section {
     width: 450px !important;
   }
 }
@@ -3106,6 +3119,10 @@ input[data-autocompleted] {
     display: block !important;
   }
 
+  .sm\:grid {
+    display: grid;
+  }
+
   .sm\:\!w-\[105\%\] {
     width: 105% !important;
   }
@@ -3120,6 +3137,14 @@ input[data-autocompleted] {
 
   .sm\:\!grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .sm\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .sm\:\!grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
   }
 
   .sm\:flex-col {
@@ -3169,6 +3194,21 @@ input[data-autocompleted] {
   .sm\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .sm\:\!px-6 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .sm\:\!px-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
   .sm\:text-center {
@@ -3235,6 +3275,10 @@ input[data-autocompleted] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:\!grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
   .md\:flex-col {
     flex-direction: column;
   }
@@ -3268,6 +3312,11 @@ input[data-autocompleted] {
     padding-right: 1.5rem;
   }
 
+  .md\:px-24 {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
   .md\:pt-36 {
     padding-top: 9rem;
   }
@@ -3279,6 +3328,11 @@ input[data-autocompleted] {
 
   .md\:text-\[14px\] {
     font-size: 14px;
+  }
+
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   .md\:text-xs {
@@ -3322,6 +3376,10 @@ input[data-autocompleted] {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .lg\:flex-col {

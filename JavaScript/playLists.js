@@ -9,7 +9,7 @@ loginBtnP.addEventListener('click', () => location.href = 'login.html')
 
 let userLogin = JSON.parse(localStorage.getItem('showData'));
 
-if (userLogin) {
+if (userLogin.id) {
     notLogin.classList.add('hidden');
     mainShow.classList.remove('hidden')
 }

@@ -32,7 +32,7 @@ registerBtn.addEventListener('click', (event) => submitHandler(event, () => {
     let dataToSave = { name, email, password, registerDate: dateToDay() }
     addNewUser(dataToSave);
     window.location.reload();
-    window.location.href = 'Index.html'
+    window.location.href = 'userPanel.html'
 }
 ))
 

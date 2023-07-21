@@ -39,10 +39,23 @@ const showAndHiddenPassword = (icons, input, flag) => {
 
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
 let url = window.location.pathname;
 let fileName = url.substring(url.lastIndexOf('/') + 1);
 const type = fileName.replace('.html', '');
+
+
+if (type === 'userPanel') {
+    window.addEventListener('load', () => {
+        let show = JSON.parse(localStorage.getItem('showData'))
+
+        if (!Object.keys(show).length) {
+            location.href = 'index.html'
+        }
+    })
+}
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
 
 let touch = {
     name: false,

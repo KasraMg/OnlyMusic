@@ -21,9 +21,7 @@ hamburgerLi.forEach(link => {
 });
 
 
-loginBtn.addEventListener('click', () => {
-    location.href = 'login.html'
-});
+
 
 window.addEventListener('load', () => {
     if (!localStorage.getItem('darkMode')) {
@@ -53,8 +51,16 @@ window.addEventListener('load', () => {
     if (showData.id) {
         loginBtn.innerHTML = '';
         loginBtn.innerHTML = showData.userInfo.name;
+        loginBtn.addEventListener('click', () => {
+            location.href = 'userPanel.html'
+        
+        });
     } else {
         loginBtn.innerHTML = `ورود / عضویت`
+        loginBtn.addEventListener('click', () => {
+            location.href = 'login.html'
+        
+        });
     }
 })
 
