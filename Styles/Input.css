@@ -129,7 +129,7 @@
     margin-right: auto;
   }
 
-  @media (min-width:1200px) {
+  /* @media (min-width:1200px) {
     .more-songs section {
       width: 350px;
     }
@@ -139,5 +139,5 @@
     .more-songs section {
       width: 450px !important;
     }
-  }
+  } */
 }

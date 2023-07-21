@@ -1262,6 +1262,10 @@ input:checked + .toggle-bg {
   margin-top: 2.5rem;
 }
 
+.mt-12 {
+  margin-top: 3rem;
+}
+
 .mt-14 {
   margin-top: 3.5rem;
 }
@@ -1304,10 +1308,6 @@ input:checked + .toggle-bg {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-12 {
-  margin-top: 3rem;
 }
 
 .block {
@@ -2209,11 +2209,6 @@ input:checked + .toggle-bg {
   padding-bottom: 7px;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 .\!pt-0 {
   padding-top: 0px !important;
 }
@@ -2698,17 +2693,17 @@ input[data-autocompleted] {
   margin-right: auto;
 }
 
-@media (min-width:1200px) {
-  .more-songs section {
-    width: 350px;
+/* @media (min-width:1200px) {
+    .more-songs section {
+      width: 350px;
+    }
   }
-}
 
-@media (min-width:1300px) {
-  .more-songs section {
-    width: 450px !important;
-  }
-}
+  @media (min-width:1300px) {
+    .more-songs section {
+      width: 450px !important;
+    }
+  } */
 
 .placeholder\:text-\[\#00000058\]::-moz-placeholder {
   color: #00000058;
@@ -3142,6 +3137,10 @@ input[data-autocompleted] {
 }
 
 @media (max-width: 767px) {
+  .sm\:\!mb-8 {
+    margin-bottom: 2rem !important;
+  }
+
   .sm\:mr-0 {
     margin-right: 0px;
   }
@@ -3152,14 +3151,6 @@ input[data-autocompleted] {
 
   .sm\:mt-8 {
     margin-top: 2rem;
-  }
-
-  .sm\:mb-8 {
-    margin-bottom: 2rem;
-  }
-
-  .sm\:\!mb-8 {
-    margin-bottom: 2rem !important;
   }
 
   .sm\:\!block {
@@ -3293,10 +3284,6 @@ input[data-autocompleted] {
     margin-top: 1.5rem;
   }
 
-  .md\:mb-10 {
-    margin-bottom: 2.5rem;
-  }
-
   .md\:\!block {
     display: block !important;
   }
@@ -3404,10 +3391,6 @@ input[data-autocompleted] {
 }
 
 @media (max-width: 1200px) {
-  .lg\:mb-10 {
-    margin-bottom: 2.5rem;
-  }
-
   .lg\:mb-16 {
     margin-bottom: 4rem;
   }
