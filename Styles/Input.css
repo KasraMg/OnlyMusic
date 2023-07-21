@@ -129,15 +129,14 @@
     margin-right: auto;
   }
 
-  /* @media (min-width:1200px) {
-    .more-songs section {
-      width: 350px;
-    }
+  .errorInput{
+    box-shadow: 0 0 0 4px #d3282842;
+
+  }
+  .errorInput:focus{
+    box-shadow: 0 0 0 4px #d3282842;
+
   }
 
-  @media (min-width:1300px) {
-    .more-songs section {
-      width: 450px !important;
-    }
-  } */
+
 }

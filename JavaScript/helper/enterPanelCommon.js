@@ -127,9 +127,7 @@ const setError = (errors) => {
     });
 
     allInputs.forEach(element => {
-        element.classList.remove('ring-[#d3282842]')
-        element.classList.remove('ring-4')
-        element.classList.remove('focus:ring-[#d3282842]');
+        element.classList.remove('errorInput');
         element.classList.add('focus:ring-[#285ed342]')
 
     })
@@ -143,9 +141,8 @@ const setError = (errors) => {
             element.innerHTML = errors[element.id];
 
             allInputs[index].classList.remove('focus:ring-[#285ed342]');
-            allInputs[index].classList.add('focus:!ring-[#d3282842]');
-            allInputs[index].classList.add('!ring-4');
-            allInputs[index].classList.add('!ring-[#d3282842]');
+            allInputs[index].classList.add('errorInput');
+            console.log(allInputs[index]);
         }
 
     })

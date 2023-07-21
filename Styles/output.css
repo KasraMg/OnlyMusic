@@ -1640,10 +1640,6 @@ input:checked + .toggle-bg {
   justify-content: space-between;
 }
 
-.justify-around {
-  justify-content: space-around;
-}
-
 .gap-1 {
   gap: 0.25rem;
 }
@@ -1940,10 +1936,6 @@ input:checked + .toggle-bg {
   background-color: rgb(255 0 56 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#ff424257\] {
-  background-color: #ff424257;
-}
-
 .bg-\[\#ffffff\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2092,11 +2084,6 @@ input:checked + .toggle-bg {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 
 .px-12 {
@@ -2693,17 +2680,13 @@ input[data-autocompleted] {
   margin-right: auto;
 }
 
-/* @media (min-width:1200px) {
-    .more-songs section {
-      width: 350px;
-    }
-  }
+.errorInput{
+  box-shadow: 0 0 0 4px #d3282842;
+}
 
-  @media (min-width:1300px) {
-    .more-songs section {
-      width: 450px !important;
-    }
-  } */
+.errorInput:focus{
+  box-shadow: 0 0 0 4px #d3282842;
+}
 
 .placeholder\:text-\[\#00000058\]::-moz-placeholder {
   color: #00000058;
@@ -2950,10 +2933,6 @@ input[data-autocompleted] {
 :is(.dark .dark\:bg-\[\#303034\]) {
   --tw-bg-opacity: 1;
   background-color: rgb(48 48 52 / var(--tw-bg-opacity));
-}
-
-:is(.dark .dark\:bg-\[\#ffc64216\]) {
-  background-color: #ffc64216;
 }
 
 :is(.dark .dark\:bg-black) {
@@ -3215,18 +3194,9 @@ input[data-autocompleted] {
     border-radius: 0.5rem;
   }
 
-  .sm\:border-none {
-    border-style: none;
-  }
-
   .sm\:\!px-0 {
     padding-left: 0px !important;
     padding-right: 0px !important;
-  }
-
-  .sm\:\!px-3 {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
   }
 
   .sm\:\!px-4 {
@@ -3276,10 +3246,6 @@ input[data-autocompleted] {
     margin-top: 0px;
   }
 
-  .md\:mt-24 {
-    margin-top: 6rem;
-  }
-
   .md\:mt-6 {
     margin-top: 1.5rem;
   }
@@ -3312,10 +3278,6 @@ input[data-autocompleted] {
     flex-direction: column;
   }
 
-  .md\:justify-evenly {
-    justify-content: space-evenly;
-  }
-
   .md\:\!px-6 {
     padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
@@ -3324,11 +3286,6 @@ input[data-autocompleted] {
   .md\:\!px-\[24px\] {
     padding-left: 24px !important;
     padding-right: 24px !important;
-  }
-
-  .md\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
   }
 
   .md\:px-24 {
@@ -3391,8 +3348,24 @@ input[data-autocompleted] {
 }
 
 @media (max-width: 1200px) {
+  .lg\:mb-10 {
+    margin-bottom: 2.5rem;
+  }
+
+  .lg\:mb-14 {
+    margin-bottom: 3.5rem;
+  }
+
   .lg\:mb-16 {
     margin-bottom: 4rem;
+  }
+
+  .lg\:mt-14 {
+    margin-top: 3.5rem;
+  }
+
+  .lg\:mt-6 {
+    margin-top: 1.5rem;
   }
 
   .lg\:h-\[70vh\] {
@@ -3401,10 +3374,6 @@ input[data-autocompleted] {
 
   .lg\:w-\[700px\] {
     width: 700px;
-  }
-
-  .lg\:w-full {
-    width: 100%;
   }
 
   .lg\:grid-cols-1 {
@@ -3417,10 +3386,6 @@ input[data-autocompleted] {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .lg\:flex-col {
-    flex-direction: column;
   }
 
   .lg\:space-y-6 > :not([hidden]) ~ :not([hidden]) {
@@ -3461,11 +3426,5 @@ input[data-autocompleted] {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-}
-
-@media (min-width: 1201px) {
-  .lg-x2\:w-\[450px\] {
-    width: 450px;
   }
 }

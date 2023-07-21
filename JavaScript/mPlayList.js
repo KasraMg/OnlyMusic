@@ -6,6 +6,15 @@ const cancelBtn = document.querySelector('#cancelBtn');
 // const confirmBtn = document.querySelector('#confirmBtn');
 
 
+window.addEventListener('load', () => {
+    let loginFlag = JSON.parse(localStorage.getItem('showData'));
+    if (!Object.keys(loginFlag).length) {
+        location.href = 'index.html'
+    }
+})
+
+
+
 editBtn.addEventListener('click', () => {
     headerEdit.classList.remove('flex');
     headerEdit.classList.add('hidden');
@@ -14,7 +23,7 @@ editBtn.addEventListener('click', () => {
 })
 
 
-cancelBtn.addEventListener('click',()=>{
+cancelBtn.addEventListener('click', () => {
     headerEdit.classList.remove('hidden');
     headerEdit.classList.add('flex');
     showEditButtons.classList.add('hidden');
