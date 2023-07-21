@@ -15,9 +15,21 @@ const registerBtn = document.querySelector('#registerBtn')
 
 registerBtn.addEventListener('click', (event) => submitHandler(event, () => {
     alert('yoho register');
+    const dateToDay = () => {
+        const date = new Date();
+        const configs = {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric'
+        }
+
+        const toDay = date.toLocaleDateString('fa-IR', configs)
+
+        return toDay
+    }
 
     let { name, email, password } = data
-    let dataToSave = { name, email, password }
+    let dataToSave = { name, email, password, registerDate: dateToDay() }
     addNewUser(dataToSave);
     window.location.reload();
     window.location.href = 'Index.html'

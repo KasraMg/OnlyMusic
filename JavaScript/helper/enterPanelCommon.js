@@ -52,14 +52,30 @@ let touch = {
     checkBox: false,
     captcha: ''
 }
-let data = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    checkBox: false,
-    captcha: ''
+
+let data = {};
+
+if (type === 'userPanel') {
+    const userInfo = JSON.parse(localStorage.getItem('showData')).userInfo;
+
+    data = {
+        name: userInfo.name,
+        email: userInfo.email,
+        password: userInfo.password,
+        confirmPassword: ''
+    }
+
+} else {
+    data = {
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        checkBox: false,
+        captcha: ''
+    }
 }
+
 
 
 const allInputs = document.querySelectorAll('form input');
@@ -155,4 +171,4 @@ const submitHandler = (event, completeHandler) => {
 
 
 
-export { submitHandler, data }
+export { submitHandler, data, allInputs }

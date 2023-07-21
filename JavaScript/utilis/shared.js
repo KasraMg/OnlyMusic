@@ -50,7 +50,7 @@ window.addEventListener('load', () => {
 
 
     let showData = JSON.parse(localStorage.getItem('showData'));
-    if (showData) {
+    if (showData.id) {
         loginBtn.innerHTML = '';
         loginBtn.innerHTML = showData.userInfo.name;
     } else {

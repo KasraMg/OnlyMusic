@@ -17,14 +17,14 @@ const validation = (data, type, mainCaptcha) => {
         errors.passwordError = "گذرواژه الزامی می باشد";
     } else if (data.password.length < 6) {
         errors.passwordError = "گذرواژه باید بیشتر از 6 کارکتر باشد"
-    } else if (emailExist(data.email)[1] !== data.password && type === 'login') {
+    } else if (emailExist(data.email)[1].password !== data.password && type === 'login') {
         errors.passwordError = 'رمز عبور نامعتبر است'
     } else {
         delete errors.passwordError;
     }
     ////////////////
     if (type === 'login') {
-      
+
         if (data.captcha === '') {
             errors.captchaError = 'لطفا کد امنتی را وارد کنید'
         } else if (data.captcha.toLowerCase() !== mainCaptcha) {
@@ -39,11 +39,24 @@ const validation = (data, type, mainCaptcha) => {
 
 
     //  this section  validation for sing up form
-    if (type === "register") {
+    if (type === "register" || type === 'userPanel') {
 
 
         if (emailExist(data.email)[0]) {
-            errors.emailError = 'با این ایمیل ثبت نام شده است'
+
+            if (type === 'userPanel') {
+                let userShowEmail = JSON.parse(localStorage.getItem('showData')).userInfo.email;
+                if (emailExist(data.email)[1].email === userShowEmail) {
+                    delete errors.emailError
+                } else {
+                    errors.emailError = 'با این ایمیل ثبت نام شده است'
+                }
+
+            } else {
+                errors.emailError = 'با این ایمیل ثبت نام شده است'
+
+            }
+
         }
 
         if (!data.name.trim()) {
@@ -63,7 +76,7 @@ const validation = (data, type, mainCaptcha) => {
         }
 
 
-        if (!data.checkBox) {
+        if (!data.checkBox && type === 'register') {
             errors.checkBoxError = "پذیرفتن قوانین برای عضویت الزامی است."
         } else {
             delete errors.checkBoxError
@@ -79,9 +92,11 @@ const validation = (data, type, mainCaptcha) => {
 const emailExist = email => {
     const localData = JSON.parse(localStorage.getItem('mainData'))
     if (localData) {
-        const checkEmailUser = localData.find(item => item.userInfo.email === email)
+
+        const checkEmailUser = localData.find(item => item.userInfo.email === email);
+
         if (checkEmailUser) {
-            return [true, checkEmailUser.userInfo.password]
+            return [true, checkEmailUser.userInfo]
         }
     }
     return [false, false]

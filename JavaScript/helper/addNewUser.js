@@ -14,7 +14,7 @@ const addNewUser = data => {
 
     if (!localStorage.getItem('mainData')) {
         localStorage.setItem('mainData', JSON.stringify([newUserInfo]))
-        localStorage.setItem('showData', JSON.stringify([newUserInfo]))
+        localStorage.setItem('showData', JSON.stringify(newUserInfo))
     } else {
         let mainData = JSON.parse(localStorage.getItem('mainData'));
         newUserInfo.id = mainData.length + 1;
