@@ -347,31 +347,974 @@
 
 
 
-    <main class="w-full text- darkBg  dark:text-white dark:bg-darkBg pt-56 pb-6 px-8  md:px-6 ">
-        <h1 class="mb-16 text-center font-bold text-4xl">پنل کاربر</h1>
-        <div class="text-secondText  lg:px-16 md:!px-6 leading-[3rem]">
+    <main class="w-full text-darkBg  dark:text-white dark:bg-darkBg pt-52 md:pt-36 pb-6 px-8  md:px-6 flex md:flex-col">
 
-            <p>موزیسین عزیز </p>
-            <p>آیا می‌دونستی پلتفرم موزیکفا چه امکاناتی رو در اختیارت قرار می‌ده؟</p>
-            <p>میدونستی می‌‌تونی اینجا حامی و مدیر برنامه‌ی خودت باشی و این که بدون نیاز به </p>
-            <p>شرکت‌های پخش و انتشار موسیقی و کلا بدون هیچ واسطه‌ای موزیک‌هاتو خودت برای فروش بگذاری؟</p>
-            <p>اگر هم که نوازنده باشی می‌تونی اینجا فرصت‌کاری خوبی برای خودت ایجاد کنی و از طریق موزیکفا با
-                آهنگسازها، تنظیم کننده ها و... مستقیما ارتباط داشته باشی؟ </p>
-            <p>شاید هم آهنگساز یا تنظیم کننده‌ای باشی که دنبال نوازنده‌های با استعداد بگردی. بهت تبریک می‌گم.
-                توی موزیکفا می‌تونی به این خواسته‌ت هم برسی. </p>
-            <p>نگران نباش</p>
-            <p>شاعران و ترانه‌سراهای خوبی هم اینجا هستن. </p>
-            <p>فقط کافیه یه حساب کاربری ایجاد کنی تا بعد از یه احراز هویت ساده فروشگاه خودت رو داشته باشی.</p>
-            <p>ما موزیکفایی ها هم امیدواریم همیشه روی قله‌های موسیقی کشورمون ببینیمتون.
-                تا ابد درخشان باشیـد.</p>
+        <div
+            class=" bg-lightBg dark:bg-darkLbg rounded-md fixed md:relative  w-[24rem] sm-x2:w-full mt-10  md:mt-0 md:mb-20 md:mx-auto">
+            <div class="flex flex-col">
+                <div class="flex items-center justify-between border-b-1 border-secondText  p-6 sm-x2:p-3">
+
+                    <div class="flex items-center gap-3">
+                        <div class="p-4 rounded-full bg-slate-100 dark:bg-[#303034]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-8 h-8 text-secondText">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+                        </div>
+                        <span class="font-vazirMedium" id="nameUser"></span>
+                    </div>
+
+                    <div class="p-2 rounded-lg bg-slate-100 dark:bg-[#303034] cursor-pointer" id="editIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-5 h-5 text-secondText">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                        </svg>
+
+
+                    </div>
+
+                </div>
+
+                <div class="flex flex-col gap-10  border-b-1 border-secondText py-12 px-6 sm-x3:py-6 sm-x3:px-3">
+                    <div class="flex items-center justify-between">
+                        <span>عضویت</span>
+                        <span id="joinToSite"></span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span>پلی لیست ها</span>
+                        <div class="text-sm flex flex-col gap-2">
+                            <div class="flex items-center gap-1">
+                                <span>2</span>
+                                <span>موزیک</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span>0</span>
+                                <span>موزیک ویدو</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flex justify-center items-center gap-2 py-5 px-6 text-redBg cursor-pointer" id="logoutBtn">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6 rotate-180">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                    </svg>
+
+                    <span>خروج از حساب کاربری</span>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="w-full mr-[26rem] md:mr-0 hidden flex-col gap-12 py-2 px-20 lg:px-10 md:px-36 sm-x2:!px-0 "
+            id="editInfoForm">
+
+            <div class="flex justify-between items-center">
+                <span class="text-2xl font-vazirBold">ویرایش اطلاعات</span>
+                <div class="flex items-center gap-1 text-sm cursor-pointer" id="backToMain">
+                    <span>بازگشت</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                    </svg>
+
+                </div>
+            </div>
+
+            <div class="flex self-center">
+                <div class="p-8 rounded-full bg-slate-100 dark:bg-[#303034]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-20 h-20 text-secondText">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
+                </div>
+            </div>
+
+
+            <form action="" class="w-full px-16 lg:px-2 sm:px-8 flex flex-col items-center justify-center space-y-8 ">
+
+                <div class="w-full">
+                    <input type="text" placeholder="نام و نام خانوادگی"
+                        class="w-full p-5 rounded-md bg-slate-200 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31]  focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                        id="name">
+                    <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="nameError"></p>
+                </div>
+
+
+                <div class="w-full">
+                    <input type="text" placeholder="ایمیل"
+                        class="w-full p-5 rounded-md bg-slate-200 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                        id="email">
+
+                    <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="emailError"></p>
+                </div>
+
+                <div class="w-full relative">
+                    <input type="password" placeholder="گذرواژه"
+                        class="w-full p-5 rounded-md bg-slate-200 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                        id="password">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6 cursor-pointer text-secondText absolute top-5 left-4"
+                        id="eyePassword">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6 cursor-pointer text-white absolute top-5 left-4 hidden"
+                        id="eyePassword">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    </svg>
+
+
+                    <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="passwordError"></p>
+
+
+                </div>
+
+                <div class="w-full relative">
+                    <input type="password" placeholder="تکرار گذرواژه"
+                        class="w-full p-5 rounded-md bg-slate-200 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                        id="confirmPassword">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6 cursor-pointer text-secondText absolute top-5 left-4"
+                        id="eyeConfirmPassword">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6 cursor-pointer text-white absolute top-5 left-4 hidden"
+                        id="eyeConfirmPassword">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    </svg>
+
+
+                    <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="confirmPasswordError"></p>
+
+
+                </div>
+
+
+                <div class="flex flex-col space-y-4 w-full text-[#50b5ff] ">
+                    <button
+                        class="w-fll border-1 border-solid border-[#50b6ff2a] rounded-md p-4 bg-[#50b6ff2a] hover:brightness-[0.85] transition-all duration-200"
+                        id="editInfoBtn">ویرایش اطلاعات</button>
+
+                </div>
+
+            </form>
 
         </div>
+
+        <div class="h-scree w-full mr-[26rem] md:mr-0  py-2 px-20 lg:px-10 md:px-36 sm-x2:!px-0 " id="mainPanel">
+
+            <div class="flex gap-6 text-secondText" id="chooseBtn">
+                <p class="active__Btn  rounded-lg  px-5 py-2 cursor-pointer" id="recentBtn">اخیرا</p>
+                <p class="rounded-lg  px-5 py-2 cursor-pointer" id="favoriteBtn">مورد علاقه ها</p>
+            </div>
+
+            <div id="showBody">
+
+                <div class="mt-16 grid grid-cols-3 lg:grid-cols-2 sm-x2:!grid-cols-1 gap-6" id="recent">
+
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round"
+                                    d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                            </svg>
+
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">پریشانی</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/RezaBahram.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                            </svg>
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">آدم سابق اجرای
+                                زنده</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/RezaBahram.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                            </svg>
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">آدم سابق اجرای
+                                زنده</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round"
+                                    d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                            </svg>
+
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">پریشانی</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/RezaBahram.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                            </svg>
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">آدم سابق اجرای
+                                زنده</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
+                        </div>
+
+                    </div>
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/RezaBahram.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                            </svg>
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">آدم سابق اجرای
+                                زنده</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/RezaBahram.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                            </svg>
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">آدم سابق اجرای
+                                زنده</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/RezaBahram.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                            </svg>
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">آدم سابق اجرای
+                                زنده</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round"
+                                    d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                            </svg>
+
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">پریشانی</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
+                        </div>
+
+                    </div>
+
+                    <div class="w-full cursor-pointer">
+                        <div class="relative">
+                            <img src="../Images/RezaBahram.jpg" alt="cover" class="rounded-lg w-full">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                            </svg>
+
+                        </div>
+
+                        <div class="mt-4">
+                            <h3 class="font-bold text-md md:text-sm mb-1 text-darkBg dark:text-white">آدم سابق اجرای
+                                زنده</h3>
+                            <h4 class="font-semibold text-sm md:text-xs text-secondText">رضا بهرام</h4>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-16 hidden grid-cols-2 lg:grid-cols-1 gap-6 md:px-24 sm:!px-0" id="favorites">
+
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+                    <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                        <a href="#" class="flex gap-4 items-center">
+                            <img src="../Images/ali.jpg" class=" w-16 h-16 rounded" alt="">
+                            <div>
+                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
+                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
+                            </div>
+                        </a>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            class="w-6 h-6 cursor-pointer text-redBg">
+                            <path
+                                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+
+
+                    </section>
+
+
+                </div>
+
+            </div>
+        </div>
+
 
     </main>
 
 
 
+    <script src="../JavaScript/userPanel.js" type="module"></script>
     <script src="../JavaScript/utilis/shared.js"></script>
+    <script src="../vendor/sweetalert2/sweetalert2.js"></script>
     <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
 </body>
 

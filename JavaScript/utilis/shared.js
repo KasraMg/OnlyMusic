@@ -21,9 +21,7 @@ hamburgerLi.forEach(link => {
 });
 
 
-loginBtn.addEventListener('click', () => {
-    location.href = 'login.html'
-});
+
 
 window.addEventListener('load', () => {
     if (!localStorage.getItem('darkMode')) {
@@ -50,11 +48,19 @@ window.addEventListener('load', () => {
 
 
     let showData = JSON.parse(localStorage.getItem('showData'));
-    if (showData) {
+    if (showData === null || Object.keys(showData).length === 0) {
+        loginBtn.innerHTML = `ورود / عضویت`
+        loginBtn.addEventListener('click', () => {
+            location.href = 'login.html'
+
+        });
+    } else {
         loginBtn.innerHTML = '';
         loginBtn.innerHTML = showData.userInfo.name;
-    } else {
-        loginBtn.innerHTML = `ورود / عضویت`
+        loginBtn.addEventListener('click', () => {
+            location.href = 'userPanel.html'
+
+        });
     }
 })
 

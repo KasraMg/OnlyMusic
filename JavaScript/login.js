@@ -1,5 +1,6 @@
 import { submitHandler, data } from "./helper/enterPanelCommon.js"
 import { rightCode } from "./helper/captchaCreator.js"
+import { getData, setData } from "./helper/serviceData.js"
 /////////////////////////////////////////////////////////
 const registerBtn = document.querySelector('#registerBtn')
 
@@ -30,13 +31,13 @@ soundCaptcha.addEventListener('click', () => {
 loginBtn.addEventListener('click', (event) => submitHandler(event, () => {
 
 
-    const localData = JSON.parse(localStorage.getItem('mainData'))
+    const localData = getData('mainData');
     const checkEmailUser = localData.find(item => item.userInfo.email === data.email);
 
-    localStorage.setItem('showData', JSON.stringify(checkEmailUser));
+    setData('showData', checkEmailUser);
 
     window.location.reload();
-    window.location.href = 'Index.html'
+    window.location.href = 'userPanel.html'
 }
 ))
 

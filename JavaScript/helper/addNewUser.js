@@ -1,3 +1,5 @@
+import { getData, setData } from "./serviceData.js";
+
 const addNewUser = data => {
 
     const newUserInfo = {
@@ -11,16 +13,17 @@ const addNewUser = data => {
 
 
     }
+    let mainData = getData('mainData');
 
-    if (!localStorage.getItem('mainData')) {
-        localStorage.setItem('mainData', JSON.stringify([newUserInfo]))
-        localStorage.setItem('showData', JSON.stringify([newUserInfo]))
+
+    if (!mainData) {
+        setData('mainData', [newUserInfo])
+        setData('showData', newUserInfo);
     } else {
-        let mainData = JSON.parse(localStorage.getItem('mainData'));
         newUserInfo.id = mainData.length + 1;
         mainData.push(newUserInfo);
-        localStorage.setItem('mainData', JSON.stringify(mainData))
-        localStorage.setItem('showData', JSON.stringify(newUserInfo))
+        setData('mainData', mainData)
+        setData('showData', newUserInfo)
 
     }
 }

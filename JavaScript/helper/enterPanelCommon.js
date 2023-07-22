@@ -2,6 +2,7 @@
 import { validation } from "../utilis/validation.js";
 import { rightCode } from '../helper/captchaCreator.js'
 import { showSwal } from "../utilis/utils.js";
+import { getData } from "./serviceData.js";
 //////////////////////////////////////////////////////////
 const password = document.querySelector("#password");
 const eyePassword = document.querySelectorAll("#eyePassword");
@@ -39,10 +40,23 @@ const showAndHiddenPassword = (icons, input, flag) => {
 
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
 let url = window.location.pathname;
 let fileName = url.substring(url.lastIndexOf('/') + 1);
 const type = fileName.replace('.html', '');
+
+
+if (type === 'userPanel') {
+    window.addEventListener('load', () => {
+        let show = getData('showData');
+
+        if (show === null || Object.keys(show).length === 0) {
+            location.href = 'index.html'
+        }
+    })
+}
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
 
 let touch = {
     name: false,
@@ -52,14 +66,30 @@ let touch = {
     checkBox: false,
     captcha: ''
 }
-let data = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    checkBox: false,
-    captcha: ''
+
+let data = {};
+
+if (type === 'userPanel') {
+    const userInfo = getData('showData').userInfo;
+
+    data = {
+        name: userInfo.name,
+        email: userInfo.email,
+        password: userInfo.password,
+        confirmPassword: ''
+    }
+
+} else {
+    data = {
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        checkBox: false,
+        captcha: ''
+    }
 }
+
 
 
 const allInputs = document.querySelectorAll('form input');
@@ -98,10 +128,9 @@ const setError = (errors) => {
     });
 
     allInputs.forEach(element => {
-        element.classList.remove('ring-[#d3282842]')
-        element.classList.remove('ring-4')
-        element.classList.remove('focus:ring-[#d3282842]');
+        element.classList.remove('errorInput');
         element.classList.add('focus:ring-[#285ed342]')
+        element.classList.add('focus:ring-4');
 
     })
 
@@ -114,9 +143,9 @@ const setError = (errors) => {
             element.innerHTML = errors[element.id];
 
             allInputs[index].classList.remove('focus:ring-[#285ed342]');
-            allInputs[index].classList.add('focus:!ring-[#d3282842]');
-            allInputs[index].classList.add('!ring-4');
-            allInputs[index].classList.add('!ring-[#d3282842]');
+            allInputs[index].classList.remove('focus:ring-4');
+            allInputs[index].classList.add('errorInput');
+            console.log(allInputs[index]);
         }
 
     })
@@ -155,4 +184,4 @@ const submitHandler = (event, completeHandler) => {
 
 
 
-export { submitHandler, data }
+export { submitHandler, data, allInputs }

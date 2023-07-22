@@ -55,6 +55,17 @@
     color: white;
   }
 
+  .dark .active__Btn {
+    background: #ffc64216;
+    color: #ffc542;
+  }
+
+  .active__Btn {
+    background: #ff424257;
+    color: #ff4242;
+  }
+
+
   .introSwiper .swiper-button-prev:after,
   .introSwiper .swiper-button-next:after {
     font-size: 20px;
@@ -83,16 +94,20 @@
       display: none;
     }
   }
+
   input:-webkit-autofill,
   input:-webkit-autofill:focus {
-      transition: background-color 600000s 0s, color 600000s 0s;
+    transition: background-color 600000s 0s, color 600000s 0s;
   }
 
   input[data-autocompleted] {
-      background-color: transparent !important;
-  }.appearance-none {
+    background-color: transparent !important;
+  }
+
+  .appearance-none {
     appearance: auto !important;
   }
+
   .progress-container {
     background: #fff;
     border-radius: 5px;
@@ -100,26 +115,29 @@
     margin: 40px 20px;
     height: 5px;
     width: 90%;
-}
+  }
+
   .progress {
     background: #000000;
     border-radius: 5px;
     height: 100%;
     width: 0%;
     position: relative;
-    height:5px;
-    transition: width 0.1s linear;  
-    left: -1px; 
+    height: 5px;
+    transition: width 0.1s linear;
+    left: -1px;
     margin-right: auto;
-}
-@media (min-width:1200px) {
-  .more-songs section{
-    width: 350px;
   }
-}
-@media (min-width:1300px) {
-  .more-songs section{
-    width: 450px !important;
+
+  .errorInput {
+    box-shadow: 0 0 0 4px #d3282842;
+
   }
-}
+
+  .errorInput:focus {
+    box-shadow: 0 0 0 4px #d3282842;
+ 
+  }
+
+
 }
