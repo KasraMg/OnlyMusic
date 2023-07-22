@@ -2680,11 +2680,11 @@ input[data-autocompleted] {
   margin-right: auto;
 }
 
-.errorInput{
+.errorInput {
   box-shadow: 0 0 0 4px #d3282842;
 }
 
-.errorInput:focus{
+.errorInput:focus {
   box-shadow: 0 0 0 4px #d3282842;
 }
 

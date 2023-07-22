@@ -1,3 +1,5 @@
+import { getData } from "../helper/serviceData.js";
+
 const validation = (data, type, mainCaptcha) => {
 
     const errors = {};
@@ -45,7 +47,7 @@ const validation = (data, type, mainCaptcha) => {
         if (emailExist(data.email)[0]) {
 
             if (type === 'userPanel') {
-                let userShowEmail = JSON.parse(localStorage.getItem('showData')).userInfo.email;
+                let userShowEmail = getData('showData').userInfo.email;
                 if (emailExist(data.email)[1].email === userShowEmail) {
                     delete errors.emailError
                 } else {
@@ -90,8 +92,8 @@ const validation = (data, type, mainCaptcha) => {
 
 
 const emailExist = email => {
-    const localData = JSON.parse(localStorage.getItem('mainData'))
-    if (localData) {
+    const localData = getData('mainData')
+    if (localData !== null) {
 
         const checkEmailUser = localData.find(item => item.userInfo.email === email);
 

@@ -1,3 +1,5 @@
+import { getData } from "./helper/serviceData.js";
+
 const headerEdit = document.querySelector('#headerEdit');
 const editBtn = document.querySelector('#editBtn');
 
@@ -7,7 +9,7 @@ const cancelBtn = document.querySelector('#cancelBtn');
 
 
 window.addEventListener('load', () => {
-    let loginFlag = JSON.parse(localStorage.getItem('showData'));
+    let loginFlag = getData('showData');
     if (!Object.keys(loginFlag).length) {
         location.href = 'index.html'
     }

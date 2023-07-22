@@ -48,18 +48,18 @@ window.addEventListener('load', () => {
 
 
     let showData = JSON.parse(localStorage.getItem('showData'));
-    if (showData.id) {
+    if (showData === null || Object.keys(showData).length === 0) {
+        loginBtn.innerHTML = `ورود / عضویت`
+        loginBtn.addEventListener('click', () => {
+            location.href = 'login.html'
+
+        });
+    } else {
         loginBtn.innerHTML = '';
         loginBtn.innerHTML = showData.userInfo.name;
         loginBtn.addEventListener('click', () => {
             location.href = 'userPanel.html'
-        
-        });
-    } else {
-        loginBtn.innerHTML = `ورود / عضویت`
-        loginBtn.addEventListener('click', () => {
-            location.href = 'login.html'
-        
+
         });
     }
 })

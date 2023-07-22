@@ -2,6 +2,7 @@
 import { validation } from "../utilis/validation.js";
 import { rightCode } from '../helper/captchaCreator.js'
 import { showSwal } from "../utilis/utils.js";
+import { getData } from "./serviceData.js";
 //////////////////////////////////////////////////////////
 const password = document.querySelector("#password");
 const eyePassword = document.querySelectorAll("#eyePassword");
@@ -46,9 +47,9 @@ const type = fileName.replace('.html', '');
 
 if (type === 'userPanel') {
     window.addEventListener('load', () => {
-        let show = JSON.parse(localStorage.getItem('showData'))
+        let show = getData('showData');
 
-        if (!Object.keys(show).length) {
+        if (show === null || Object.keys(show).length === 0) {
             location.href = 'index.html'
         }
     })
@@ -69,7 +70,7 @@ let touch = {
 let data = {};
 
 if (type === 'userPanel') {
-    const userInfo = JSON.parse(localStorage.getItem('showData')).userInfo;
+    const userInfo = getData('showData').userInfo;
 
     data = {
         name: userInfo.name,
@@ -129,6 +130,7 @@ const setError = (errors) => {
     allInputs.forEach(element => {
         element.classList.remove('errorInput');
         element.classList.add('focus:ring-[#285ed342]')
+        element.classList.add('focus:ring-4');
 
     })
 
@@ -141,6 +143,7 @@ const setError = (errors) => {
             element.innerHTML = errors[element.id];
 
             allInputs[index].classList.remove('focus:ring-[#285ed342]');
+            allInputs[index].classList.remove('focus:ring-4');
             allInputs[index].classList.add('errorInput');
             console.log(allInputs[index]);
         }

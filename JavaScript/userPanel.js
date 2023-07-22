@@ -1,4 +1,5 @@
 import { submitHandler, data, allInputs } from "./helper/enterPanelCommon.js"
+import { getData, setData } from "./helper/serviceData.js";
 ////////////////////////////////////////////////////////////
 const nameUser = document.querySelector('#nameUser');
 const joinToSite = document.querySelector('#joinToSite');
@@ -15,13 +16,11 @@ const chooseBtn = document.querySelectorAll('#chooseBtn p');
 const showBody = document.querySelectorAll('#showBody>div');
 
 
-const recent = document.querySelector('#recent');
-const favorite = document.querySelector('#favorite');
 
 
 
 
-const localData = JSON.parse(localStorage.getItem('mainData'));
+const localData = getData('mainData');
 const checkEmailUser = localData.find(item => item.userInfo.email === data.email);
 
 
@@ -35,7 +34,7 @@ joinToSite.innerHTML = checkEmailUser.userInfo.registerDate;
 
 
 logoutBtn.addEventListener('click', () => {
-    localStorage.setItem('showData', JSON.stringify({}))
+    setData('showData', {});
     location.href = 'index.html'
 
 });
@@ -66,9 +65,8 @@ editInfoBtn.addEventListener('click', (event) => submitHandler(event, () => {
     localData[checkEmailUser.id - 1] = editUser;
 
 
-
-    localStorage.setItem('showData', JSON.stringify(editUser));
-    localStorage.setItem('mainData', JSON.stringify(localData));
+    setData('showData', editUser);
+    setData('mainData',localData);
 
     location.reload()
     alert('با موفقیت انجام شد');
