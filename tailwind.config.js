@@ -32,7 +32,7 @@ module.exports = {
         'darkLbg': '#18191d',
         'darkBg': '#111217'  ,
         'lightBg':'#e3e3e3'
-      }
+      }             
     },
   },   
   plugins: [

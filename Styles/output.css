@@ -1084,20 +1084,12 @@ input:checked + .toggle-bg {
   left: 0px;
 }
 
-.left-1\/2 {
-  left: 50%;
-}
-
 .left-4 {
   left: 1rem;
 }
 
 .right-0 {
   right: 0px;
-}
-
-.right-1\/2 {
-  right: 50%;
 }
 
 .right-2 {
@@ -1214,12 +1206,12 @@ input:checked + .toggle-bg {
   margin-bottom: 0.5rem;
 }
 
-.mb-28 {
-  margin-bottom: 7rem;
+.mb-20 {
+  margin-bottom: 5rem;
 }
 
-.mb-32 {
-  margin-bottom: 8rem;
+.mb-28 {
+  margin-bottom: 7rem;
 }
 
 .mb-5 {
@@ -1290,6 +1282,10 @@ input:checked + .toggle-bg {
   margin-top: 0.5rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .mt-28 {
   margin-top: 7rem;
 }
@@ -1304,10 +1300,6 @@ input:checked + .toggle-bg {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mt-44 {
-  margin-top: 11rem;
 }
 
 .mt-5 {
