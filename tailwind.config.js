@@ -14,10 +14,10 @@ module.exports = {
       'lg': { "max": "1200px" },
       'lg-x2': { "min": "1201px" },
 
-    },    
+    },      
     borderWidth:{    
       '1': '1px',
-    }, 
+    },         
     fontFamily: {
       "vazirBold": 'vazirBold',   
       "vazirMedium": 'vazirMedium',
@@ -25,7 +25,7 @@ module.exports = {
       "cursive":"cursive"
     },
     extend: {
-      colors: {
+      colors: {             
         'secondText': '#8d8d8d',
         'golden': '#ffc542',
         'redBg': '#ff4242',
