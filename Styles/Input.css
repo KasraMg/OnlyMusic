@@ -138,6 +138,20 @@
     box-shadow: 0 0 0 4px #d3282842;
  
   }
-
-
-}
+  .vjs-control-bar{
+    display: none !important;
+  }.video-js .vjs-control-bar {
+    display: none !important;
+  }      
+  
+  @media (min-width:1201px) {
+    .videoParent{
+      height: 302px !important ;  
+    }
+  }
+  @media (min-width:1351px) {
+    .videoParent{
+      height: 360px !important ;  
+    } 
+  }
+}    
