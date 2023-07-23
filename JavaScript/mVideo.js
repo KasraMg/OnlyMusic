@@ -143,6 +143,7 @@ playIcon.addEventListener("click", function () {
     }
     }
     if (isPlaying) { 
+        
    currentTime.innerHTML=''
     currentTime.innerHTML = currentMinutes + ":" + currentSeconds;
     }
