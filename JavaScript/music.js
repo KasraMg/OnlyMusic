@@ -11,8 +11,28 @@ const music =document.querySelector('audio')
 const cover =document.querySelector('#cover')
 const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
-nextIcon.addEventListener('click',()=>{
-    console.log('hi');
+
+document.body.addEventListener('keydown',(e)=>{
+  console.log(e);
+  if (e.code === "Space") {
+      e.preventDefault()
+      
+      if (isPlaying) { 
+          pauseSong() 
+        
+      }else{
+          playSong() 
+         
+      }
+  }
+  if (e.code === "ArrowRight") {
+      newTime =music.currentTime + 10
+      music.currentTime=newTime
+  }
+  if (e.code === "ArrowLeft") {
+      newTime =music.currentTime - 10
+      music.currentTime=newTime
+  }
 })
 
 const songs = [
@@ -47,42 +67,36 @@ let isPlaying = false;
 
 loadSong(songs[0]);
 roundomIcon.addEventListener('click',()=>{
-  isPlaying = false;
-  playIcon.innerHTML=''
-  playIcon.innerHTML=' <i class="fas fa-play " ></i>'
+  pauseSong()
   loadSong(songs[2])
 })
 nextIcon.addEventListener('click',()=>{
-  isPlaying = false;
-  playIcon.innerHTML=''
-  playIcon.innerHTML=' <i class="fas fa-play " ></i>'
+  pauseSong()
   loadSong(songs[1])
 })
 prevIcon.addEventListener('click',()=>{
-  isPlaying = false;
-  playIcon.innerHTML=''
-  playIcon.innerHTML=' <i class="fas fa-play " ></i>'
+  pauseSong()
   loadSong(songs[0])
 })
 function playSong() {
     isPlaying = true;
-   
+    playIcon.innerHTML=''
+    playIcon.innerHTML=' <i class="fas fa-pause " ></i>'
     music.play(); 
   }
 function pauseSong() {
       isPlaying = false; 
       music.pause();
+      playIcon.innerHTML=''
+      playIcon.innerHTML=' <i class="fas fa-play " ></i>'
     }
   
 playIcon.addEventListener("click", function () {
     if (isPlaying) {
-      pauseSong() 
-      playIcon.innerHTML=''
-      playIcon.innerHTML=' <i class="fas fa-play " ></i>'
+      pauseSong()  
     } else {
       playSong() 
-      playIcon.innerHTML=''
-      playIcon.innerHTML=' <i class="fas fa-pause " ></i>'
+      
     }
   })
 
@@ -97,6 +111,8 @@ playIcon.addEventListener("click", function () {
 
 
   function updateProgressBar(e) {
+    let currentMinutes;
+    let currentSeconds ;
     if (isPlaying) { 
       const duration = e.srcElement.duration;
       const currentTime = e.srcElement.currentTime;
@@ -117,14 +133,20 @@ playIcon.addEventListener("click", function () {
 
 
       
-      const currentMinutes = Math.floor(currentTime / 60);
-      let currentSeconds = Math.floor(currentTime % 60);
+      currentMinutes = Math.floor(currentTime / 60);
+       currentSeconds = Math.floor(currentTime % 60);
       if (currentSeconds < 10) {
         currentSeconds = "0" + currentSeconds;
       }
-      console.log(currentMinutes +currentSeconds);
-      currentTime.textContent = currentMinutes + ":" + currentSeconds;
+      if (progress.style.width === '100%') { 
+        video.pause()
+        pauseSong()  
     }
+    } 
+    if (isPlaying) { 
+      currentTime.innerHTML=''
+          currentTime.innerHTML = currentMinutes + ":" + currentSeconds;
+          }
   }
 
   function setProgressBar(e) {
