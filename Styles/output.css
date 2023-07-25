@@ -1076,10 +1076,6 @@ input:checked + .toggle-bg {
   bottom: 0.25rem;
 }
 
-.bottom-5 {
-  bottom: 1.25rem;
-}
-
 .bottom-\[60px\] {
   bottom: 60px;
 }
@@ -1098,10 +1094,6 @@ input:checked + .toggle-bg {
 
 .right-2 {
   right: 0.5rem;
-}
-
-.right-5 {
-  right: 1.25rem;
 }
 
 .top-0 {
@@ -1130,10 +1122,6 @@ input:checked + .toggle-bg {
 
 .top-\[2\.7px\] {
   top: 2.7px;
-}
-
-.top-\[3px\] {
-  top: 3px;
 }
 
 .top-\[5px\] {
@@ -1232,12 +1220,12 @@ input:checked + .toggle-bg {
   margin-bottom: 0.5rem;
 }
 
-.mb-28 {
-  margin-bottom: 7rem;
+.mb-20 {
+  margin-bottom: 5rem;
 }
 
-.mb-32 {
-  margin-bottom: 8rem;
+.mb-28 {
+  margin-bottom: 7rem;
 }
 
 .mb-5 {
@@ -1296,16 +1284,16 @@ input:checked + .toggle-bg {
   margin-top: 3rem;
 }
 
-.mt-14 {
-  margin-top: 3.5rem;
-}
-
 .mt-16 {
   margin-top: 4rem;
 }
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
 }
 
 .mt-28 {
@@ -1322,10 +1310,6 @@ input:checked + .toggle-bg {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mt-44 {
-  margin-top: 11rem;
 }
 
 .mt-5 {
@@ -1402,10 +1386,6 @@ input:checked + .toggle-bg {
 
 .h-6 {
   height: 1.5rem;
-}
-
-.h-72 {
-  height: 18rem;
 }
 
 .h-8 {
@@ -1538,11 +1518,6 @@ input:checked + .toggle-bg {
 
 .w-\[98\%\] {
   width: 98%;
-}
-
-.w-fit {
-  width: -moz-fit-content;
-  width: fit-content;
 }
 
 .w-full {
@@ -2069,16 +2044,8 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 0.5;
 }
 
-.bg-\[url\(https\:\/\/bp1\.blogger\.com\/_zb325Z5dM2g\/RrLjoxtuWDI\/AAAAAAAAAB8\/EtwEcCnK9Ck\/s320\/HichKas-Ghaf-pishro\.jpg\)\] {
-  background-image: url(https://bp1.blogger.com/_zb325Z5dM2g/RrLjoxtuWDI/AAAAAAAAAB8/EtwEcCnK9Ck/s320/HichKas-Ghaf-pishro.jpg);
-}
-
 .bg-\[url\(https\:\/\/media\.musicfa\.co\/\/2023\/mar\/Feature\/Mohsen\%20Chavoshi\%20-\%20Rahayam\%20Kon\.jpg\)\] {
   background-image: url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg);
-}
-
-.bg-\[url\(https\:\/\/media\.musicfa\.co\/\/slid\/photo_2023-06-02_18-43-56\.jpg\)\] {
-  background-image: url(https://media.musicfa.co//slid/photo_2023-06-02_18-43-56.jpg);
 }
 
 .bg-cover {
@@ -2087,10 +2054,6 @@ input:checked + .toggle-bg {
 
 .bg-\[50\%\] {
   background-position: 50%;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .bg-no-repeat {
@@ -2363,10 +2326,6 @@ input:checked + .toggle-bg {
 
 .text-right {
   text-align: right;
-}
-
-.\!font-vazirMedium {
-  font-family: vazirMedium !important;
 }
 
 .font-cursive {
@@ -2670,6 +2629,16 @@ header label:after {
   color: white;
 }
 
+/*start btn */
+
+.btn {
+  background: #e3e3e3;
+}
+
+.dark .btn {
+  background: #1c1c24;
+}
+
 .dark .active__Btn {
   background: #ffc64216;
   color: #ffc542;
@@ -2679,6 +2648,8 @@ header label:after {
   background: #ff424257;
   color: #ff4242;
 }
+
+/* end btn */
 
 .introSwiper .swiper-button-prev:after,
   .introSwiper .swiper-button-next:after {
@@ -2750,14 +2721,14 @@ input[data-autocompleted] {
 }
 
 @media (min-width:1201px) {
-  .videoParent{
-    height: 302px !important ;
+  .videoParent {
+    height: 302px !important;
   }
 }
 
 @media (min-width:1351px) {
-  .videoParent{
-    height: 360px !important ;
+  .videoParent {
+    height: 360px !important;
   }
 }
 
@@ -2996,11 +2967,6 @@ input[data-autocompleted] {
 :is(.dark .dark\:bg-\[\#1a1b1f\]) {
   --tw-bg-opacity: 1;
   background-color: rgb(26 27 31 / var(--tw-bg-opacity));
-}
-
-:is(.dark .dark\:bg-\[\#1c1c24\]) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(28 28 36 / var(--tw-bg-opacity));
 }
 
 :is(.dark .dark\:bg-\[\#303034\]) {
@@ -3512,4 +3478,4 @@ input[data-autocompleted] {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}    
+}

@@ -13,7 +13,7 @@ module.exports = {
       'md': { "max": "900px" },
       'lg': { "max": "1200px" },
       'lg-x2': { "min": "1201px" },
-
+          
     },      
     borderWidth:{    
       '1': '1px',
@@ -32,7 +32,7 @@ module.exports = {
         'darkLbg': '#18191d',
         'darkBg': '#111217'  ,
         'lightBg':'#e3e3e3'
-      }
+      }             
     },
   },   
   plugins: [
