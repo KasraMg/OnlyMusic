@@ -2997,11 +2997,6 @@ input[data-autocompleted] {
   background-color: rgb(26 27 31 / var(--tw-bg-opacity));
 }
 
-:is(.dark .dark\:bg-\[\#1c1c24\]) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(28 28 36 / var(--tw-bg-opacity));
-}
-
 :is(.dark .dark\:bg-\[\#303034\]) {
   --tw-bg-opacity: 1;
   background-color: rgb(48 48 52 / var(--tw-bg-opacity));

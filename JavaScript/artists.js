@@ -7,7 +7,6 @@ const paginationWrapper = document.querySelector('#paginationWrapper');
 window.addParamToUrl = addParamToUrl
 
 window.addEventListener('load', () => {
-    console.log(artists);
     pagination(artists, +getParamToUrl('page'), 18, paginationWrapper).map(artist => (
         artistsWrapper.insertAdjacentHTML(
             "beforeend", `
