@@ -349,13 +349,14 @@
 
         <section class="w-full text-darkBg  dark:text-white dark:bg-darkBg mb-10 pt-40 pb-8 pl-8 md:px-6 pr-72">
 
-            <div class="relative w-full h-screen lg:h-[70vh] sm:!h-[50vh]  rounded-md flex flex-col justify-center items-center gap-16">
+            <div class="relative w-full h-screen lg:h-[70vh] sm:!h-[50vh]  rounded-md flex flex-col justify-center items-center gap-16"
+                id="imagesArtistWrapper">
                 <img src="../Images/chavoshi.jpg" alt="artist-background"
                     class="absolute top-0 left-0 w-full h-full blur-3xl z-0" id="bgArtist">
 
                 <img src="../Images/chavoshi.jpg" alt="artist" class="w-80 sm:w-60 h-80 sm:h-60 rounded-full z-10">
 
-                <h3 class="text-white z-10 text-4xl sm:text-2xl font-vazirBold">محسن چاوشی</h3>
+                <h3 class="text-white z-10 text-4xl sm:text-2xl font-vazirBold" id="artistName"></h3>
             </div>
 
             <div class="mt-32 px-44 lg:px-20 md:!px-6">
@@ -371,10 +372,11 @@
                 خانگی شهرزاد ساختهٔ حسن فتحی می‌باشد.
             </div>
 
-            <div class="flex sm-x2:flex-col items-center justify-center gap-4 my-16 text-secondText">
-                <button class="sm-x2:w-full active__Btn rounded-lg  px-5 py-2 cursor-pointer">همه آثار</button>
-                <button class="sm-x2:w-full bg-lightBg dark:bg-[#1c1c24] rounded-lg  px-5 py-2 cursor-pointer">آهنگ ها</button>
-                <button class="sm-x2:w-full bg-lightBg dark:bg-[#1c1c24]  rounded-lg  px-5 py-2 cursor-pointer">موزیک ویدو
+            <div class="flex sm-x2:flex-col items-center justify-center gap-4 my-16 text-secondText"
+                id="buttonsWrapper">
+                <button class="sm-x2:w-full btn rounded-lg  px-5 py-2 cursor-pointer" id="all">همه آثار</button>
+                <button class="sm-x2:w-full btn rounded-lg  px-5 py-2 cursor-pointer" id="music">آهنگ ها</button>
+                <button class="sm-x2:w-full btn  rounded-lg  px-5 py-2 cursor-pointer" id="video">موزیک ویدو
                     ها</button>
             </div>
 
@@ -503,7 +505,7 @@
 
                 </div>
 
-                
+
                 <div class="w-full cursor-pointer">
                     <div class="relative">
                         <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
@@ -546,14 +548,20 @@
 
 
             </div>
-
+            
+            <div class="flex justify-center mt-16">
+                <ul class="flex items-center gap-3" id="paginationWrapper">
+        
+                </ul>
+              </div>
 
         </section>
 
     </main>
 
 
-    <footer class=" mt-10 flex md:flex-col justify-between dark:bg-darkBg pt-6 pb-14 text-white w-full pr-72 pl-4 md:px-6">
+    <footer
+        class=" mt-10 flex md:flex-col justify-between dark:bg-darkBg pt-6 pb-14 text-white w-full pr-72 pl-4 md:px-6">
 
         <div class="flex flex-col space-y-6">
 
@@ -611,6 +619,7 @@
 
 
     <script src="../JavaScript/utilis/shared.js"></script>
+    <script src="../JavaScript/artist.js" type="module"></script>
     <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
 </body>
 

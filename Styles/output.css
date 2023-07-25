@@ -1292,10 +1292,6 @@ input:checked + .toggle-bg {
   margin-top: 3rem;
 }
 
-.mt-14 {
-  margin-top: 3.5rem;
-}
-
 .mt-16 {
   margin-top: 4rem;
 }
@@ -1534,11 +1530,6 @@ input:checked + .toggle-bg {
 
 .w-\[98\%\] {
   width: 98%;
-}
-
-.w-fit {
-  width: -moz-fit-content;
-  width: fit-content;
 }
 
 .w-full {

@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
 
         buttonsWrapper[1].classList.remove('btn');
         buttonsWrapper[1].classList.add('active__Btn');
-        
+
         getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=hot_songs').then(data => {
             if (data.status == 200) {
                 let resultFilter = data.result.filter(data => {
@@ -38,10 +38,6 @@ window.addEventListener('load', () => {
             }
         })
     }
-
-
-
-
 
 });
 
