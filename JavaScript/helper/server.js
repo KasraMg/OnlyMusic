@@ -188,23 +188,11 @@ const ourPlayList = [
 
 const artists = [
     { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
-    { name: 'محسن یگانه', photo: '../Images/yegane.jpg' },
+    { name: ' علی سورنا', photo: '../Images/sorena-390x390.png' },
+    { name: ' محمدرضا شجریان', photo: '../Images/محمدرضا+شجریان.jpg' },
+    { name: 'علی یاسینی', photo: '../Images/Ali-Yasini.jpg' },
+    { name: 'رضا پیشرو', photo: '../Images/pishro.jpg' },
+    { name: ' هایده', photo: '../Images/hayde.jfif' }, 
   
 ]
 

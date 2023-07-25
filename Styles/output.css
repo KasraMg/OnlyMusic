@@ -1076,10 +1076,6 @@ input:checked + .toggle-bg {
   bottom: 0.25rem;
 }
 
-.bottom-5 {
-  bottom: 1.25rem;
-}
-
 .bottom-\[60px\] {
   bottom: 60px;
 }
@@ -1098,10 +1094,6 @@ input:checked + .toggle-bg {
 
 .right-2 {
   right: 0.5rem;
-}
-
-.right-5 {
-  right: 1.25rem;
 }
 
 .top-0 {
@@ -1394,10 +1386,6 @@ input:checked + .toggle-bg {
 
 .h-6 {
   height: 1.5rem;
-}
-
-.h-72 {
-  height: 18rem;
 }
 
 .h-8 {
@@ -2056,16 +2044,8 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 0.5;
 }
 
-.bg-\[url\(https\:\/\/bp1\.blogger\.com\/_zb325Z5dM2g\/RrLjoxtuWDI\/AAAAAAAAAB8\/EtwEcCnK9Ck\/s320\/HichKas-Ghaf-pishro\.jpg\)\] {
-  background-image: url(https://bp1.blogger.com/_zb325Z5dM2g/RrLjoxtuWDI/AAAAAAAAAB8/EtwEcCnK9Ck/s320/HichKas-Ghaf-pishro.jpg);
-}
-
 .bg-\[url\(https\:\/\/media\.musicfa\.co\/\/2023\/mar\/Feature\/Mohsen\%20Chavoshi\%20-\%20Rahayam\%20Kon\.jpg\)\] {
   background-image: url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg);
-}
-
-.bg-\[url\(https\:\/\/media\.musicfa\.co\/\/slid\/photo_2023-06-02_18-43-56\.jpg\)\] {
-  background-image: url(https://media.musicfa.co//slid/photo_2023-06-02_18-43-56.jpg);
 }
 
 .bg-cover {
@@ -2074,10 +2054,6 @@ input:checked + .toggle-bg {
 
 .bg-\[50\%\] {
   background-position: 50%;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .bg-no-repeat {
@@ -2350,10 +2326,6 @@ input:checked + .toggle-bg {
 
 .text-right {
   text-align: right;
-}
-
-.\!font-vazirMedium {
-  font-family: vazirMedium !important;
 }
 
 .font-cursive {
@@ -2995,11 +2967,6 @@ input[data-autocompleted] {
 :is(.dark .dark\:bg-\[\#1a1b1f\]) {
   --tw-bg-opacity: 1;
   background-color: rgb(26 27 31 / var(--tw-bg-opacity));
-}
-
-:is(.dark .dark\:bg-\[\#1c1c24\]) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(28 28 36 / var(--tw-bg-opacity));
 }
 
 :is(.dark .dark\:bg-\[\#303034\]) {
