@@ -40,12 +40,12 @@ window.addEventListener('load', () => {
     const newMusicVideo = document.querySelector('#newMusicVideo')
     const indexSwiper1 = document.querySelector('#indexSwiper1')
 
-    getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => { 
+    getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => {
         if (data.status == 200) {
-            let resultFilter=data.result.filter(data=>{
+            let resultFilter = data.result.filter(data => {
                 return data.artist_farsi && data.song_farsi
             })
-            
+
             resultFilter.slice(0, 8).map(music => (
                 newSong.insertAdjacentHTML(
                     "beforeend", `
@@ -63,7 +63,7 @@ window.addEventListener('load', () => {
           </div>
 
           <a href='music.html?name=${music.song}}' >
-            <h3 class="font-bold text-lg md:text-md mb-1 mt-4 text-darkBg dark:text-white"> ${music.song_farsi }</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 mt-4 text-darkBg dark:text-white"> ${music.song_farsi}</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">${music.artist_farsi}</h4>
           </a>
 
@@ -78,7 +78,7 @@ window.addEventListener('load', () => {
                             <div  class="swiper-slide h-72 rounded-md bg-no-repeat bg-cover bg-center ">
                             <img src='${music.photo}' class=' absolute w-full rounded-xl '/>
                                 <div class=" font-vazirLight absolute w-full right-5  space-y-2 text-right text-white bottom-5">
-                                <p class=" text-2xl !font-vazirMedium"> ${music.song_farsi } </p>
+                                <p class=" text-2xl !font-vazirMedium"> ${music.song_farsi} </p>
                                     <p>${music.artist_farsi}</p>
                                 </div>
 
@@ -91,12 +91,13 @@ window.addEventListener('load', () => {
         }
 
     })
-    getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=hot_songs').then(data => {  
+
+    getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=hot_songs').then(data => {
         if (data.status == 200) {
-            let resultFilter=data.result.filter(data=>{
+            let resultFilter = data.result.filter(data => {
                 return data.artist_farsi && data.song_farsi
             })
-            
+
             resultFilter.slice(0, 8).map(music => (
                 specialMusics.insertAdjacentHTML(
                     "beforeend", `
@@ -114,7 +115,7 @@ window.addEventListener('load', () => {
           </div>
 
           <a href='music.html?name=${music.song}}' >
-            <h3 class="font-bold text-lg md:text-md mb-1 mt-4 text-darkBg dark:text-white"> ${music.song_farsi }</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 mt-4 text-darkBg dark:text-white"> ${music.song_farsi}</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">${music.artist_farsi}</h4>
           </a>
 
@@ -124,13 +125,13 @@ window.addEventListener('load', () => {
             ))
         }
     })
+
     getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_videos').then(data => {
-        console.log(data);
         if (data.status == 200) {
-            let resultFilter=data.result.filter(data=>{
+            let resultFilter = data.result.filter(data => {
                 return data.artist_farsi && data.song_farsi
             })
-            
+
             resultFilter.slice(0, 8).map(music => (
                 newMusicVideo.insertAdjacentHTML(
                     "beforeend", `
@@ -148,7 +149,7 @@ window.addEventListener('load', () => {
           </div>
 
           <a href='mVideo.html?name=${music.song}}' >
-            <h3 class="font-bold text-lg md:text-md mb-1 mt-4 text-darkBg dark:text-white"> ${music.song_farsi }</h3>
+            <h3 class="font-bold text-lg md:text-md mb-1 mt-4 text-darkBg dark:text-white"> ${music.song_farsi}</h3>
             <h4 class="font-semibold text-sm md:text-xs text-secondText">${music.artist_farsi}</h4>
           </a>
 
@@ -160,11 +161,6 @@ window.addEventListener('load', () => {
     })
 })
 
-const getInfoes = async (url) => {
-    const res = await fetch(url)
-    const data = await res.json()
-    return data
-}
- 
 
- 
+
+

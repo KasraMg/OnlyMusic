@@ -12,7 +12,7 @@
     font-family: vazirBold;
     src: url('../Fonts/vazir/Vazir-Bold.woff2');
   }
- 
+
   @font-face {
     font-family: vazirMedium;
     src: url('../Fonts/vazir/Vazir-Bold.woff2');
@@ -55,6 +55,15 @@
     color: white;
   }
 
+  /*start btn */
+  .btn {
+    background: #e3e3e3;
+  }
+
+  .dark .btn {
+    background: #1c1c24;
+  }
+
   .dark .active__Btn {
     background: #ffc64216;
     color: #ffc542;
@@ -65,6 +74,7 @@
     color: #ff4242;
   }
 
+  /* end btn */
 
   .introSwiper .swiper-button-prev:after,
   .introSwiper .swiper-button-next:after {
@@ -136,22 +146,26 @@
 
   .errorInput:focus {
     box-shadow: 0 0 0 4px #d3282842;
- 
+
   }
-  .vjs-control-bar{
+
+  .vjs-control-bar {
     display: none !important;
-  }.video-js .vjs-control-bar {
+  }
+
+  .video-js .vjs-control-bar {
     display: none !important;
-  }      
-  
+  }
+
   @media (min-width:1201px) {
-    .videoParent{
-      height: 302px !important ;  
+    .videoParent {
+      height: 302px !important;
     }
   }
+
   @media (min-width:1351px) {
-    .videoParent{
-      height: 360px !important ;  
-    } 
+    .videoParent {
+      height: 360px !important;
+    }
   }
-}    
+}

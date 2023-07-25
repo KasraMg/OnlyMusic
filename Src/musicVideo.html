@@ -2,11 +2,11 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موزیک ویدئوها</title>
-    <link rel="stylesheet" href="../Styles/output.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موزیک ویدئوها</title>
+  <link rel="stylesheet" href="../Styles/output.css">
 
 </head>
 
@@ -36,11 +36,11 @@
       </button>
 
       <div class=" relative cursor-pointer md:hidden">
-        <a href='notif.html'><svg xmlns="http://www.w3.org/2000/svg" class="w-7 text-[#00000090] dark:text-[#ffffff]" fill="none"
-          viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round"
-            d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-        </svg></a>
+        <a href='notif.html'><svg xmlns="http://www.w3.org/2000/svg" class="w-7 text-[#00000090] dark:text-[#ffffff]"
+            fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round"
+              d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+          </svg></a>
         <span
           class=" rounded-full dark:text-black text-white dark:bg-white bg-black t right-0 -top-1 text-[10px] px-1 pb-[1px] absolute">0</span>
       </div>
@@ -345,405 +345,93 @@
     </aside>
 
 
-        <section class="w-full text- darkBg  dark:text-white dark:bg-darkBg pt-40 pb-8  md:px-6 pr-72">
+    <section class="w-full text- darkBg  dark:text-white dark:bg-darkBg pt-40 pb-8  md:px-6 pr-72">
 
-            <h1 class="text-center font-bold text-4xl">موزیک ویدئوها</h1>
+      <h1 class="text-center font-bold text-4xl">موزیک ویدئوها</h1>
 
-            <div class="flex items-center justify-center gap-4 my-16 text-secondText">
-                <button class="active__Btn rounded-lg  px-5 py-2 cursor-pointer">جدیدترین</button>
-                <button class="bg-lightBg dark:bg-[#1c1c24] rounded-lg  px-5 py-2 cursor-pointer">ویدئوهای ویژه</button>
-            </div>
+      <div class="flex items-center justify-center gap-4 my-16 text-secondText" id="buttonsWrapper">
+        <button class="btn rounded-lg  px-5 py-2 cursor-pointer" id="newVideo">جدیدترین</button>
+        <button class="btn rounded-lg  px-5 py-2 cursor-pointer" id="hotVideo">ویدئوهای ویژه</button>
+      </div>
 
-            <div class="px-6 grid grid-cols-4 lg:grid-cols-2 sm-x2:!grid-cols-1 gap-10 mt-6">
+      <div class="px-6 grid grid-cols-4 lg:grid-cols-2 sm-x2:!grid-cols-1 gap-10 mt-6" id="musicVideoWrapper">
+        <!-- handel by js -->
 
-
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-                <div class="w-full cursor-pointer">
-                    <div class="relative">
-                      <img src="../Images/ali.jpg" alt="cover" class="rounded-lg w-full">
-          
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
-                        <path stroke-linecap="round"
-                          d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-          
-          
-                    </div>
-          
-                    <div class="mt-4">
-                      <h3 class="font-bold text-lg md:text-md mb-1 text- darkBg dark:text-white">پریشانی</h3>
-                      <h4 class="font-semibold text-sm md:text-xs text-secondText">علیرضا قربانی</h4>
-                    </div>
-          
-                  </div>
-            </div>
-
-        </section>
-
-    </main>
+      </div>
 
 
-    <footer class=" mt-10 flex md:flex-col justify-between dark:bg-darkBg pt-6 pb-14 text-white w-full pr-72 pl-4 md:px-6">
 
-      <div class="flex flex-col space-y-6">
-  
-        <div>
-          <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg" class="w-28 sm:!w-[6rem] h-8"
-              alt="topBarLogo"> </a>
-          <a href="Index.html" class="block dark:hidden"><img src="../Images/logoL.svg" class="w-28 sm:!w-[6rem] h-8"
-              alt="topBarLogo"> </a>
-        </div>
-  
-  
-  
-  
-  
-        <div class="text-secondText w-2/3 md:w-full">
-          تمامی حقوق مادی و معنوی این وبسایت متعلق به گروه هنری فرهنگی موزیک‌فا بوده و کپی برداری از آن به هر نحو پیگرد
-          قانونی دارد.
-        </div>
-  
-        <div class="flex ">
-          <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19.996" viewBox="0 0 20 19.996">
-              <g id="Page-1" transform="translate(0 -0.001)">
-                <g id="Dribbble-Light-Preview" transform="translate(-340 -7439)">
-                  <g id="icons" transform="translate(56 160)">
-                    <path id="instagram-_167_" data-name="instagram-[#167]"
-                      d="M289.87,7279.12a5.518,5.518,0,0,0-5.788,5.78c-.046,1-.314,8.6.462,10.59a5.034,5.034,0,0,0,2.911,2.9,7,7,0,0,0,2.415.46c8.86.4,12.145.19,13.53-3.36a7.217,7.217,0,0,0,.462-2.41c.4-8.88-.066-10.81-1.61-12.35-1.225-1.22-2.666-2.05-12.382-1.61m.081,17.95a5.87,5.87,0,0,1-1.848-.34,3.28,3.28,0,0,1-1.888-1.89c-.591-1.51-.395-8.7-.342-9.86a4.263,4.263,0,0,1,1.086-2.99c.995-.99,2.281-1.48,11.034-1.08a4.266,4.266,0,0,1,2.992,1.08c1,.99,1.489,2.29,1.087,11.01a5.445,5.445,0,0,1-.342,1.84c-.9,2.31-2.973,2.63-11.779,2.23m8.139-13.38a1.195,1.195,0,1,0,1.194-1.19,1.19,1.19,0,0,0-1.194,1.19m-9.227,5.3a5.11,5.11,0,1,0,5.109-5.1,5.1,5.1,0,0,0-5.109,5.1m1.793,0a3.317,3.317,0,1,1,3.316,3.31,3.311,3.311,0,0,1-3.316-3.31"
-                      fill="#8d8d8d" fill-rule="evenodd" />
-                  </g>
+      <div class="flex justify-center mt-16">
+        <ul class="flex items-center gap-3" id="paginationWrapper">
+          <!-- handel by js -->
+
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer
+    class=" mt-10 flex md:flex-col justify-between dark:bg-darkBg pt-6 pb-14 text-white w-full pr-72 pl-4 md:px-6">
+
+    <div class="flex flex-col space-y-6">
+
+      <div>
+        <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg" class="w-28 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+        <a href="Index.html" class="block dark:hidden"><img src="../Images/logoL.svg" class="w-28 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+      </div>
+
+
+
+
+
+      <div class="text-secondText w-2/3 md:w-full">
+        تمامی حقوق مادی و معنوی این وبسایت متعلق به گروه هنری فرهنگی موزیک‌فا بوده و کپی برداری از آن به هر نحو پیگرد
+        قانونی دارد.
+      </div>
+
+      <div class="flex ">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19.996" viewBox="0 0 20 19.996">
+            <g id="Page-1" transform="translate(0 -0.001)">
+              <g id="Dribbble-Light-Preview" transform="translate(-340 -7439)">
+                <g id="icons" transform="translate(56 160)">
+                  <path id="instagram-_167_" data-name="instagram-[#167]"
+                    d="M289.87,7279.12a5.518,5.518,0,0,0-5.788,5.78c-.046,1-.314,8.6.462,10.59a5.034,5.034,0,0,0,2.911,2.9,7,7,0,0,0,2.415.46c8.86.4,12.145.19,13.53-3.36a7.217,7.217,0,0,0,.462-2.41c.4-8.88-.066-10.81-1.61-12.35-1.225-1.22-2.666-2.05-12.382-1.61m.081,17.95a5.87,5.87,0,0,1-1.848-.34,3.28,3.28,0,0,1-1.888-1.89c-.591-1.51-.395-8.7-.342-9.86a4.263,4.263,0,0,1,1.086-2.99c.995-.99,2.281-1.48,11.034-1.08a4.266,4.266,0,0,1,2.992,1.08c1,.99,1.489,2.29,1.087,11.01a5.445,5.445,0,0,1-.342,1.84c-.9,2.31-2.973,2.63-11.779,2.23m8.139-13.38a1.195,1.195,0,1,0,1.194-1.19,1.19,1.19,0,0,0-1.194,1.19m-9.227,5.3a5.11,5.11,0,1,0,5.109-5.1,5.1,5.1,0,0,0-5.109,5.1m1.793,0a3.317,3.317,0,1,1,3.316,3.31,3.311,3.311,0,0,1-3.316-3.31"
+                    fill="#8d8d8d" fill-rule="evenodd" />
                 </g>
               </g>
-            </svg>
-          </a>
-  
-  
-          <a href="#" class="mr-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22.091" height="20.165" viewBox="0 0 22.091 20.165">
-              <path id="telegram-svgrepo-com_1_" data-name="telegram-svgrepo-com (1)"
-                d="M23.112,4.494a2,2,0,0,0-2.68-2.267L2.342,9.216A2,2,0,0,0,2.225,12.9l3.939,1.818,1.874,6.559a1,1,0,0,0,1.669.432l2.887-2.887,4.044,3.033a2,2,0,0,0,3.159-1.2ZM3.063,11.082,21.153,4.093l-3.315,16.16L13.1,16.7a1,1,0,0,0-1.307.093l-1.236,1.236.372-2.043,7.279-7.279A1,1,0,0,0,17,7.132L6.951,12.876Zm5.114,3.4L8.783,16.6l.233-1.28a1,1,0,0,1,.277-.528l2.22-2.22Z"
-                transform="translate(-1.063 -2.089)" fill="#8d8d8d" fill-rule="evenodd" />
-            </svg>
-          </a>
-  
-        </div>
+            </g>
+          </svg>
+        </a>
+
+
+        <a href="#" class="mr-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22.091" height="20.165" viewBox="0 0 22.091 20.165">
+            <path id="telegram-svgrepo-com_1_" data-name="telegram-svgrepo-com (1)"
+              d="M23.112,4.494a2,2,0,0,0-2.68-2.267L2.342,9.216A2,2,0,0,0,2.225,12.9l3.939,1.818,1.874,6.559a1,1,0,0,0,1.669.432l2.887-2.887,4.044,3.033a2,2,0,0,0,3.159-1.2ZM3.063,11.082,21.153,4.093l-3.315,16.16L13.1,16.7a1,1,0,0,0-1.307.093l-1.236,1.236.372-2.043,7.279-7.279A1,1,0,0,0,17,7.132L6.951,12.876Zm5.114,3.4L8.783,16.6l.233-1.28a1,1,0,0,1,.277-.528l2.22-2.22Z"
+              transform="translate(-1.063 -2.089)" fill="#8d8d8d" fill-rule="evenodd" />
+          </svg>
+        </a>
+
       </div>
-  
-      <div class="self-end w-32 h-32 md:mt-6 flex justify-center items-center rounded-md bg-lightBg dark:bg-[#1a1b1f]">
-        <img src="../Images/enamad.png" alt="enamad">
-      </div>
-  
-    </footer>
+    </div>
+
+    <div class="self-end w-32 h-32 md:mt-6 flex justify-center items-center rounded-md bg-lightBg dark:bg-[#1a1b1f]">
+      <img src="../Images/enamad.png" alt="enamad">
+    </div>
+
+  </footer>
 
 
 
-    <script src="../JavaScript/utilis/shared.js"></script>
-    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+  <script src="../JavaScript/utilis/shared.js"></script>
+  <script src="../JavaScript/musicVideo.js" type="module"></script>
+  <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
 </body>
 
 </html>
