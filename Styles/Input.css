@@ -167,6 +167,16 @@
     .videoParent {
       height: 360px !important;
     }
+
+    #wrapper {
+      grid-template-columns: repeat(4, 1fr) !important;
+
+    }
+
+    #allArtist{
+      grid-template-columns: repeat(6, 1fr) !important;
+
+    }
   }
 
   @media (max-width:375px) {

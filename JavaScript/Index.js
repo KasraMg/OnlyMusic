@@ -89,77 +89,77 @@ window.addEventListener('load', () => {
   const indexSwiper1 = document.querySelector('#indexSwiper1')
   const indexSwiper2 = document.querySelector('#indexSwiper2')
 
-  // getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => {
-  //     if (data.status == 200) {
-  //         let resultFilter = data.result.filter(data => {
-  //             return data.artist_farsi && data.song_farsi
-  //         })
+  getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => {
+      if (data.status == 200) {
+          let resultFilter = data.result.filter(data => {
+              return data.artist_farsi && data.song_farsi
+          })
 
-  //         resultFilter.slice(0, 8).map(music => (
-  //             newSong.insertAdjacentHTML(
-  //                 "beforeend", mediaHtmlTemplate(music))
-  //         ))
+          resultFilter.slice(0, 8).map(music => (
+              newSong.insertAdjacentHTML(
+                  "beforeend", mediaHtmlTemplate(music))
+          ))
 
-  //         resultFilter.slice(9, 15).map(music => (
-  //             indexSwiper1.insertAdjacentHTML(
-  //                 "beforeend", `
+          resultFilter.slice(9, 15).map(music => (
+              indexSwiper1.insertAdjacentHTML(
+                  "beforeend", `
 
-  //                         <div  class="swiper-slide h-72 rounded-md bg-no-repeat bg-cover bg-center ">
-  //                         <img src='${music.photo}' class=' absolute w-full rounded-xl ' style='    top: -140px;'/>
-  //                             <div class=" font-vazirLight absolute w-full right-5 space-y-2 text-right text-white bottom-5">
-  //                             <p class=" text-2xl !font-vazirMedium"> ${music.song_farsi} </p>
-  //                                 <p class='bg-white text-black w-fit px-3 py-1'>${music.artist_farsi}</p>
-  //                             </div>
+                          <div  class="swiper-slide h-72 rounded-md bg-no-repeat bg-cover bg-center ">
+                          <img src='${music.photo}' class=' absolute w-full rounded-xl ' style='    top: -140px;'/>
+                              <div class=" font-vazirLight absolute w-full right-5 space-y-2 text-right text-white bottom-5">
+                              <p class=" text-2xl !font-vazirMedium"> ${music.song_farsi} </p>
+                                  <p class='bg-white text-black w-fit px-3 py-1'>${music.artist_farsi}</p>
+                              </div>
 
-  //                         </div>
+                          </div>
 
-  //                 `)
-  //         ))
+                  `)
+          ))
 
-  //         resultFilter.slice(16, 100).map(music => (
-  //             indexSwiper2.insertAdjacentHTML(
-  //                 "beforeend", `
+          resultFilter.slice(16, 100).map(music => (
+              indexSwiper2.insertAdjacentHTML(
+                  "beforeend", `
 
-  //                         <div '  class="swiper-slide h-72 rounded-md bg-no-repeat bg-cover bg-center ">
-  //                         <img src='${music.photo}' class=' absolute w-full rounded-xl ' style='    top: -89px;'/>
-  //                             <div class=" font-vazirLight absolute w-full right-5 space-y-2 text-right text-white bottom-5">
-  //                             <p class=" text-2xl !font-vazirMedium"> ${music.song_farsi} </p>
-  //                                 <p>${music.artist_farsi}</p>
-  //                             </div>
+                          <div '  class="swiper-slide h-72 rounded-md bg-no-repeat bg-cover bg-center ">
+                          <img src='${music.photo}' class=' absolute w-full rounded-xl ' style='    top: -89px;'/>
+                              <div class=" font-vazirLight absolute w-full right-5 space-y-2 text-right text-white bottom-5">
+                              <p class=" text-2xl !font-vazirMedium"> ${music.song_farsi} </p>
+                                  <p>${music.artist_farsi}</p>
+                              </div>
 
-  //                         </div>
+                          </div>
 
-  //                 `)
-  //         ))
-  //     }
+                  `)
+          ))
+      }
 
-  // })
+  })
 
 
-  // getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=hot_songs').then(data => {
-  //     if (data.status == 200) {
-  //         let resultFilter = data.result.filter(data => {
-  //             return data.artist_farsi && data.song_farsi
-  //         })
+  getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=hot_songs').then(data => {
+      if (data.status == 200) {
+          let resultFilter = data.result.filter(data => {
+              return data.artist_farsi && data.song_farsi
+          })
 
-  //         resultFilter.slice(0, 8).map(music => (
-  //             specialMusics.insertAdjacentHTML(
-  //                 "beforeend", mediaHtmlTemplate(music))
-  //         ))
-  //     }
-  // })
+          resultFilter.slice(0, 8).map(music => (
+              specialMusics.insertAdjacentHTML(
+                  "beforeend", mediaHtmlTemplate(music))
+          ))
+      }
+  })
 
-  // getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_videos').then(data => {
-  //     if (data.status == 200) {
-  //         let resultFilter = data.result.filter(data => {
-  //             return data.artist_farsi && data.song_farsi
-  //         })
+  getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_videos').then(data => {
+      if (data.status == 200) {
+          let resultFilter = data.result.filter(data => {
+              return data.artist_farsi && data.song_farsi
+          })
 
-  //         resultFilter.slice(0, 8).map(music => (
-  //             newMusicVideo.insertAdjacentHTML(
-  //                 "beforeend", mediaHtmlTemplate(music))
-  //         ))
-  //     }
-  // })
+          resultFilter.slice(0, 8).map(music => (
+              newMusicVideo.insertAdjacentHTML(
+                  "beforeend", mediaHtmlTemplate(music))
+          ))
+      }
+  })
 })
 

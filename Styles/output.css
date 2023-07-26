@@ -1613,10 +1613,6 @@ input:checked + .toggle-bg {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-.grid-cols-6 {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
-
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
@@ -2734,6 +2730,14 @@ input[data-autocompleted] {
   .videoParent {
     height: 360px !important;
   }
+
+  #wrapper {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  #allArtist{
+    grid-template-columns: repeat(6, 1fr) !important;
+  }
 }
 
 @media (max-width:375px) {
@@ -3354,6 +3358,11 @@ input[data-autocompleted] {
     padding-right: 24px !important;
   }
 
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .md\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
@@ -3367,11 +3376,6 @@ input[data-autocompleted] {
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-  }
-
-  .md\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
   }
 
   .md\:pt-36 {
@@ -3457,10 +3461,6 @@ input[data-autocompleted] {
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:space-y-6 > :not([hidden]) ~ :not([hidden]) {

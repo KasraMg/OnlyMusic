@@ -1,12 +1,11 @@
 import { getData } from "./helper/serviceData.js";
 import { ourPlayList } from "./helper/server.js";
-import { getInfoes, getParamToUrl, addParamToUrl, pagination } from "./utilis/utils.js"
+import { getParamToUrl} from "./utilis/utils.js"
 
 const notLogin = document.querySelector('#notLogin');
 const mainShow = document.querySelector('#mainShow');
 const loginBtnP = document.querySelector('#loginBtnP');
 const existPlayList = document.querySelector('#existPlayList');
-const buttonsWrapper = document.querySelectorAll('#buttonsWrapper button');
 
 
 loginBtnP.addEventListener('click', () => location.href = 'login.html')
@@ -21,29 +20,15 @@ if (userLogin.id) {
 }
 
 
-
-
-buttonsWrapper.forEach(element => {
-    element.addEventListener('click', event => {
-        addParamToUrl('type', event.target.id)
-    })
-});
-
-
 window.addEventListener('load', () => {
+  const paramsType = getParamToUrl('type');
 
-    if (getParamToUrl('type') === 'all') {
-        buttonsWrapper[0].classList.remove('btn');
-        buttonsWrapper[0].classList.add('active__Btn');
+    if (paramsType === 'all') {
         showToDOM()
-
-    } else if (getParamToUrl('type') === 'music') {
-        buttonsWrapper[1].classList.remove('btn');
-        buttonsWrapper[1].classList.add('active__Btn');
+    } else if (paramsType === 'music') {
         showToDOM()
     } else {
-        buttonsWrapper[2].classList.remove('btn');
-        buttonsWrapper[2].classList.add('active__Btn');
+
     }
 })
 
