@@ -1609,8 +1609,8 @@ input:checked + .toggle-bg {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.grid-cols-6 {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .grid-cols-7 {
@@ -2732,6 +2732,12 @@ input[data-autocompleted] {
   }
 }
 
+@media (max-width:375px) {
+  #allArtist {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
 .placeholder\:text-\[\#00000058\]::-moz-placeholder {
   color: #00000058;
 }
@@ -3344,6 +3350,11 @@ input[data-autocompleted] {
     padding-right: 24px !important;
   }
 
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .md\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
@@ -3440,8 +3451,8 @@ input[data-autocompleted] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .lg\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:space-y-6 > :not([hidden]) ~ :not([hidden]) {
