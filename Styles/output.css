@@ -1076,10 +1076,6 @@ input:checked + .toggle-bg {
   bottom: 0.25rem;
 }
 
-.bottom-5 {
-  bottom: 1.25rem;
-}
-
 .bottom-\[60px\] {
   bottom: 60px;
 }
@@ -1098,10 +1094,6 @@ input:checked + .toggle-bg {
 
 .right-2 {
   right: 0.5rem;
-}
-
-.right-5 {
-  right: 1.25rem;
 }
 
 .top-0 {
@@ -1396,10 +1388,6 @@ input:checked + .toggle-bg {
   height: 1.5rem;
 }
 
-.h-72 {
-  height: 18rem;
-}
-
 .h-8 {
   height: 2rem;
 }
@@ -1619,6 +1607,10 @@ input:checked + .toggle-bg {
 
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .grid-cols-6 {
@@ -2056,16 +2048,8 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 0.5;
 }
 
-.bg-\[url\(https\:\/\/bp1\.blogger\.com\/_zb325Z5dM2g\/RrLjoxtuWDI\/AAAAAAAAAB8\/EtwEcCnK9Ck\/s320\/HichKas-Ghaf-pishro\.jpg\)\] {
-  background-image: url(https://bp1.blogger.com/_zb325Z5dM2g/RrLjoxtuWDI/AAAAAAAAAB8/EtwEcCnK9Ck/s320/HichKas-Ghaf-pishro.jpg);
-}
-
 .bg-\[url\(https\:\/\/media\.musicfa\.co\/\/2023\/mar\/Feature\/Mohsen\%20Chavoshi\%20-\%20Rahayam\%20Kon\.jpg\)\] {
   background-image: url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg);
-}
-
-.bg-\[url\(https\:\/\/media\.musicfa\.co\/\/slid\/photo_2023-06-02_18-43-56\.jpg\)\] {
-  background-image: url(https://media.musicfa.co//slid/photo_2023-06-02_18-43-56.jpg);
 }
 
 .bg-cover {
@@ -2074,10 +2058,6 @@ input:checked + .toggle-bg {
 
 .bg-\[50\%\] {
   background-position: 50%;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .bg-no-repeat {
@@ -2350,10 +2330,6 @@ input:checked + .toggle-bg {
 
 .text-right {
   text-align: right;
-}
-
-.\!font-vazirMedium {
-  font-family: vazirMedium !important;
 }
 
 .font-cursive {
@@ -2757,6 +2733,12 @@ input[data-autocompleted] {
 @media (min-width:1351px) {
   .videoParent {
     height: 360px !important;
+  }
+}
+
+@media (max-width:375px) {
+  #allArtist {
+    grid-template-columns: repeat(1, 1fr) !important;
   }
 }
 
@@ -3387,6 +3369,11 @@ input[data-autocompleted] {
     padding-right: 1.5rem;
   }
 
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .md\:pt-36 {
     padding-top: 9rem;
   }
@@ -3466,6 +3453,10 @@ input[data-autocompleted] {
 
   .lg\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-4 {

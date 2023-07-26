@@ -1,5 +1,5 @@
 import { artists } from "./helper/server.js";
-import { getInfoes, getParamToUrl, addParamToUrl, pagination,mediaHtmlTemplate } from "./utilis/utils.js"
+import { getInfoes, getParamToUrl, addParamToUrl, pagination, mediaHtmlTemplate } from "./utilis/utils.js"
 
 
 window.addParamToUrl = addParamToUrl;
@@ -24,8 +24,6 @@ window.addEventListener('load', () => {
 
 
     if (getParamToUrl('type') === 'all') {
-        buttonsWrapper[0].classList.remove('btn');
-        buttonsWrapper[0].classList.add('active__Btn');
         getInfoes(`https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=search&q=${getParamToUrl('artist')}`).then(data => {
             if (data.status == 200) {
                 let resultMusicFilter = data.result.mp3s.filter(data => {
@@ -42,8 +40,7 @@ window.addEventListener('load', () => {
         })
 
     } else if (getParamToUrl('type') === 'music') {
-        buttonsWrapper[1].classList.remove('btn');
-        buttonsWrapper[1].classList.add('active__Btn');
+
         getInfoes(`https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=search&q=${getParamToUrl('artist')}`).then(data => {
             if (data.status == 200) {
                 let resultFilter = data.result.mp3s.filter(data => {
@@ -55,8 +52,7 @@ window.addEventListener('load', () => {
 
         })
     } else {
-        buttonsWrapper[2].classList.remove('btn');
-        buttonsWrapper[2].classList.add('active__Btn');
+
         getInfoes(`https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=search&q=${getParamToUrl('artist')}`).then(data => {
             if (data.status == 200) {
                 let resultFilter = data.result.videos.filter(data => {
@@ -72,6 +68,11 @@ window.addEventListener('load', () => {
 
 
 buttonsWrapper.forEach(element => {
+    element.classList.remove('btn');
+    if (element.id === getParamToUrl('type')) {
+        element.classList.add('active__Btn');
+    }
+
     element.addEventListener('click', event => {
         addParamToUrl('type', event.target.id)
     })

@@ -168,4 +168,10 @@
       height: 360px !important;
     }
   }
+
+  @media (max-width:375px) {
+    #allArtist {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+  }
 }

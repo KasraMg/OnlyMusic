@@ -93,7 +93,7 @@ d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 1
       return `           
       <div class="w-full cursor-pointer">
 <div class="relative">
-<a  href='mVideo.html?artist=${data.artist}$id=${data.id}'><img  src=${data.photo_large} alt="cover" class="rounded-lg w-full h-full"></a> 
+<a  href='mVideo.html?artist=${data.artist}$id=${data.id}' class='w-full h-full'><img  src=${data.photo_large} alt="cover" class="rounded-lg w-full h-full"></a> 
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
 stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
 <path stroke-linecap="round"
