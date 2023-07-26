@@ -21,6 +21,65 @@
 
 @layer utilities {
 
+  /* loader */
+  .loaderSong {
+    height: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .loaderSong .stroke {
+    display: block;
+    background-color: #f1f1f1;
+    height: 100%;
+    width: 4px;
+    border-radius: 50px;
+    margin: 0 2px;
+    animation: animate 1s linear infinite alternate;
+
+  }
+
+  @keyframes animate {
+      50% {
+      height: 20%;
+    }
+
+    100% {
+      height: 100%;
+    }
+  }
+
+  .stroke:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .stroke:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  .stroke:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .stroke:nth-child(4) {
+    animation-delay: 0.9s;
+  }
+
+  .stroke:nth-child(5) {
+    animation-delay: 0.6s;
+  }
+
+  .stroke:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+
+  .stroke:nth-child(7) {
+    animation-delay: 0s;
+  }
+
+
+  /* loader */
+
   header label {
     box-shadow: inset 0px 5px 15px rgb(0 0 0 / 30%), inset 0px -5px 15px rgb(45 6 6 / 30%);
     background-color: #000;
@@ -173,7 +232,7 @@
 
     }
 
-    #allArtist{
+    #allArtist {
       grid-template-columns: repeat(6, 1fr) !important;
 
     }
@@ -185,7 +244,5 @@
     }
   }
 
-  .swiperStyle{
-
-  } 
+  .swiperStyle {}
 }

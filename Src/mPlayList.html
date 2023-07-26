@@ -2,17 +2,17 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پلی لیست موزیک</title>
-    <link rel="stylesheet" href="../Styles/output.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پلی لیست موزیک</title>
+  <link rel="stylesheet" href="../Styles/output.css">
 
 </head>
 <!-- bg-[#e3e3e3cc] -->
 
 <body class="dark:bg-darkBg font-vazirLight">
-    <header
+  <header
     class=" dark:!bg-[#18191d] md:!px-[24px] sm:!w-[105%]  fixed border-2 flex-row-reverse z-[900] px-12  border-1   dark:border-b-[#fff] border-black border-solid  py-8 flex justify-between items-center  -left-2 w-[102%] -top-2 bg-lightBg">
 
     <div class="flex gap-2 flex-row-reverse items-center">
@@ -345,391 +345,244 @@
 
     </aside>
 
+    <section
+      class=" grid grid-cols-2 lg:grid-cols-1  font-vazirLight w-full text-darkBgarkBg  dark:text-white dark:bg-darkBg sm-x2:pt-32 pt-40 pb-8 sm-x2:!px-1  md:px-6 pr-72">
+
+
+      <div class="border  lg:border-none border-l-1 lg:px-8 border-white pl-24 sm:!px-4">
+        <div id="firstDetails" class="grid grid-cols-3 py-[15px] bg-lightBg  rounded-lg dark:bg-darkLbg"> </div>
+
         <section
-            class=" grid grid-cols-2 lg:grid-cols-1  font-vazirLight w-full text-darkBgarkBg  dark:text-white dark:bg-darkBg sm-x2:pt-32 pt-40 pb-8 sm-x2:!px-1  md:px-6 pr-72">
-
-
-            <div class="border  lg:border-none border-l-1 lg:px-8 border-white pl-24 sm:!px-4">
-              <div id="firstDetails"  class="grid grid-cols-3 py-[15px] bg-lightBg  rounded-lg dark:bg-darkLbg">   </div>
-
-              <section class=" h-[410px] text-white my-5 w-full relative bg-no-repeat bg-cover bg-[50%] rounded-lg bg-[url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg)]" id="cover">
-                  <div class="music-controll-bg space-y-4 w-full absolute right-0 left-0 bottom-0 rounded-[10px] pt-5 pb-3 px-7">
-                      <div class="flex gap-[10px] justify-between items-center">
-                          <p id="musicTime">04:00</p> 
-                          <div class="progress-container" id="progress-container">
-                              <div class="progress" id="progress" style="width: 0.4689%;"></div> 
-                          </div>
-                         
-                          <p id="currentTime">0:00</p>
-                          <audio src=""></audio>
-                      </div>
-                      <div class="flex gap-[10px] justify-center items-center relative top-[5px]">
-                        <div id="speaker" >
-                          <i class="fa-solid fa-volume-high relative top-[2.7px]"></i>
-                        </div>
-
-                            <svg id="next" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z" />
-                            </svg>
-                        <div  id="play" class=" bg-[#f310ab] rounded-full play-icon-bg transition-colors pr-[.8rem]   pl-3 pt-[8px] pb-[6px]">
-                          <i class="fas fa-play "  ></i>
-                        </div>
-                          
-                            
-                          <svg id="prev" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                                                          <path stroke-linecap="round" stroke-linejoin="round" d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953l7.108-4.062A1.125 1.125 0 0121 8.688v8.123zM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953L9.567 7.71a1.125 1.125 0 011.683.977v8.123z" />
-                            </svg>
-                        
-                            <svg id="roundom" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-                             </svg>
-                                                        
-
-                         
-                            
-                                                          
-                      </div>
-                      <div>
-
-                      </div>
-                  </div> 
-                   
-              </section>
-
-              <div class="flex justify-between sm-x2:my-10" id="artistName">
-                  <div>
-                      <p id="ArtistName" class="text-[#8e8e92] text-[14px] mb-1">محسن چاووشی</p>
-                      <p id="songName" class=" font-vazirBold text-[18px] ">رهایم کن</p>
-                    
-                  </div>
-                  <div class="flex gap-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                        
-                  </div>
+          class=" h-[410px] text-white my-5 w-full relative bg-no-repeat bg-cover bg-[50%] rounded-lg bg-[url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg)]"
+          id="cover">
+          <div
+            class="music-controll-bg space-y-4 w-full absolute right-0 left-0 bottom-0 rounded-[10px] pt-5 pb-3 px-7">
+            <div class="flex gap-[10px] justify-between items-center">
+              <p id="musicTime">04:00</p>
+              <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress" style="width: 0.4689%;"></div>
               </div>
 
-              <section class="flex items-center gap-3 sm:flex-col justify-between mt-8">
-
-                  <div class="flex items-center  sm-x2:flex-col  sm:justify-between sm:w-full gap-3">
-                       <button class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                    </svg>
-                    کیفیت 320 
-                    </button>
-                  <button class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2"> 
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                    </svg>
-                    کیفیت 128 
-                    </button>
-                  </div>
-                 
-                  <div class="bg-[#29241b] flex sm:justify-center sm:gap-3 sm:text-center p-[10px] rounded-md cursor-pointer sm:mt-4 sm:w-full">
-                      <p class="hidden sm:!block text-white">اشتراک گذاری</p>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#ffc542]  ">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
-                        </svg>
-                        
-                  </div>
-              </section>
-        
-              <div id="credits" class="relative w-[100%] mt-12 lg:mb-16 sm:!mb-8 overflow-x-auto shadow-md sm:rounded-lg" dir="rtl">
-
+              <p id="currentTime">0:00</p>
+              <audio src=""></audio>
+            </div>
+            <div class="flex gap-[10px] justify-center items-center relative top-[5px]">
+              <div id="speaker">
+                <i class="fa-solid fa-volume-high relative top-[2.7px]"></i>
               </div>
-          </div>
 
-            <div class=" w-full px-16  lg:px-8  lg:space-y-6 sm:!px-4">
+              <svg id="next" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z" />
+              </svg>
+              <div id="play"
+                class=" bg-[#f310ab] rounded-full play-icon-bg transition-colors pr-[.8rem]   pl-3 pt-[8px] pb-[6px]">
+                <i class="fas fa-play "></i>
+              </div>
 
-                <div class="flex justify-between items-center lg:mt-14 mb-10" id="headerEdit">
 
-                    <div>
-                        عاشقانه
-                    </div>
+              <svg id="prev" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953l7.108-4.062A1.125 1.125 0 0121 8.688v8.123zM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953L9.567 7.71a1.125 1.125 0 011.683.977v8.123z" />
+              </svg>
 
-                    <button
-                        class="dark:text-golden dark:border-golden md:text-[14px] border-[#f310ab] text-[#f310ab] p-[.55rem] px-6 hover:opacity-80 transition  border-1 font-vazirLight rounded-md"
-                        id="editBtn">
-                        ویرایش لیست
-                    </button>
-
-                </div>
-
-               <div class="hidden flex-col gap-6" id="showEditButtons">
-                    <div class="flex justify-between items-center w-full lg:mt-6">
-                        <button
-                            class="text-green-500  md:text-[14px] border-green-500 p-[.55rem] px-6 hover:opacity-80 transition  border-1 font-vazirLight rounded-md"
-                            id="confirmBtn">
-                            ثبت تغییرات
-                        </button>
-                        <button
-                            class="text-redBg md:text-[14px] border-redBg  p-[.55rem] px-6 hover:opacity-80 transition  border-1 font-vazirLight rounded-md"
-                            id="cancelBtn">
-                            لغو
-                        </button>
-                    </div>
-
-                    <div class="lg:mb-10">
-                        <input type="text"
-                            class=" p-3 rounded-md dark:bg-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
-                            value="عاشقانه"
-                            >
-                    </div>
-
-                </div>
+              <svg id="roundom" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+              </svg>
 
 
 
 
-                <div class=" space-y-3 lg:px-8 mt-12 lg:space-y-6 sm:!px-4">
-                    <section
-                        class="  bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                        <a href="#" class="flex gap-4 items-center">
-                            <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg"
-                                class=" w-16 h-16 rounded" alt="">
-                            <div>
-                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                            </div>
-                        </a>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 cursor-pointer text-redBg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-
-
-                    </section>
-                    <section
-                        class="  bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                        <a href="#" class="flex gap-4 items-center">
-                            <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg"
-                                class=" w-16 h-16 rounded" alt="">
-                            <div>
-                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                            </div>
-                        </a>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 cursor-pointer text-redBg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-
-
-                    </section>
-                    <section
-                        class="  bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                        <a href="#" class="flex gap-4 items-center">
-                            <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg"
-                                class=" w-16 h-16 rounded" alt="">
-                            <div>
-                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                            </div>
-                        </a>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 cursor-pointer text-redBg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-
-
-                    </section>
-                    <section
-                        class="  bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                        <a href="#" class="flex gap-4 items-center">
-                            <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg"
-                                class=" w-16 h-16 rounded" alt="">
-                            <div>
-                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                            </div>
-                        </a>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 cursor-pointer text-redBg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-
-
-                    </section>
-                    <section
-                        class="  bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                        <a href="#" class="flex gap-4 items-center">
-                            <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg"
-                                class=" w-16 h-16 rounded" alt="">
-                            <div>
-                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                            </div>
-                        </a>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 cursor-pointer text-redBg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-
-
-                    </section>
-                    <section
-                        class="  bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                        <a href="#" class="flex gap-4 items-center">
-                            <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg"
-                                class=" w-16 h-16 rounded" alt="">
-                            <div>
-                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                            </div>
-                        </a>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 cursor-pointer text-redBg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-
-
-                    </section>
-                    <section
-                        class="  bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                        <a href="#" class="flex gap-4 items-center">
-                            <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg"
-                                class=" w-16 h-16 rounded" alt="">
-                            <div>
-                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                            </div>
-                        </a>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 cursor-pointer text-redBg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-
-
-                    </section>
-                    <section
-                        class="  bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                        <a href="#" class="flex gap-4 items-center">
-                            <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg"
-                                class=" w-16 h-16 rounded" alt="">
-                            <div>
-                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                            </div>
-                        </a>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 cursor-pointer text-redBg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-
-
-                    </section>
-                    <section
-                        class="  bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                        <a href="#" class="flex gap-4 items-center">
-                            <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg"
-                                class=" w-16 h-16 rounded" alt="">
-                            <div>
-                                <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                                <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                            </div>
-                        </a>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 cursor-pointer text-redBg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-                        </svg>
-
-
-                    </section>
-
-                </div>
 
             </div>
+            <div>
 
+            </div>
+          </div>
 
         </section>
 
-    </main>
+        <div class="flex justify-between sm-x2:my-10" id="artistName">
+          <div>
+            <p id="ArtistName" class="text-[#8e8e92] text-[14px] mb-1">محسن چاووشی</p>
+            <p id="songName" class=" font-vazirBold text-[18px] ">رهایم کن</p>
 
+          </div>
+          <div class="flex gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+            </svg>
 
-    <footer class=" mt-10 flex md:flex-col justify-between dark:bg-darkBg pt-6 pb-14 text-white w-full pr-72 pl-4 md:px-6">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
 
-        <div class="flex flex-col space-y-6">
-
-            <div>
-                <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg"
-                        class="w-28 sm:!w-[6rem] h-8" alt="topBarLogo"> </a>
-                <a href="Index.html" class="block dark:hidden"><img src="../Images/logoL.svg"
-                        class="w-28 sm:!w-[6rem] h-8" alt="topBarLogo"> </a>
-            </div>
-
-
-
-
-
-            <div class="text-secondText w-2/3 md:w-full">
-                تمامی حقوق مادی و معنوی این وبسایت متعلق به گروه هنری فرهنگی موزیک‌فا بوده و کپی برداری از آن به هر نحو
-                پیگرد
-                قانونی دارد.
-            </div>
-
-            <div class="flex ">
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19.996" viewBox="0 0 20 19.996">
-                        <g id="Page-1" transform="translate(0 -0.001)">
-                            <g id="Dribbble-Light-Preview" transform="translate(-340 -7439)">
-                                <g id="icons" transform="translate(56 160)">
-                                    <path id="instagram-_167_" data-name="instagram-[#167]"
-                                        d="M289.87,7279.12a5.518,5.518,0,0,0-5.788,5.78c-.046,1-.314,8.6.462,10.59a5.034,5.034,0,0,0,2.911,2.9,7,7,0,0,0,2.415.46c8.86.4,12.145.19,13.53-3.36a7.217,7.217,0,0,0,.462-2.41c.4-8.88-.066-10.81-1.61-12.35-1.225-1.22-2.666-2.05-12.382-1.61m.081,17.95a5.87,5.87,0,0,1-1.848-.34,3.28,3.28,0,0,1-1.888-1.89c-.591-1.51-.395-8.7-.342-9.86a4.263,4.263,0,0,1,1.086-2.99c.995-.99,2.281-1.48,11.034-1.08a4.266,4.266,0,0,1,2.992,1.08c1,.99,1.489,2.29,1.087,11.01a5.445,5.445,0,0,1-.342,1.84c-.9,2.31-2.973,2.63-11.779,2.23m8.139-13.38a1.195,1.195,0,1,0,1.194-1.19,1.19,1.19,0,0,0-1.194,1.19m-9.227,5.3a5.11,5.11,0,1,0,5.109-5.1,5.1,5.1,0,0,0-5.109,5.1m1.793,0a3.317,3.317,0,1,1,3.316,3.31,3.311,3.311,0,0,1-3.316-3.31"
-                                        fill="#8d8d8d" fill-rule="evenodd" />
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-                </a>
-
-
-                <a href="#" class="mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22.091" height="20.165" viewBox="0 0 22.091 20.165">
-                        <path id="telegram-svgrepo-com_1_" data-name="telegram-svgrepo-com (1)"
-                            d="M23.112,4.494a2,2,0,0,0-2.68-2.267L2.342,9.216A2,2,0,0,0,2.225,12.9l3.939,1.818,1.874,6.559a1,1,0,0,0,1.669.432l2.887-2.887,4.044,3.033a2,2,0,0,0,3.159-1.2ZM3.063,11.082,21.153,4.093l-3.315,16.16L13.1,16.7a1,1,0,0,0-1.307.093l-1.236,1.236.372-2.043,7.279-7.279A1,1,0,0,0,17,7.132L6.951,12.876Zm5.114,3.4L8.783,16.6l.233-1.28a1,1,0,0,1,.277-.528l2.22-2.22Z"
-                            transform="translate(-1.063 -2.089)" fill="#8d8d8d" fill-rule="evenodd" />
-                    </svg>
-                </a>
-
-            </div>
+          </div>
         </div>
 
-        <div
-            class="self-end w-32 h-32 md:mt-6 flex justify-center items-center rounded-md bg-lightBg dark:bg-[#1a1b1f]">
-            <img src="../Images/enamad.png" alt="enamad">
+        <section class="flex items-center gap-3 sm:flex-col justify-between mt-8">
+
+          <div class="flex items-center  sm-x2:flex-col  sm:justify-between sm:w-full gap-3">
+            <button
+              class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              کیفیت 320
+            </button>
+            <button
+              class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              کیفیت 128
+            </button>
+          </div>
+
+          <div
+            class="bg-[#29241b] flex sm:justify-center sm:gap-3 sm:text-center p-[10px] rounded-md cursor-pointer sm:mt-4 sm:w-full">
+            <p class="hidden sm:!block text-white">اشتراک گذاری</p>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6 text-[#ffc542]  ">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+            </svg>
+
+          </div>
+        </section>
+
+        <div id="credits" class="relative w-[100%] mt-12 lg:mb-16 sm:!mb-8 overflow-x-auto shadow-md sm:rounded-lg"
+          dir="rtl">
+
+        </div>
+      </div>
+
+      <div class=" w-full px-16  lg:px-8  lg:space-y-6 sm:!px-4">
+
+        <div class="flex justify-between items-center lg:mt-14 mb-10" id="headerEdit">
+
+          <div id="albumName">
+          </div>
+
+          <button
+            class="dark:text-golden dark:border-golden md:text-[14px] border-[#f310ab] text-[#f310ab] p-[.55rem] px-6 hover:opacity-80 transition  border-1 font-vazirLight rounded-md"
+            id="editBtn">
+            ویرایش لیست
+          </button>
+
         </div>
 
-    </footer>
+        <div class="hidden flex-col gap-6" id="showEditButtons">
+          <div class="flex justify-between items-center w-full lg:mt-6">
+            <button
+              class="text-green-500  md:text-[14px] border-green-500 p-[.55rem] px-6 hover:opacity-80 transition  border-1 font-vazirLight rounded-md"
+              id="confirmBtn">
+              ثبت تغییرات
+            </button>
+            <button
+              class="text-redBg md:text-[14px] border-redBg  p-[.55rem] px-6 hover:opacity-80 transition  border-1 font-vazirLight rounded-md"
+              id="cancelBtn">
+              لغو
+            </button>
+          </div>
+
+          <div class="lg:mb-10">
+            <input type="text"
+              class=" p-3 rounded-md dark:bg-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+              value="" id="albumNameInput">
+          </div>
+
+        </div>
 
 
 
-    <script src="../JavaScript/utilis/shared.js"></script>
-    <script src="../JavaScript/mPlayList.js" type="module"></script>
-    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+
+        <div class=" space-y-3 lg:px-8 mt-12 lg:space-y-6 sm:!px-4" id="moreAlbum">
+      
+
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+
+  <footer
+    class=" mt-10 flex md:flex-col justify-between dark:bg-darkBg pt-6 pb-14 text-white w-full pr-72 pl-4 md:px-6">
+
+    <div class="flex flex-col space-y-6">
+
+      <div>
+        <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg" class="w-28 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+        <a href="Index.html" class="block dark:hidden"><img src="../Images/logoL.svg" class="w-28 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+      </div>
+
+
+
+
+
+      <div class="text-secondText w-2/3 md:w-full">
+        تمامی حقوق مادی و معنوی این وبسایت متعلق به گروه هنری فرهنگی موزیک‌فا بوده و کپی برداری از آن به هر نحو
+        پیگرد
+        قانونی دارد.
+      </div>
+
+      <div class="flex ">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19.996" viewBox="0 0 20 19.996">
+            <g id="Page-1" transform="translate(0 -0.001)">
+              <g id="Dribbble-Light-Preview" transform="translate(-340 -7439)">
+                <g id="icons" transform="translate(56 160)">
+                  <path id="instagram-_167_" data-name="instagram-[#167]"
+                    d="M289.87,7279.12a5.518,5.518,0,0,0-5.788,5.78c-.046,1-.314,8.6.462,10.59a5.034,5.034,0,0,0,2.911,2.9,7,7,0,0,0,2.415.46c8.86.4,12.145.19,13.53-3.36a7.217,7.217,0,0,0,.462-2.41c.4-8.88-.066-10.81-1.61-12.35-1.225-1.22-2.666-2.05-12.382-1.61m.081,17.95a5.87,5.87,0,0,1-1.848-.34,3.28,3.28,0,0,1-1.888-1.89c-.591-1.51-.395-8.7-.342-9.86a4.263,4.263,0,0,1,1.086-2.99c.995-.99,2.281-1.48,11.034-1.08a4.266,4.266,0,0,1,2.992,1.08c1,.99,1.489,2.29,1.087,11.01a5.445,5.445,0,0,1-.342,1.84c-.9,2.31-2.973,2.63-11.779,2.23m8.139-13.38a1.195,1.195,0,1,0,1.194-1.19,1.19,1.19,0,0,0-1.194,1.19m-9.227,5.3a5.11,5.11,0,1,0,5.109-5.1,5.1,5.1,0,0,0-5.109,5.1m1.793,0a3.317,3.317,0,1,1,3.316,3.31,3.311,3.311,0,0,1-3.316-3.31"
+                    fill="#8d8d8d" fill-rule="evenodd" />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </a>
+
+
+        <a href="#" class="mr-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22.091" height="20.165" viewBox="0 0 22.091 20.165">
+            <path id="telegram-svgrepo-com_1_" data-name="telegram-svgrepo-com (1)"
+              d="M23.112,4.494a2,2,0,0,0-2.68-2.267L2.342,9.216A2,2,0,0,0,2.225,12.9l3.939,1.818,1.874,6.559a1,1,0,0,0,1.669.432l2.887-2.887,4.044,3.033a2,2,0,0,0,3.159-1.2ZM3.063,11.082,21.153,4.093l-3.315,16.16L13.1,16.7a1,1,0,0,0-1.307.093l-1.236,1.236.372-2.043,7.279-7.279A1,1,0,0,0,17,7.132L6.951,12.876Zm5.114,3.4L8.783,16.6l.233-1.28a1,1,0,0,1,.277-.528l2.22-2.22Z"
+              transform="translate(-1.063 -2.089)" fill="#8d8d8d" fill-rule="evenodd" />
+          </svg>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="self-end w-32 h-32 md:mt-6 flex justify-center items-center rounded-md bg-lightBg dark:bg-[#1a1b1f]">
+      <img src="../Images/enamad.png" alt="enamad">
+    </div>
+
+  </footer>
+
+
+
+  <script src="../JavaScript/utilis/shared.js"></script>
+  <script src="../JavaScript/mPlayList.js" type="module"></script>
+  <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
 </body>
 
 </html>

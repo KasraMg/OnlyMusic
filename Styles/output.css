@@ -1128,6 +1128,18 @@ input:checked + .toggle-bg {
   top: 5px;
 }
 
+.right-1 {
+  right: 0.25rem;
+}
+
+.top-8 {
+  top: 2rem;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1352,16 +1364,16 @@ input:checked + .toggle-bg {
   display: none;
 }
 
+.\!hidden {
+  display: none !important;
+}
+
 .h-14 {
   height: 3.5rem;
 }
 
 .h-16 {
   height: 4rem;
-}
-
-.h-2 {
-  height: 0.5rem;
 }
 
 .h-20 {
@@ -1589,12 +1601,6 @@ input:checked + .toggle-bg {
 
 .resize {
   resize: both;
-}
-
-.appearance-none {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
 }
 
 .grid-cols-2 {
@@ -2595,6 +2601,64 @@ input:checked + .toggle-bg {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+/* loader */
+
+.loaderSong {
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.loaderSong .stroke {
+  display: block;
+  background-color: #f1f1f1;
+  height: 100%;
+  width: 4px;
+  border-radius: 50px;
+  margin: 0 2px;
+  animation: animate 1s linear infinite alternate;
+}
+
+@keyframes animate {
+  50% {
+    height: 20%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+.stroke:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.stroke:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.stroke:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.stroke:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.stroke:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+.stroke:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.stroke:nth-child(7) {
+  animation-delay: 0s;
+}
+
+/* loader */
+
 header label {
   box-shadow: inset 0px 5px 15px rgb(0 0 0 / 30%), inset 0px -5px 15px rgb(45 6 6 / 30%);
   background-color: #000;
@@ -2689,12 +2753,6 @@ input[data-autocompleted] {
   background-color: transparent !important;
 }
 
-.appearance-none {
-  -webkit-appearance: auto !important;
-     -moz-appearance: auto !important;
-          appearance: auto !important;
-}
-
 .progress-container {
   background: #fff;
   border-radius: 5px;
@@ -2735,7 +2793,7 @@ input[data-autocompleted] {
     grid-template-columns: repeat(4, 1fr) !important;
   }
 
-  #allArtist{
+  #allArtist {
     grid-template-columns: repeat(6, 1fr) !important;
   }
 }
