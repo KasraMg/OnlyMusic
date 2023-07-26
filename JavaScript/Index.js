@@ -58,7 +58,7 @@ ourPlayList.forEach(item =>
         
         <a href='#' class="w-full cursor-pointer">
         <div class="relative ">
-          <img src=${item[1][0].photo} alt="cover" class="rounded-lg w-full h-full">
+          <img src=${item.data[0].photo} alt="cover" class="rounded-lg w-full h-full">
 
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
@@ -70,7 +70,7 @@ ourPlayList.forEach(item =>
         </div>
 
         <div class="mt-4">
-          <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">${item[0]}</h3>
+          <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">${item.name}</h3>
 
         </div>
 

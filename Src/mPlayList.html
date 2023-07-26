@@ -350,189 +350,100 @@
 
 
             <div class="border  lg:border-none border-l-1 lg:px-8 border-white pl-24 sm:!px-4">
-                <div class="grid grid-cols-3 py-[15px] bg-lightBg  rounded-lg dark:bg-darkLbg">
-                    <section class="flex justify-center items-center">
-                        <p>1000</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5 mr-2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-                        </svg>
+              <div id="firstDetails"  class="grid grid-cols-3 py-[15px] bg-lightBg  rounded-lg dark:bg-darkLbg">   </div>
 
-                    </section>
-                    <section
-                        class="flex justify-center items-center border-solid border-r-1 border-[#292932]">
-                        <p>1000</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5 mr-2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                        </svg>
-
-                    </section>
-                    <section
-                        class="flex justify-center items-center border-solid border-r-1 border-[#292932]">
-                        <p>1000</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5  mr-2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-
-
-                    </section>
-                </div>
-
-                <section
-                    class=" h-[410px] my-5 w-full relative bg-no-repeat bg-cover bg-[50%] rounded-lg bg-[url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg)]">
-                    <div
-                        class="music-controll-bg space-y-4 w-full absolute right-0 left-0 bottom-0 rounded-[10px] pt-5 pb-3 px-7">
-                        <div class="flex gap-[10px] justify-between items-center">
-                            <p>04:00</p>
-                            <input dir="ltr" id="default-range" type="range" value="0"
-                                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
-                            <p>00:00</p>
+              <section class=" h-[410px] text-white my-5 w-full relative bg-no-repeat bg-cover bg-[50%] rounded-lg bg-[url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg)]" id="cover">
+                  <div class="music-controll-bg space-y-4 w-full absolute right-0 left-0 bottom-0 rounded-[10px] pt-5 pb-3 px-7">
+                      <div class="flex gap-[10px] justify-between items-center">
+                          <p id="musicTime">04:00</p> 
+                          <div class="progress-container" id="progress-container">
+                              <div class="progress" id="progress" style="width: 0.4689%;"></div> 
+                          </div>
+                         
+                          <p id="currentTime">0:00</p>
+                          <audio src=""></audio>
+                      </div>
+                      <div class="flex gap-[10px] justify-center items-center relative top-[5px]">
+                        <div id="speaker" >
+                          <i class="fa-solid fa-volume-high relative top-[2.7px]"></i>
                         </div>
-                        <div class="flex gap-[10px] justify-center items-center relative top-[5px]">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+
+                            <svg id="next" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z" />
                             </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z" />
-                            </svg>
-                            <div class=" bg-[#f310ab] rounded-full play-icon-bg transition-colors  px-2 py-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-                                </svg>
-                            </div>
-
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953l7.108-4.062A1.125 1.125 0 0121 8.688v8.123zM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953L9.567 7.71a1.125 1.125 0 011.683.977v8.123z" />
-                            </svg>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-                            </svg>
-
-
-
-
-
+                        <div  id="play" class=" bg-[#f310ab] rounded-full play-icon-bg transition-colors pr-[.8rem]   pl-3 pt-[8px] pb-[6px]">
+                          <i class="fas fa-play "  ></i>
                         </div>
-                        <div>
-
-                        </div>
-                    </div>
-
-                </section>
-
-                <div class="flex justify-between sm-x2:my-10">
-                    <div>
-                        <p class="text-[#8e8e92] text-[14px] mb-1">محسن چاووشی</p>
-                        <p class=" font-vazirBold text-[18px] ">رهایم کن</p>
-
-                    </div>
-                    <div class="flex gap-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                        </svg>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-
-                    </div>
-                </div>
-
-                <section class="flex items-center gap-3 sm:flex-col justify-between mt-8">
-                    <div class="flex items-center  sm-x2:flex-col  sm:justify-between sm:w-full gap-3">
-                        <button
-                            class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                          
+                            
+                          <svg id="prev" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                                                          <path stroke-linecap="round" stroke-linejoin="round" d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953l7.108-4.062A1.125 1.125 0 0121 8.688v8.123zM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953L9.567 7.71a1.125 1.125 0 011.683.977v8.123z" />
                             </svg>
-                            کیفیت 320
-                        </button>
-                        <button
-                            class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                            </svg>
-                            کیفیت 128
-                        </button>
-                    </div>
+                        
+                            <svg id="roundom" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                             </svg>
+                                                        
 
-                    <div
-                        class="bg-[#29241b] flex sm:justify-center sm:gap-3 sm:text-center p-[10px] rounded-md cursor-pointer sm:mt-4 sm:w-full">
-                        <p class="hidden sm:!block text-white">اشتراک گذاری</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6 text-[#ffc542]  ">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                         
+                            
+                                                          
+                      </div>
+                      <div>
+
+                      </div>
+                  </div> 
+                   
+              </section>
+
+              <div class="flex justify-between sm-x2:my-10" id="artistName">
+                  <div>
+                      <p id="ArtistName" class="text-[#8e8e92] text-[14px] mb-1">محسن چاووشی</p>
+                      <p id="songName" class=" font-vazirBold text-[18px] ">رهایم کن</p>
+                    
+                  </div>
+                  <div class="flex gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
                         </svg>
 
-                    </div>
-                </section>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                        
+                  </div>
+              </div>
 
-                <div class="relative w-[100%] mt-10 overflow-x-auto shadow-md sm:rounded-lg" dir="rtl">
-                    <table class="w-full text-sm   text-gray-500 dark:text-gray-400 text-right">
-                        <thead
-                            class="text-xs text-gray-700 uppercase    bg-lightBg   dark:bg-darkLbg dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 ">
-                                    خواننده
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left">
-                                    محسن چاووشی
-                                </th>
+              <section class="flex items-center gap-3 sm:flex-col justify-between mt-8">
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class=" border-b   dark:bg-transparent dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-6 py-[10px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    تنظیم‌کننده
-                                </th>
-                                <td class="px-6 py-[10px] text-left">
-                                    اشکان عرب
-                                </td>
+                  <div class="flex items-center  sm-x2:flex-col  sm:justify-between sm:w-full gap-3">
+                       <button class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    کیفیت 320 
+                    </button>
+                  <button class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2"> 
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    کیفیت 128 
+                    </button>
+                  </div>
+                 
+                  <div class="bg-[#29241b] flex sm:justify-center sm:gap-3 sm:text-center p-[10px] rounded-md cursor-pointer sm:mt-4 sm:w-full">
+                      <p class="hidden sm:!block text-white">اشتراک گذاری</p>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#ffc542]  ">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                        </svg>
+                        
+                  </div>
+              </section>
+        
+              <div id="credits" class="relative w-[100%] mt-12 lg:mb-16 sm:!mb-8 overflow-x-auto shadow-md sm:rounded-lg" dir="rtl">
 
-
-                            </tr>
-                            <tr class="border-b bg-lightBg dark:bg-darkLbg dark:border-gray-700">
-                                <th scope="row"
-                                    class="px-6 py-[10px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    آهنگساز
-                                </th>
-                                <td class="px-6 py-[10px] text-left">
-                                    عادل روح نواز
-                                </td>
-
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+              </div>
+          </div>
 
             <div class=" w-full px-16  lg:px-8  lg:space-y-6 sm:!px-4">
 

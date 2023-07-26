@@ -18,16 +18,15 @@ window.addEventListener('load', () => {
 
 
 editBtn.addEventListener('click', () => {
-    headerEdit.classList.remove('flex');
-    headerEdit.classList.add('hidden');
-    showEditButtons.classList.remove('hidden');
-    showEditButtons.classList.add('flex');
+    headerEdit.classList.replace('flex', 'hidden');
+    showEditButtons.classList.replace('hidden', 'flex');
 })
 
 
 cancelBtn.addEventListener('click', () => {
-    headerEdit.classList.remove('hidden');
-    headerEdit.classList.add('flex');
-    showEditButtons.classList.add('hidden');
-    showEditButtons.classList.remove('flex');
+    showEditButtons.classList.replace('flex', 'hidden');
+    headerEdit.classList.replace('hidden', 'flex');
 })
+
+
+
