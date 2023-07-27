@@ -1,4 +1,5 @@
 import { getInfoes, getParamToUrl, addParamToUrl, pagination, mediaHtmlTemplate } from "../utilis/utils.js"
+import { destructorData } from "./destructorData.js";
 //////////////////////////////////////////////////////////////////////////////////
 const buttonsWrapper = document.querySelectorAll('#buttonsWrapper button');
 const paginationWrapper = document.querySelector('#paginationWrapper');
@@ -23,6 +24,7 @@ const getData = async (url, key, type) => {
     let a = await getInfoes(url);
     if (a.status == 200) {
         mainData = a.result
+
     }
 
 

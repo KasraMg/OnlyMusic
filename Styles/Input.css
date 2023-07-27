@@ -82,7 +82,7 @@
 
   /* drag drop */
 
-  .activeEdit section {
+  .activeEdit section,.removePlayList {
     animation: begindrag 1.5s linear infinite alternate;
   }
 

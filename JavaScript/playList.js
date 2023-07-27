@@ -1,7 +1,7 @@
-import { getData, setData } from "./helper/serviceData.js";
+import { getData, updateData } from "./helper/serviceData.js";
 import { getParamToUrl, addParamToUrl } from "./utilis/utils.js";
 import { ourPlayList } from "./helper/server.js";
-
+////////////////////////////////////////////////////////////////////
 const headerEdit = document.querySelector('#headerEdit');
 const editBtn = document.querySelector('#editBtn');
 
@@ -12,8 +12,7 @@ const albumNameInput = document.querySelector('#albumNameInput');
 const moreAlbum = document.querySelector('#moreAlbum');
 const confirmBtn = document.querySelector('#confirmBtn');
 ////////////////////////////////////////////////////////////////////
-Sortable.create(moreAlbum);
-moreAlbum.style.pointerEvents = 'none';
+let sortable = Sortable.create(moreAlbum, false);
 ////////////////////////////////////////////////////////////////////
 const type = getParamToUrl('type');
 const playListId = getParamToUrl('plId');
@@ -25,15 +24,24 @@ if (!Object.keys(showData).length) {
     location.href = 'index.html'
 }
 /////////////////////////////////////////////////////////////////
+let url = window.location.pathname;
+let fileName = url.substring(url.lastIndexOf('/') + 1);
+const mainType = fileName.replace('.html', '');
+/////////////////////////////////////////////////////////////////
 let albumDetails = {};
 window.addEventListener('load', () => {
-
     if (type === 'ourPlayList') {
         albumDetails = ourPlayList.find(item => item.id === +playListId);
         editBtn.disabled = true;
         editBtn.style.opacity = '0%'
     } else {
-        albumDetails = showData.musicsAlbum.find(item => item.id === +playListId)
+
+        if (mainType === 'mPlayList') {
+            albumDetails = showData.musicsAlbum.find(item => item.id === +playListId)
+        } else {
+            albumDetails = showData.videosAlbum.find(item => item.id === +playListId);
+            console.log(albumDetails);
+        }
     }
 
     albumName.innerHTML = albumDetails.name
@@ -44,19 +52,16 @@ window.addEventListener('load', () => {
 
 })
 
-
-
 editBtn.addEventListener('click', () => {
     headerEdit.classList.replace('flex', 'hidden');
     showEditButtons.classList.replace('hidden', 'flex');
     moreAlbum.classList.add('activeEdit')
 
     if (type !== 'ourPlayList') {
-        moreAlbum.style.pointerEvents = 'auto';
+        sortable.option("disabled", false);
     }
 
 })
-
 
 cancelBtn.addEventListener('click', () => {
     showEditButtons.classList.replace('flex', 'hidden');
@@ -64,7 +69,7 @@ cancelBtn.addEventListener('click', () => {
     moreAlbum.classList.remove('activeEdit')
 
     if (type !== 'ourPlayList') {
-        moreAlbum.style.pointerEvents = 'none';
+        sortable.option("disabled", true);
         albumNameInput.value = albumDetails.name;
         moreAlbum.innerHTML = ''
         showToDom(albumDetails.data)
@@ -81,42 +86,27 @@ confirmBtn.addEventListener('click', () => {
         return indexA - indexB;
     });
 
-    albumDetails.name = albumNameInput.value.trim()
+    albumDetails.name = albumNameInput.value.trim();
 
-    setData('showData', showData);
-
-    const mainData = getData('mainData');
-
-    mainData.forEach(item => {
-        if (showData.id === item.id) {
-            item.musicsAlbum = showData.musicsAlbum
-        }
-    })
-    setData('mainData', mainData);
+    updateData(showData)
     location.reload()
 })
 
 const deleteHandler = id => {
     let dataAfterRemove = albumDetails.data.filter(item => +item.id !== id);
-    showData.musicsAlbum[playListId - 1].data = dataAfterRemove;
-    setData('showData', showData);
 
-    const mainData = getData('mainData');
+    if (mainType === 'vPlayList') {
+        showData.videosAlbum[playListId - 1].data = dataAfterRemove;
+    } else {
+        showData.musicsAlbum[playListId - 1].data = dataAfterRemove;
+    }
 
-    mainData.forEach(item => {
-        if (showData.id === item.id) {
-            item.musicsAlbum = showData.musicsAlbum
-        }
-    })
-    setData('mainData', mainData);
-    addParamToUrl('id',dataAfterRemove[0].id)
-    // location.reload()
+    updateData(showData);
+
+    addParamToUrl('id', dataAfterRemove[0].id)
 }
 
 window.deleteHandler = deleteHandler
-
-
-
 
 const showToDom = (array) => {
     array.map(item => {
@@ -124,7 +114,7 @@ const showToDom = (array) => {
             "beforeend",
             `
         <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md" data-id=${item.id}>
-        <a href="mPlayList.html?type=${type}&plId=${playListId}&id=${item.id}"  class="relative flex gap-4 items-center">
+        <a href="${(mainType === 'vPlayList') ? `vPlayList` : `mPlayList`}.html?type=${type}&plId=${playListId}&id=${item.id}"  class="relative flex gap-4 items-center">
           <img src='${item.photo}'
             class="w-16 h-16 rounded" alt="">
             <div class="loaderSong absolute top-5 right-1 ${item.id === songId ? `` : `!hidden`}">
@@ -157,4 +147,3 @@ const showToDom = (array) => {
         )
     })
 }
-
