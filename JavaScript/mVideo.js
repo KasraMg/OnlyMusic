@@ -1,13 +1,3 @@
- 
-let playerBtn = document.querySelector('.vjs-big-play-button')
-let customController = document.querySelector('.video-controll-bg')
-// playerBtn.addEventListener('click',()=>{
-//     customController.style.zIndex='999'
-// })
-
-
-
-
 const playIcon =document.querySelector('#play')
 const nextIcon =document.querySelector('#next')
 const speakerIcon =document.querySelector('#speaker')
@@ -21,32 +11,154 @@ const video =document.querySelector('video')
 const cover =document.querySelector('#cover')
 const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
- 
+const firstDetails = document.getElementById('firstDetails')
+const shereIcon = document.getElementById('shereIcon')
+const relatedMusic = document.getElementById('relatedMusic')
+const downloadBtn = document.querySelectorAll('#downloadBtn')
+const mainSection = document.querySelector('#mainSection')
+const loader = document.querySelector('.loader')
 
-const videos = [
-  {
-    path:
-      "../Media/pishiVideo.mp4",
-    displayName: "Bazgasht",
-    artist: "Pishro",
-    cover:
-      "https://images.genius.com/ee202c6f724ffd4cf61bd01a205eeb47.1000x1000x1.jpg",
-  },
-  {
-    path:
-      "../Media/ho3ein.mp4",
-    displayName: "شک",
-    artist: "قاف و فدایی",
-    cover:
-      "../Images/photo_6034947501133510284_y.jpg",
-  },
+let videos;
+let allDatas;
+
+window.addEventListener('load',()=>{
+
+  const url = new URL(window.location.href);
+  const params = new URLSearchParams(url.search);
+  const urlResult = params.get('id');
   
+  
+  getInfoes(urlResult).then(data => {
+    console.log(data);
+  
+    if (data.status == 200 && data.result.link  ) {
+
+      loader.classList.add('hidden')
+      
+      allDatas=data.result
+      
+      nextIcon.addEventListener('click', () => {
+        pauseSong()
+        location.href=`mVideo.html?artist=${data.result.artist}&id=${data.result.related[1].id}`
+      })
+
+      prevIcon.addEventListener('click', () => {
+        pauseSong()
+        location.href=`mVideo.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
+      })
+
+      videos = { 
+        
+        path: data.result.link,
+        displayName: data.result.song_farsi ?  data.result.song_farsi :  data.result.song,
+        artist: data.result.artist_farsi ? data.result.artist_farsi : data.result.artist,
+        cover: data.result.photo_player,
+
+          } 
    
-]
+    loadVideo(videos);
+
+    firstDetails.insertAdjacentHTML('beforeend',
+      `
+    
+    <section class="flex justify-center items-center">
+    <p>${data.result.views}</p>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+      </svg>
+      
+</section>
+
+<section class="flex justify-center items-center border-solid border-r-1 border-[#292932]">
+    <p>${data.result.likes}</p> 
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+      </svg>
+      
+</section>
+
+<section class="flex justify-center items-center border-solid border-r-1 border-[#292932]">
+    <p>${data.result.likes}</p>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5  mr-2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+      </svg>
+      
+      
+</section>
+    `
+    )
+
+    shereIcon.addEventListener('click',()=>{
+      let link=location.href 
+      navigator.clipboard.writeText(link)
+      iziToast.show({ 
+        message: 'آدرس سایت با موفقیت در کلیپ بورد شما کپی شد',
+        rtl: true,
+    });
+    })
+
+    relatedMusic.innerHTML = ''
+
+    data.result.related.slice(0, 10).map(music => {
+
+      relatedMusic.insertAdjacentHTML("beforeend",
+        `
+  <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+  <a href='mVideo.html?artist=${music.artist}&id=${music.id}' class="flex gap-4 items-center">
+      <img src="${music.photo}" class=" w-16 h-16 rounded" alt="">
+      <div>
+          <p class=" font-vazirBold text-[18px]"> ${music.song_farsi ? music.song_farsi : music.song}</p>
+          <p class="text-[#8e8e92] text-[14px]"> ${music.artist_farsi ? music.artist_farsi : music.artist}  </p>
+      </div>
+  </a>
+
+  <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+    </svg>
+    
+</section>
+  `)
+    })
+
+    const musicUrl = data.result.link;
+
+    downloadBtn.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        download(musicUrl);
+      })
+    })
+
+    function download(url) {
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = true;
+      link.click();
+    }
+
+    }
+    else{
+      mainSection.innerHTML=''
+      mainSection.insertAdjacentHTML("beforeend",
+      `
+      <img style=' margin-top:5rem' src='../Images/icons8-sad-100.png' class='mx-auto' />
+      <p style="width: fit-content; margin-bottom:8rem; margin-top:1rem;" class="bg-lightBg dark:bg-darkLbg dark:text-white rounded-md mx-auto text-black   w-fit px-6 py-3">اطلاعات اهنگ یافت نشد :))</p>
+      `)  
+      mainSection.style.textAlign='center'
+      mainSection.style.gridTemplateColumns='auto'
+    }
+  })
+})
+
+const getInfoes = async (id) => { 
+  const res = await fetch(` https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=get_video&id=${id} `)
+  const data = await res.json()
+  return data
+}
+
+
 
 let isPlaying = false;
-document.body.addEventListener('keydown',(e)=>{
-    console.log(e);
+document.body.addEventListener('keydown',(e)=>{ 
     if (e.code === "Space") {
         e.preventDefault()
         
@@ -67,15 +179,15 @@ document.body.addEventListener('keydown',(e)=>{
         video.currentTime=newTime
     }
 })
-loadSong(videos[0]);
+ 
  
 nextIcon.addEventListener('click',()=>{
    pauseSong()
-  loadSong(videos[1])
+  loadVideo(videos)
 })
 prevIcon.addEventListener('click',()=>{
   pauseSong()
-  loadSong(videos[0])
+  loadVideo(videos)
 })
 function playSong() {
     isPlaying = true;
@@ -99,8 +211,7 @@ playIcon.addEventListener("click", function () {
   })
 
 
-  function loadSong(videoData) {
-    console.log(videoData);
+  function loadVideo(videoData) { 
     videoName.textContent = videoData.displayName;
     ArtistName.textContent = videoData.artist;
     video.src = videoData.path; 
@@ -136,11 +247,12 @@ playIcon.addEventListener("click", function () {
       if (currentSeconds < 10) {
         currentSeconds = "0" + currentSeconds;
       }
-       
-      if (progress.style.width === '100%') { 
-        video.pause()
-        pauseSong()  
-    }
+      
+      if (progress.style.width > '99%') { 
+        location.href=`mVideo.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
+        pauseSong()
+     
+      }
     }
     if (isPlaying) { 
         

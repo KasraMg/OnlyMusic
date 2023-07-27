@@ -1,6 +1,3 @@
-
-
-
 const playIcon = document.querySelector('#play')
 const nextIcon = document.querySelector('#next')
 const speakerIcon = document.querySelector('#speaker')
@@ -19,18 +16,42 @@ const artistName = document.getElementById('artistName')
 const lyric = document.getElementById('lyric')
 const relatedMusic = document.getElementById('relatedMusic')
 const shereIcon = document.getElementById('shereIcon')
-
+const downloadBtn = document.querySelectorAll('#downloadBtn')
+const mainSection = document.querySelector('#mainSection')
+const loader = document.querySelector('.loader')
 let songs;
+let allDatas;
+
+
+
 window.addEventListener('load', () => {
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
   const urlResult = params.get('id');
 
-  getInfoes(urlResult).then(data => {
-    console.log(data);
+  getInfoes(urlResult).then(data => { 
+ 
+    if (data.status == 200 && data.result.link  ) {
 
-    if (data.status == 200) {
+      loader.classList.add('hidden')
 
+      allDatas=data.result
+
+      nextIcon.addEventListener('click', () => {
+        pauseSong()
+        location.href=`music.html?artist=${data.result.artist}&id=${data.result.related[1].id}`
+      })
+
+      prevIcon.addEventListener('click', () => {
+        pauseSong()
+        location.href=`music.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
+      })
+
+      roundomIcon.addEventListener('click', () => {
+        pauseSong()
+        location.href=`music.html?artist=${data.result.artist}&id=${data.result.related[3].id}`
+      })
+      
       firstDetails.insertAdjacentHTML('beforeend',
         `
       
@@ -60,13 +81,17 @@ window.addEventListener('load', () => {
   </section>
       `
       )
+
       songs = {
         path: data.result.link,
-        displayName: data.result.song_farsi,
-        artist: data.result.artist_farsi,
+        displayName: data.result.song_farsi ?  data.result.song_farsi :  data.result.song,
+        artist: data.result.artist_farsi ? data.result.artist_farsi : data.result.artist,
         cover: data.result.photo_player,
       }
+
       loadSong(songs);
+
+      ArtistName.setAttribute('href',`artist.html?artist=${data.result.artist}&type=all&page=1`)
 
       if (data.result.lyric_synced) {
         data.result.lyric_synced.map(text => {
@@ -75,7 +100,8 @@ window.addEventListener('load', () => {
         <p>${text.text}</p>
         `)
         })
-      } else {
+      }
+       else {
         lyric.insertAdjacentHTML("beforeend",
           `
         <p>متنی یافت نشد :((</p>
@@ -84,6 +110,7 @@ window.addEventListener('load', () => {
 
 
       relatedMusic.innerHTML = ''
+
       data.result.related.slice(0, 10).map(music => {
 
         relatedMusic.insertAdjacentHTML("beforeend",
@@ -113,7 +140,33 @@ window.addEventListener('load', () => {
           rtl: true,
       });
       })
+      const musicUrl = data.result.link;
+
+      downloadBtn.forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          download(musicUrl);
+        })
+      })
+
+      function download(url) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = true;
+        link.click();
+      }
+
     }
+    else{
+      mainSection.innerHTML=''
+      mainSection.insertAdjacentHTML("beforeend",
+      `
+      <img style=' margin-top:5rem' src='../Images/icons8-sad-100.png' class='mx-auto' />
+      <p style="width: fit-content; margin-bottom:8rem; margin-top:1rem;" class="bg-lightBg dark:bg-darkLbg dark:text-white rounded-md mx-auto text-black   w-fit px-6 py-3">اطلاعات اهنگ یافت نشد :))</p>
+      `)  
+      mainSection.style.textAlign='center'
+      mainSection.style.gridTemplateColumns='auto'
+    }
+
   })
 
 })
@@ -123,7 +176,44 @@ const getInfoes = async (id) => {
   return data
 }
 
+function updateProgressBar(e) {
+  let currentMinutes;
+  let currentSeconds;
+  if (isPlaying) {
+    const duration = e.srcElement.duration;
+    const currentTime = e.srcElement.currentTime;
+    // Update progress bar width
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = progressPercent + "%";
+    // Calculate display for duration
+    const durationMinutes = Math.floor(duration / 60);
+    let durationSeconds = Math.floor(duration % 60);
+    if (durationSeconds < 10) {
+      durationSeconds = "0" + durationSeconds;
+    }
+    // Delay switching duration Element to avoid NaN
+    if (durationSeconds) {
+      musicTime.textContent = durationMinutes + ":" + durationSeconds;
+    }
+    // Calculate display for currentTime
 
+
+
+    currentMinutes = Math.floor(currentTime / 60);
+    currentSeconds = Math.floor(currentTime % 60);
+    if (currentSeconds < 10) {
+      currentSeconds = "0" + currentSeconds;
+    }  
+    if (progress.style.width > '99%') { 
+      pauseSong()
+      location.href=`music.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
+    }
+  }
+  if (isPlaying) {
+    currentTime.innerHTML = ''
+    currentTime.innerHTML = currentMinutes + ":" + currentSeconds;
+  }
+}
 
 document.body.addEventListener('keydown', (e) => {
   if (e.code === "Space") {
@@ -157,14 +247,7 @@ roundomIcon.addEventListener('click', () => {
   pauseSong()
   loadSong(songs[2])
 })
-nextIcon.addEventListener('click', () => {
-  pauseSong()
-  loadSong(songs)
-})
-prevIcon.addEventListener('click', () => {
-  pauseSong()
-  loadSong(songs)
-})
+
 function playSong() {
   isPlaying = true;
   playIcon.innerHTML = ''
@@ -188,8 +271,7 @@ playIcon.addEventListener("click", function () {
 })
 
 
-function loadSong(song) {
-  console.log(song.cover);
+function loadSong(song) { 
   songName.textContent = song.displayName;
   ArtistName.textContent = song.artist;
   music.src = song.path;
@@ -197,51 +279,13 @@ function loadSong(song) {
 }
 
 
-function updateProgressBar(e) {
-  let currentMinutes;
-  let currentSeconds;
-  if (isPlaying) {
-    const duration = e.srcElement.duration;
-    const currentTime = e.srcElement.currentTime;
-    // Update progress bar width
-    const progressPercent = (currentTime / duration) * 100;
-    progress.style.width = progressPercent + "%";
-    // Calculate display for duration
-    const durationMinutes = Math.floor(duration / 60);
-    let durationSeconds = Math.floor(duration % 60);
-    if (durationSeconds < 10) {
-      durationSeconds = "0" + durationSeconds;
-    }
-    // Delay switching duration Element to avoid NaN
-    if (durationSeconds) {
-      musicTime.textContent = durationMinutes + ":" + durationSeconds;
-    }
-    // Calculate display for currentTime
 
-
-
-    currentMinutes = Math.floor(currentTime / 60);
-    currentSeconds = Math.floor(currentTime % 60);
-    if (currentSeconds < 10) {
-      currentSeconds = "0" + currentSeconds;
-    }
-    if (progress.style.width === '100%') {
-      video.pause()
-      pauseSong()
-    }
-  }
-  if (isPlaying) {
-    currentTime.innerHTML = ''
-    currentTime.innerHTML = currentMinutes + ":" + currentSeconds;
-  }
-}
 
 function setProgressBar(e) {
   const width = this.clientWidth;
   const clickX = e.offsetX;
   const duration = music.duration;
-  music.currentTime = (clickX / width) * duration;
-  console.log(music.currentTime);
+  music.currentTime = (clickX / width) * duration; 
 
 }
 

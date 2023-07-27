@@ -72,7 +72,7 @@ const mediaHtmlTemplate = (data, type) => {
   return `           
       <div class="w-full">
 <div class="relative">
-<a  href='${data.type === 'mp3' ? `music.html` : `mVideo.html`}?artist=${data.artist}$id=${data.id}'><img  src=${data.photo} alt="cover" class="rounded-lg w-full object-cover" ${type === 'all' ? `style=height:16rem` : ''}></a> 
+<a  href='${data.type === 'mp3' ? `music.html` : `mVideo.html`}?artist=${data.artist}&id=${data.id}'><img  src=${data.photo} alt="cover" class="rounded-lg w-full object-cover" ${type === 'all' ? `style=height:16rem` : ''}></a> 
 
 ${data.type === 'mp3' ?
       `
@@ -93,7 +93,7 @@ d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72
     }
 
 </div>
-<a href='${data.type === 'mp3' ? `music.html` : `mVideo.html`}?artist=${data.artist}$id=${data.id}' >
+<a href='${data.type === 'mp3' ? `music.html` : `mVideo.html`}?artist=${data.artist}&id=${data.id}' >
 <h3 class="font-bold text-lg md:text-md mb-1 mt-4 text-darkBg dark:text-white"> ${data.song_farsi}</h3>
 <h4 class="font-semibold text-sm md:text-xs text-secondText">${data.artist_farsi}</h4>
 </a>

@@ -510,8 +510,37 @@
 
 
         <div class="space-y-3 lg:px-8 mt-12 lg:space-y-6 sm:!px-4" id="moreAlbum">
-          
 
+          <section class="bg-lightBg   justify-between dark:bg-[#18191d]  items-center p-3 rounded-md hidden"
+            data-id=${item.id}>
+            <a href="${(mainType === 'vPlayList') ? `vPlayList` : `mPlayList`}.html?type=${type}&plId=${playListId}&id=${item.id}"
+              class="relative flex gap-4 items-center">
+              <img src='${item.photo}' class="w-16 h-16 rounded" alt="">
+              <div class="loaderSong absolute top-5 right-1 ${item.id === songId ? `` : `!hidden`}">
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+                <span class="stroke"></span>
+              </div>
+              <div>
+                <p class=" font-vazirBold text-[18px]">${item.song_farsi}</p>
+                <p class="text-[#8e8e92] text-[14px]">${item.artist_farsi}</p>
+              </div>
+            </a>
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6 text-redBg cursor-pointer">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+            </svg>
+
+
+
+          </section>
         </div>
 
       </div>
@@ -580,7 +609,7 @@
 
   <script src="../node_modules/sortablejs/Sortable.min.js"></script>
   <script src="../JavaScript/utilis/shared.js"></script>
-  <script src="../JavaScript/mPlayList.js" type="module"></script>
+  <script src="../JavaScript/playList.js" type="module"></script>
   <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
 </body>
 
