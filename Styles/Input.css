@@ -287,4 +287,54 @@
     font-family: vazirlight !important;
     ;
   }
-}
+ .errorInput {
+    box-shadow: 0 0 0 4px #d3282842;
+
+  }
+
+  .errorInput:focus {
+    box-shadow: 0 0 0 4px #d3282842;
+
+  }
+
+  .vjs-control-bar {
+    display: none !important;
+  }
+
+  .video-js .vjs-control-bar {
+    display: none !important;
+  }
+
+  @media (min-width:1201px) {
+    .videoParent {
+      height: 302px !important;
+    }
+  }
+
+  @media (min-width:1351px) {
+    .videoParent {
+      height: 325px !important;
+    }
+
+    #wrapper {
+      grid-template-columns: repeat(4, 1fr) !important;
+
+    }
+
+    #allArtist {
+      grid-template-columns: repeat(6, 1fr) !important;
+
+    }
+  }
+
+  @media (max-width:375px) {
+    #allArtist {
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+  }
+
+  .iziToast-message{
+    font-family: vazirlight !important    ;
+  }
+
+}  

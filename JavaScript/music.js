@@ -1,6 +1,3 @@
-
-
-
 const playIcon = document.querySelector('#play')
 const nextIcon = document.querySelector('#next')
 const speakerIcon = document.querySelector('#speaker')
@@ -21,67 +18,35 @@ const relatedMusic = document.getElementById('relatedMusic')
 const shereIcon = document.getElementById('shereIcon')
 const downloadBtn = document.querySelectorAll('#downloadBtn')
 const mainSection = document.querySelector('#mainSection')
-
+const loader = document.querySelector('.loader')
 let songs;
 let allDatas;
-function updateProgressBar(e) {
-  let currentMinutes;
-  let currentSeconds;
-  if (isPlaying) {
-    const duration = e.srcElement.duration;
-    const currentTime = e.srcElement.currentTime;
-    // Update progress bar width
-    const progressPercent = (currentTime / duration) * 100;
-    progress.style.width = progressPercent + "%";
-    // Calculate display for duration
-    const durationMinutes = Math.floor(duration / 60);
-    let durationSeconds = Math.floor(duration % 60);
-    if (durationSeconds < 10) {
-      durationSeconds = "0" + durationSeconds;
-    }
-    // Delay switching duration Element to avoid NaN
-    if (durationSeconds) {
-      musicTime.textContent = durationMinutes + ":" + durationSeconds;
-    }
-    // Calculate display for currentTime
 
 
 
-    currentMinutes = Math.floor(currentTime / 60);
-    currentSeconds = Math.floor(currentTime % 60);
-    if (currentSeconds < 10) {
-      currentSeconds = "0" + currentSeconds;
-    } console.log(progress.style.width);
-    if (progress.style.width > '99%') {
-     
-       
-      pauseSong()
-      location.href=`music.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
-    }
-  }
-  if (isPlaying) {
-    currentTime.innerHTML = ''
-    currentTime.innerHTML = currentMinutes + ":" + currentSeconds;
-  }
-}
 window.addEventListener('load', () => {
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
   const urlResult = params.get('id');
 
-  getInfoes(urlResult).then(data => {
-    console.log(data);
+  getInfoes(urlResult).then(data => { 
  
     if (data.status == 200 && data.result.link  ) {
+
+      loader.classList.add('hidden')
+
       allDatas=data.result
+
       nextIcon.addEventListener('click', () => {
         pauseSong()
         location.href=`music.html?artist=${data.result.artist}&id=${data.result.related[1].id}`
       })
+
       prevIcon.addEventListener('click', () => {
         pauseSong()
         location.href=`music.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
       })
+
       roundomIcon.addEventListener('click', () => {
         pauseSong()
         location.href=`music.html?artist=${data.result.artist}&id=${data.result.related[3].id}`
@@ -116,14 +81,18 @@ window.addEventListener('load', () => {
   </section>
       `
       )
+
       songs = {
         path: data.result.link,
         displayName: data.result.song_farsi ?  data.result.song_farsi :  data.result.song,
         artist: data.result.artist_farsi ? data.result.artist_farsi : data.result.artist,
         cover: data.result.photo_player,
       }
+
       loadSong(songs);
+
       ArtistName.setAttribute('href',`artist.html?artist=${data.result.artist}&type=all&page=1`)
+
       if (data.result.lyric_synced) {
         data.result.lyric_synced.map(text => {
           lyric.insertAdjacentHTML("beforeend",
@@ -131,7 +100,8 @@ window.addEventListener('load', () => {
         <p>${text.text}</p>
         `)
         })
-      } else {
+      }
+       else {
         lyric.insertAdjacentHTML("beforeend",
           `
         <p>متنی یافت نشد :((</p>
@@ -140,6 +110,7 @@ window.addEventListener('load', () => {
 
 
       relatedMusic.innerHTML = ''
+
       data.result.related.slice(0, 10).map(music => {
 
         relatedMusic.insertAdjacentHTML("beforeend",
@@ -170,18 +141,22 @@ window.addEventListener('load', () => {
       });
       })
       const musicUrl = data.result.link;
+
       downloadBtn.forEach(btn=>{
         btn.addEventListener('click',()=>{
           download(musicUrl);
         })
       })
+
       function download(url) {
         const link = document.createElement('a');
         link.href = url;
         link.download = true;
         link.click();
       }
-    }else{
+
+    }
+    else{
       mainSection.innerHTML=''
       mainSection.insertAdjacentHTML("beforeend",
       `
@@ -201,7 +176,44 @@ const getInfoes = async (id) => {
   return data
 }
 
+function updateProgressBar(e) {
+  let currentMinutes;
+  let currentSeconds;
+  if (isPlaying) {
+    const duration = e.srcElement.duration;
+    const currentTime = e.srcElement.currentTime;
+    // Update progress bar width
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = progressPercent + "%";
+    // Calculate display for duration
+    const durationMinutes = Math.floor(duration / 60);
+    let durationSeconds = Math.floor(duration % 60);
+    if (durationSeconds < 10) {
+      durationSeconds = "0" + durationSeconds;
+    }
+    // Delay switching duration Element to avoid NaN
+    if (durationSeconds) {
+      musicTime.textContent = durationMinutes + ":" + durationSeconds;
+    }
+    // Calculate display for currentTime
 
+
+
+    currentMinutes = Math.floor(currentTime / 60);
+    currentSeconds = Math.floor(currentTime % 60);
+    if (currentSeconds < 10) {
+      currentSeconds = "0" + currentSeconds;
+    }  
+    if (progress.style.width > '99%') { 
+      pauseSong()
+      location.href=`music.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
+    }
+  }
+  if (isPlaying) {
+    currentTime.innerHTML = ''
+    currentTime.innerHTML = currentMinutes + ":" + currentSeconds;
+  }
+}
 
 document.body.addEventListener('keydown', (e) => {
   if (e.code === "Space") {

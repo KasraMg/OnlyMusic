@@ -35,6 +35,7 @@ let introSwiper2 = new Swiper(".introSwiper2", {
 
 const playListContent = document.querySelector('#playListContent')
 const artistsDev = document.querySelector('#allArtist')
+const loader = document.querySelector('.loader')
 
 artists.map(info => (
   artistsDev.insertAdjacentHTML('beforeend',
@@ -89,6 +90,7 @@ window.addEventListener('load', () => {
 
   getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => {
     if (data.status == 200) {
+      loader.classList.add('hidden')
       let resultFilter = data.result.filter(data => {
         return data.artist_farsi && data.song_farsi
       })
@@ -147,7 +149,7 @@ window.addEventListener('load', () => {
     }
   })
 
-  getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_videos').then(data => {
+  getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=hot_videos').then(data => {
     if (data.status == 200) {
       let resultFilter = data.result.filter(data => {
         return data.artist_farsi && data.song_farsi
