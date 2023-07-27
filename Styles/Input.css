@@ -182,7 +182,7 @@
   .introSwiper2 .swiper-button-prev:after,
   .introSwiper2 .swiper-button-next:after {
     font-size: 20px;
-    color: white;
+    color: white;      
   }
 
   .music-controll-bg {
@@ -282,5 +282,7 @@
     }
   }
 
-  .swiperStyle {}
+  .iziToast-message{
+    font-family: vazirlight !important;
+  }
 }

@@ -8,8 +8,9 @@
     <title>موزیک</title>
     <link rel="stylesheet" href="../Styles/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<!-- bg-[#e3e3e3cc] -->
+    <link rel="stylesheet" href="../node_modules/izitoast/dist/css/iziToast.css">
+  </head>
+ 
 <body class="dark:bg-darkBg font-vazirLight">
   <header
   class=" dark:!bg-[#18191d] md:!px-[24px] sm:!w-[105%]  fixed border-2 flex-row-reverse z-[900] px-12  border-1   dark:border-b-[#fff] border-black border-solid  py-8 flex justify-between items-center  -left-2 w-[102%] -top-2 bg-lightBg">
@@ -349,7 +350,7 @@
             <div class="border  lg:border-none border-l-1 lg:px-8 border-white pl-24 sm:!px-4">
                 <div id="firstDetails"  class="grid grid-cols-3 py-[15px] bg-lightBg  rounded-lg dark:bg-darkLbg">   </div>
 
-                <section class=" h-[410px] text-white my-5 w-full relative bg-no-repeat bg-cover bg-[50%] rounded-lg bg-[url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg)]" id="cover">
+                <section class=" h-[410px] text-white my-5 w-full relative bg-no-repeat bg-cover bg-[50%] rounded-lg bg-[url(https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-0.png)]" id="cover">
                     <div class="music-controll-bg space-y-4 w-full absolute right-0 left-0 bottom-0 rounded-[10px] pt-5 pb-3 px-7">
                         <div class="flex gap-[10px] justify-between items-center">
                             <p id="musicTime">04:00</p> 
@@ -428,7 +429,7 @@
                       </button>
                     </div>
                    
-                    <div class="bg-[#29241b] flex sm:justify-center sm:gap-3 sm:text-center p-[10px] rounded-md cursor-pointer sm:mt-4 sm:w-full">
+                    <div id="shereIcon" class="bg-[#29241b] flex sm:justify-center sm:gap-3 sm:text-center p-[10px] rounded-md cursor-pointer sm:mt-4 sm:w-full">
                         <p class="hidden sm:!block text-white">اشتراک گذاری</p>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#ffc542]  ">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
@@ -437,188 +438,24 @@
                     </div>
                 </section>
           
-                <div id="credits" class="relative w-[100%] mt-12 lg:mb-16 sm:!mb-8 overflow-x-auto shadow-md sm:rounded-lg" dir="rtl">
-                    <!-- <table class="w-full text-sm   text-gray-500 dark:text-gray-400 text-right">
-                        <thead class="text-xs text-gray-700 uppercase    bg-lightBg   dark:bg-darkLbg dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 ">
-                                 خواننده
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left">
-                                   محسن چاووشی
-                                </th>
-                              
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class=" border-b   dark:bg-transparent dark:border-gray-700">
-                                <th scope="row" class="px-6 py-[10px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    تنظیم‌کننده
-                                </th>
-                                <td class="px-6 py-[10px] text-left">
-                                    اشکان عرب
-                                </td>
-                             
-                                
-                            </tr>
-                            <tr class="border-b bg-lightBg dark:bg-darkLbg dark:border-gray-700">
-                                <th scope="row" class="px-6 py-[10px] font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    آهنگساز
-                                </th>
-                                <td class="px-6 py-[10px] text-left">
-                                    عادل روح نواز
-                                </td>
-                            
-                            </tr> 
-                        </tbody>
-                    </table> -->
-                </div>
+                <div id="lyric" class=" leading-[2.25rem] relative text-center w-[100%] mt-12 lg:mb-16 sm:!mb-8 overflow-x-auto shadow-md sm:rounded-lg" dir="rtl"> </div>
             </div>
 
-            <div class=" w-full px-16 space-y-3 sm:mt-8 lg:px-8 mt-0 lg:space-y-6 sm:!px-4">
-
-                <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
+            <div id="relatedMusic" class=" w-full px-16 space-y-3 sm:mt-8 lg:px-8 mt-0 lg:space-y-6 sm:!px-4">
+              <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+                <a href="music.html?artist=Arta&amp;id=115863" class="flex gap-4 items-center">
+                    <img src="../Images/avatar.png" class=" w-16 h-16 rounded" alt="">
+                    <div>
+                        <p class=" font-vazirBold text-[18px]"> Unknown</p>
+                        <p class="text-[#8e8e92] text-[14px]"> Unknown  </p>
+                    </div>
+                </a>
+              
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path>
+                  </svg>
                   
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
-
-                <section class="  bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
-                  
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
-                <section class="  bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
-                  
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
-                <section class="  bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
-                  
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
-                <section class="  bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
-                  
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
-                <section class="  bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
-                  
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
-
-                <section class="  bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
-                  
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
-                <section class="  bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
-                  
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
-                <section class="  bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
-                  
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
-                <section class="  bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                    <a href="#" class="flex gap-4 items-center">
-                        <img src="https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg" class=" w-16 h-16 rounded" alt="">
-                        <div>
-                            <p class=" font-vazirBold text-[18px]">رهایم کن</p>
-                            <p class="text-[#8e8e92] text-[14px]">محسن چاووشی</p>
-                        </div>
-                    </a>
-                  
-                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                      </svg>
-                      
-                </section>
+            </section>
             </div>
 
         </section>
@@ -678,7 +515,7 @@
       </div>
   
     </footer>
-
+    <script src="../node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../JavaScript/music.js"   ></script>
     <script src="../JavaScript/utilis/shared.js"></script>

@@ -1128,10 +1128,6 @@ input:checked + .toggle-bg {
   top: 5px;
 }
 
-.right-1 {
-  right: 0.25rem;
-}
-
 .z-0 {
   z-index: 0;
 }
@@ -1354,10 +1350,6 @@ input:checked + .toggle-bg {
 
 .hidden {
   display: none;
-}
-
-.\!hidden {
-  display: none !important;
 }
 
 .h-14 {
@@ -2046,6 +2038,10 @@ input:checked + .toggle-bg {
   background-image: url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg);
 }
 
+.bg-\[url\(https\:\/\/www\.freeiconspng\.com\/thumbs\/no-image-icon\/no-image-icon-0\.png\)\] {
+  background-image: url(https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-0.png);
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -2412,6 +2408,10 @@ input:checked + .toggle-bg {
   line-height: 2.25rem;
 }
 
+.leading-\[2\.25rem\] {
+  line-height: 2.25rem;
+}
+
 .leading-\[3rem\] {
   line-height: 3rem;
 }
@@ -2595,12 +2595,6 @@ input:checked + .toggle-bg {
 
 /* loader */
 
-.loaderSong {
-  height: 20px;
-  display: flex;
-  align-items: center;
-}
-
 .loaderSong .stroke {
   display: block;
   background-color: #f1f1f1;
@@ -2652,14 +2646,6 @@ input:checked + .toggle-bg {
 /* loader */
 
 /* drag drop */
-
-.activeEdit section {
-  animation: begindrag 1.5s linear infinite alternate;
-}
-
-.activeEdit section:nth-child(even) {
-  animation-delay: -1.5s;
-}
 
 @keyframes begindrag {
   0% {
