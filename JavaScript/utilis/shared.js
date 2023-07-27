@@ -5,6 +5,8 @@ const today = document.querySelector('#today');
 const loginBtn = document.querySelector('#loginBtn');
 const aside = document.querySelectorAll('aside li>a');
 const hamburgerLi = document.querySelectorAll('#hamburger-menu li>a');
+const searchIcon = document.querySelector('#searchIcon')
+const searchInput = document.querySelector('#searchInput')
 
 let url = window.location.pathname;
 let fileName = url.substring(url.lastIndexOf('/') + 1);
@@ -109,3 +111,18 @@ const dateToDay = () => {
 }
 
 
+searchIcon.addEventListener('click',()=>{
+    if (searchInput.value) {
+        location.href=`search.html?param=${searchInput.value}`
+    }
+    
+})
+
+
+searchInput.addEventListener("keydown",(e)=>{
+   if (e.key == 'Enter') {
+    if (e.target.value) {
+        location.href=`search.html?param=${e.target.value}`
+    } 
+   }
+})

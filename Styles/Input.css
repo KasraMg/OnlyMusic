@@ -336,5 +336,8 @@
   .iziToast-message{
     font-family: vazirlight !important    ;
   }
+  .searchInput:focus{
+    box-shadow: none !important;
+  }
 
 }  
