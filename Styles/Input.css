@@ -40,7 +40,7 @@
   }
 
   @keyframes animate {
-      50% {
+    50% {
       height: 20%;
     }
 
@@ -79,6 +79,44 @@
 
 
   /* loader */
+
+  /* drag drop */
+
+  .activeEdit section {
+    animation: begindrag 1.5s linear infinite alternate;
+  }
+
+  .activeEdit section:nth-child(even) {
+    animation-delay: -1.5s;
+  }
+
+  @keyframes begindrag {
+    0% {
+      transform: rotate(0deg)
+    }
+
+    10% {
+      transform: rotate(-0.5deg)
+    }
+
+    30% {
+      transform: rotate(0.5deg)
+    }
+
+    55% {
+      transform: rotate(-0.5deg)
+    }
+
+    80% {
+      transform: rotate(0.5deg)
+    }
+
+    100% {
+      transform: rotate(0deg)
+    }
+  }
+
+  /* drag drop */
 
   header label {
     box-shadow: inset 0px 5px 15px rgb(0 0 0 / 30%), inset 0px -5px 15px rgb(45 6 6 / 30%);
