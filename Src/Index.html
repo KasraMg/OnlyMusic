@@ -106,7 +106,7 @@
           </li>
 
           <li>
-            <a href="musics.html" class="flex items-center  p-4" id="musics">
+            <a href="musics.html?type=newMusic&page=1" class="flex items-center  p-4" id="musics">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -121,7 +121,7 @@
           </li>
 
           <li>
-            <a href="musicVideo.html" class="flex items-center  p-4" id="musicVideo">
+            <a href="musicVideo.html?type=newVideo&page=1" class="flex items-center  p-4" id="musicVideo">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -137,7 +137,7 @@
           </li>
 
           <li>
-            <a href="playlists.html" class="flex items-center  p-4" id="playlists">
+            <a href="playlists.html?type=all&page=1" class="flex items-center  p-4" id="playlists">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -153,7 +153,7 @@
           </li>
 
           <li>
-            <a href="artists.html" class="flex items-center  p-4" id="artists">
+            <a href="artists.html?page=1" class="flex items-center  p-4" id="artists">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="w-6 h-6">
@@ -359,9 +359,9 @@
       </div>
 
       <div class="swiper introSwiper2  lg:w-[700px] md:!w-[100%]  w-[98%] mt-10 mb-16">
-        <div class="swiper-wrapper" id="indexSwiper2">   </div>
-        </div>
-        <div class="swiper-pagination"></div> 
+        <div class="swiper-wrapper" id="indexSwiper2"> </div>
+      </div>
+      <div class="swiper-pagination"></div>
       </div>
     </section>
 
@@ -377,7 +377,7 @@
           class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[12rem]  before:md:right-[10.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           آهنگ‌های ویژه</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
-          <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
+          <a href="musics.html?type=hotMusic&page=1" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
         </div>
       </div>
 
@@ -395,7 +395,7 @@
           class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[15rem]  before:md:right-[12.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           جدیدترین آهنگ‌ها</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
-          <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
+          <a href="musics.html?type=newMusic&page=1" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
         </div>
       </div>
 
@@ -414,7 +414,7 @@
           class="flex -translate-y-1  items-center relative h-20 overflow-hidden  z-10  ml-4 w-full font-bold sm:text-xl md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[21rem]  before:md:right-[16.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           جدیدترین موزیک ویدئوها</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
-          <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
+          <a href="musicVideo.html?type=newVideo&page=1" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
         </div>
       </div>
 
@@ -433,7 +433,7 @@
           class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[12rem]  before:md:right-[10.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           پلی لیست ها</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
-          <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
+          <a href="playlists.html?type=all&page=1" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
         </div>
       </div>
 
@@ -456,14 +456,12 @@
           class="flex -translate-y-1  items-center relative h-14 overflow-hidden  z-10  ml-4 w-full font-bold md:text-2xl text-3xl text-darkBg dark:text-white  before:content:''  before:absolute before:top-[60%] before:left-0  before:right-[8rem]  before:md:right-[6.5rem] before:h-[1px] before:bg-secondText before:-z-10 before:w-full before:opacity-20 ">
           هنرمندان</h2>
         <div class="w-24 sm-x3:!w-28 text-center">
-          <a href="#" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
+          <a href="artists.html?page=1" class="text-xs font-bold text-secondText">مشاهده بیشتر</a>
         </div>
       </div>
 
 
-      <div id="allArtist" class="grid grid-cols-5 lg:grid-cols-3 sm:!grid-cols-2 gap-10 mt-6">  </div>
-
-
+      <div id="allArtist" class="grid grid-cols-5 lg:grid-cols-3 sm:!grid-cols-2 gap-10 mt-6"> </div>
     </div>
 
 

@@ -1,11 +1,10 @@
 import { artists } from "./helper/server.js";
 import { getParamToUrl, addParamToUrl, pagination } from "./utilis/utils.js"
-
+//////////////////////////////////////////////////////////////////////////////////
 const allArtist = document.querySelector('#allArtist');
 const paginationWrapper = document.querySelector('#paginationWrapper');
-
+//////////////////////////////////////////////////////////////////////////////////
 window.addParamToUrl = addParamToUrl
-
 window.addEventListener('load', () => {
     pagination(artists, +getParamToUrl('page'), 18, paginationWrapper).map(artist => (
       allArtist.insertAdjacentHTML(

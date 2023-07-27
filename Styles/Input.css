@@ -21,6 +21,103 @@
 
 @layer utilities {
 
+  /* loader */
+  .loaderSong {
+    height: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .loaderSong .stroke {
+    display: block;
+    background-color: #f1f1f1;
+    height: 100%;
+    width: 4px;
+    border-radius: 50px;
+    margin: 0 2px;
+    animation: animate 1s linear infinite alternate;
+
+  }
+
+  @keyframes animate {
+    50% {
+      height: 20%;
+    }
+
+    100% {
+      height: 100%;
+    }
+  }
+
+  .stroke:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .stroke:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  .stroke:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .stroke:nth-child(4) {
+    animation-delay: 0.9s;
+  }
+
+  .stroke:nth-child(5) {
+    animation-delay: 0.6s;
+  }
+
+  .stroke:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+
+  .stroke:nth-child(7) {
+    animation-delay: 0s;
+  }
+
+
+  /* loader */
+
+  /* drag drop */
+
+  .activeEdit section {
+    animation: begindrag 1.5s linear infinite alternate;
+  }
+
+  .activeEdit section:nth-child(even) {
+    animation-delay: -1.5s;
+  }
+
+  @keyframes begindrag {
+    0% {
+      transform: rotate(0deg)
+    }
+
+    10% {
+      transform: rotate(-0.5deg)
+    }
+
+    30% {
+      transform: rotate(0.5deg)
+    }
+
+    55% {
+      transform: rotate(-0.5deg)
+    }
+
+    80% {
+      transform: rotate(0.5deg)
+    }
+
+    100% {
+      transform: rotate(0deg)
+    }
+  }
+
+  /* drag drop */
+
   header label {
     box-shadow: inset 0px 5px 15px rgb(0 0 0 / 30%), inset 0px -5px 15px rgb(45 6 6 / 30%);
     background-color: #000;
@@ -85,7 +182,7 @@
   .introSwiper2 .swiper-button-prev:after,
   .introSwiper2 .swiper-button-next:after {
     font-size: 20px;
-    color: white;
+    color: white;      
   }
 
   .music-controll-bg {
@@ -167,6 +264,16 @@
     .videoParent {
       height: 360px !important;
     }
+
+    #wrapper {
+      grid-template-columns: repeat(4, 1fr) !important;
+
+    }
+
+    #allArtist {
+      grid-template-columns: repeat(6, 1fr) !important;
+
+    }
   }
 
   @media (max-width:375px) {
@@ -175,7 +282,7 @@
     }
   }
 
-  .swiperStyle{
-
-  } 
+  .iziToast-message{
+    font-family: vazirlight !important;
+  }
 }

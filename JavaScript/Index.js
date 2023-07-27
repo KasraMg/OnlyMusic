@@ -1,6 +1,4 @@
 import { ourPlayList, artists } from "./helper/server.js";
-import { } from "./helper/server.js";
-
 import { getInfoes, mediaHtmlTemplate } from "./utilis/utils.js";
 
 let swiper = new Swiper(".mySwiper", {
@@ -60,7 +58,7 @@ ourPlayList.forEach(item =>
         
         <a href='#' class="w-full cursor-pointer">
         <div class="relative ">
-          <img src=${item[1][0].photo} alt="cover" class="rounded-lg w-full h-full">
+          <img src=${item.data[0].photo} alt="cover" class="rounded-lg w-full h-full">
 
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6 absolute top-2 right-2">
@@ -72,7 +70,7 @@ ourPlayList.forEach(item =>
         </div>
 
         <div class="mt-4">
-          <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">${item[0]}</h3>
+          <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">${item.name}</h3>
 
         </div>
 
@@ -90,19 +88,19 @@ window.addEventListener('load', () => {
   const newMusicVideo = document.querySelector('#newMusicVideo')
 
   getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => {
-      if (data.status == 200) {
-          let resultFilter = data.result.filter(data => {
-              return data.artist_farsi && data.song_farsi
-          })
+    if (data.status == 200) {
+      let resultFilter = data.result.filter(data => {
+        return data.artist_farsi && data.song_farsi
+      })
 
-          resultFilter.slice(0, 8).map(music => (
-              newSong.insertAdjacentHTML(
-                  "beforeend", mediaHtmlTemplate(music))
-          ))
+      resultFilter.slice(0, 8).map(music => (
+        newSong.insertAdjacentHTML(
+          "beforeend", mediaHtmlTemplate(music))
+      ))
 
-          resultFilter.slice(9, 15).map(music => (
-              indexSwiper1.insertAdjacentHTML(
-                  "beforeend", `
+      resultFilter.slice(9, 15).map(music => (
+        indexSwiper1.insertAdjacentHTML(
+          "beforeend", `
 
                           <a  href='music.html?artist=${music.artist}&id=${music.id}'  class="swiper-slide" style=' height:288px; background-repeat: no-repeat; background-position: center; background-size: cover;   border-radius: 10px;'>
                           <img src='${music.photo}' class=' absolute w-full rounded-xl ' style='    top: -140px;'/>
@@ -114,11 +112,11 @@ window.addEventListener('load', () => {
                           </a>
 
                   `)
-          ))
+      ))
 
-          resultFilter.slice(16, 100).map(music => (
-              indexSwiper2.insertAdjacentHTML(
-                  "beforeend", `
+      resultFilter.slice(16, 100).map(music => (
+        indexSwiper2.insertAdjacentHTML(
+          "beforeend", `
 
                           <a  href='music.html?artist=${music.artist}&id=${music.id}'  class="swiper-slide h-72 rounded-md bg-no-repeat bg-cover bg-center " style='height:288px'>
                           <img src='${music.photo}' class=' absolute w-full rounded-xl ' style='    top: -89px;'/>
@@ -130,36 +128,36 @@ window.addEventListener('load', () => {
                           </div>
 
                   `)
-          ))
-      }
+      ))
+    }
 
   })
 
 
   getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=hot_songs').then(data => {
-      if (data.status == 200) {
-          let resultFilter = data.result.filter(data => {
-              return data.artist_farsi && data.song_farsi
-          })
+    if (data.status == 200) {
+      let resultFilter = data.result.filter(data => {
+        return data.artist_farsi && data.song_farsi
+      })
 
-          resultFilter.slice(0, 8).map(music => (
-              specialMusics.insertAdjacentHTML(
-                  "beforeend", mediaHtmlTemplate(music))
-          ))
-      }
+      resultFilter.slice(0, 8).map(music => (
+        specialMusics.insertAdjacentHTML(
+          "beforeend", mediaHtmlTemplate(music))
+      ))
+    }
   })
 
   getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_videos').then(data => {
-      if (data.status == 200) {
-          let resultFilter = data.result.filter(data => {
-              return data.artist_farsi && data.song_farsi
-          })
+    if (data.status == 200) {
+      let resultFilter = data.result.filter(data => {
+        return data.artist_farsi && data.song_farsi
+      })
 
-          resultFilter.slice(0, 8).map(music => (
-              newMusicVideo.insertAdjacentHTML(
-                  "beforeend", mediaHtmlTemplate(music))
-          ))
-      }
+      resultFilter.slice(0, 8).map(music => (
+        newMusicVideo.insertAdjacentHTML(
+          "beforeend", mediaHtmlTemplate(music))
+      ))
+    }
   })
 })
 

@@ -35,6 +35,3 @@ registerBtn.addEventListener('click', (event) => submitHandler(event, () => {
     window.location.href = 'userPanel.html'
 }
 ))
-
-
-

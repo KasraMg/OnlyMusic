@@ -1360,10 +1360,6 @@ input:checked + .toggle-bg {
   height: 4rem;
 }
 
-.h-2 {
-  height: 0.5rem;
-}
-
 .h-20 {
   height: 5rem;
 }
@@ -1589,12 +1585,6 @@ input:checked + .toggle-bg {
 
 .resize {
   resize: both;
-}
-
-.appearance-none {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
 }
 
 .grid-cols-2 {
@@ -2048,6 +2038,10 @@ input:checked + .toggle-bg {
   background-image: url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg);
 }
 
+.bg-\[url\(https\:\/\/www\.freeiconspng\.com\/thumbs\/no-image-icon\/no-image-icon-0\.png\)\] {
+  background-image: url(https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-0.png);
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -2414,6 +2408,10 @@ input:checked + .toggle-bg {
   line-height: 2.25rem;
 }
 
+.leading-\[2\.25rem\] {
+  line-height: 2.25rem;
+}
+
 .leading-\[3rem\] {
   line-height: 3rem;
 }
@@ -2595,6 +2593,88 @@ input:checked + .toggle-bg {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+/* loader */
+
+.loaderSong .stroke {
+  display: block;
+  background-color: #f1f1f1;
+  height: 100%;
+  width: 4px;
+  border-radius: 50px;
+  margin: 0 2px;
+  animation: animate 1s linear infinite alternate;
+}
+
+@keyframes animate {
+  50% {
+    height: 20%;
+  }
+
+  100% {
+    height: 100%;
+  }
+}
+
+.stroke:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.stroke:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.stroke:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.stroke:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.stroke:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+.stroke:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.stroke:nth-child(7) {
+  animation-delay: 0s;
+}
+
+/* loader */
+
+/* drag drop */
+
+@keyframes begindrag {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  10% {
+    transform: rotate(-0.5deg)
+  }
+
+  30% {
+    transform: rotate(0.5deg)
+  }
+
+  55% {
+    transform: rotate(-0.5deg)
+  }
+
+  80% {
+    transform: rotate(0.5deg)
+  }
+
+  100% {
+    transform: rotate(0deg)
+  }
+}
+
+/* drag drop */
+
 header label {
   box-shadow: inset 0px 5px 15px rgb(0 0 0 / 30%), inset 0px -5px 15px rgb(45 6 6 / 30%);
   background-color: #000;
@@ -2689,12 +2769,6 @@ input[data-autocompleted] {
   background-color: transparent !important;
 }
 
-.appearance-none {
-  -webkit-appearance: auto !important;
-     -moz-appearance: auto !important;
-          appearance: auto !important;
-}
-
 .progress-container {
   background: #fff;
   border-radius: 5px;
@@ -2729,6 +2803,14 @@ input[data-autocompleted] {
 @media (min-width:1351px) {
   .videoParent {
     height: 360px !important;
+  }
+
+  #wrapper {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  #allArtist {
+    grid-template-columns: repeat(6, 1fr) !important;
   }
 }
 
