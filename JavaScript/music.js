@@ -19,6 +19,7 @@ const shereIcon = document.getElementById('shereIcon')
 const downloadBtn = document.querySelectorAll('#downloadBtn')
 const mainSection = document.querySelector('#mainSection')
 const loader = document.querySelector('.loader')
+
 let songs;
 let allDatas;
 
