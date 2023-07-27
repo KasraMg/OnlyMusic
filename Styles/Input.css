@@ -82,7 +82,8 @@
 
   /* drag drop */
 
-  .activeEdit section,.removePlayList {
+  .activeEdit section,
+  .removePlayList {
     animation: begindrag 1.5s linear infinite alternate;
   }
 
@@ -282,5 +283,8 @@
     }
   }
 
-  .swiperStyle {}
+  .iziToast-message {
+    font-family: vazirlight !important;
+    ;
+  }
 }
