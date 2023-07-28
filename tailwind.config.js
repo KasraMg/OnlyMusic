@@ -17,7 +17,7 @@ module.exports = {
     },      
     borderWidth:{    
       '1': '1px',
-    },         
+    },               
     fontFamily: {
       "vazirBold": 'vazirBold',   
       "vazirMedium": 'vazirMedium',

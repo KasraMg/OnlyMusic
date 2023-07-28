@@ -11,6 +11,19 @@
 </head>
 
 <body class="dark:bg-darkBg font-vazirLight">
+
+    <div class="loader h-[100vh] bg-[#000000d6]  w-full fixed left-0 top-0 z-[999]">
+        <div class="loaderSong mt-80 mx-auto z-[999] w-14">
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+        </div>
+      </div>
+
     <header
         class=" dark:!bg-[#18191d]  sm:!w-[105%]  fixed border-2  z-[900] border-1   dark:border-b-[#fff] border-black border-solid  py-8   -left-2 w-[102%] -top-2 bg-lightBg">
         <div class="flex flex-row-reverse justify-between items-center  md:!px-[24px] px-12 ">
@@ -347,7 +360,32 @@
 
 
 
-    <main id="searchMain" class="w-full text-darkBg  dark:text-white dark:bg-darkBg pt-52 md:pt-36 pb-6 px-8  md:px-6 flex md:flex-col"></main>
+    <main id="searchMain" class="w-full text-darkBg  dark:text-white dark:bg-darkBg pt-52 md:pt-36 pb-6 px-8  md:px-6  ">
+     
+         
+
+        <section id="musicSearchParent" class="w-full">
+            <div class="waviy text-center w-[300px] mx-auto border-white border-solid border-b-1 mb-16">
+                <span style="--i:1">آهنگ</span>
+                <span style="--i:2">های</span>
+                <span style="--i:3">یافت</span>
+                <span style="--i:4">شده</span> 
+               </div>
+          <div id="SearchMusics" class=" justify-center flex flex-wrap  gap-10 mt-6"></div>
+        </section>
+            <hr class="mt-12">
+        <section  id="videoSearchParent"  class="w-full mt-12">
+          <div class="waviy text-center w-[300px] mx-auto  border-white border-solid border-b-1  mb-16">
+                <span class='mt-12' style="--i:1">ویدیو</span>
+                <span class='mt-12' style="--i:2">های</span>
+                <span class='mt-12' style="--i:3">یافت</span>
+                <span class='mt-12' style="--i:4">شده</span> 
+               </div>
+            <div id="SearchVideos" class="flex flex-wrap gap-10 mt-6 justify-center "></div>
+          </section>
+
+         
+    </main>
 
 
     <script src="../JavaScript/search.js"  type="module"></script>

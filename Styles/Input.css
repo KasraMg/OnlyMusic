@@ -336,8 +336,28 @@
   .iziToast-message{
     font-family: vazirlight !important    ;
   }
-  .searchInput:focus{
+  #searchInput:focus{
     box-shadow: none !important;
   }
+  
+  .waviy span {
+    position: relative;
+    display: inline-block;
+    font-size: 26px;
+    margin: 40px  0px 18px;  
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
+  }
+  @keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+  }
+}         
 
-}  
+
+
+
