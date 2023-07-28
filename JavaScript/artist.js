@@ -29,3 +29,18 @@ window.addEventListener('load', () => {
         getData(baseUrl, 'videos')
     }
 })
+
+ 
+// import { getParamToUrl,getInfoes } from "./utilis/utils.js"
+ 
+ 
+// window.addEventListener('load', () => {
+  
+//     const artist=getParamToUrl('artist')
+//     console.log(artist);
+   
+//     getInfoes(`https://one-api.ir/genius/?token=677668:64ae5b9d7c848&action=artist&id=2&page=1`).then(data=>{
+//         console.log(data);
+//     })
+ 
+// })

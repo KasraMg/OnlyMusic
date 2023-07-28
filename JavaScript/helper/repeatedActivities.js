@@ -4,6 +4,7 @@ import { destructorData } from "./destructorData.js";
 const buttonsWrapper = document.querySelectorAll('#buttonsWrapper button');
 const paginationWrapper = document.querySelector('#paginationWrapper');
 const mainContent = document.querySelector('#mainContent');
+const loader = document.querySelector('.loader')
 //////////////////////////////////////////////////////////////////////////////////
 window.addParamToUrl = addParamToUrl;
 
@@ -45,6 +46,7 @@ const showToDOM = (resultFilter, type) => {
     pagination(resultFilter, +getParamToUrl('page'), 16, paginationWrapper).map(item => (
         mainContent.insertAdjacentHTML(
             "beforeend", mediaHtmlTemplate(item, type))))
+            loader.classList.add('hidden')
 }
 
 const filterPersianData = array => {

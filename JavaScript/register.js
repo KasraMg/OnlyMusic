@@ -1,5 +1,6 @@
 import { addNewUser } from "./helper/addNewUser.js";
 import { submitHandler, data } from "./helper/enterPanelCommon.js";
+import { showSwal } from "./utilis/utils.js";
 
 ////////////////////////////////////////////////////////////// 
 
@@ -14,7 +15,9 @@ loginBtn.addEventListener('click', event => {
 const registerBtn = document.querySelector('#registerBtn')
 
 registerBtn.addEventListener('click', (event) => submitHandler(event, () => {
-    alert('yoho register');
+     showSwal(  ' با موفقیت ثبت نام شدید!' ,'success',  'بزن بریم',(result) => {
+        location.href = "userPanel.html";
+      }  )
     const dateToDay = () => {
         const date = new Date();
         const configs = {
@@ -31,7 +34,6 @@ registerBtn.addEventListener('click', (event) => submitHandler(event, () => {
     let { name, email, password } = data
     let dataToSave = { name, email, password, registerDate: dateToDay() }
     addNewUser(dataToSave);
-    window.location.reload();
-    window.location.href = 'userPanel.html'
+   
 }
 ))

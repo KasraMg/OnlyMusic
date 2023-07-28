@@ -1,6 +1,7 @@
 import { submitHandler, data } from "./helper/enterPanelCommon.js"
 import { rightCode } from "./helper/captchaCreator.js"
 import { getData, setData } from "./helper/serviceData.js"
+import { showSwal } from "./utilis/utils.js"
 /////////////////////////////////////////////////////////
 const registerBtn = document.querySelector('#registerBtn')
 
@@ -35,9 +36,11 @@ loginBtn.addEventListener('click', (event) => submitHandler(event, () => {
     const checkEmailUser = localData.find(item => item.userInfo.email === data.email);
 
     setData('showData', checkEmailUser);
-
-    window.location.reload();
-    window.location.href = 'userPanel.html'
+    showSwal(  ' با موفقیت لاگین شدید!' ,'success',  'بزن بریم',(result) => {
+        location.href = "userPanel.html";
+      }  )
+    // window.location.reload();
+    // window.location.href = 'userPanel.html'
 }
 ))
 

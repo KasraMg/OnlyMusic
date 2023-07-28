@@ -18,10 +18,31 @@
     src: url('../Fonts/vazir/Vazir-Bold.woff2');
   }
 }
+.dark div:where(.swal2-container).swal2-center>.swal2-popup {
+  font-family: vazirlight !important;
+  background: #222222 !important;
+ 
+}
+.dark .swal2-title{
+   color: white !important;
+}
+.dark .swal2-success-circular-line-left,.swal2-success-fix,.swal2-success-circular-line-right{
+  display: none !important;
+} 
 
+  div:where(.swal2-container).swal2-center>.swal2-popup {
+  font-family: vazirlight !important;
+  background: #dedede !important;
+ 
+}
+  .swal2-title{
+   color: black !important;
+}
+  .swal2-success-circular-line-left,.swal2-success-fix,.swal2-success-circular-line-right{
+  display: none !important;
+} 
 @layer utilities {
-
-  /* loader */
+  
   .loaderSong {
     height: 20px;
     display: flex;
@@ -356,8 +377,10 @@
       transform: rotateY(360deg) 
     }
   }
+
+
 }         
 
-
+ 
 
 

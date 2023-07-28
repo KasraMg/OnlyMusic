@@ -2643,8 +2643,6 @@ input:checked + .toggle-bg {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-/* loader */
-
 .loaderSong {
   height: 20px;
   display: flex;
@@ -2931,6 +2929,32 @@ input[data-autocompleted] {
   0%,80% {
     transform: rotateY(360deg)
   }
+}
+
+.dark div:where(.swal2-container).swal2-center>.swal2-popup {
+  font-family: vazirlight !important;
+  background: #222222 !important;
+}
+
+.dark .swal2-title{
+  color: white !important;
+}
+
+.dark .swal2-success-circular-line-left,.swal2-success-fix,.swal2-success-circular-line-right{
+  display: none !important;
+}
+
+div:where(.swal2-container).swal2-center>.swal2-popup {
+  font-family: vazirlight !important;
+  background: #dedede !important;
+}
+
+.swal2-title{
+  color: black !important;
+}
+
+.swal2-success-circular-line-left,.swal2-success-fix,.swal2-success-circular-line-right{
+  display: none !important;
 }
 
 .placeholder\:text-\[\#00000058\]::-moz-placeholder {
@@ -3682,6 +3706,6 @@ input[data-autocompleted] {
   }
 }         
 
-
+ 
 
 
