@@ -89,8 +89,9 @@ window.addEventListener('load', () => {
   const newMusicVideo = document.querySelector('#newMusicVideo')
 
   getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => {
+    loader.classList.add('hidden')
     if (data.status == 200) {
-      loader.classList.add('hidden')
+     
       let resultFilter = data.result.filter(data => {
         return data.artist_farsi && data.song_farsi
       })

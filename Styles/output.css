@@ -1532,6 +1532,10 @@ input:checked + .toggle-bg {
   width: 24rem;
 }
 
+.w-\[300px\] {
+  width: 300px;
+}
+
 .w-\[45rem\] {
   width: 45rem;
 }
@@ -2907,6 +2911,28 @@ input[data-autocompleted] {
   }
 }
 
+#searchInput:focus{
+  box-shadow: none !important;
+}
+
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 26px;
+  margin: 40px  0px 18px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i))
+}
+
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg)
+  }
+}
+
 .placeholder\:text-\[\#00000058\]::-moz-placeholder {
   color: #00000058;
 }
@@ -3654,4 +3680,8 @@ input[data-autocompleted] {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}  
+}         
+
+
+
+

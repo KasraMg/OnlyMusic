@@ -30,10 +30,10 @@ window.addEventListener('load',()=>{
   
   getInfoes(urlResult).then(data => {
     console.log(data);
-  
+   loader.classList.add('hidden')
     if (data.status == 200 && data.result.link  ) {
 
-      loader.classList.add('hidden')
+     
       
       allDatas=data.result
       

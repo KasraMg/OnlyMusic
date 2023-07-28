@@ -31,10 +31,10 @@ window.addEventListener('load', () => {
   const urlResult = params.get('id');
 
   getInfoes(urlResult).then(data => { 
- 
+  loader.classList.add('hidden')
     if (data.status == 200 && data.result.link  ) {
 
-      loader.classList.add('hidden')
+     
 
       allDatas=data.result
 
