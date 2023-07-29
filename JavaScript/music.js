@@ -47,7 +47,7 @@ window.addEventListener('load', () => {
 
       nextIcon.addEventListener('click', () => {
         pauseSong()
-        location.href = `music.html?artist=${data.result.artist}&id=${data.result.related[1].id}`
+        location.href = `music.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
       })
 
       prevIcon.addEventListener('click', () => {
