@@ -14,13 +14,14 @@ const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
 const firstDetails = document.getElementById('firstDetails')
 const shereIcon = document.getElementById('shereIcon')
-const relatedMusic = document.getElementById('relatedMusic')
+const relatedVideos = document.getElementById('relatedVideos')
 const downloadBtn = document.querySelectorAll('#downloadBtn')
 const mainSection = document.querySelector('#mainSection')
 const loader = document.querySelector('.loader')
 
 let videos;
 let allDatas;
+let newTime;
 
 window.addEventListener('load',()=>{
 
@@ -41,12 +42,12 @@ window.addEventListener('load',()=>{
       recentMediaHandler(allDatas)
       
       nextIcon.addEventListener('click', () => {
-        pauseSong()
+        pauseVideo()
         location.href=`mVideo.html?artist=${data.result.artist}&id=${data.result.related[1].id}`
       })
 
       prevIcon.addEventListener('click', () => {
-        pauseSong()
+        pauseVideo()
         location.href=`mVideo.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
       })
 
@@ -56,8 +57,9 @@ window.addEventListener('load',()=>{
         displayName: data.result.song_farsi ?  data.result.song_farsi :  data.result.song,
         artist: data.result.artist_farsi ? data.result.artist_farsi : data.result.artist,
         cover: data.result.photo_player,
-
-          } 
+        id: data.result.id,
+         
+      } 
    
     loadVideo(videos);
 
@@ -100,11 +102,37 @@ window.addEventListener('load',()=>{
     });
     })
 
-    relatedMusic.innerHTML = ''
+    relatedVideos.innerHTML = ''
+    relatedVideos.innerHTML = `
+    <section class="bg-lightBg  relative flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+    
+    <a href='mVideo.html?artist=${videos.artist}&id=${videos.id}' class="flex gap-4 items-center">
+        <img src="${videos.cover}" class=" w-16 h-16 rounded" alt="">
+        <div class="loaderSong absolute  " style="right:15px; top:32px">
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+        <span class="stroke"></span>
+      </div>
+        <div>
+            <p class=" font-vazirBold text-[18px]"> ${videos.displayName }</p>
+            <p class="text-[#8e8e92] text-[14px]"> ${videos.artist}  </p>
+        </div>
+    </a>
+  
+    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+      </svg>
+      
+</section>
+    `
 
     data.result.related.slice(0, 10).map(music => {
 
-      relatedMusic.insertAdjacentHTML("beforeend",
+      relatedVideos.insertAdjacentHTML("beforeend",
         `
   <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
   <a href='mVideo.html?artist=${music.artist}&id=${music.id}' class="flex gap-4 items-center">
@@ -166,14 +194,14 @@ document.body.addEventListener('keydown',(e)=>{
         e.preventDefault()
         
         if (isPlaying) { 
-            pauseSong() 
+            pauseVideo() 
           
         }else{
-            playSong() 
+            playVideo() 
            
         }
     }
-    if (e.code === "ArrowRight") {
+    if (e.code === "ArrowRight") { 
         newTime =video.currentTime + 10
         video.currentTime=newTime
     }
@@ -185,20 +213,20 @@ document.body.addEventListener('keydown',(e)=>{
  
  
 nextIcon.addEventListener('click',()=>{
-   pauseSong()
+   pauseVideo()
   loadVideo(videos)
 })
 prevIcon.addEventListener('click',()=>{
-  pauseSong()
+  pauseVideo()
   loadVideo(videos)
 })
-function playSong() {
+function playVideo() {
     isPlaying = true;
     playIcon.innerHTML=''
     playIcon.innerHTML=' <i class="fas fa-pause " ></i>'
     video.play(); 
   }
-function pauseSong() {
+function pauseVideo() {
       isPlaying = false; 
       video.pause();
       playIcon.innerHTML=''
@@ -207,9 +235,9 @@ function pauseSong() {
   
 playIcon.addEventListener("click", function () {
     if (isPlaying) {
-      pauseSong()  
+      pauseVideo()  
     } else {
-      playSong()  
+      playVideo()  
     }
   })
 
@@ -253,7 +281,7 @@ playIcon.addEventListener("click", function () {
       
       if (progress.style.width > '99%') { 
         location.href=`mVideo.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
-        pauseSong()
+        pauseVideo()
      
       }
     }

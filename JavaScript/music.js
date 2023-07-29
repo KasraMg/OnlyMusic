@@ -26,7 +26,7 @@ const loader = document.querySelector('.loader')
 
 let songs;
 let allDatas;
-
+let newTime;
 
 
 window.addEventListener('load', () => {
