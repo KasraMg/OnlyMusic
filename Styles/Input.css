@@ -28,7 +28,7 @@
 }
 .dark .swal2-success-circular-line-left,.swal2-success-fix,.swal2-success-circular-line-right{
   display: none !important;
-} 
+}  
 
   div:where(.swal2-container).swal2-center>.swal2-popup {
   font-family: vazirlight !important;
@@ -360,13 +360,15 @@
   #searchInput:focus{
     box-shadow: none !important;
   }
-  
+  .dark .waviy span {
+    color: white !important;
+  } 
   .waviy span {
     position: relative;
     display: inline-block;
     font-size: 26px;
     margin: 40px  0px 18px;  
-    color: #fff;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
     text-align: center;
     animation: flip 2s infinite;

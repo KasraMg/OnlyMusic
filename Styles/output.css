@@ -1552,10 +1552,6 @@ input:checked + .toggle-bg {
   width: 100%;
 }
 
-.w-56 {
-  width: 14rem;
-}
-
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -2066,11 +2062,6 @@ input:checked + .toggle-bg {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
-}
-
 .bg-transparent {
   background-color: transparent;
 }
@@ -2084,41 +2075,8 @@ input:checked + .toggle-bg {
   background-color: rgb(255 255 255 / 0.5);
 }
 
-.bg-\[\#00000045\] {
-  background-color: #00000045;
-}
-
-.bg-golden {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 197 66 / var(--tw-bg-opacity));
-}
-
-.bg-green-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(5 122 85 / var(--tw-bg-opacity));
-}
-
-.bg-sky-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
-}
-
-.\!bg-green-600 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(5 122 85 / var(--tw-bg-opacity)) !important;
-}
-
-.\!bg-green-500 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(14 159 110 / var(--tw-bg-opacity)) !important;
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
-}
-
-.bg-\[url\(https\:\/\/media\.musicfa\.co\/\/2023\/mar\/Feature\/Mohsen\%20Chavoshi\%20-\%20Rahayam\%20Kon\.jpg\)\] {
-  background-image: url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg);
 }
 
 .bg-\[url\(https\:\/\/www\.freeiconspng\.com\/thumbs\/no-image-icon\/no-image-icon-0\.png\)\] {
@@ -2593,23 +2551,6 @@ input:checked + .toggle-bg {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-\[\] {
-  color: ;
-}
-
-.text-\[\#\] {
-  color: #;
-}
-
-.text-\[\#000\] {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.text-\[\#00000045\] {
-  color: #00000045;
-}
-
 .opacity-0 {
   opacity: 0;
 }
@@ -2968,12 +2909,16 @@ input[data-autocompleted] {
   box-shadow: none !important;
 }
 
+.dark .waviy span {
+  color: white !important;
+}
+
 .waviy span {
   position: relative;
   display: inline-block;
   font-size: 26px;
   margin: 40px  0px 18px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   text-transform: uppercase;
   text-align: center;
   animation: flip 2s infinite;
@@ -3305,15 +3250,6 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 :is(.dark .dark\:bg-white) {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-:is(.dark .dark\:bg-\[\#fff\]) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-:is(.dark .dark\:bg-\[\#ffffff45\]) {
-  background-color: #ffffff45;
 }
 
 :is(.dark .dark\:bg-opacity-80) {
