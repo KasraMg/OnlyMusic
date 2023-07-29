@@ -14,7 +14,6 @@ const editInfoBtn = document.querySelector('#editInfoBtn');
 const recent = document.querySelector('#recent');
 const favorite = document.querySelector('#favorite');
 const musicPlayListCount = document.querySelector('#musicPlayListCount');
-const videoPlayListCount = document.querySelector('#videoPlayListCount');
 
 
 const chooseBtn = document.querySelectorAll('#chooseBtn p');
@@ -104,7 +103,6 @@ chooseBtn.forEach(element => {
 window.addEventListener('load', () => {
     const showData = getData('showData');
     musicPlayListCount.innerHTML = showData.musicsAlbum.length
-    videoPlayListCount.innerHTML = showData.videosAlbum.length
 
     showData.recentMedia.map(item => (
         recent.insertAdjacentHTML(
