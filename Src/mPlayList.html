@@ -7,7 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>پلی لیست موزیک</title>
   <link rel="stylesheet" href="../Styles/output.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../node_modules/izitoast/dist/css/iziToast.css">
 </head>
 <!-- bg-[#e3e3e3cc] -->
 
@@ -353,7 +356,7 @@
         <div id="firstDetails" class="grid grid-cols-3 py-[15px] bg-lightBg  rounded-lg dark:bg-darkLbg"> </div>
 
         <section
-          class=" h-[410px] text-white my-5 w-full relative bg-no-repeat bg-cover bg-[50%] rounded-lg bg-[url(https://media.musicfa.co//2023/mar/Feature/Mohsen%20Chavoshi%20-%20Rahayam%20Kon.jpg)]"
+          class=" h-[410px] text-white my-5 w-full relative bg-no-repeat bg-cover bg-[50%] rounded-lg bg-[url(https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-0.png)]"
           id="cover">
           <div
             class="music-controll-bg space-y-4 w-full absolute right-0 left-0 bottom-0 rounded-[10px] pt-5 pb-3 px-7">
@@ -408,8 +411,8 @@
 
         <div class="flex justify-between sm-x2:my-10" id="artistName">
           <div>
-            <p id="ArtistName" class="text-[#8e8e92] text-[14px] mb-1">محسن چاووشی</p>
-            <p id="songName" class=" font-vazirBold text-[18px] ">رهایم کن</p>
+            <p id="ArtistName" class="text-[#8e8e92] text-[14px] mb-1">   unknown</p>
+            <p id="songName" class=" font-vazirBold text-[18px] ">   unknown</p>
 
           </div>
           <div class="flex gap-3">
@@ -431,27 +434,28 @@
         <section class="flex items-center gap-3 sm:flex-col justify-between mt-8">
 
           <div class="flex items-center  sm-x2:flex-col  sm:justify-between sm:w-full gap-3">
-            <button
-              class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-5 h-5">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-              </svg>
-              کیفیت 320
-            </button>
-            <button
-              class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-5 h-5">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-              </svg>
-              کیفیت 128
-            </button>
+            <button id="downloadBtn"
+            class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            کیفیت 320
+          </button>
+          <button id="downloadBtn"
+            class="flex gap-2 sm-x2:w-full sm:text-center sm:justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            کیفیت 128
+          </button>
           </div>
 
           <div
+          id="shereIcon"
             class="bg-[#29241b] flex sm:justify-center sm:gap-3 sm:text-center p-[10px] rounded-md cursor-pointer sm:mt-4 sm:w-full">
             <p class="hidden sm:!block text-white">اشتراک گذاری</p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -606,7 +610,11 @@
 
   </footer>
 
-
+  <script src="../node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+    integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../JavaScript/mPlaylists.js"></script>
   <script src="../node_modules/sortablejs/Sortable.min.js"></script>
   <script src="../JavaScript/utilis/shared.js"></script>
   <script src="../JavaScript/playList.js" type="module"></script>

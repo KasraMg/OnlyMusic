@@ -125,7 +125,7 @@ const showToDOM = (array) => {
             
       <div class="relative" ${item.type === 'ourPlayList' ? `id='ourPlayList'` : `id='userPlayList'`}>
 
-            <a href='${item.format === 'video' ? 'vPlayList' : 'mPlayList'}.html?type=${item.type}&plId=${item.id}&id=${item.data[0] ? item.data[0].id : 'not'}' class="w-full cursor-pointer">
+            <a href='${item.type === 'videosAlbum' ? 'vPlayList' : 'mPlayList'}.html?type=${item.type}&plId=${item.id}&id=${item.data[0] ? item.data[0].id : 'not'}' class="w-full cursor-pointer">
             <div class="relative ">
               <img src=${item.data[0] ? item.data[0].photo : '../Images/playList.jpg'} alt="cover" class="rounded-lg w-full h-full">
     
