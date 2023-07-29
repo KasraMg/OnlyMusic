@@ -1552,6 +1552,10 @@ input:checked + .toggle-bg {
   width: 100%;
 }
 
+.w-56 {
+  width: 14rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -2062,6 +2066,11 @@ input:checked + .toggle-bg {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+
 .bg-transparent {
   background-color: transparent;
 }
@@ -2073,6 +2082,35 @@ input:checked + .toggle-bg {
 
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
+}
+
+.bg-\[\#00000045\] {
+  background-color: #00000045;
+}
+
+.bg-golden {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 197 66 / var(--tw-bg-opacity));
+}
+
+.bg-green-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(5 122 85 / var(--tw-bg-opacity));
+}
+
+.bg-sky-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+
+.\!bg-green-600 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(5 122 85 / var(--tw-bg-opacity)) !important;
+}
+
+.\!bg-green-500 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(14 159 110 / var(--tw-bg-opacity)) !important;
 }
 
 .bg-opacity-50 {
@@ -2553,6 +2591,23 @@ input:checked + .toggle-bg {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\] {
+  color: ;
+}
+
+.text-\[\#\] {
+  color: #;
+}
+
+.text-\[\#000\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-\[\#00000045\] {
+  color: #00000045;
 }
 
 .opacity-0 {
@@ -3252,6 +3307,15 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+:is(.dark .dark\:bg-\[\#fff\]) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:bg-\[\#ffffff45\]) {
+  background-color: #ffffff45;
+}
+
 :is(.dark .dark\:bg-opacity-80) {
   --tw-bg-opacity: 0.8;
 }
@@ -3600,16 +3664,6 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 
   .md\:text-\[14px\] {
     font-size: 14px;
-  }
-
-  .md\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-
-  .md\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
   }
 
   .before\:md\:right-\[10\.5rem\]::before {

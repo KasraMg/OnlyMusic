@@ -1,3 +1,6 @@
+import { recentMediaHandler } from "./helper/recentMedia.js"
+
+import { getData } from "./helper/serviceData.js"
 const playIcon = document.querySelector('#play')
 const nextIcon = document.querySelector('#next')
 const speakerIcon = document.querySelector('#speaker')
@@ -20,6 +23,7 @@ const downloadBtn = document.querySelectorAll('#downloadBtn')
 const mainSection = document.querySelector('#mainSection')
 const loader = document.querySelector('.loader')
 
+
 let songs;
 let allDatas;
 
@@ -29,30 +33,33 @@ window.addEventListener('load', () => {
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
   const urlResult = params.get('id');
+  getInfoes(urlResult).then(data => {
+    loader.classList.add('hidden')
+    if (data.status == 200 && data.result.link) {
 
-  getInfoes(urlResult).then(data => { 
-  loader.classList.add('hidden')
-    if (data.status == 200 && data.result.link  ) {
+
+
+      allDatas = data.result
+      recentMediaHandler(allDatas);
 
      
 
-      allDatas=data.result
 
       nextIcon.addEventListener('click', () => {
         pauseSong()
-        location.href=`music.html?artist=${data.result.artist}&id=${data.result.related[1].id}`
+        location.href = `music.html?artist=${data.result.artist}&id=${data.result.related[1].id}`
       })
 
       prevIcon.addEventListener('click', () => {
         pauseSong()
-        location.href=`music.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
+        location.href = `music.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
       })
 
       roundomIcon.addEventListener('click', () => {
         pauseSong()
-        location.href=`music.html?artist=${data.result.artist}&id=${data.result.related[3].id}`
+        location.href = `music.html?artist=${data.result.artist}&id=${data.result.related[3].id}`
       })
-      
+
       firstDetails.insertAdjacentHTML('beforeend',
         `
       
@@ -85,14 +92,14 @@ window.addEventListener('load', () => {
 
       songs = {
         path: data.result.link,
-        displayName: data.result.song_farsi ?  data.result.song_farsi :  data.result.song,
+        displayName: data.result.song_farsi ? data.result.song_farsi : data.result.song,
         artist: data.result.artist_farsi ? data.result.artist_farsi : data.result.artist,
         cover: data.result.photo_player,
       }
 
       loadSong(songs);
 
-      ArtistName.setAttribute('href',`artist.html?artist=${data.result.artist}&type=all&page=1`)
+      ArtistName.setAttribute('href', `artist.html?artist=${data.result.artist}&type=all&page=1`)
 
       if (data.result.lyric_synced) {
         data.result.lyric_synced.map(text => {
@@ -102,7 +109,7 @@ window.addEventListener('load', () => {
         `)
         })
       }
-       else {
+      else {
         lyric.insertAdjacentHTML("beforeend",
           `
         <p>متنی یافت نشد :((</p>
@@ -133,18 +140,18 @@ window.addEventListener('load', () => {
     `)
       })
 
-      shereIcon.addEventListener('click',()=>{
-        let link=location.href 
+      shereIcon.addEventListener('click', () => {
+        let link = location.href
         navigator.clipboard.writeText(link)
-        iziToast.show({ 
+        iziToast.show({
           message: 'آدرس سایت با موفقیت در کلیپ بورد شما کپی شد',
           rtl: true,
-      });
+        });
       })
       const musicUrl = data.result.link;
 
-      downloadBtn.forEach(btn=>{
-        btn.addEventListener('click',()=>{
+      downloadBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
           download(musicUrl);
         })
       })
@@ -157,18 +164,21 @@ window.addEventListener('load', () => {
       }
 
     }
-    else{
-      mainSection.innerHTML=''
+    else {
+      mainSection.innerHTML = ''
       mainSection.insertAdjacentHTML("beforeend",
-      `
+        `
       <img style=' margin-top:5rem' src='../Images/icons8-sad-100.png' class='mx-auto' />
       <p style="width: fit-content; margin-bottom:8rem; margin-top:1rem;" class="bg-lightBg dark:bg-darkLbg dark:text-white rounded-md mx-auto text-black   w-fit px-6 py-3">اطلاعات اهنگ یافت نشد :))</p>
-      `)  
-      mainSection.style.textAlign='center'
-      mainSection.style.gridTemplateColumns='auto'
+      `)
+      mainSection.style.textAlign = 'center'
+      mainSection.style.gridTemplateColumns = 'auto'
     }
 
   })
+
+
+
 
 })
 const getInfoes = async (id) => {
@@ -204,10 +214,10 @@ function updateProgressBar(e) {
     currentSeconds = Math.floor(currentTime % 60);
     if (currentSeconds < 10) {
       currentSeconds = "0" + currentSeconds;
-    }  
-    if (progress.style.width > '99%') { 
+    }
+    if (progress.style.width > '99%') {
       pauseSong()
-      location.href=`music.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
+      location.href = `music.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
     }
   }
   if (isPlaying) {
@@ -272,25 +282,23 @@ playIcon.addEventListener("click", function () {
 })
 
 
-function loadSong(song) { 
+function loadSong(song) {
   songName.textContent = song.displayName;
   ArtistName.textContent = song.artist;
   music.src = song.path;
   cover.style.backgroundImage = `url(${song.cover})`
 }
 
-
-
-
 function setProgressBar(e) {
   const width = this.clientWidth;
   const clickX = e.offsetX;
   const duration = music.duration;
-  music.currentTime = (clickX / width) * duration; 
+  music.currentTime = (clickX / width) * duration;
 
 }
 
-let speaker = true
+let speaker = true;
+
 speakerIcon.addEventListener('click', (e) => {
   if (speaker) {
     music.volume = 0
@@ -308,3 +316,5 @@ speakerIcon.addEventListener('click', (e) => {
 
 music.addEventListener("timeupdate", updateProgressBar);
 progressContainer.addEventListener("click", setProgressBar);
+
+

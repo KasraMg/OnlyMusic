@@ -38,9 +38,9 @@ window.addEventListener('load', () => {
 
         if (mainType === 'mPlayList') {
             albumDetails = showData.musicsAlbum.find(item => item.id === +playListId)
+
         } else {
             albumDetails = showData.videosAlbum.find(item => item.id === +playListId);
-            console.log(albumDetails);
         }
     }
 

@@ -2,16 +2,18 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موزیک ویدو</title>
-    <link rel="stylesheet" href="../Styles/output.css">
-    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../node_modules/izitoast/dist/css/iziToast.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موزیک ویدو</title>
+  <link rel="stylesheet" href="../Styles/output.css">
+  <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../node_modules/izitoast/dist/css/iziToast.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
- 
+
 
 <body class="dark:bg-darkBg font-vazirLight">
 
@@ -27,7 +29,7 @@
     </div>
   </div>
 
-    <header
+  <header
     class=" dark:!bg-[#18191d] md:!px-[24px] sm:!w-[105%]  fixed border-2 flex-row-reverse z-[900] px-12  border-1   dark:border-b-[#fff] border-black border-solid  py-8 flex justify-between items-center  -left-2 w-[102%] -top-2 bg-lightBg">
 
     <div class="flex gap-2 flex-row-reverse items-center">
@@ -69,11 +71,11 @@
 
     <div
       class="flex w-1/3 items-center  md:hidden   justify-between dark:border-white border-black border-[#ffffff3b]  border-1 border-solid rounded-md bg-no-repeat bg-cover py-3 p-2">
-      <input placeholder=" جستجو در onlyMusic "
-        id="searchInput"  class=" focus:!shadow-[0] w-full placeholder:text-[#00000058] text-right dark:placeholder:text-white  dark:text-white  text-black bg-transparent border-[0px] border-none !outline-0 font-vazirLight "
+      <input placeholder=" جستجو در onlyMusic " id="searchInput"
+        class=" focus:!shadow-[0] w-full placeholder:text-[#00000058] text-right dark:placeholder:text-white  dark:text-white  text-black bg-transparent border-[0px] border-none !outline-0 font-vazirLight "
         type="text">
-      <img  id="searchIcon"  class="mr-5 ml-2 cursor-pointer" src="https://musicfa.co/images/search.svg?a477b581a8a60e79604e1b0323e9916d"
-        alt="">
+      <img id="searchIcon" class="mr-5 ml-2 cursor-pointer"
+        src="https://musicfa.co/images/search.svg?a477b581a8a60e79604e1b0323e9916d" alt="">
     </div>
 
     <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg" class="w-32 sm:!w-[6rem] h-8"
@@ -360,218 +362,248 @@
 
     </aside>
 
-        <section id="mainSection" class="grid grid-cols-2 lg:grid-cols-1 font-vazirLight w-full text-darkBgarkBg  dark:text-white dark:bg-darkBg sm-x2:pt-32 pt-40 pb-8 sm-x2:!px-1  md:px-6 pr-72">
+    <section id="mainSection"
+      class="grid grid-cols-2 lg:grid-cols-1 font-vazirLight w-full text-darkBgarkBg  dark:text-white dark:bg-darkBg sm-x2:pt-32 pt-40 pb-8 sm-x2:!px-1  md:px-6 pr-72">
 
-            <div class="border w-full lg:border-none border-l-1 lg:px-8 border-white pl-24 sm:!px-4">
+      <div class="border w-full lg:border-none border-l-1 lg:px-8 border-white pl-24 sm:!px-4">
 
-                <div id="firstDetails" class="grid grid-cols-3 py-[15px] bg-lightBg  rounded-lg dark:bg-darkLbg"></div>
+        <div id="firstDetails" class="grid grid-cols-3 py-[15px] bg-lightBg  rounded-lg dark:bg-darkLbg"></div>
 
-                <div class="flex videoParent  sm-x2:h-[250px] justify-center items-center h-[350px] overflow-hidden my-8 w-full bg-[#1a1b1f] relative">
-                    <video poster="https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-0.png" src=""  class=" absolute  top-[0px]"  >  </video>
-                    <div class="music-controll-bg space-y-2 w-full absolute right-0 left-0 -bottom-[1px] rounded-b-none  rounded-[10px] pt-2 pb-2 px-7">
-                        <div class="flex gap-[10px] justify-between items-center">
-                            <p id="videoTime">04:00</p> 
-                            <div class="  bg-white cursor-pointer rounded mx-10 my-3 h-[5px] w-[90%]" id="progress-container">
-                                <div class="progress" id="progress" style="width: 0.4689%;"></div> 
-                            </div> 
-                            <p id="currentTime">0:00</p>
-                           
-                        </div>
-                        <div class="flex gap-[10px] justify-center items-center relative top-[5px]">
-                          <div id="speaker" >
-                            <i class="fa-solid fa-volume-high relative top-[2.7px]"></i>
-                          </div>
+        <div
+          class="flex videoParent  sm-x2:h-[250px] justify-center items-center h-[350px] overflow-hidden my-8 w-full bg-[#1a1b1f] relative">
+          <video poster="https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-0.png" src=""
+            class=" absolute  top-[0px]"> </video>
+          <div
+            class="music-controll-bg space-y-2 w-full absolute right-0 left-0 -bottom-[1px] rounded-b-none  rounded-[10px] pt-2 pb-2 px-7">
+            <div class="flex gap-[10px] justify-between items-center">
+              <p id="videoTime">04:00</p>
+              <div class="  bg-white cursor-pointer rounded mx-10 my-3 h-[5px] w-[90%]" id="progress-container">
+                <div class="progress" id="progress" style="width: 0.4689%;"></div>
+              </div>
+              <p id="currentTime">0:00</p>
 
-                              <svg id="next" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z" />
-                              </svg>
-                          <div  id="play" class=" bg-[#f310ab] rounded-full play-icon-bg transition-colors pr-[.8rem]   pl-3 pt-[8px] pb-[6px]">
-                            <i class="fas fa-play "  ></i>
-                          </div>
-                            
-                              
-                            <svg id="prev" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953l7.108-4.062A1.125 1.125 0 0121 8.688v8.123zM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953L9.567 7.71a1.125 1.125 0 011.683.977v8.123z" />
-                              </svg>
-                          
-                               
-                               <div id="full-screen">
-                                <i class="fa-solid fa-expand cursor-pointer relative top-[2.5px]"></i>  
-                               </div>                    
+            </div>
+            <div class="flex gap-[10px] justify-center items-center relative top-[5px]">
+              <div id="speaker">
+                <i class="fa-solid fa-volume-high relative top-[2.7px]"></i>
+              </div>
 
-                           
-                              
-                                                            
-                        </div>
-                        <div>
-
-                        </div>
-                    </div> 
-                  
-                </div>
+              <svg id="next" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z" />
+              </svg>
+              <div id="play"
+                class=" bg-[#f310ab] rounded-full play-icon-bg transition-colors pr-[.8rem]   pl-3 pt-[8px] pb-[6px]">
+                <i class="fas fa-play "></i>
+              </div>
 
 
-                <div class="flex justify-between sm-x2:my-10">
-                    <div>
-                        <p id="ArtistName" class="text-[#8e8e92] text-[14px] mb-1">علیرضا قربانی</p>
-                        <p id="videoName" class=" font-vazirBold text-[18px] ">پریشانی</p>
-
-                    </div>
-
-                    <div class="flex gap-3">
-                    <div id="shereIcon" class=" cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
-                        </svg>
-                    </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-                        </svg>
-
-                        
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                        
-                      
+              <svg id="prev" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953l7.108-4.062A1.125 1.125 0 0121 8.688v8.123zM11.25 16.811c0 .864-.933 1.405-1.683.977l-7.108-4.062a1.125 1.125 0 010-1.953L9.567 7.71a1.125 1.125 0 011.683.977v8.123z" />
+              </svg>
 
 
-                    </div>
-                </div>
-
-                <section class="flex flex-col items-center gap-4 mt-8 mb-8">
-
-                    <button
-                    id="downloadBtn" class="w-full flex gap-2  justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                        </svg>
-                        کیفیت 480
-                    </button>
-
-                    <button
-                    id="downloadBtn" class="w-full flex gap-2 justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                        </svg>
-                        کیفیت 720
-                    </button>
-
-                    <button
-                    id="downloadBtn" class="w-full flex gap-2 justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                        </svg>
-                        کیفیت 1080
-                    </button>
+              <div id="full-screen">
+                <i class="fa-solid fa-expand cursor-pointer relative top-[2.5px]"></i>
+              </div>
 
 
-
-
-                </section>
-
-                
 
 
             </div>
+            <div>
 
-
-
-            <div id="relatedMusic" class=" w-full px-16 space-y-3 sm:mt-8 lg:px-8 mt-0 lg:space-y-6 sm:!px-4">
-              <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-                <a href="music.html?artist=Arta&amp;id=115863" class="flex gap-4 items-center">
-                    <img src="../Images/avatar.png" class=" w-16 h-16 rounded" alt="">
-                    <div>
-                        <p class=" font-vazirBold text-[18px]"> Unknown</p>
-                        <p class="text-[#8e8e92] text-[14px]"> Unknown  </p>
-                    </div>
-                </a>
-              
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"></path>
-                  </svg>
-                  
-            </section>
             </div>
+          </div>
+
+        </div>
+
+
+        <div class="flex justify-between sm-x2:my-10">
+          <div>
+            <p id="ArtistName" class="text-[#8e8e92] text-[14px] mb-1">علیرضا قربانی</p>
+            <p id="videoName" class=" font-vazirBold text-[18px] ">پریشانی</p>
+
+          </div>
+
+          <div class="flex gap-3">
+            <div id="shereIcon" class=" cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+              </svg>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6 cursor-pointer" id="noSavePlayList">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              class="w-6 h-6 text-white hidden cursor-pointer" id="savePlayList">
+              <path fill-rule="evenodd"
+                d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+                clip-rule="evenodd" />
+            </svg>
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6 cursor-pointer" id="noLikeMedia">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              class="w-6 h-6 text-redBg hidden cursor-pointer" id="likeMedia">
+              <path
+                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+            </svg>
+
+
+
+
+          </div>
+        </div>
+
+        <section class="flex flex-col items-center gap-4 mt-8 mb-8">
+
+          <button id="downloadBtn"
+            class="w-full flex gap-2  justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            کیفیت 480
+          </button>
+
+          <button id="downloadBtn"
+            class="w-full flex gap-2 justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            کیفیت 720
+          </button>
+
+          <button id="downloadBtn"
+            class="w-full flex gap-2 justify-center hover:bg-[#ffc542] transition-colors hover:!text-black dark:text-[#ffc542] bg-transparent border-solid border-1 border-[#ffc542] rounded-md px-7 py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+            کیفیت 1080
+          </button>
+
+
+
 
         </section>
 
-    </main>
 
 
-    <footer class=" mt-10 flex md:flex-col justify-between dark:bg-darkBg pt-6 pb-14 text-white w-full pr-72 pl-4 md:px-6">
 
-        <div class="flex flex-col space-y-6">
+      </div>
 
+
+
+      <div id="relatedMusic" class=" w-full px-16 space-y-3 sm:mt-8 lg:px-8 mt-0 lg:space-y-6 sm:!px-4">
+        <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+          <a href="music.html?artist=Arta&amp;id=115863" class="flex gap-4 items-center">
+            <img src="../Images/avatar.png" class=" w-16 h-16 rounded" alt="">
             <div>
-                <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg"
-                        class="w-28 sm:!w-[6rem] h-8" alt="topBarLogo"> </a>
-                <a href="Index.html" class="block dark:hidden"><img src="../Images/logoL.svg"
-                        class="w-28 sm:!w-[6rem] h-8" alt="topBarLogo"> </a>
+              <p class=" font-vazirBold text-[18px]"> Unknown</p>
+              <p class="text-[#8e8e92] text-[14px]"> Unknown </p>
             </div>
+          </a>
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6 cursor-pointer">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z">
+            </path>
+          </svg>
+
+        </section>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer
+    class=" mt-10 flex md:flex-col justify-between dark:bg-darkBg pt-6 pb-14 text-white w-full pr-72 pl-4 md:px-6">
+
+    <div class="flex flex-col space-y-6">
+
+      <div>
+        <a href="Index.html" class="hidden dark:block"><img src="../Images/logo.svg" class="w-28 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+        <a href="Index.html" class="block dark:hidden"><img src="../Images/logoL.svg" class="w-28 sm:!w-[6rem] h-8"
+            alt="topBarLogo"> </a>
+      </div>
 
 
 
 
 
-            <div class="text-secondText w-2/3 md:w-full">
-                تمامی حقوق مادی و معنوی این وبسایت متعلق به گروه هنری فرهنگی موزیک‌فا بوده و کپی برداری از آن به هر نحو
-                پیگرد
-                قانونی دارد.
-            </div>
+      <div class="text-secondText w-2/3 md:w-full">
+        تمامی حقوق مادی و معنوی این وبسایت متعلق به گروه هنری فرهنگی موزیک‌فا بوده و کپی برداری از آن به هر نحو
+        پیگرد
+        قانونی دارد.
+      </div>
 
-            <div class="flex ">
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19.996" viewBox="0 0 20 19.996">
-                        <g id="Page-1" transform="translate(0 -0.001)">
-                            <g id="Dribbble-Light-Preview" transform="translate(-340 -7439)">
-                                <g id="icons" transform="translate(56 160)">
-                                    <path id="instagram-_167_" data-name="instagram-[#167]"
-                                        d="M289.87,7279.12a5.518,5.518,0,0,0-5.788,5.78c-.046,1-.314,8.6.462,10.59a5.034,5.034,0,0,0,2.911,2.9,7,7,0,0,0,2.415.46c8.86.4,12.145.19,13.53-3.36a7.217,7.217,0,0,0,.462-2.41c.4-8.88-.066-10.81-1.61-12.35-1.225-1.22-2.666-2.05-12.382-1.61m.081,17.95a5.87,5.87,0,0,1-1.848-.34,3.28,3.28,0,0,1-1.888-1.89c-.591-1.51-.395-8.7-.342-9.86a4.263,4.263,0,0,1,1.086-2.99c.995-.99,2.281-1.48,11.034-1.08a4.266,4.266,0,0,1,2.992,1.08c1,.99,1.489,2.29,1.087,11.01a5.445,5.445,0,0,1-.342,1.84c-.9,2.31-2.973,2.63-11.779,2.23m8.139-13.38a1.195,1.195,0,1,0,1.194-1.19,1.19,1.19,0,0,0-1.194,1.19m-9.227,5.3a5.11,5.11,0,1,0,5.109-5.1,5.1,5.1,0,0,0-5.109,5.1m1.793,0a3.317,3.317,0,1,1,3.316,3.31,3.311,3.311,0,0,1-3.316-3.31"
-                                        fill="#8d8d8d" fill-rule="evenodd" />
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-                </a>
+      <div class="flex ">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19.996" viewBox="0 0 20 19.996">
+            <g id="Page-1" transform="translate(0 -0.001)">
+              <g id="Dribbble-Light-Preview" transform="translate(-340 -7439)">
+                <g id="icons" transform="translate(56 160)">
+                  <path id="instagram-_167_" data-name="instagram-[#167]"
+                    d="M289.87,7279.12a5.518,5.518,0,0,0-5.788,5.78c-.046,1-.314,8.6.462,10.59a5.034,5.034,0,0,0,2.911,2.9,7,7,0,0,0,2.415.46c8.86.4,12.145.19,13.53-3.36a7.217,7.217,0,0,0,.462-2.41c.4-8.88-.066-10.81-1.61-12.35-1.225-1.22-2.666-2.05-12.382-1.61m.081,17.95a5.87,5.87,0,0,1-1.848-.34,3.28,3.28,0,0,1-1.888-1.89c-.591-1.51-.395-8.7-.342-9.86a4.263,4.263,0,0,1,1.086-2.99c.995-.99,2.281-1.48,11.034-1.08a4.266,4.266,0,0,1,2.992,1.08c1,.99,1.489,2.29,1.087,11.01a5.445,5.445,0,0,1-.342,1.84c-.9,2.31-2.973,2.63-11.779,2.23m8.139-13.38a1.195,1.195,0,1,0,1.194-1.19,1.19,1.19,0,0,0-1.194,1.19m-9.227,5.3a5.11,5.11,0,1,0,5.109-5.1,5.1,5.1,0,0,0-5.109,5.1m1.793,0a3.317,3.317,0,1,1,3.316,3.31,3.311,3.311,0,0,1-3.316-3.31"
+                    fill="#8d8d8d" fill-rule="evenodd" />
+                </g>
+              </g>
+            </g>
+          </svg>
+        </a>
 
 
-                <a href="#" class="mr-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22.091" height="20.165" viewBox="0 0 22.091 20.165">
-                        <path id="telegram-svgrepo-com_1_" data-name="telegram-svgrepo-com (1)"
-                            d="M23.112,4.494a2,2,0,0,0-2.68-2.267L2.342,9.216A2,2,0,0,0,2.225,12.9l3.939,1.818,1.874,6.559a1,1,0,0,0,1.669.432l2.887-2.887,4.044,3.033a2,2,0,0,0,3.159-1.2ZM3.063,11.082,21.153,4.093l-3.315,16.16L13.1,16.7a1,1,0,0,0-1.307.093l-1.236,1.236.372-2.043,7.279-7.279A1,1,0,0,0,17,7.132L6.951,12.876Zm5.114,3.4L8.783,16.6l.233-1.28a1,1,0,0,1,.277-.528l2.22-2.22Z"
-                            transform="translate(-1.063 -2.089)" fill="#8d8d8d" fill-rule="evenodd" />
-                    </svg>
-                </a>
+        <a href="#" class="mr-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22.091" height="20.165" viewBox="0 0 22.091 20.165">
+            <path id="telegram-svgrepo-com_1_" data-name="telegram-svgrepo-com (1)"
+              d="M23.112,4.494a2,2,0,0,0-2.68-2.267L2.342,9.216A2,2,0,0,0,2.225,12.9l3.939,1.818,1.874,6.559a1,1,0,0,0,1.669.432l2.887-2.887,4.044,3.033a2,2,0,0,0,3.159-1.2ZM3.063,11.082,21.153,4.093l-3.315,16.16L13.1,16.7a1,1,0,0,0-1.307.093l-1.236,1.236.372-2.043,7.279-7.279A1,1,0,0,0,17,7.132L6.951,12.876Zm5.114,3.4L8.783,16.6l.233-1.28a1,1,0,0,1,.277-.528l2.22-2.22Z"
+              transform="translate(-1.063 -2.089)" fill="#8d8d8d" fill-rule="evenodd" />
+          </svg>
+        </a>
 
-            </div>
-        </div>
+      </div>
+    </div>
 
-        <div
-            class="self-end w-32 h-32 md:mt-6 flex justify-center items-center rounded-md bg-lightBg dark:bg-[#1a1b1f]">
-            <img src="../Images/enamad.png" alt="enamad">
-        </div>
+    <div class="self-end w-32 h-32 md:mt-6 flex justify-center items-center rounded-md bg-lightBg dark:bg-[#1a1b1f]">
+      <img src="../Images/enamad.png" alt="enamad">
+    </div>
 
-    </footer>
-    <script src="../node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
-    <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
-    <script src="//cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../JavaScript/utilis/shared.js"></script>
-    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
-    <script src="../JavaScript/mVideo.js"></script>
+  </footer>
+  <script src="../node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
+  <script src="../vendor/sweetalert2/sweetalert2.js"></script>
+  <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+  <script src="//cdn.sc.gl/videojs-hotkeys/latest/videojs.hotkeys.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+    integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../JavaScript/utilis/shared.js"></script>
+  <script src="../JavaScript/helper/likeOrSave.js" type="module"></script>
+  <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+  <script src="../JavaScript/mVideo.js" type="module"></script>
 </body>
 
 </html>

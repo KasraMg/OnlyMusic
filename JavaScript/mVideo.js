@@ -1,3 +1,4 @@
+import { recentMediaHandler } from "./helper/recentMedia.js"
 const playIcon =document.querySelector('#play')
 const nextIcon =document.querySelector('#next')
 const speakerIcon =document.querySelector('#speaker')
@@ -36,6 +37,8 @@ window.addEventListener('load',()=>{
      
       
       allDatas=data.result
+
+      recentMediaHandler(allDatas)
       
       nextIcon.addEventListener('click', () => {
         pauseSong()
