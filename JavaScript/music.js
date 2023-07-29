@@ -95,6 +95,7 @@ window.addEventListener('load', () => {
         displayName: data.result.song_farsi ? data.result.song_farsi : data.result.song,
         artist: data.result.artist_farsi ? data.result.artist_farsi : data.result.artist,
         cover: data.result.photo_player,
+        id: data.result.id,
       }
 
       loadSong(songs);
@@ -118,11 +119,39 @@ window.addEventListener('load', () => {
 
 
       relatedMusic.innerHTML = ''
+      relatedMusic.innerHTML = `
+      <section class="bg-lightBg  relative flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
+      
+      <a href='music.html?artist=${songs.artist}&id=${songs.id}' class="flex gap-4 items-center">
+          <img src="${songs.cover}" class=" w-16 h-16 rounded" alt="">
+          <div class="loaderSong absolute  " style="right:15px; top:32px">
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+          <span class="stroke"></span>
+        </div>
+          <div>
+              <p class=" font-vazirBold text-[18px]"> ${songs.displayName }</p>
+              <p class="text-[#8e8e92] text-[14px]"> ${songs.artist}  </p>
+          </div>
+      </a>
+    
+      <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+        </svg>
+        
+  </section>
+      `
 
       data.result.related.slice(0, 10).map(music => {
 
         relatedMusic.insertAdjacentHTML("beforeend",
           `
+        
+
     <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
     <a href='music.html?artist=${music.artist}&id=${music.id}' class="flex gap-4 items-center">
         <img src="${music.photo}" class=" w-16 h-16 rounded" alt="">
