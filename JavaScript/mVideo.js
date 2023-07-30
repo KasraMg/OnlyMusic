@@ -43,7 +43,7 @@ window.addEventListener('load',()=>{
       
       nextIcon.addEventListener('click', () => {
         pauseVideo()
-        location.href=`mVideo.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
+        location.href=`mVideo.html?artist=${data.result.artist}&id=${data.result.related[2].id}`
       })
 
       prevIcon.addEventListener('click', () => {

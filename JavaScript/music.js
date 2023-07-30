@@ -104,7 +104,7 @@ window.addEventListener('load', () => {
 
       loadSong(songs);
 
-      ArtistName.setAttribute('href', `artist.html?artist=${data.result.artist}&type=all&page=1`)
+ 
 
       if (data.result.lyric_synced) {
         data.result.lyric_synced.map(text => {
@@ -179,22 +179,71 @@ window.addEventListener('load', () => {
     `)
       })
 
+      const showData = getData('showData')
+      if (!!showData && !Object.keys(showData).length) {
+        let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more');
+        noSavePlayListMore.forEach(item => {
+          item.addEventListener('click', () => {
+            Swal.fire({
+              title: 'برای افزودن به پلی لیست ابتدا وارد شوید.',
+              icon: 'warning',
+              confirmButtonText: 'ورود',
 
-      Array.from(relatedMusic.children).forEach((item, index) => {
-        if (index !== 0) {
-          let savIcons = item.querySelectorAll('svg');
-          const songId = savIcons[0].dataset.id
-          let changeSaveIcon = findInPlayList(songId).some(item => item.flag === true);
+            }).then((result) => {
 
-          if (changeSaveIcon) {
-            savIcons[1].classList.remove('hidden');
-            savIcons[0].classList.add('hidden');
+              if (result.isConfirmed) {
+                location.href = 'login.html'
+              }
+            })
+
+          })
+        });
+
+
+      } else {
+
+        Array.from(relatedMusic.children).forEach((item, index) => {
+          if (index !== 0) {
+            let savIcons = item.querySelectorAll('svg');
+            const songId = savIcons[0].dataset.id
+            let changeSaveIcon = findInPlayList(songId).some(item => item.flag === true);
+
+            if (changeSaveIcon) {
+              savIcons[1].classList.remove('hidden');
+              savIcons[0].classList.add('hidden');
+            }
           }
-        }
-      })
+        })
 
 
+        let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more');
+        let savePlayListMore = document.querySelectorAll('#savePlayList-more');
 
+        noSavePlayListMore.forEach((item, index) => {
+          item.addEventListener('click', event => {
+            let svgElement = event.target;
+
+            if (event.target.tagName === 'path') {
+              svgElement = event.target.parentNode;
+            }
+            saveHandlerMore(svgElement.dataset.id, index)
+
+          })
+        });
+
+        savePlayListMore.forEach((item, index) => {
+          item.addEventListener('click', event => {
+            let svgElement = event.target;
+
+            if (event.target.tagName === 'path') {
+              svgElement = event.target.parentNode;
+            }
+            saveHandlerMore(svgElement.dataset.id, index)
+
+          })
+        })
+
+      }
 
 
       shereIcon.addEventListener('click', () => {
@@ -222,32 +271,7 @@ window.addEventListener('load', () => {
 
 
 
-      let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more')
-      let savePlayListMore = document.querySelectorAll('#savePlayList-more')
 
-      noSavePlayListMore.forEach((item, index) => {
-        item.addEventListener('click', event => {
-          let svgElement = event.target;
-
-          if (event.target.tagName === 'path') {
-            svgElement = event.target.parentNode;
-          }
-          saveHandlerMore(svgElement.dataset.id, index)
-
-        })
-      });
-
-      savePlayListMore.forEach((item, index) => {
-        item.addEventListener('click', event => {
-          let svgElement = event.target;
-
-          if (event.target.tagName === 'path') {
-            svgElement = event.target.parentNode;
-          }
-          saveHandlerMore(svgElement.dataset.id, index)
-
-        })
-      })
 
 
 
@@ -281,7 +305,6 @@ window.addEventListener('load', () => {
     const showData = getData('showData');
     let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more')
     let savePlayListMore = document.querySelectorAll('#savePlayList-more')
-    console.log(indexInWrapper, id);
 
 
 
@@ -313,7 +336,6 @@ window.addEventListener('load', () => {
 
 
         let index = showData.musicsAlbum.findIndex(item => item.id == event.target.id);
-        console.log(event.target.classList.contains('!bg-green-500'));
         if (event.target.classList.contains('!bg-green-500')) {
 
           event.target.classList.remove('!bg-green-500');
@@ -326,7 +348,6 @@ window.addEventListener('load', () => {
             savePlayListMore[indexInWrapper].classList.remove('hidden');
             !noSavePlayListMore[indexInWrapper].classList.contains('hidden') && noSavePlayListMore[indexInWrapper].classList.add('hidden');
           } else {
-            console.log(savePlayListMore[indexInWrapper]);
             !savePlayListMore[indexInWrapper].classList.contains('hidden') && savePlayListMore[indexInWrapper].classList.add('hidden');
             noSavePlayListMore[indexInWrapper].classList.remove('hidden');
           }
@@ -335,13 +356,11 @@ window.addEventListener('load', () => {
 
 
           getInfoes(id).then(data => {
-            console.log(data);
             if (data.status == 200 && data.result.link) {
               if (showData.musicsAlbum[index].data.findIndex(item => item.id == data.result.id) == -1) {
                 showData.musicsAlbum[index].data.unshift(destructorData(data.result));
                 event.target.classList.add('!bg-green-500')
                 updateData(showData);
-                console.log(showData);
                 let changeSaveIcon = findInPlayList(id).some(item => item.flag === true);
 
                 if (changeSaveIcon) {

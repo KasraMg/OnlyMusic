@@ -12,7 +12,6 @@ const albumNameInput = document.querySelector('#albumNameInput');
 const moreAlbum = document.querySelector('#moreAlbum');
 const confirmBtn = document.querySelector('#confirmBtn');
 ////////////////////////////////////////////////////////////////////
-let sortable = Sortable.create(moreAlbum, false);
 ////////////////////////////////////////////////////////////////////
 const type = getParamToUrl('type');
 const playListId = getParamToUrl('plId');
@@ -48,7 +47,8 @@ editBtn.addEventListener('click', () => {
     moreAlbum.classList.add('activeEdit')
 
     if (type !== 'ourPlayList') {
-        sortable.option("disabled", false);
+        moreAlbum.style.pointerEvents = 'auto'
+        Sortable.create(moreAlbum, false);
     }
 
 })
@@ -59,7 +59,8 @@ cancelBtn.addEventListener('click', () => {
     moreAlbum.classList.remove('activeEdit')
 
     if (type !== 'ourPlayList') {
-        sortable.option("disabled", true);
+        moreAlbum.style.pointerEvents = 'none'
+
         albumNameInput.value = albumDetails.name;
         moreAlbum.innerHTML = ''
         showToDom(albumDetails.data)
