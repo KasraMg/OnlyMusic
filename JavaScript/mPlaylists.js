@@ -1,3 +1,4 @@
+import { getData } from "./helper/serviceData.js"
 
 const playIcon = document.querySelector('#play')
 const nextIcon = document.querySelector('#next')
@@ -239,6 +240,12 @@ window.addEventListener('load', () => {
   const params = new URLSearchParams(url.search);
   const urlResult = params.get('id');
   const typeResult = params.get('plId');
+  /////////////////////////////////////////////
+  const showData = getData('showData');
+  const playListActive = showData.musicsAlbum.find(item => item.id == typeResult)
+  const song2 = playListActive.data
+  ////////////////////////////////////////////
+
 
   if (urlResult === 'not') {
 
@@ -249,10 +256,10 @@ window.addEventListener('load', () => {
       confirmButtonText: 'افزودن',
 
     }).then((result) => {
-     
+
       if (result.isConfirmed) {
         location.href = 'musics.html?type=newMusic&page=1'
-      }else{
+      } else {
         history.back()
       }
     })
