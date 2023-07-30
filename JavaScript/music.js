@@ -179,7 +179,7 @@ window.addEventListener('load', () => {
     `)
       })
 
-
+      const showData = getData('showData')
       if (!!showData && !Object.keys(showData).length) {
         let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more');
         noSavePlayListMore.forEach(item => {
