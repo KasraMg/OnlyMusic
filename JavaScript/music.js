@@ -180,21 +180,70 @@ window.addEventListener('load', () => {
       })
 
 
-      Array.from(relatedMusic.children).forEach((item, index) => {
-        if (index !== 0) {
-          let savIcons = item.querySelectorAll('svg');
-          const songId = savIcons[0].dataset.id
-          let changeSaveIcon = findInPlayList(songId).some(item => item.flag === true);
+      if (!!showData && !Object.keys(showData).length) {
+        let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more');
+        noSavePlayListMore.forEach(item => {
+          item.addEventListener('click', () => {
+            Swal.fire({
+              title: 'برای افزودن به پلی لیست ابتدا وارد شوید.',
+              icon: 'warning',
+              confirmButtonText: 'ورود',
 
-          if (changeSaveIcon) {
-            savIcons[1].classList.remove('hidden');
-            savIcons[0].classList.add('hidden');
+            }).then((result) => {
+
+              if (result.isConfirmed) {
+                location.href = 'login.html'
+              }
+            })
+
+          })
+        });
+
+
+      } else {
+
+        Array.from(relatedMusic.children).forEach((item, index) => {
+          if (index !== 0) {
+            let savIcons = item.querySelectorAll('svg');
+            const songId = savIcons[0].dataset.id
+            let changeSaveIcon = findInPlayList(songId).some(item => item.flag === true);
+
+            if (changeSaveIcon) {
+              savIcons[1].classList.remove('hidden');
+              savIcons[0].classList.add('hidden');
+            }
           }
-        }
-      })
+        })
 
 
+        let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more');
+        let savePlayListMore = document.querySelectorAll('#savePlayList-more');
 
+        noSavePlayListMore.forEach((item, index) => {
+          item.addEventListener('click', event => {
+            let svgElement = event.target;
+
+            if (event.target.tagName === 'path') {
+              svgElement = event.target.parentNode;
+            }
+            saveHandlerMore(svgElement.dataset.id, index)
+
+          })
+        });
+
+        savePlayListMore.forEach((item, index) => {
+          item.addEventListener('click', event => {
+            let svgElement = event.target;
+
+            if (event.target.tagName === 'path') {
+              svgElement = event.target.parentNode;
+            }
+            saveHandlerMore(svgElement.dataset.id, index)
+
+          })
+        })
+
+      }
 
 
       shereIcon.addEventListener('click', () => {
@@ -222,32 +271,7 @@ window.addEventListener('load', () => {
 
 
 
-      let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more')
-      let savePlayListMore = document.querySelectorAll('#savePlayList-more')
 
-      noSavePlayListMore.forEach((item, index) => {
-        item.addEventListener('click', event => {
-          let svgElement = event.target;
-
-          if (event.target.tagName === 'path') {
-            svgElement = event.target.parentNode;
-          }
-          saveHandlerMore(svgElement.dataset.id, index)
-
-        })
-      });
-
-      savePlayListMore.forEach((item, index) => {
-        item.addEventListener('click', event => {
-          let svgElement = event.target;
-
-          if (event.target.tagName === 'path') {
-            svgElement = event.target.parentNode;
-          }
-          saveHandlerMore(svgElement.dataset.id, index)
-
-        })
-      })
 
 
 

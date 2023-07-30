@@ -15,22 +15,49 @@ const savePlayList = document.querySelector('#savePlayList')
 window.addEventListener('load', () => {
     const showData = getData('showData');
 
-    let likeFlag = showData.favorite.some(item => item.id == getParamToUrl('id'));
-    if (likeFlag) {
-        likeMedia.classList.remove('hidden');
-        noLikeMedia.classList.add('hidden');
+
+    if (!!showData && !Object.keys(showData).length) {
+        noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'))
+        noSavePlayList.addEventListener('click', () => noLoginSwal('برای افزودن به پلی لیست ابتدا وارد شوید.'))
+    } else {
+        let likeFlag = showData.favorite.some(item => item.id == getParamToUrl('id'));
+        if (likeFlag) {
+            likeMedia.classList.remove('hidden');
+            noLikeMedia.classList.add('hidden');
+        }
+
+        let changeSaveIcon = findInPlayList().some(item => item.flag === true);
+        if (changeSaveIcon) {
+            savePlayList.classList.remove('hidden');
+            noSavePlayList.classList.add('hidden');
+        }
+
+
+        noLikeMedia.addEventListener('click', noLikeMediaHandler)
+        likeMedia.addEventListener('click', likeMediaHandler);
+
+
+        noSavePlayList.addEventListener('click', saveHandler)
+        savePlayList.addEventListener('click', saveHandler)
+
+
+
+
+
+
+
+
     }
 
-    let changeSaveIcon = findInPlayList().some(item => item.flag === true);
-    if (changeSaveIcon) {
-        savePlayList.classList.remove('hidden');
-        noSavePlayList.classList.add('hidden');
-    }
+
+
 
 })
 
 
-noLikeMedia.addEventListener('click', () => {
+
+const noLikeMediaHandler = () => {
+
     let baseUrl = ''
     let url = window.location.pathname;
     let fileName = url.substring(url.lastIndexOf('/') + 1);
@@ -54,10 +81,9 @@ noLikeMedia.addEventListener('click', () => {
             updateData(showData)
         }
     })
-})
+}
 
-
-likeMedia.addEventListener('click', () => {
+const likeMediaHandler = () => {
     likeMedia.classList.add('hidden');
     noLikeMedia.classList.remove('hidden');
     const showData = getData('showData');
@@ -68,20 +94,7 @@ likeMedia.addEventListener('click', () => {
         updateData(showData)
 
     }
-
-})
-
-
-noSavePlayList.addEventListener('click', () => {
-    saveHandler()
-})
-
-
-savePlayList.addEventListener('click', () => {
-    saveHandler()
-})
-
-
+}
 
 const findInPlayList = () => {
     const showData = getData('showData');
@@ -221,5 +234,23 @@ const saveHandler = () => {
 
 
 }
+
+
+const noLoginSwal = text => {
+    Swal.fire({
+        title: text,
+        icon: 'warning',
+        confirmButtonText: 'ورود',
+
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+            location.href = 'login.html'
+        }
+    })
+}
+
+
+
 
 export { saveHandler }
