@@ -104,7 +104,7 @@ window.addEventListener('load', () => {
 
       loadSong(songs);
 
-      ArtistName.setAttribute('href', `artist.html?artist=${data.result.artist}&type=all&page=1`)
+ 
 
       if (data.result.lyric_synced) {
         data.result.lyric_synced.map(text => {
