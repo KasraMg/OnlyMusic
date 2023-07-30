@@ -305,7 +305,6 @@ window.addEventListener('load', () => {
     const showData = getData('showData');
     let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more')
     let savePlayListMore = document.querySelectorAll('#savePlayList-more')
-    console.log(indexInWrapper, id);
 
 
 
@@ -337,7 +336,6 @@ window.addEventListener('load', () => {
 
 
         let index = showData.musicsAlbum.findIndex(item => item.id == event.target.id);
-        console.log(event.target.classList.contains('!bg-green-500'));
         if (event.target.classList.contains('!bg-green-500')) {
 
           event.target.classList.remove('!bg-green-500');
@@ -350,7 +348,6 @@ window.addEventListener('load', () => {
             savePlayListMore[indexInWrapper].classList.remove('hidden');
             !noSavePlayListMore[indexInWrapper].classList.contains('hidden') && noSavePlayListMore[indexInWrapper].classList.add('hidden');
           } else {
-            console.log(savePlayListMore[indexInWrapper]);
             !savePlayListMore[indexInWrapper].classList.contains('hidden') && savePlayListMore[indexInWrapper].classList.add('hidden');
             noSavePlayListMore[indexInWrapper].classList.remove('hidden');
           }
@@ -359,13 +356,11 @@ window.addEventListener('load', () => {
 
 
           getInfoes(id).then(data => {
-            console.log(data);
             if (data.status == 200 && data.result.link) {
               if (showData.musicsAlbum[index].data.findIndex(item => item.id == data.result.id) == -1) {
                 showData.musicsAlbum[index].data.unshift(destructorData(data.result));
                 event.target.classList.add('!bg-green-500')
                 updateData(showData);
-                console.log(showData);
                 let changeSaveIcon = findInPlayList(id).some(item => item.flag === true);
 
                 if (changeSaveIcon) {

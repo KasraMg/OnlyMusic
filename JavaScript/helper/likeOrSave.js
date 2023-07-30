@@ -9,38 +9,40 @@ import { idCreator } from "./idCreator.js"
 const noLikeMedia = document.querySelector('#noLikeMedia')
 const likeMedia = document.querySelector('#likeMedia')
 const noSavePlayList = document.querySelector('#noSavePlayList')
-const savePlayList = document.querySelector('#savePlayList')
+const savePlayList = document.querySelector('#savePlayList');
+
+let url = window.location.pathname;
+let fileName = url.substring(url.lastIndexOf('/') + 1);
+const type = fileName.replace('.html', '');
 
 
 window.addEventListener('load', () => {
     const showData = getData('showData');
 
 
+
+
     if (!!showData && !Object.keys(showData).length) {
-        noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'))
-        noSavePlayList.addEventListener('click', () => noLoginSwal('برای افزودن به پلی لیست ابتدا وارد شوید.'))
+        noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'));
+        (type === 'music') && noSavePlayList.addEventListener('click', () => noLoginSwal('برای افزودن به پلی لیست ابتدا وارد شوید.'))
     } else {
         let likeFlag = showData.favorite.some(item => item.id == getParamToUrl('id'));
         if (likeFlag) {
             likeMedia.classList.remove('hidden');
             noLikeMedia.classList.add('hidden');
         }
-
-        let changeSaveIcon = findInPlayList().some(item => item.flag === true);
-        if (changeSaveIcon) {
-            savePlayList.classList.remove('hidden');
-            noSavePlayList.classList.add('hidden');
-        }
-
-
         noLikeMedia.addEventListener('click', noLikeMediaHandler)
         likeMedia.addEventListener('click', likeMediaHandler);
 
-
-        noSavePlayList.addEventListener('click', saveHandler)
-        savePlayList.addEventListener('click', saveHandler)
-
-
+        if (type === 'music') {
+            noSavePlayList.addEventListener('click', saveHandler);
+            savePlayList.addEventListener('click', saveHandler);
+            let changeSaveIcon = findInPlayList().some(item => item.flag === true);
+            if (changeSaveIcon) {
+                savePlayList.classList.remove('hidden');
+                noSavePlayList.classList.add('hidden');
+            }
+        }
 
 
 
@@ -59,9 +61,7 @@ window.addEventListener('load', () => {
 const noLikeMediaHandler = () => {
 
     let baseUrl = ''
-    let url = window.location.pathname;
-    let fileName = url.substring(url.lastIndexOf('/') + 1);
-    const type = fileName.replace('.html', '');
+
 
     if (type === 'music') {
         baseUrl = `https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=get_song&id=${getParamToUrl('id')}`
