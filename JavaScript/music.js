@@ -1,4 +1,8 @@
 import { recentMediaHandler } from "./helper/recentMedia.js"
+import { saveHandler } from "./helper/likeOrSave.js"
+import { idCreator } from "./helper/idCreator.js"
+import { updateData } from "./helper/serviceData.js"
+import { destructorData } from "./helper/destructorData.js"
 
 import { getData } from "./helper/serviceData.js"
 const playIcon = document.querySelector('#play')
@@ -42,7 +46,7 @@ window.addEventListener('load', () => {
       allDatas = data.result
       recentMediaHandler(allDatas);
 
-     
+
 
 
       nextIcon.addEventListener('click', () => {
@@ -134,20 +138,17 @@ window.addEventListener('load', () => {
           <span class="stroke"></span>
         </div>
           <div>
-              <p class=" font-vazirBold text-[18px]"> ${songs.displayName }</p>
+              <p class=" font-vazirBold text-[18px]"> ${songs.displayName}</p>
               <p class="text-[#8e8e92] text-[14px]"> ${songs.artist}  </p>
           </div>
       </a>
     
-      <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-        </svg>
+     
         
   </section>
       `
 
       data.result.related.slice(0, 10).map(music => {
-
         relatedMusic.insertAdjacentHTML("beforeend",
           `
         
@@ -161,13 +162,40 @@ window.addEventListener('load', () => {
         </div>
     </a>
   
-    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
-      </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+    stroke="currentColor" class="w-6 h-6 cursor-pointer" id="noSavePlayList-more" data-id='${music.id}'}>
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+  </svg>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+    class="w-6 h-6 text-white hidden cursor-pointer" id="savePlayList-more" data-id='${music.id}'>
+    <path fill-rule="evenodd"
+      d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
+      clip-rule="evenodd" />
+  </svg>
       
 </section>
     `)
       })
+
+
+      Array.from(relatedMusic.children).forEach((item, index) => {
+        if (index !== 0) {
+          let savIcons = item.querySelectorAll('svg');
+          const songId = savIcons[0].dataset.id
+          let changeSaveIcon = findInPlayList(songId).some(item => item.flag === true);
+
+          if (changeSaveIcon) {
+            savIcons[1].classList.remove('hidden');
+            savIcons[0].classList.add('hidden');
+          }
+        }
+      })
+
+
+
+
 
       shereIcon.addEventListener('click', () => {
         let link = location.href
@@ -192,6 +220,37 @@ window.addEventListener('load', () => {
         link.click();
       }
 
+
+
+      let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more')
+      let savePlayListMore = document.querySelectorAll('#savePlayList-more')
+
+      noSavePlayListMore.forEach((item, index) => {
+        item.addEventListener('click', event => {
+          let svgElement = event.target;
+
+          if (event.target.tagName === 'path') {
+            svgElement = event.target.parentNode;
+          }
+          saveHandlerMore(svgElement.dataset.id, index)
+
+        })
+      });
+
+      savePlayListMore.forEach((item, index) => {
+        item.addEventListener('click', event => {
+          let svgElement = event.target;
+
+          if (event.target.tagName === 'path') {
+            svgElement = event.target.parentNode;
+          }
+          saveHandlerMore(svgElement.dataset.id, index)
+
+        })
+      })
+
+
+
     }
     else {
       mainSection.innerHTML = ''
@@ -204,10 +263,155 @@ window.addEventListener('load', () => {
       mainSection.style.gridTemplateColumns = 'auto'
     }
 
+
+
+
+
   })
 
 
 
+
+
+
+
+
+
+  const saveHandlerMore = (id, indexInWrapper) => {
+    const showData = getData('showData');
+    let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more')
+    let savePlayListMore = document.querySelectorAll('#savePlayList-more')
+    console.log(indexInWrapper, id);
+
+
+
+    const template = `
+ <div class="mx-auto w-2/3 p-4 rounded-lg bg-[#00000045] dark:bg-[#ffffff45] flex flex-col justify-center items-center gap-6" id='alertModalMore'>
+   <div class="w-full rounded-md p-2 bg-sky-500 cursor-pointer flex justify-center items-center">+</div>
+</div>`
+
+    let arr = findInPlayList(id);
+    Swal.fire({
+      title: 'پلی لیست',
+      html: template,
+      focusConfirm: false,
+      showConfirmButton: false,
+      showCloseButton: true
+
+    });
+
+    let alertModalMore = document.querySelector('#alertModalMore');
+    showData.musicsAlbum.forEach((item, index) => {
+      alertModalMore.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? '!bg-green-500' : ''}" id='${item.id}'>${item.name}</p>`)
+    });
+
+
+    let alertModalMoreItem = document.querySelectorAll('#alertModalMore p');
+    alertModalMoreItem.forEach(item => {
+
+      item.addEventListener('click', event => {
+
+
+        let index = showData.musicsAlbum.findIndex(item => item.id == event.target.id);
+        console.log(event.target.classList.contains('!bg-green-500'));
+        if (event.target.classList.contains('!bg-green-500')) {
+
+          event.target.classList.remove('!bg-green-500');
+          let indexInPlayList = showData.musicsAlbum[index].data.findIndex(item => item.id == id);
+          showData.musicsAlbum[index].data.splice(indexInPlayList, 1);
+          updateData(showData);
+          let changeSaveIcon = findInPlayList(id).some(item => item.flag === true);
+
+          if (changeSaveIcon) {
+            savePlayListMore[indexInWrapper].classList.remove('hidden');
+            !noSavePlayListMore[indexInWrapper].classList.contains('hidden') && noSavePlayListMore[indexInWrapper].classList.add('hidden');
+          } else {
+            console.log(savePlayListMore[indexInWrapper]);
+            !savePlayListMore[indexInWrapper].classList.contains('hidden') && savePlayListMore[indexInWrapper].classList.add('hidden');
+            noSavePlayListMore[indexInWrapper].classList.remove('hidden');
+          }
+
+        } else {
+
+
+          getInfoes(id).then(data => {
+            console.log(data);
+            if (data.status == 200 && data.result.link) {
+              if (showData.musicsAlbum[index].data.findIndex(item => item.id == data.result.id) == -1) {
+                showData.musicsAlbum[index].data.unshift(destructorData(data.result));
+                event.target.classList.add('!bg-green-500')
+                updateData(showData);
+                console.log(showData);
+                let changeSaveIcon = findInPlayList(id).some(item => item.flag === true);
+
+                if (changeSaveIcon) {
+                  savePlayListMore[indexInWrapper].classList.remove('hidden');
+                  !noSavePlayListMore[indexInWrapper].classList.contains('hidden') && noSavePlayListMore[indexInWrapper].classList.add('hidden');
+                } else {
+                  !savePlayListMore[indexInWrapper].classList.contains('hidden') && savePlayListMore[indexInWrapper].classList.add('hidden');
+                  noSavePlayListMore[indexInWrapper].classList.remove('hidden');
+                }
+              }
+            }
+          })
+        }
+
+
+      })
+    })
+
+    let newPlayListBtn = document.querySelector('#alertModalMore div')
+    newPlayListBtn.addEventListener('click', () => {
+      Swal.fire({
+        title: 'آلبوم جدید',
+        html: `<input id="textInput1" class="swal2-input mb-5" placeholder="نام آلبوم" required> `,
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'ایجاد',
+        cancelButtonText: 'لغو',
+        preConfirm: () => {
+          const inputValue = document.getElementById('textInput1').value;
+
+          if (!inputValue || inputValue.trim() === '') {
+            Swal.showValidationMessage('لطفاً نام آلبوم را وارد کنید');
+
+          } else {
+
+            const showData = getData('showData');
+            const newMusicAlbum = {
+              id: idCreator(showData.musicsAlbum),
+              name: inputValue.trim(),
+              type: 'musicsAlbum',
+              data: []
+            }
+
+            showData.musicsAlbum.unshift(newMusicAlbum);
+            updateData(showData)
+
+            saveHandler()
+          }
+
+
+        }
+      });
+    })
+
+
+  }
+
+  const findInPlayList = (id) => {
+    const showData = getData('showData');
+
+    let arr = []
+
+
+    showData.musicsAlbum.forEach(item => {
+      const flag = item.data.some(data => data.id == id)
+      arr.push({ name: item.name, flag })
+    });
+
+    return arr
+  }
 
 })
 const getInfoes = async (id) => {

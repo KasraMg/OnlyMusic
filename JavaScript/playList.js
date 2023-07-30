@@ -18,30 +18,20 @@ const type = getParamToUrl('type');
 const playListId = getParamToUrl('plId');
 const songId = getParamToUrl('id');
 ///////////////////////////////////////////////////////////////////
-// redirect if not login
 let showData = getData('showData');
-if (!Object.keys(showData).length) {
-    location.href = 'index.html'
-}
-/////////////////////////////////////////////////////////////////
-let url = window.location.pathname;
-let fileName = url.substring(url.lastIndexOf('/') + 1);
-const mainType = fileName.replace('.html', '');
-/////////////////////////////////////////////////////////////////
 let albumDetails = {};
 window.addEventListener('load', () => {
+    if (getParamToUrl('type') !== 'ourPlayList') {
+        if (!!showData && !Object.keys(showData).length) {
+            location.href = 'index.html'
+        }
+    }
     if (type === 'ourPlayList') {
         albumDetails = ourPlayList.find(item => item.id === +playListId);
         editBtn.disabled = true;
         editBtn.style.opacity = '0%'
     } else {
-
-        if (mainType === 'mPlayList') {
-            albumDetails = showData.musicsAlbum.find(item => item.id === +playListId)
-
-        } else {
-            albumDetails = showData.videosAlbum.find(item => item.id === +playListId);
-        }
+        albumDetails = showData.musicsAlbum.find(item => item.id === +playListId)
     }
 
     albumName.innerHTML = albumDetails.name
@@ -78,13 +68,13 @@ cancelBtn.addEventListener('click', () => {
 })
 
 confirmBtn.addEventListener('click', () => {
-    const idArray = Array.from(moreAlbum.children).map(item => item.dataset.id)
+    const moreAlbum = document.querySelector('#moreAlbum');
 
-    albumDetails.data.sort((a, b) => {
-        const indexA = idArray.indexOf(a.id);
-        const indexB = idArray.indexOf(b.id);
-        return indexA - indexB;
-    });
+
+    const idArray = Array.from(moreAlbum.children).map(item => item.dataset.id);
+    const sortedArray = idArray.map(id => albumDetails.data.find(obj => obj.id == id))
+
+    albumDetails.data = sortedArray;
 
     albumDetails.name = albumNameInput.value.trim();
 
@@ -93,17 +83,35 @@ confirmBtn.addEventListener('click', () => {
 })
 
 const deleteHandler = id => {
+
     let dataAfterRemove = albumDetails.data.filter(item => +item.id !== id);
 
-    if (mainType === 'vPlayList') {
-        showData.videosAlbum[playListId - 1].data = dataAfterRemove;
-    } else {
-        showData.musicsAlbum[playListId - 1].data = dataAfterRemove;
-    }
+    let indexPlayList = showData.musicsAlbum.findIndex(item => item.id === +playListId);
+    showData.musicsAlbum.findIndex(item => item.id === playListId)
+    showData.musicsAlbum[indexPlayList].data = dataAfterRemove;
+
 
     updateData(showData);
 
-    addParamToUrl('id', dataAfterRemove[0].id)
+    if (dataAfterRemove.length) {
+        addParamToUrl('id', dataAfterRemove[0].id)
+    } else {
+        Swal.fire({
+            title: 'آهنگی در پلی لیست موجود نیست',
+            icon: 'warning',
+            confirmButtonText: 'افزودن',
+
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                location.href = 'musics.html?type=newMusic&page=1'
+            } else {
+                location.href = 'playlists.html?type=userPlaylist'
+            }
+        })
+    }
+
+
 }
 
 window.deleteHandler = deleteHandler
@@ -114,7 +122,7 @@ const showToDom = (array) => {
             "beforeend",
             `
         <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md" data-id=${item.id}>
-        <a href="${(mainType === 'vPlayList') ? `vPlayList` : `mPlayList`}.html?type=${type}&plId=${playListId}&id=${item.id}"  class="relative flex gap-4 items-center">
+        <a href="mPlayList.html?type=${type}&plId=${playListId}&id=${item.id}"  class="relative flex gap-4 items-center">
           <img src='${item.photo}'
             class="w-16 h-16 rounded" alt="">
             <div class="loaderSong absolute top-5 right-1 ${item.id === songId ? `` : `!hidden`}">

@@ -1,5 +1,4 @@
 import { getInfoes, getParamToUrl, addParamToUrl, pagination, mediaHtmlTemplate } from "../utilis/utils.js"
-import { destructorData } from "./destructorData.js";
 //////////////////////////////////////////////////////////////////////////////////
 const buttonsWrapper = document.querySelectorAll('#buttonsWrapper button');
 const paginationWrapper = document.querySelector('#paginationWrapper');
@@ -23,22 +22,25 @@ const getData = async (url, key, type) => {
     let mainData = null;
 
     let a = await getInfoes(url);
-    if (a.status == 200) {
+    console.log(a.status);
+    if (a.status !== 200) {
+        alert('403')
+    } else {
         mainData = a.result
 
-    }
 
 
 
-    if (type === 'all') {
-        let allData = [...filterPersianData(mainData.videos), ...filterPersianData(mainData.mp3s)];
-        showToDOM(allData, 'all')
-    } else if (key) {
-        showToDOM(filterPersianData(mainData[key]));
+        if (type === 'all') {
+            let allData = [...filterPersianData(mainData.videos), ...filterPersianData(mainData.mp3s)];
+            showToDOM(allData, 'all')
+        } else if (key) {
+            showToDOM(filterPersianData(mainData[key]));
 
-    } else {
-        showToDOM(filterPersianData(mainData));
+        } else {
+            showToDOM(filterPersianData(mainData));
 
+        }
     }
 }
 
@@ -46,7 +48,7 @@ const showToDOM = (resultFilter, type) => {
     pagination(resultFilter, +getParamToUrl('page'), 16, paginationWrapper).map(item => (
         mainContent.insertAdjacentHTML(
             "beforeend", mediaHtmlTemplate(item, type))))
-            loader.classList.add('hidden')
+    loader.classList.add('hidden')
 }
 
 const filterPersianData = array => {
