@@ -1,15 +1,23 @@
 import { recentMediaHandler } from "./helper/recentMedia.js"
-const playIcon =document.querySelector('#play')
-const nextIcon =document.querySelector('#next')
-const speakerIcon =document.querySelector('#speaker')
-const prevIcon =document.querySelector('#prev') 
-const fullScreenIcon =document.querySelector('#full-screen')
-const currentTime =document.querySelector('#currentTime')
-const videoTime =document.querySelector('#videoTime') 
-const ArtistName =document.querySelector('#ArtistName')
-const videoName =document.querySelector('#videoName')
-const video =document.querySelector('video')
-const cover =document.querySelector('#cover')
+import { getParamToUrl } from "./utilis/utils.js"
+import { destructorData } from "./helper/destructorData.js"
+import { getData, updateData } from "./helper/serviceData.js"
+
+const noLikeMedia = document.querySelector('#noLikeMedia')
+const likeMedia = document.querySelector('#likeMedia')
+
+
+const playIcon = document.querySelector('#play')
+const nextIcon = document.querySelector('#next')
+const speakerIcon = document.querySelector('#speaker')
+const prevIcon = document.querySelector('#prev')
+const fullScreenIcon = document.querySelector('#full-screen')
+const currentTime = document.querySelector('#currentTime')
+const videoTime = document.querySelector('#videoTime')
+const ArtistName = document.querySelector('#ArtistName')
+const videoName = document.querySelector('#videoName')
+const video = document.querySelector('video')
+const cover = document.querySelector('#cover')
 const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
 const firstDetails = document.getElementById('firstDetails')
@@ -23,48 +31,49 @@ let videos;
 let allDatas;
 let newTime;
 
-window.addEventListener('load',()=>{
+let sendVideoData = null;
+window.addEventListener('load', () => {
 
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
   const urlResult = params.get('id');
-  
-  
+
+
   getInfoes(urlResult).then(data => {
     console.log(data);
-   loader.classList.add('hidden')
-    if (data.status == 200 && data.result.link  ) {
+    loader.classList.add('hidden')
+    if (data.status == 200 && data.result.link) {
 
-     
-      
-      allDatas=data.result
 
+
+      allDatas = data.result
+      sendVideoData = allDatas
       recentMediaHandler(allDatas)
-      
+
       nextIcon.addEventListener('click', () => {
         pauseVideo()
-        location.href=`mVideo.html?artist=${data.result.artist}&id=${data.result.related[2].id}`
+        location.href = `mVideo.html?artist=${data.result.artist}&id=${data.result.related[2].id}`
       })
 
       prevIcon.addEventListener('click', () => {
         pauseVideo()
-        location.href=`mVideo.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
+        location.href = `mVideo.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
       })
 
-      videos = { 
-        
+      videos = {
+
         path: data.result.link,
-        displayName: data.result.song_farsi ?  data.result.song_farsi :  data.result.song,
+        displayName: data.result.song_farsi ? data.result.song_farsi : data.result.song,
         artist: data.result.artist_farsi ? data.result.artist_farsi : data.result.artist,
         cover: data.result.photo_player,
         id: data.result.id,
-         
-      } 
-   
-    loadVideo(videos);
 
-    firstDetails.insertAdjacentHTML('beforeend',
-      `
+      }
+
+      loadVideo(videos);
+
+      firstDetails.insertAdjacentHTML('beforeend',
+        `
     
     <section class="flex justify-center items-center">
     <p>${data.result.views}</p>
@@ -91,19 +100,19 @@ window.addEventListener('load',()=>{
       
 </section>
     `
-    )
+      )
 
-    shereIcon.addEventListener('click',()=>{
-      let link=location.href 
-      navigator.clipboard.writeText(link)
-      iziToast.show({ 
-        message: 'آدرس سایت با موفقیت در کلیپ بورد شما کپی شد',
-        rtl: true,
-    });
-    })
+      shereIcon.addEventListener('click', () => {
+        let link = location.href
+        navigator.clipboard.writeText(link)
+        iziToast.show({
+          message: 'آدرس سایت با موفقیت در کلیپ بورد شما کپی شد',
+          rtl: true,
+        });
+      })
 
-    relatedVideos.innerHTML = ''
-    relatedVideos.innerHTML = `
+      relatedVideos.innerHTML = ''
+      relatedVideos.innerHTML = `
     <section class="bg-lightBg  relative flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
     
     <a href='mVideo.html?artist=${videos.artist}&id=${videos.id}' class="flex gap-4 items-center">
@@ -118,7 +127,7 @@ window.addEventListener('load',()=>{
         <span class="stroke"></span>
       </div>
         <div>
-            <p class=" font-vazirBold text-[18px]"> ${videos.displayName }</p>
+            <p class=" font-vazirBold text-[18px]"> ${videos.displayName}</p>
             <p class="text-[#8e8e92] text-[14px]"> ${videos.artist}  </p>
         </div>
     </a>
@@ -128,10 +137,10 @@ window.addEventListener('load',()=>{
 </section>
     `
 
-    data.result.related.slice(0, 10).map(music => {
+      data.result.related.slice(0, 10).map(music => {
 
-      relatedVideos.insertAdjacentHTML("beforeend",
-        `
+        relatedVideos.insertAdjacentHTML("beforeend",
+          `
   <section class="bg-lightBg  flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
   <a href='mVideo.html?artist=${music.artist}&id=${music.id}' class="flex gap-4 items-center">
       <img src="${music.photo}" class=" w-16 h-16 rounded" alt="">
@@ -145,38 +154,55 @@ window.addEventListener('load',()=>{
     
 </section>
   `)
-    })
-
-    const musicUrl = data.result.link;
-
-    downloadBtn.forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        download(musicUrl);
       })
-    })
 
-    function download(url) {
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = true;
-      link.click();
-    }
+      //////////////////////////////////////////////////////////////////////////
+      const showData = getData('showData');
+
+      if (!!showData && !Object.keys(showData).length) {
+        noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'));
+      } else {
+        let likeFlag = showData.favorite.some(item => item.id == getParamToUrl('id'));
+        if (likeFlag) {
+          likeMedia.classList.remove('hidden');
+          noLikeMedia.classList.add('hidden');
+        }
+        noLikeMedia.addEventListener('click', noLikeMediaHandler)
+        likeMedia.addEventListener('click', likeMediaHandler);
+      }
+      //////////////////////////////////////////////////////////////////////////
+
+
+      const musicUrl = data.result.link;
+
+      downloadBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+          download(musicUrl);
+        })
+      })
+
+      function download(url) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = true;
+        link.click();
+      }
 
     }
-    else{
-      mainSection.innerHTML=''
+    else {
+      mainSection.innerHTML = ''
       mainSection.insertAdjacentHTML("beforeend",
-      `
+        `
       <img style=' margin-top:5rem' src='../Images/icons8-sad-100.png' class='mx-auto' />
       <p style="width: fit-content; margin-bottom:8rem; margin-top:1rem;" class="bg-lightBg dark:bg-darkLbg dark:text-white rounded-md mx-auto text-black   w-fit px-6 py-3">اطلاعات اهنگ یافت نشد :))</p>
-      `)  
-      mainSection.style.textAlign='center'
-      mainSection.style.gridTemplateColumns='auto'
+      `)
+      mainSection.style.textAlign = 'center'
+      mainSection.style.gridTemplateColumns = 'auto'
     }
   })
 })
 
-const getInfoes = async (id) => { 
+const getInfoes = async (id) => {
   const res = await fetch(` https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=get_video&id=${id} `)
   const data = await res.json()
   return data
@@ -185,139 +211,184 @@ const getInfoes = async (id) => {
 
 
 let isPlaying = false;
-document.body.addEventListener('keydown',(e)=>{ 
-    if (e.code === "Space") {
-        e.preventDefault()
-        
-        if (isPlaying) { 
-            pauseVideo() 
-          
-        }else{
-            playVideo() 
-           
-        }
+document.body.addEventListener('keydown', (e) => {
+  if (e.code === "Space") {
+    e.preventDefault()
+
+    if (isPlaying) {
+      pauseVideo()
+
+    } else {
+      playVideo()
+
     }
-    if (e.code === "ArrowRight") { 
-        newTime =video.currentTime + 10
-        video.currentTime=newTime
-    }
-    if (e.code === "ArrowLeft") {
-        newTime =video.currentTime - 10
-        video.currentTime=newTime
-    }
+  }
+  if (e.code === "ArrowRight") {
+    newTime = video.currentTime + 10
+    video.currentTime = newTime
+  }
+  if (e.code === "ArrowLeft") {
+    newTime = video.currentTime - 10
+    video.currentTime = newTime
+  }
 })
- 
- 
-nextIcon.addEventListener('click',()=>{
-   pauseVideo()
+
+
+nextIcon.addEventListener('click', () => {
+  pauseVideo()
   loadVideo(videos)
 })
-prevIcon.addEventListener('click',()=>{
+prevIcon.addEventListener('click', () => {
   pauseVideo()
   loadVideo(videos)
 })
 function playVideo() {
-    isPlaying = true;
-    playIcon.innerHTML=''
-    playIcon.innerHTML=' <i class="fas fa-pause " ></i>'
-    video.play(); 
-  }
+  isPlaying = true;
+  playIcon.innerHTML = ''
+  playIcon.innerHTML = ' <i class="fas fa-pause " ></i>'
+  video.play();
+}
 function pauseVideo() {
-      isPlaying = false; 
-      video.pause();
-      playIcon.innerHTML=''
-      playIcon.innerHTML=' <i class="fas fa-play " ></i>'
-    }
-  
+  isPlaying = false;
+  video.pause();
+  playIcon.innerHTML = ''
+  playIcon.innerHTML = ' <i class="fas fa-play " ></i>'
+}
+
 playIcon.addEventListener("click", function () {
-    if (isPlaying) {
-      pauseVideo()  
-    } else {
-      playVideo()  
-    }
-  })
-
-
-  function loadVideo(videoData) { 
-    videoName.textContent = videoData.displayName;
-    ArtistName.textContent = videoData.artist;
-    video.src = videoData.path; 
-    video.poster=videoData.cover 
+  if (isPlaying) {
+    pauseVideo()
+  } else {
+    playVideo()
   }
+})
 
 
-  function updateProgressBar(e) {
-    let currentMinutes;
-    let currentSeconds ;
-    if (isPlaying) { 
-      const duration = e.srcElement.duration;
-      const currentTime = e.srcElement.currentTime;
-      // Update progress bar width
-      const progressPercent = (currentTime / duration) * 100; 
-      progress.style.width = progressPercent + "%";
-      // Calculate display for duration
-      const durationMinutes = Math.floor(duration / 60);
-      let durationSeconds = Math.floor(duration % 60); 
-      if (durationSeconds < 10) {
-        durationSeconds = "0" + durationSeconds;
-      }
-      // Delay switching duration Element to avoid NaN
-      if (durationSeconds) {
-        videoTime.innerHTML = durationMinutes + ":" + durationSeconds;
-      }
-      // Calculate display for currentTime
+function loadVideo(videoData) {
+  videoName.textContent = videoData.displayName;
+  ArtistName.textContent = videoData.artist;
+  video.src = videoData.path;
+  video.poster = videoData.cover
+}
 
 
-      
-       currentMinutes = Math.floor(currentTime / 60);
-       currentSeconds = Math.floor(currentTime % 60);
-      if (currentSeconds < 10) {
-        currentSeconds = "0" + currentSeconds;
-      }
-      
-      if (progress.style.width > '99%') { 
-        location.href=`mVideo.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
-        pauseVideo()
-     
-      }
+function updateProgressBar(e) {
+  let currentMinutes;
+  let currentSeconds;
+  if (isPlaying) {
+    const duration = e.srcElement.duration;
+    const currentTime = e.srcElement.currentTime;
+    // Update progress bar width
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = progressPercent + "%";
+    // Calculate display for duration
+    const durationMinutes = Math.floor(duration / 60);
+    let durationSeconds = Math.floor(duration % 60);
+    if (durationSeconds < 10) {
+      durationSeconds = "0" + durationSeconds;
     }
-    if (isPlaying) { 
-        
-   currentTime.innerHTML=''
+    // Delay switching duration Element to avoid NaN
+    if (durationSeconds) {
+      videoTime.innerHTML = durationMinutes + ":" + durationSeconds;
+    }
+    // Calculate display for currentTime
+
+
+
+    currentMinutes = Math.floor(currentTime / 60);
+    currentSeconds = Math.floor(currentTime % 60);
+    if (currentSeconds < 10) {
+      currentSeconds = "0" + currentSeconds;
+    }
+
+    if (progress.style.width > '99%') {
+      location.href = `mVideo.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
+      pauseVideo()
+
+    }
+  }
+  if (isPlaying) {
+
+    currentTime.innerHTML = ''
     currentTime.innerHTML = currentMinutes + ":" + currentSeconds;
-    }
-   
-     
-  } 
-  function setProgressBar(e) {
-    const width = this.clientWidth;
-    const clickX = e.offsetX;
-    const duration = video.duration;
-    video.currentTime = (clickX / width) * duration; 
-  
   }
 
-  let speaker = true
-  speakerIcon.addEventListener('click',(e)=>{ 
-    if (speaker) {
-      video.volume=0
-      speaker=false
-      speakerIcon.innerHTML=''
-      speakerIcon.innerHTML=' <i class="fa-solid fa-volume-xmark relative top-[3px]" ></i>'
-    }else{
-      video.volume=1
-      speakerIcon.innerHTML=''
-      speakerIcon.innerHTML=' <i class="fa-solid fa-volume-high relative top-[3px]" ></i>' 
-      speaker=true
-    }
-    fa-volume-xmark
+
+}
+function setProgressBar(e) {
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const duration = video.duration;
+  video.currentTime = (clickX / width) * duration;
+
+}
+
+let speaker = true
+speakerIcon.addEventListener('click', (e) => {
+  if (speaker) {
+    video.volume = 0
+    speaker = false
+    speakerIcon.innerHTML = ''
+    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[3px]" ></i>'
+  } else {
+    video.volume = 1
+    speakerIcon.innerHTML = ''
+    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[3px]" ></i>'
+    speaker = true
+  }
+  fa - volume - xmark
+})
+
+
+fullScreenIcon.addEventListener('click', () => {
+  video.requestFullscreen()
+
+})
+
+video.addEventListener("timeupdate", updateProgressBar);
+progressContainer.addEventListener("click", setProgressBar);
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+const noLikeMediaHandler = () => {
+
+  const showData = getData('showData');
+
+  likeMedia.classList.remove('hidden');
+  noLikeMedia.classList.add('hidden');
+  likeMedia.style.pointerEvents = 'none';
+console.log(sendVideoData);
+  showData.favorite.unshift(destructorData(sendVideoData));
+  updateData(showData);
+  likeMedia.style.pointerEvents = 'auto'
+
+
+
+}
+
+const likeMediaHandler = () => {
+
+  likeMedia.classList.add('hidden');
+  noLikeMedia.classList.remove('hidden');
+  const showData = getData('showData');
+  let mediaExistenceIndex = showData.favorite.findIndex(item => item.id === +getParamToUrl('id'));
+  if (mediaExistenceIndex !== -1) {
+      showData.favorite.splice(mediaExistenceIndex, 1);
+      updateData(showData)
+
+  }
+}
+
+const noLoginSwal = text => {
+  Swal.fire({
+      title: text,
+      icon: 'warning',
+      confirmButtonText: 'ورود',
+
+  }).then((result) => {
+
+      if (result.isConfirmed) {
+          location.href = 'login.html'
+      }
   })
-
-
-  fullScreenIcon.addEventListener('click',()=>{ 
-    video.requestFullscreen()
-
-  })
-
-  video.addEventListener("timeupdate", updateProgressBar);
-  progressContainer.addEventListener("click", setProgressBar);
+}
