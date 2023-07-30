@@ -1,4 +1,4 @@
- 
+import { getData } from "./helper/serviceData.js"
 const playIcon = document.querySelector('#play')
 const nextIcon = document.querySelector('#next')
 const speakerIcon = document.querySelector('#speaker')
@@ -13,343 +13,442 @@ const cover = document.querySelector('#cover')
 const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
 const firstDetails = document.getElementById('firstDetails')
-const artistName = document.getElementById('artistName') 
+const artistName = document.getElementById('artistName')
 const shereIcon = document.getElementById('shereIcon')
 const downloadBtn = document.querySelectorAll('#downloadBtn')
- 
+
 
 
 let songs;
-let musicUrl; 
+let musicUrl;
 let results;
 let listType;
 
 
-window.addEventListener('load', () => { 
-    songs = [
+window.addEventListener('load', () => {
+ 
+
+  const url = new URL(window.location.href);
+  const params = new URLSearchParams(url.search);
+  const urlResult = params.get('id');
+  const typeResult = params.get('plId');
+  const musicResult = params.get('type');
+
+
+
+
+
+
+  if (urlResult === 'not') {
+
+
+    Swal.fire({
+      title: 'آهنگی در پلی لیست موجود نیست',
+      icon: 'warning',
+      confirmButtonText: 'افزودن',
+
+    }).then((result) => {
+     
+      if (result.isConfirmed) {
+        location.href = 'musics.html?type=newMusic&page=1'
+      }else{
+        history.back()
+      }
+    })
+
+
+
+
+  } else {
+
+    if (musicResult == 'musicsAlbum') {
+      const showData = getData('showData');
+      const playListActive = showData.musicsAlbum.find(item => item.id == typeResult)
+      const song2 = playListActive.data
+
+     const musicResult= song2.filter(music=>{
+        return music.id ==urlResult
+      })
+      let musicIndex=  song2.findIndex((music)=>{ 
+        return music.id == urlResult
+      })
+      loadSong(musicResult[0]);
+      console.log(musicResult);
+
+      nextIcon.addEventListener('click', () => {
+        pauseSong()
+        console.log(musicIndex);
+        if (musicIndex + 1 == song2.length) { 
+          location.href = `?type=musicsAlbum&plId=${typeResult}&id=${song2[0].id}`
+        }else{
+          let nextMusic =song2[musicIndex + 1]
+          location.href = `?type=musicsAlbum&plId=${typeResult}&id=${nextMusic.id}`
+        }
+     
+            
+  
+      })
+  
+      prevIcon.addEventListener('click', () => {
+        pauseSong()
+       
+        if (musicIndex  !== 0) {
+          let nextMusic =song2[musicIndex - 1]
+          location.href = `?type=musicsAlbum&plId=${typeResult}&id=${nextMusic.id}`
+           
+     
+        }else{ 
+          location.href = `?type=musicsAlbum&plId=${typeResult}&id=${song2[song2.length - 1].id}`
+        }
+     
+      })
+  
+      roundomIcon.addEventListener('click', () => {
+        pauseSong()
+        let number = [1, 2, 3, 4];
+  
+        let randomIndex = Math.floor(Math.random() * number.length);
+        let selectedNumber = number[randomIndex];
+  
+        let res = listType[0].data.filter(datas => {
+  
+          return datas.current == selectedNumber
+  
+        })
+  
+        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+      })
+
+    } else {
+      songs = [
         {
-            id: 1,
-            name: 'رپ',
-            type:'ourPlayList',
-            data: [
-                {
-                id: '89643',
-                photo: '../Images/rapGame.jpg',
-                link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/89643-3ec826c9c179bbd.mp3",
-                plays: '2,474,839',
-                likes: '3,699',
-                downloads: '2,474,839',
-                song_farsi: "رپ گیم اوج",
-                artist_farsi: "پیشرو",
-                current:1
+          id: 1,
+          name: 'رپ',
+          type: 'ourPlayList',
+          data: [
+            {
+              id: '89643',
+              photo: '../Images/rapGame.jpg',
+              link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/89643-3ec826c9c179bbd.mp3",
+              plays: '2,474,839',
+              likes: '3,699',
+              downloads: '2,474,839',
+              song_farsi: "رپ گیم اوج",
+              artist_farsi: "پیشرو",
+              current: 1
             },
     
             {
-                id: '76394',
-                photo: "../Images/pishroPlayList.jpg",
-                link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/76394-f043aabcd0e56c1.mp3",
-                plays: '2,312,733',
-                likes: '3,533',
-                downloads: '2,312,733',
-                song_farsi: "رپر قدیمی ریمیکس",
-                artist_farsi: "پیشرو",
-                current:2
+              id: '76394',
+              photo: "../Images/pishroPlayList.jpg",
+              link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/76394-f043aabcd0e56c1.mp3",
+              plays: '2,312,733',
+              likes: '3,533',
+              downloads: '2,312,733',
+              song_farsi: "رپر قدیمی ریمیکس",
+              artist_farsi: "پیشرو",
+              current: 2
             },
             {
-                id: '22419',
-                photo: "https://assets.rjassets.com/static/mp3/ali-sorena-majnoone-shahr/9a452da8de927f4.jpg",
-                link: "https://host1.mediacon-rj.app/media/mp3/mp3-256/22419-760a12d8d2f0bfc.mp3",
-                plays: '4,523,691"',
-                likes: '9,827',
-                downloads: '4,523,691',
-                song_farsi: "علی سورنا",
-                artist_farsi: "مجنون شهر",
-                current:3
+              id: '22419',
+              photo: "https://assets.rjassets.com/static/mp3/ali-sorena-majnoone-shahr/9a452da8de927f4.jpg",
+              link: "https://host1.mediacon-rj.app/media/mp3/mp3-256/22419-760a12d8d2f0bfc.mp3",
+              plays: '4,523,691"',
+              likes: '9,827',
+              downloads: '4,523,691',
+              song_farsi: "علی سورنا",
+              artist_farsi: "مجنون شهر",
+              current: 3
             },
     
             {
-                id: '22417',
-                photo: "https://assets.rjassets.com/static/mp3/ali-sorena-nemitarsam/68eba671e2b61c2.jpg",
-                path: "https://host1.mediacon-rj.app/media/mp3/mp3-256/22417-2080d359c26ce7d.mp3",
-                plays: '3,563,743"',
-                likes: '6,179',
-                downloads: '3,563,743',
-                song_farsi: "نمیترسم",
-                artist_farsi: "علی سورنا",
-                current:4
+              id: '22417',
+              photo: "https://assets.rjassets.com/static/mp3/ali-sorena-nemitarsam/68eba671e2b61c2.jpg",
+              path: "https://host1.mediacon-rj.app/media/mp3/mp3-256/22417-2080d359c26ce7d.mp3",
+              plays: '3,563,743"',
+              likes: '6,179',
+              downloads: '3,563,743',
+              song_farsi: "نمیترسم",
+              artist_farsi: "علی سورنا",
+              current: 4
             }
-        ]
+          ]
     
         },
         {
-            id: 2,
-            name: 'سنتی',
-            type:'ourPlayList',
-            data: [{
-                id: '97284',
-                photo: "https://assets.rjassets.com/static/mp3/homayoun-shajarian-asemane-abri/d3d91b20e3e12ca.jpg",
-                link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/97284-282b44b8917942d.mp3",
-                plays: '15,894,699',
-                likes: '18,189',
-                downloads: '15,894,699',
-                song_farsi: "آسمان ابری",
-                artist_farsi: "همایون شجریان",
-                   current:1
-            },
-            {
-                id: '99193',
-                photo: "https://assets.rjassets.com/static/mp3/homayoun-shajarian-yek-nafas-arezouye-to/831b1137962e9db.jpg",
-                link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/99193-226394f93acb3c4.mp3",
-                plays: '10,246,788',
-                likes: '13,204',
-                downloads: '10,246,788',
-                song_farsi: "یک نفس آرزوی تو",
-                artist_farsi: "همایون شجریان",
-                   current:2
-            },
+          id: 2,
+          name: 'سنتی',
+          type: 'ourPlayList',
+          data: [{
+            id: '97284',
+            photo: "https://assets.rjassets.com/static/mp3/homayoun-shajarian-asemane-abri/d3d91b20e3e12ca.jpg",
+            link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/97284-282b44b8917942d.mp3",
+            plays: '15,894,699',
+            likes: '18,189',
+            downloads: '15,894,699',
+            song_farsi: "آسمان ابری",
+            artist_farsi: "همایون شجریان",
+            current: 1
+          },
+          {
+            id: '99193',
+            photo: "https://assets.rjassets.com/static/mp3/homayoun-shajarian-yek-nafas-arezouye-to/831b1137962e9db.jpg",
+            link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/99193-226394f93acb3c4.mp3",
+            plays: '10,246,788',
+            likes: '13,204',
+            downloads: '10,246,788',
+            song_farsi: "یک نفس آرزوی تو",
+            artist_farsi: "همایون شجریان",
+            current: 2
+          },
     
-            {
-                id: '98183',
-                photo: "https://assets.rjassets.com/static/mp3/homayoun-shajarian-havaye-zemzemehayet/a4bf9281bfa5b7d.jpg",
-                link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/98183-b35aef05f4b0c2e.mp3",
-                plays: '10,474,856',
-                likes: '11,836',
-                downloads: "10,474,856",
-                song_farsi: "هوای زمزمه هایت",
-                artist_farsi: "همایون شجریان",
-                   current:3
-            },
-            {
-                id: '20169',
-                photo: "https://assets.rjassets.com/static/mp3/homayoun-shajarian-havaye-geryeh/2a9977cb7f7eda3.jpg",
-                link: "https://host1.mediacon-rj.app/media/mp3/mp3-256/20169-f38d85c950deebe.mp3",
-                plays: '17,345,802',
-                likes: '24,913',
-                downloads: '17,345,802',
-                song_farsi: "هوای گریه",
-                artist_farsi: "همایون شجریان",
-                current:4
-            }]
+          {
+            id: '98183',
+            photo: "https://assets.rjassets.com/static/mp3/homayoun-shajarian-havaye-zemzemehayet/a4bf9281bfa5b7d.jpg",
+            link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/98183-b35aef05f4b0c2e.mp3",
+            plays: '10,474,856',
+            likes: '11,836',
+            downloads: "10,474,856",
+            song_farsi: "هوای زمزمه هایت",
+            artist_farsi: "همایون شجریان",
+            current: 3
+          },
+          {
+            id: '20169',
+            photo: "https://assets.rjassets.com/static/mp3/homayoun-shajarian-havaye-geryeh/2a9977cb7f7eda3.jpg",
+            link: "https://host1.mediacon-rj.app/media/mp3/mp3-256/20169-f38d85c950deebe.mp3",
+            plays: '17,345,802',
+            likes: '24,913',
+            downloads: '17,345,802',
+            song_farsi: "هوای گریه",
+            artist_farsi: "همایون شجریان",
+            current: 4
+          }]
         },
     
         {
-            id: 3,
-            name: 'پاپ v1',
-            type:'ourPlayList',
-            data: [{
-                id: '101612',
-                photo: "https://assets.rjassets.com/static/mp3/shadmehr-aghili-daste-man-nist/52fbbf01742ce4f.jpg",
-                link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/101612-f7b4c735bc5e301.mp3",
-                plays: '86,274,517',
-                likes: '80,829',
-                downloads: '86,274,517',
-                song_farsi: "دست من نیست",
-                artist_farsi: "شادمهر عقیلی",
-                current:1
-            },
-            {
-                id: '105744',
-                photo: "https://assets.rjassets.com/static/mp3/shadmehr-aghili-chera-too-jangi/95796ce775c9a91.jpg",
-                link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/105744-949f30374731f94.mp3",
-                plays: '49,421,095',
-                likes: '49,850',
-                downloads: '49,421,095',
-                song_farsi: "چرا تو جنگی",
-                artist_farsi: "شادمهر عقیلی",
-                current:2
-            },
-            {
-                id: '113832',
-                photo: "https://assets.rjassets.com/static/mp3/ali-yasini-nesfe-shab/2313b1b542f2d82.jpg",
-                link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/113832-64271a002902289.mp3",
-                plays: '19,168,731',
-                likes: '30,986',
-                downloads: '19,168,731',
-                song_farsi: "نصف شب",
-                artist_farsi: "علی یاسینی",
-                current:3
-            },
-            {
-                id: '113403',
-                photo: "https://assets.rjassets.com/static/mp3/ali-yasini-nade-ghol/ad762502b6565d4.jpg",
-                link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/113403-26c03bf2a132d0a.mp3",
-                plays: '21,169,634',
-                likes: '29,491',
-                downloads: '21,169,634',
-                song_farsi: "نده قول",
-                artist_farsi: "علی یاسینی",
-                current:4
-            }]
+          id: 3,
+          name: 'پاپ v1',
+          type: 'ourPlayList',
+          data: [{
+            id: '101612',
+            photo: "https://assets.rjassets.com/static/mp3/shadmehr-aghili-daste-man-nist/52fbbf01742ce4f.jpg",
+            link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/101612-f7b4c735bc5e301.mp3",
+            plays: '86,274,517',
+            likes: '80,829',
+            downloads: '86,274,517',
+            song_farsi: "دست من نیست",
+            artist_farsi: "شادمهر عقیلی",
+            current: 1
+          },
+          {
+            id: '105744',
+            photo: "https://assets.rjassets.com/static/mp3/shadmehr-aghili-chera-too-jangi/95796ce775c9a91.jpg",
+            link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/105744-949f30374731f94.mp3",
+            plays: '49,421,095',
+            likes: '49,850',
+            downloads: '49,421,095',
+            song_farsi: "چرا تو جنگی",
+            artist_farsi: "شادمهر عقیلی",
+            current: 2
+          },
+          {
+            id: '113832',
+            photo: "https://assets.rjassets.com/static/mp3/ali-yasini-nesfe-shab/2313b1b542f2d82.jpg",
+            link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/113832-64271a002902289.mp3",
+            plays: '19,168,731',
+            likes: '30,986',
+            downloads: '19,168,731',
+            song_farsi: "نصف شب",
+            artist_farsi: "علی یاسینی",
+            current: 3
+          },
+          {
+            id: '113403',
+            photo: "https://assets.rjassets.com/static/mp3/ali-yasini-nade-ghol/ad762502b6565d4.jpg",
+            link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/113403-26c03bf2a132d0a.mp3",
+            plays: '21,169,634',
+            likes: '29,491',
+            downloads: '21,169,634',
+            song_farsi: "نده قول",
+            artist_farsi: "علی یاسینی",
+            current: 4
+          }]
         },
     
         {
-            id: 4,
-            name: 'پاپ v2',
-            type:'ourPlayList',
-            data: [
-                {
-                    id: '113403',
-                    photo: "https://assets.rjassets.com/static/mp3/ali-yasini-nade-ghol/ad762502b6565d4.jpg",
-                    link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/113403-26c03bf2a132d0a.mp3",
-                    plays: '21,169,634',
-                    likes: '29,491',
-                    downloads: '21,169,634',
-                    song_farsi: "نده قول",
-                    artist_farsi: "علی یاسینی",
-                    current:1
-                },
-                {
-                    id: '101612',
-                    photo: "https://assets.rjassets.com/static/mp3/shadmehr-aghili-daste-man-nist/52fbbf01742ce4f.jpg",
-                    link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/101612-f7b4c735bc5e301.mp3",
-                    plays: '86,274,517',
-                    likes: '80,829',
-                    downloads: '86,274,517',
-                    song_farsi: "دست من نیست",
-                    artist_farsi: "شادمهر عقیلی",
-                    current:2
-                },
-                {
-                    id: '105744',
-                    photo: "https://assets.rjassets.com/static/mp3/shadmehr-aghili-chera-too-jangi/95796ce775c9a91.jpg",
-                    link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/105744-949f30374731f94.mp3",
-                    plays: '49,421,095',
-                    likes: '49,850',
-                    downloads: '49,421,095',
-                    song_farsi: "چرا تو جنگی",
-                    artist_farsi: "شادمهر عقیلی",
-                    current:3
-                },
-                {
-                    id: '113832',
-                    photo: "https://assets.rjassets.com/static/mp3/ali-yasini-nesfe-shab/2313b1b542f2d82.jpg",
-                    link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/113832-64271a002902289.mp3",
-                    plays: '19,168,731',
-                    likes: '30,986',
-                    downloads: '19,168,731',
-                    song_farsi: "نصف شب",
-                    artist_farsi: "علی یاسینی",
-                    current:4
-                },
-            ]
+          id: 4,
+          name: 'پاپ v2',
+          type: 'ourPlayList',
+          data: [
+            {
+              id: '113403',
+              photo: "https://assets.rjassets.com/static/mp3/ali-yasini-nade-ghol/ad762502b6565d4.jpg",
+              link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/113403-26c03bf2a132d0a.mp3",
+              plays: '21,169,634',
+              likes: '29,491',
+              downloads: '21,169,634',
+              song_farsi: "نده قول",
+              artist_farsi: "علی یاسینی",
+              current: 1
+            },
+            {
+              id: '101612',
+              photo: "https://assets.rjassets.com/static/mp3/shadmehr-aghili-daste-man-nist/52fbbf01742ce4f.jpg",
+              link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/101612-f7b4c735bc5e301.mp3",
+              plays: '86,274,517',
+              likes: '80,829',
+              downloads: '86,274,517',
+              song_farsi: "دست من نیست",
+              artist_farsi: "شادمهر عقیلی",
+              current: 2
+            },
+            {
+              id: '105744',
+              photo: "https://assets.rjassets.com/static/mp3/shadmehr-aghili-chera-too-jangi/95796ce775c9a91.jpg",
+              link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/105744-949f30374731f94.mp3",
+              plays: '49,421,095',
+              likes: '49,850',
+              downloads: '49,421,095',
+              song_farsi: "چرا تو جنگی",
+              artist_farsi: "شادمهر عقیلی",
+              current: 3
+            },
+            {
+              id: '113832',
+              photo: "https://assets.rjassets.com/static/mp3/ali-yasini-nesfe-shab/2313b1b542f2d82.jpg",
+              link: "https://host2.mediacon-rj.app/media/mp3/mp3-256/113832-64271a002902289.mp3",
+              plays: '19,168,731',
+              likes: '30,986',
+              downloads: '19,168,731',
+              song_farsi: "نصف شب",
+              artist_farsi: "علی یاسینی",
+              current: 4
+            },
+          ]
         },
       ]
 
-    const url = new URL(window.location.href);
-    const params = new URLSearchParams(url.search);
-    const urlResult = params.get('id'); 
-    const typeResult = params.get('plId'); 
-   
-   listType= songs.filter(playLists=>{
-        return playLists.id == typeResult
+        listType = songs.filter(playLists => {
+      return playLists.id == typeResult
     })
-      
-      songs.filter(song=>{
-        if (song.id == typeResult) { 
-            results = song.data.filter(res=>{
-                return res.id==urlResult
-              }) 
-             
-        }
-      
-      
-      })
-      
-      loadSong(results[0]);
-     
-       
 
-       nextIcon.addEventListener('click', () => {
-        pauseSong()
-        if (results[0].current !== listType[0].data.length) {
-            let res= listType[0].data.filter(datas=>{
-                return datas.current  ==results[0].current + 1
-                 
-                })
-                location.href=`?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-              
-        }else{
-            let res= listType[0].data.filter(datas=>{
-                return datas.current  ==results[0].current - 3
-                 
-                })
-                console.log(res);
-            location.href=`?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-        }
-       
-       
-      })
-
-      prevIcon.addEventListener('click', () => {
-        pauseSong()
-        if (results[0].current !== 1) {
-            let res= listType[0].data.filter(datas=>{
-                return datas.current  ==results[0].current - 1
-                 
-                })
-                location.href=`?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-              
-        }else{
-            let res= listType[0].data.filter(datas=>{
-                return datas.current  ==results[0].current + 3
-                 
-                })
-                console.log(res);
-            location.href=`?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-        }
-      })
-
-      roundomIcon.addEventListener('click', () => {
-        pauseSong()
-        let number = [1,2,3,4];
-       
-        let randomIndex = Math.floor(Math.random() * number.length);
-        let selectedNumber = number[randomIndex];
-        
-        let res= listType[0].data.filter(datas=>{
-            
-            return datas.current  ==selectedNumber
-             
-            })
-            
-        location.href=`?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-      })
- 
-      shereIcon.addEventListener('click', () => {
-        let link = location.href
-        navigator.clipboard.writeText(link)
-        iziToast.show({
-          message: 'آدرس سایت با موفقیت در کلیپ بورد شما کپی شد',
-          rtl: true,
-        });
-      })
-       
-
-      downloadBtn.forEach(btn => {
-        btn.addEventListener('click', () => {
-          download(musicUrl);
+    songs.filter(song => {
+      if (song.id == typeResult) {
+        results = song.data.filter(res => {
+          return res.id == urlResult
         })
-      })
 
-      function download(url) {
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = true;
-        link.click();
       }
 
- 
-   
-  })
-  function loadSong(song) { 
-    songName.textContent = song.song_farsi;
-    ArtistName.textContent = song.artist_farsi;
-    music.src = song.link;
-    cover.style.background = `url(${song.photo})`
-    musicUrl = song.link;
+
+    })
+
+    loadSong(results[0]);
+
+
+
+    nextIcon.addEventListener('click', () => {
+      pauseSong()
+      if (results[0].current !== listType[0].data.length) {
+        let res = listType[0].data.filter(datas => {
+          return datas.current == results[0].current + 1
+
+        })
+        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+
+      } else {
+        let res = listType[0].data.filter(datas => {
+          return datas.current == results[0].current - 3
+
+        })
+        console.log(res);
+        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+      }
+
+
+    })
+
+    prevIcon.addEventListener('click', () => {
+      pauseSong()
+      if (results[0].current !== 1) {
+        let res = listType[0].data.filter(datas => {
+          return datas.current == results[0].current - 1
+
+        })
+        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+
+      } else {
+        let res = listType[0].data.filter(datas => {
+          return datas.current == results[0].current + 3
+
+        })
+        console.log(res);
+        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+      }
+    })
+
+    roundomIcon.addEventListener('click', () => {
+      pauseSong()
+      let number = [1, 2, 3, 4];
+
+      let randomIndex = Math.floor(Math.random() * number.length);
+      let selectedNumber = number[randomIndex];
+
+      let res = listType[0].data.filter(datas => {
+
+        return datas.current == selectedNumber
+
+      })
+
+      location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+    })
+
+    shereIcon.addEventListener('click', () => {
+      let link = location.href
+      navigator.clipboard.writeText(link)
+      iziToast.show({
+        message: 'آدرس سایت با موفقیت در کلیپ بورد شما کپی شد',
+        rtl: true,
+      });
+    })
+
+
+    downloadBtn.forEach(btn => {
+      btn.addEventListener('click', () => {
+        download(musicUrl);
+      })
+    })
+
+    function download(url) {
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = true;
+      link.click();
+    }
+    }
+
+  
+
+  }
+
+
+
+
+
+})
+
+
+function loadSong(song) {
+  songName.textContent = song.song_farsi;
+  ArtistName.textContent = song.artist_farsi;
+  music.src = song.link;
+  cover.style.background = `url(${song.photo})`
+  musicUrl = song.link;
   console.log(cover);
-    firstDetails.insertAdjacentHTML('beforeend',
-        `
+  firstDetails.innerHTML=''
+  firstDetails.insertAdjacentHTML('beforeend',
+    `
       
       <section class="flex justify-center items-center">
       <p>${song.plays}</p>
@@ -376,14 +475,14 @@ window.addEventListener('load', () => {
         
   </section>
       `
-      )
-  }
-  
+  )
+}
 
 
 
- 
- 
+
+
+
 
 function updateProgressBar(e) {
   let currentMinutes;
@@ -415,7 +514,7 @@ function updateProgressBar(e) {
     }
     if (progress.style.width > '99.5%') {
       pauseSong()
-       
+
     }
   }
   if (isPlaying) {
@@ -452,7 +551,7 @@ document.body.addEventListener('keydown', (e) => {
 let isPlaying = false;
 
 
- 
+
 
 function playSong() {
   isPlaying = true;
@@ -493,11 +592,11 @@ speakerIcon.addEventListener('click', (e) => {
     music.volume = 0
     speaker = false
     speakerIcon.innerHTML = ''
-    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[3px]" ></i>'
+    speakerIcon.innerHTML = ' <i style="top:3px"  class="fa-solid fa-volume-xmark relative top-[3px]" ></i>'
   } else {
     music.volume = 1
     speakerIcon.innerHTML = ''
-    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[3px]" ></i>'
+    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[3px]" style="top:3px"  ></i>'
     speaker = true
   }
   fa - volume - xmark

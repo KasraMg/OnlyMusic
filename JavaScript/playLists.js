@@ -4,11 +4,13 @@ import { getParamToUrl } from "./utilis/utils.js"
 import { idCreator } from "./helper/idCreator.js";
 
 const notLogin = document.querySelector('#notLogin');
+const isLogin = document.querySelector('#isLogin');
 const mainShow = document.querySelector('#mainShow');
 const loginBtnP = document.querySelector('#loginBtnP');
 const existPlayList = document.querySelector('#existPlayList');
 const newPlayListBtn = document.querySelector('#newPlayListBtn');
 
+const userPlayListHeader = document.querySelector('#userPlayListHeader');
 const deleteAlbumsBtn = document.querySelector('#deleteAlbumsBtn');
 const removeWrapper = document.querySelector('#removeWrapper');
 const confirmBtn = document.querySelector('#confirmBtn');
@@ -21,32 +23,62 @@ loginBtnP.addEventListener('click', () => location.href = 'login.html')
 
 let showData = getData('showData');
 
-if (showData.id) {
-  notLogin.classList.add('hidden');
-  mainShow.classList.remove('hidden')
-}
+
+
 
 
 window.addEventListener('load', () => {
-  loadData()
+  if (getParamToUrl('type') !== 'ourPlayList') {
+    userPlayListHeader.classList.replace('hidden', 'flex')
+  } else {
+    userPlayListHeader.classList.contains('flex') && userPlayListHeader.classList.replace('flex', 'hidden')
+
+  }
+
+
+
+  if (showData && showData.id) {
+    notLogin.classList.add('hidden');
+    isLogin.classList.remove('hidden');
+    loadData();
+  }
+
+  if (getParamToUrl('type') === 'ourPlayList') {
+    notLogin.classList.add('hidden');
+    isLogin.classList.remove('hidden');
+    loadData();
+
+  }
+
 })
 
 const loadData = () => {
   const paramsType = getParamToUrl('type');
 
   const showData = getData('showData');
-  const musicPlayListLocal = showData.musicsAlbum;
-  const videoPlayListLocal = showData.videosAlbum;
 
 
-  if (paramsType === 'all') {
-    showToDOM([...ourPlayList, ...musicPlayListLocal, ...videoPlayListLocal])
-  } else if (paramsType === 'music') {
-    showToDOM([...ourPlayList, ...musicPlayListLocal])
+  if (paramsType === 'ourPlayList') {
+    showToDOM([...ourPlayList])
   } else {
-    showToDOM([...videoPlayListLocal])
+    showToDOM([...showData.musicsAlbum])
+    if (!showData.musicsAlbum.length) {
+      deleteAlbumsBtn.disabled = true;
+      deleteAlbumsBtn.style = 'opacity:20%'
+      existPlayList.insertAdjacentHTML(
+        "beforeend", `
+        <div class="w-full text-orange-500">
+          هنوز پلی لیستی ساخته نشده :(
+        </div>`)
 
+    } else {
+      deleteAlbumsBtn.disabled = false;
+      deleteAlbumsBtn.style = 'opacity:100%'
+    }
   }
+
+
+
 }
 
 
@@ -57,58 +89,30 @@ newPlayListBtn.addEventListener('click', async () => {
     title: 'آلبوم جدید',
     html: `
       <input id="textInput" class="swal2-input mb-5" placeholder="نام آلبوم" required>
-      <div class="flex justify-center gap-4">
-        <div>
-          <label for="radioInput1">
-            <input id="radioInput1" type="radio" name="radioGroup" required> موزیک
-          </label>
-        </div>
-        <div>
-          <label for="radioInput2">
-            <input id="radioInput2" type="radio" name="radioGroup" required> موزیک ویدیو
-          </label>
-        </div>
-      `,
+         `,
     focusConfirm: false,
     showCancelButton: true,
     confirmButtonText: 'ایجاد',
     cancelButtonText: 'لغو',
     preConfirm: () => {
       const inputValue = document.getElementById('textInput').value;
-      const isRadioSelected1 = document.getElementById('radioInput1').checked;
-      const isRadioSelected2 = document.getElementById('radioInput2').checked;
-
-
-
 
       if (!inputValue || inputValue.trim() === '') {
         Swal.showValidationMessage('لطفاً نام آلبوم را وارد کنید');
-      } else if (!isRadioSelected1 && !isRadioSelected2) {
-        Swal.showValidationMessage('لطفاً یکی از گزینه‌های موزیک یا موزیک ویدیو را انتخاب کنید');
       } else {
 
         const showData = getData('showData');
 
-        if (isRadioSelected1) {
-          const newMusicAlbum = {
-            id: idCreator(showData.musicsAlbum),
-            name: inputValue.trim(),
-            type: 'musicsAlbum',
-            data: []
-          }
-
-          showData.musicsAlbum.unshift(newMusicAlbum);
-          updateData(showData)
-        } else {
-          const newVideoAlbum = {
-            id: idCreator(showData.videosAlbum),
-            name: inputValue.trim(),
-            type: 'videosAlbum',
-            data: []
-          }
-          showData.videosAlbum.unshift(newVideoAlbum);
-          updateData(showData)
+        const newMusicAlbum = {
+          id: idCreator(showData.musicsAlbum),
+          name: inputValue.trim(),
+          type: 'musicsAlbum',
+          data: []
         }
+
+        showData.musicsAlbum.unshift(newMusicAlbum);
+        updateData(showData)
+
         loadData()
       }
 
@@ -125,29 +129,17 @@ const showToDOM = (array) => {
             
       <div class="relative" ${item.type === 'ourPlayList' ? `id='ourPlayList'` : `id='userPlayList'`}>
 
-            <a href='${item.type === 'videosAlbum' ? 'vPlayList' : 'mPlayList'}.html?type=${item.type}&plId=${item.id}&id=${item.data[0] ? item.data[0].id : 'not'}' class="w-full cursor-pointer">
+            <a href='mPlayList.html?type=${item.type}&plId=${item.id}&id=${item.data[0] ? item.data[0].id : 'not'}' class="w-full cursor-pointer">
             <div class="relative ">
               <img src=${item.data[0] ? item.data[0].photo : '../Images/playList.jpg'} alt="cover" class="rounded-lg w-full h-full">
     
 
-     ${item.type === 'videosAlbum' ?
-      `
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-           stroke="currentColor" class="w-6 h-6 absolute top-2 right-2 text-white">
-             <path stroke-linecap="round"
-            d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-      </svg>
-      
-      `
-      :
-      `
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
       stroke="currentColor" class="w-6 h-6 absolute top-2 right-2 text-white">
       <path stroke-linecap="round" stroke-linejoin="round"
       d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
       </svg>
-      `
-    }
+    
     
             </div >
 
@@ -160,7 +152,7 @@ const showToDOM = (array) => {
 
 ${item.type === 'ourPlayList' ? '' : `
     <div
-      class="absolute top-0 left-0 right-0 z-50 w=h-full h-full justify-center items-center rounded-lg bg-[#0000007d] hidden" onclick='deleteHandler("${item.type}","${item.id}",event)' id='removeItemPlayList'>
+      class="absolute top-0 left-0 right-0 z-50 w=h-full h-full justify-center items-center rounded-lg bg-[#0000007d] hidden" onclick='deleteHandler("${item.id}",event)' id='removeItemPlayList'>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
         stroke="currentColor" class="w-12 h-12 text-white" >
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -175,12 +167,9 @@ ${item.type === 'ourPlayList' ? '' : `
 }
 
 
-let removeObg = {
-  musicsAlbum: [],
-  videosAlbum: [],
-}
+let removeAlbum = []
 
-function deleteHandler(type, id, event) {
+function deleteHandler(id, event) {
   let svgElement = event.target.querySelector('svg');
 
   if (svgElement === null) {
@@ -191,13 +180,13 @@ function deleteHandler(type, id, event) {
     svgElement.classList.remove('text-white');
     svgElement.style = 'color:red';
 
-    removeObg[type] = [...removeObg[type], +id]
+    removeAlbum.push(+id)
   } else {
     svgElement.classList.add('text-white');
     svgElement.style.cssText = '';
 
-    let cancelDelete = removeObg[type].filter(item => item !== id);
-    removeObg[type] = [...cancelDelete]
+    let cancelDelete = removeAlbum.filter(item => item !== +id);
+    removeAlbum = [...cancelDelete];
   }
 
 }
@@ -220,18 +209,10 @@ deleteAlbumsBtn.addEventListener('click', () => {
 
   })
   ////////////////////////////////////////////////////////
-  const ourPlayList = document.querySelectorAll('#ourPlayList');
-  ourPlayList.forEach(item => {
-    item.classList.add('hidden');
-  })
-  ////////////////////////////////////////////////////////
   newPlayListBtn.disabled = true
-  newPlayListBtn.style = 'opacity:10%'
+  newPlayListBtn.style = 'opacity:20%'
   ///////////////////////////////////////////////////////
-  removeObg = {
-    musicsAlbum: [],
-    videosAlbum: [],
-  }
+  removeAlbum = []
 })
 
 cancelBtn.addEventListener('click', () => {
@@ -254,10 +235,7 @@ cancelBtn.addEventListener('click', () => {
     item.classList.remove('hidden');
   })
   ////////////////////////////////////////////////////////
-  removeObg = {
-    musicsAlbum: [],
-    videosAlbum: [],
-  }
+  removeAlbum = []
   ////////////////////////////////////////////////////////
   newPlayListBtn.disabled = false
   newPlayListBtn.style = 'opacity:100%'
@@ -267,11 +245,9 @@ cancelBtn.addEventListener('click', () => {
 confirmBtn.addEventListener('click', () => {
   let showData = getData('showData');
 
-  let musicsAlbumAfterRemove = showData.musicsAlbum.filter(obj => !removeObg.musicsAlbum.some(id => obj.id === id));
-  let videosAlbumAfterRemove = showData.videosAlbum.filter(obj => !removeObg.videosAlbum.some(id => obj.id === id));
+  let musicsAlbumAfterRemove = showData.musicsAlbum.filter(obj => !removeAlbum.some(id => obj.id === id));
 
   showData.musicsAlbum = musicsAlbumAfterRemove;
-  showData.videosAlbum = videosAlbumAfterRemove;
   ////////////////////////////////////////////////////////
   removeWrapper.classList.replace('flex', 'hidden');
   deleteAlbumsBtn.classList.replace('hidden', 'flex');
@@ -297,9 +273,6 @@ confirmBtn.addEventListener('click', () => {
   updateData(showData);
   loadData();
   /////////////////////////////////////////////////////////////
-  removeObg = {
-    musicsAlbum: [],
-    videosAlbum: [],
-  }
+  removeAlbum = []
 
 })

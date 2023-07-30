@@ -8,7 +8,6 @@ const addNewUser = data => {
         },
         id: 1,
         musicsAlbum: [],
-        videosAlbum: [],
         favorite: [],
         recentMedia: [],
 
