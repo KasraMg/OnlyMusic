@@ -69,7 +69,6 @@
                 <div class="flex flex-col space-y-4">
                     <div>
                         <canvas id="valicode" class="w-52"></canvas>
-                        <input id="submit" class="hidden">
                     </div>
 
                     <div class="flex justify-center items-center text-secondText ">
@@ -92,7 +91,7 @@
                 <div class="w-full mr-4 sm:mr-0 ">
                     <input type="text" placeholder="کد امنیتی "
                         class="w-full p-5 rounded-md bg-darkBg text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
-                         id="captcha">
+                        id="captcha">
 
                     <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="captchaError"></p>
                 </div>
@@ -117,7 +116,10 @@
 
         </form>
 
-       
+        <div class="errorInput hidden">
+            <input type="text" class="errorInput">
+        </div>
+
         <script src="../JavaScript/login.js" type="module"></script>
         <script src="../JavaScript/helper/enterPanelCommon.js" type="module"></script>
         <script src="../vendor/sweetalert2/sweetalert2.js"></script>

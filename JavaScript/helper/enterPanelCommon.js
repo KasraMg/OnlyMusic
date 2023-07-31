@@ -96,6 +96,7 @@ const allInputs = document.querySelectorAll('form input');
 const allMassageError = document.querySelectorAll('form p');
 
 allInputs.forEach(element => {
+
     element.addEventListener('change', event => {
         if (event.target.id === "checkBox") {
             data = { ...data, [event.target.id]: event.target.checked };
@@ -109,17 +110,17 @@ allInputs.forEach(element => {
     });
 })
 
+if (type !== 'login') {
+    allInputs.forEach(element => {
+        element.addEventListener('blur', event => {
+            touch = { ...touch, [event.target.id]: true };
 
+            setError(validation(data, type, rightCode))
 
-allInputs.forEach(element => {
-    element.addEventListener('blur', event => {
-        touch = { ...touch, [event.target.id]: true };
+        })
 
-        setError(validation(data, type, rightCode))
-
-    })
-
-});
+    });
+}
 const setError = (errors) => {
 
     allMassageError.forEach(element => {
@@ -135,7 +136,6 @@ const setError = (errors) => {
     })
 
     allMassageError.forEach((element, index) => {
-
         let touchFlag = touch[element.id.replace('Error', '')]
 
         if (touchFlag && errors[element.id]) {
@@ -154,7 +154,7 @@ const setError = (errors) => {
 const submitHandler = (event, completeHandler) => {
     event.preventDefault();
 
-    if (!Object.keys(validation(data, type, rightCode)).length) {
+    if (!Object.keys(validation(data, type, rightCode, true)).length) {
         completeHandler()
 
     } else {
@@ -168,8 +168,7 @@ const submitHandler = (event, completeHandler) => {
             captcha: true
 
         }
-
-        setError(validation(data, type, rightCode))
+        setError(validation(data, type, rightCode, true))
 
 
         showSwal(

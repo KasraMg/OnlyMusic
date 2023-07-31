@@ -19,6 +19,16 @@
   }
 }
 
+.errorInput {
+  box-shadow: 0 0 0 4px #d3282842 !important;
+ 
+}
+
+.errorInput:focus {
+  box-shadow: 0 0 0 4px #d3282842 !important;
+
+}
+
 .dark div:where(.swal2-container).swal2-center>.swal2-popup {
   font-family: vazirlight !important;
   background: #222222 !important;
@@ -279,15 +289,7 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     margin-right: auto;
   }
 
-  .errorInput {
-    box-shadow: 0 0 0 4px #d3282842;
 
-  }
-
-  .errorInput:focus {
-    box-shadow: 0 0 0 4px #d3282842;
-
-  }
 
   .vjs-control-bar {
     display: none !important;

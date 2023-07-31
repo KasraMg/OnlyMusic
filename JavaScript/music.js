@@ -30,6 +30,7 @@ const shereIcon = document.getElementById('shereIcon')
 const downloadBtn = document.querySelectorAll('#downloadBtn')
 const mainSection = document.querySelector('#mainSection')
 const loader = document.querySelector('.loader')
+const loopIcon = document.querySelector('#loopIcon')
 
 
 let songs;
@@ -43,7 +44,6 @@ window.addEventListener('load', () => {
   const urlResult = params.get('id');
 
   const showData = getData('showData');
-
 
 
 
@@ -495,9 +495,12 @@ function updateProgressBar(e) {
     if (currentSeconds < 10) {
       currentSeconds = "0" + currentSeconds;
     }
-    if (progress.style.width > '99%') {
-      pauseSong()
-      location.href = `music.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
+
+    if (progress.style.width === '100%') {
+      if (loopIcon.classList.contains('text-secondText')) {
+        pauseSong()
+        location.href = `music.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
+      }
     }
   }
   if (isPlaying) {
@@ -596,6 +599,23 @@ speakerIcon.addEventListener('click', (e) => {
 
 music.addEventListener("timeupdate", updateProgressBar);
 progressContainer.addEventListener("click", setProgressBar);
+
+
+loopIcon.addEventListener('click', event => {
+  let svgIcon = event.target
+  if (event.target.tagName === 'path') {
+    svgIcon = event.target.parentNode
+  }
+  if (svgIcon.classList.contains('text-secondText')) {
+    music.loop = true;
+    loopIcon.classList.replace('text-secondText', 'text-white')
+
+  } else {
+    music.loop = false;
+    loopIcon.classList.replace('text-white', 'text-secondText')
+  }
+})
+
 
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
