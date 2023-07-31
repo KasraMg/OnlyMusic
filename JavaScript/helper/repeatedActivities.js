@@ -22,7 +22,7 @@ const getData = async (url, key, type) => {
     let mainData = null;
 
     let a = await getInfoes(url);
-    console.log(a.status);
+    console.log(a);
     if (a.status !== 200) {
         alert('403')
     } else {
