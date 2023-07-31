@@ -1,9 +1,11 @@
 import { getParamToUrl, getInfoes, mediaHtmlTemplate } from "./utilis/utils.js";
 const searchInput = document.querySelector('#searchInput')
+const searchInputMd = document.querySelector('#searchInputMd')
 
 window.addEventListener('load', () => {
     const param = getParamToUrl('param')
     searchInput.value=param
+    searchInputMd.value=param
     console.log(param);
 
     const SearchMusics = document.querySelector('#SearchMusics')

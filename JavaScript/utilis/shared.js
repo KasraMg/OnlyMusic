@@ -7,6 +7,8 @@ const aside = document.querySelectorAll('aside li>a');
 const hamburgerLi = document.querySelectorAll('#hamburger-menu li>a');
 const searchIcon = document.querySelector('#searchIcon')
 const searchInput = document.querySelector('#searchInput')
+const searchIconMd = document.querySelector('#searchIconMd')
+const searchInputMd = document.querySelector('#searchInputMd')
 
 let url = window.location.pathname;
 let fileName = url.substring(url.lastIndexOf('/') + 1);
@@ -120,6 +122,21 @@ searchIcon.addEventListener('click',()=>{
 
 
 searchInput.addEventListener("keydown",(e)=>{
+   if (e.key == 'Enter') {
+    if (e.target.value) {
+        location.href=`search.html?param=${e.target.value}`
+    } 
+   }
+})
+searchIconMd.addEventListener('click',()=>{
+    if (searchInputMd.value) {
+        location.href=`search.html?param=${searchInputMd.value}`
+    }
+    
+})
+
+
+searchInputMd.addEventListener("keydown",(e)=>{
    if (e.key == 'Enter') {
     if (e.target.value) {
         location.href=`search.html?param=${e.target.value}`
