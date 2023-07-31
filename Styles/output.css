@@ -2110,6 +2110,11 @@ input:checked + .toggle-bg {
      object-fit: cover;
 }
 
+.object-scale-down {
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+
 .p-1 {
   padding: 0.25rem;
 }
@@ -2829,6 +2834,22 @@ input[data-autocompleted] {
   }
 }
 
+.dark #searchInput::-moz-placeholder{
+  color: rgba(255, 255, 255, 0.727) !important;
+}
+
+.dark #searchInput::placeholder{
+  color: rgba(255, 255, 255, 0.727) !important;
+}
+
+#searchInput::-moz-placeholder{
+  color: rgba(0, 0, 0, 0.727) !important;
+}
+
+#searchInput::placeholder{
+  color: rgba(0, 0, 0, 0.727) !important;
+}
+
 .errorInput {
   box-shadow: 0 0 0 4px #d3282842 !important;
 }
@@ -2998,6 +3019,14 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 
 .placeholder\:text-\[\#00000058\]::placeholder {
   color: #00000058;
+}
+
+.placeholder\:text-\[\#00000089\]::-moz-placeholder {
+  color: #00000089;
+}
+
+.placeholder\:text-\[\#00000089\]::placeholder {
+  color: #00000089;
 }
 
 .before\:absolute::before {
