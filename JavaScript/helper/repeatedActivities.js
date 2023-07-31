@@ -8,7 +8,7 @@ const loader = document.querySelector('.loader')
 window.addParamToUrl = addParamToUrl;
 
 buttonsWrapper.forEach(element => {
-    element.classList.remove('btn');
+    // element.classList.remove('btn');
     if (element.id === getParamToUrl('type')) {
         element.classList.add('active__Btn');
     }
@@ -22,7 +22,7 @@ const getData = async (url, key, type) => {
     let mainData = null;
 
     let a = await getInfoes(url);
-    console.log(a.status);
+    console.log(a);
     if (a.status !== 200) {
         alert('403')
     } else {
@@ -45,12 +45,20 @@ const getData = async (url, key, type) => {
 }
 
 const showToDOM = (resultFilter, type) => {
-    pagination(resultFilter, +getParamToUrl('page'), 16, paginationWrapper).map(item => (
-        mainContent.insertAdjacentHTML(
-            "beforeend", mediaHtmlTemplate(item, type))))
-    loader.classList.add('hidden')
-}
+    if (resultFilter.length) {
 
+        pagination(resultFilter, +getParamToUrl('page'), 16, paginationWrapper).map(item => (
+            mainContent.insertAdjacentHTML(
+                "beforeend", mediaHtmlTemplate(item, type))))
+    } else {
+        mainContent.insertAdjacentHTML(
+            "beforeend", `  <div class="text-orange-400">
+اثری یافت نشد :(
+            </div>`)
+    }
+    loader.classList.add('hidden')
+
+}
 const filterPersianData = array => {
     let showArray = array.filter(data => {
         return data.artist_farsi && data.song_farsi

@@ -1,26 +1,29 @@
 import { getData } from "./helper/repeatedActivities.js";
 import { artists } from "./helper/server.js";
 import { getParamToUrl } from "./utilis/utils.js"
-const loader = document.querySelector('.loader')
 //////////////////////////////////////////////////////////////////////////////////
 const artistName = document.querySelector('#artistName');
 const imagesArtistWrapper = document.querySelectorAll('#imagesArtistWrapper img');
+const explainArtist = document.querySelector('#explainArtist');
 /////////////////////////////////////////////////////////////////////////////////
-let imgSrc = artists.find(artist => {
+let artistActive = artists.find(artist => {
     if (artist.name === getParamToUrl('artist')) {
         return artist
     }
 })
 ////////////////////////////////////////////////////////////////////////////////
 window.addEventListener('load', () => {
-    artistName.innerHTML = getParamToUrl('artist')
-    loader.classList.add('hidden')
+    artistName.innerHTML = artistActive.name;
+    console.log(artistActive.text);
+    console.log(explainArtist);
+    explainArtist.innerText = artistActive.text
     imagesArtistWrapper.forEach(img => {
-        img.src = imgSrc.photo
+        img.src = artistActive.photo
     });
 
     const paramsType = getParamToUrl('type');
     const baseUrl = `https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=search&q=${getParamToUrl('artist')}`
+    // loader.classList.add('hidden')
 
 
     if (paramsType === 'all') {
@@ -32,17 +35,5 @@ window.addEventListener('load', () => {
     }
 })
 
- 
-// import { getParamToUrl,getInfoes } from "./utilis/utils.js"
- 
- 
-// window.addEventListener('load', () => {
-  
-//     const artist=getParamToUrl('artist')
-//     console.log(artist);
-   
-//     getInfoes(`https://one-api.ir/genius/?token=677668:64ae5b9d7c848&action=artist&id=2&page=1`).then(data=>{
-//         console.log(data);
-//     })
- 
-// })
+
+

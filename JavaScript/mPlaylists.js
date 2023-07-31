@@ -3,7 +3,9 @@ import { idCreator } from "./helper/idCreator.js"
 import { getData, updateData } from "./helper/serviceData.js"
 import { destructorData } from "./helper/destructorData.js"
 import { getParamToUrl } from "./utilis/utils.js"
+import { ourPlayList } from "./helper/server.js"
 
+console.log(ourPlayList);
 const noLikeMedia = document.querySelector('#noLikeMedia')
 const likeMedia = document.querySelector('#likeMedia')
 
@@ -24,6 +26,7 @@ const firstDetails = document.getElementById('firstDetails')
 const artistName = document.getElementById('artistName')
 const shereIcon = document.getElementById('shereIcon')
 const downloadBtn = document.querySelectorAll('#downloadBtn')
+const loopIcon = document.querySelector('#loopIcon')
 
 
 
@@ -43,10 +46,7 @@ window.addEventListener('load', () => {
   const musicResult = params.get('type');
 
   const showData = getData('showData')
-  if (!!showData && !Object.keys(showData).length) {
-    noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'));
-
-  } else {
+  if (showData && showData.id) {
     let likeFlag = showData.favorite.some(item => item.id == getParamToUrl('id'));
     if (likeFlag) {
       likeMedia.classList.remove('hidden');
@@ -54,6 +54,9 @@ window.addEventListener('load', () => {
     }
     noLikeMedia.addEventListener('click', noLikeMediaHandler)
     likeMedia.addEventListener('click', likeMediaHandler);
+  } else {
+
+    noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'));
 
   }
 
@@ -533,8 +536,11 @@ function updateProgressBar(e) {
     if (currentSeconds < 10) {
       currentSeconds = "0" + currentSeconds;
     }
-    if (progress.style.width > '99.5%') {
-      pauseSong()
+    if (progress.style.width === '100%') {
+      if (loopIcon.classList.contains('text-secondText')) {
+        pauseSong()
+      }
+
 
     }
   }
@@ -625,12 +631,28 @@ speakerIcon.addEventListener('click', (e) => {
 
 music.addEventListener("timeupdate", updateProgressBar);
 progressContainer.addEventListener("click", setProgressBar);
+
+
+loopIcon.addEventListener('click', event => {
+  let svgIcon = event.target
+  if (event.target.tagName === 'path') {
+    svgIcon = event.target.parentNode
+  }
+  if (svgIcon.classList.contains('text-secondText')) {
+    music.loop = true;
+    loopIcon.classList.replace('text-secondText', 'text-white')
+
+  } else {
+    music.loop = false;
+    loopIcon.classList.replace('text-white', 'text-secondText')
+  }
+})
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
 const noLikeMediaHandler = () => {
 
-console.log(sendData);
+  console.log(sendData);
 
   const showData = getData('showData');
 
@@ -640,7 +662,10 @@ console.log(sendData);
   showData.favorite.unshift(destructorData(sendData));
   updateData(showData);
 
-
+  iziToast.show({
+    message: 'موزیک به لیست مورد علاقه اضافه شد :)',
+    rtl: true,
+  });
 
 }
 
@@ -655,6 +680,12 @@ const likeMediaHandler = () => {
     updateData(showData)
 
   }
+
+  iziToast.show({
+    message: 'موزیک از لیست مورد علاقه حذف شد :(',
+    rtl: true,
+  });
+
 }
 
 const noLoginSwal = text => {
