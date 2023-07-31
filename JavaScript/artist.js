@@ -1,6 +1,7 @@
 import { getData } from "./helper/repeatedActivities.js";
 import { artists } from "./helper/server.js";
 import { getParamToUrl } from "./utilis/utils.js"
+const loader = document.querySelector('.loader')
 //////////////////////////////////////////////////////////////////////////////////
 const artistName = document.querySelector('#artistName');
 const imagesArtistWrapper = document.querySelectorAll('#imagesArtistWrapper img');
@@ -13,6 +14,7 @@ let imgSrc = artists.find(artist => {
 ////////////////////////////////////////////////////////////////////////////////
 window.addEventListener('load', () => {
     artistName.innerHTML = getParamToUrl('artist')
+    loader.classList.add('hidden')
     imagesArtistWrapper.forEach(img => {
         img.src = imgSrc.photo
     });

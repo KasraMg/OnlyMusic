@@ -15,9 +15,9 @@ loginBtn.addEventListener('click', event => {
 const registerBtn = document.querySelector('#registerBtn')
 
 registerBtn.addEventListener('click', (event) => submitHandler(event, () => {
-     showSwal(  ' با موفقیت ثبت نام شدید!' ,'success',  'بزن بریم',(result) => {
+    showSwal(' با موفقیت ثبت نام شدید!', 'success', 'بزن بریم', (result) => {
         location.href = "userPanel.html";
-      }  )
+    })
     const dateToDay = () => {
         const date = new Date();
         const configs = {
@@ -31,9 +31,9 @@ registerBtn.addEventListener('click', (event) => submitHandler(event, () => {
         return toDay
     }
 
-    let { name, email, password } = data
-    let dataToSave = { name, email, password, registerDate: dateToDay() }
+    const { name, email, password } = data
+    let dataToSave = { name, email, password: btoa(password), registerDate: dateToDay() }
     addNewUser(dataToSave);
-   
+
 }
 ))
