@@ -416,4 +416,4 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   #searchInput::placeholder{
     color: rgba(0, 0, 0, 0.727) !important;
   }
-}
+}    

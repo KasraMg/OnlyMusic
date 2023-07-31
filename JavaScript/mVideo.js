@@ -69,6 +69,9 @@ window.addEventListener('load', () => {
 
       }
 
+
+    
+
       loadVideo(videos);
 
       firstDetails.insertAdjacentHTML('beforeend',
@@ -198,7 +201,11 @@ window.addEventListener('load', () => {
       mainSection.style.textAlign = 'center'
       mainSection.style.gridTemplateColumns = 'auto'
     }
+
+    
   })
+
+  
 })
 
 const getInfoes = async (id) => {
@@ -268,6 +275,7 @@ function loadVideo(videoData) {
   ArtistName.textContent = videoData.artist;
   video.src = videoData.path;
   video.poster = videoData.cover
+  
 }
 
 
@@ -291,7 +299,7 @@ function updateProgressBar(e) {
       videoTime.innerHTML = durationMinutes + ":" + durationSeconds;
     }
     // Calculate display for currentTime
-
+   
 
 
     currentMinutes = Math.floor(currentTime / 60);
