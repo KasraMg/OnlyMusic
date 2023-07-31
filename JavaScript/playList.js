@@ -11,6 +11,7 @@ const albumName = document.querySelector('#albumName');
 const albumNameInput = document.querySelector('#albumNameInput');
 const moreAlbum = document.querySelector('#moreAlbum');
 const confirmBtn = document.querySelector('#confirmBtn');
+
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 const type = getParamToUrl('type');
@@ -40,6 +41,8 @@ window.addEventListener('load', () => {
 
 
 })
+moreAlbum.style.pointerEvents = 'none'
+
 
 editBtn.addEventListener('click', () => {
     headerEdit.classList.replace('flex', 'hidden');
@@ -85,32 +88,51 @@ confirmBtn.addEventListener('click', () => {
 
 const deleteHandler = id => {
 
-    let dataAfterRemove = albumDetails.data.filter(item => +item.id !== id);
-
-    let indexPlayList = showData.musicsAlbum.findIndex(item => item.id === +playListId);
-    showData.musicsAlbum.findIndex(item => item.id === playListId)
-    showData.musicsAlbum[indexPlayList].data = dataAfterRemove;
-
-
-    updateData(showData);
-
-    if (dataAfterRemove.length) {
-        addParamToUrl('id', dataAfterRemove[0].id)
-    } else {
-        Swal.fire({
-            title: 'آهنگی در پلی لیست موجود نیست',
-            icon: 'warning',
-            confirmButtonText: 'افزودن',
-
-        }).then((result) => {
-
+    Swal.fire({
+        title: 'آیا از حذف موزیک مطمئن هستید؟',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'حذف شود',
+        confirmButtonColor: 'red',
+        cancelButtonText: 'لغو',
+        preConfirm: () => {
             if (result.isConfirmed) {
-                location.href = 'musics.html?type=newMusic&page=1'
-            } else {
-                location.href = 'playlists.html?type=userPlaylist'
+                iziToast.show({
+                    message: 'موزیک از پلی لیست حذف شد.',
+                    rtl: true,
+                });
+                let dataAfterRemove = albumDetails.data.filter(item => +item.id !== id);
+
+                let indexPlayList = showData.musicsAlbum.findIndex(item => item.id === +playListId);
+                showData.musicsAlbum.findIndex(item => item.id === playListId)
+                showData.musicsAlbum[indexPlayList].data = dataAfterRemove;
+            
+            
+                updateData(showData);
+            
+                if (dataAfterRemove.length) {
+                    addParamToUrl('id', dataAfterRemove[0].id)
+                } else {
+                    Swal.fire({
+                        title: 'آهنگی در پلی لیست موجود نیست',
+                        icon: 'warning',
+                        confirmButtonText: 'افزودن',
+            
+                    }).then((result) => {
+            
+                        if (result.isConfirmed) {
+                            location.href = 'musics.html?type=newMusic&page=1'
+                        } else {
+                            location.href = 'playlists.html?type=userPlaylist'
+                        }
+                    })
+                }
             }
-        })
-    }
+        }
+    })
+
+
+   
 
 
 }

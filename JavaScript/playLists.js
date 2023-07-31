@@ -83,42 +83,59 @@ const loadData = () => {
 
 
 
-newPlayListBtn.addEventListener('click', async () => {
-
-  Swal.fire({
-    title: 'آلبوم جدید',
-    html: `
-      <input id="textInput" class="swal2-input mb-5" placeholder="نام آلبوم" required>
-         `,
-    focusConfirm: false,
-    showCancelButton: true,
-    confirmButtonText: 'ایجاد',
-    cancelButtonText: 'لغو',
-    preConfirm: () => {
-      const inputValue = document.getElementById('textInput').value;
-
-      if (!inputValue || inputValue.trim() === '') {
-        Swal.showValidationMessage('لطفاً نام آلبوم را وارد کنید');
-      } else {
-
-        const showData = getData('showData');
-
-        const newMusicAlbum = {
-          id: idCreator(showData.musicsAlbum),
-          name: inputValue.trim(),
-          type: 'musicsAlbum',
-          data: []
-        }
-
-        showData.musicsAlbum.unshift(newMusicAlbum);
-        updateData(showData)
-
-        loadData()
+newPlayListBtn.addEventListener('click', () => {
+  let showData = getData('showData')
+  if (showData.musicsAlbum.length >= 4) {
+    Swal.fire({
+      title: 'بیشتر از 4 پلی لیست نمیتوان ساخت! برای خرید اشتراک ویژه با ما تماس بگیرید',
+      icon: 'error',
+      showCancelButton: true,
+      confirmButtonText: 'تماس با ما',
+      confirmButtonColor: 'red',
+      cancelButtonText: 'لغو',
+    }).then(result => {
+      if (result.isConfirmed) {
+        location.href = 'contactUs.html'
       }
 
+    })
+  } else {
 
-    }
-  });
+    Swal.fire({
+      title: 'آلبوم جدید',
+      html: `
+      <input id="textInput" class="swal2-input mb-5" placeholder="نام آلبوم" required>
+         `,
+      focusConfirm: false,
+      showCancelButton: true,
+      confirmButtonText: 'ایجاد',
+      cancelButtonText: 'لغو',
+      preConfirm: () => {
+        const inputValue = document.getElementById('textInput').value;
+
+        if (!inputValue || inputValue.trim() === '') {
+          Swal.showValidationMessage('لطفاً نام آلبوم را وارد کنید');
+        } else {
+
+          const showData = getData('showData');
+
+          const newMusicAlbum = {
+            id: idCreator(showData.musicsAlbum),
+            name: inputValue.trim(),
+            type: 'musicsAlbum',
+            data: []
+          }
+
+          showData.musicsAlbum.unshift(newMusicAlbum);
+          updateData(showData)
+
+          loadData()
+        }
+
+
+      }
+    });
+  }
 })
 
 const showToDOM = (array) => {
@@ -131,7 +148,7 @@ const showToDOM = (array) => {
 
             <a href='mPlayList.html?type=${item.type}&plId=${item.id}&id=${item.data[0] ? item.data[0].id : 'not'}' class="w-full cursor-pointer">
             <div class="relative ">
-              <img src=${item.data[0] ? item.data[0].photo : '../Images/playList.jpg'} alt="cover" class="rounded-lg w-full h-full">
+              <img src=${item.data[0] ? item.data[0].photo : `../Images/album/${Math.floor(Math.random() * 4)}.jpg`} alt="cover" class="rounded-lg  w-full ">
     
 
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -215,7 +232,10 @@ deleteAlbumsBtn.addEventListener('click', () => {
   removeAlbum = []
 })
 
-cancelBtn.addEventListener('click', () => {
+cancelBtn.addEventListener('click', cancelBtnHandler)
+
+
+function cancelBtnHandler() {
   removeWrapper.classList.replace('flex', 'hidden');
   deleteAlbumsBtn.classList.replace('hidden', 'flex');
   ////////////////////////////////////////////////////////
@@ -236,43 +256,67 @@ cancelBtn.addEventListener('click', () => {
   })
   ////////////////////////////////////////////////////////
   removeAlbum = []
+  let svgElement = document.querySelectorAll('#removeItemPlayList svg');
+  svgElement.forEach(item => {
+    item.classList.add('text-white');
+    item.style.cssText = '';
+  })
   ////////////////////////////////////////////////////////
   newPlayListBtn.disabled = false
   newPlayListBtn.style = 'opacity:100%'
-
-})
+}
 
 confirmBtn.addEventListener('click', () => {
-  let showData = getData('showData');
+  Swal.fire({
+    title: 'آیا از حذف موزیک مطمئن هستید؟',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'حذف شود',
+    confirmButtonColor: 'red',
+    cancelButtonText: 'لغو',
+  }).then((result) => {
+    console.log(result)
+    if (result.isConfirmed) {
+      if (removeAlbum.length) {
+        let showData = getData('showData');
 
-  let musicsAlbumAfterRemove = showData.musicsAlbum.filter(obj => !removeAlbum.some(id => obj.id === id));
+        let musicsAlbumAfterRemove = showData.musicsAlbum.filter(obj => !removeAlbum.some(id => obj.id === id));
 
-  showData.musicsAlbum = musicsAlbumAfterRemove;
-  ////////////////////////////////////////////////////////
-  removeWrapper.classList.replace('flex', 'hidden');
-  deleteAlbumsBtn.classList.replace('hidden', 'flex');
-  ////////////////////////////////////////////////////////
-  const removeItemPlayList = document.querySelectorAll('#removeItemPlayList');
-  removeItemPlayList.forEach(item => {
-    item.classList.replace('flex', 'hidden')
-  })
-  const userPlayList = document.querySelectorAll('#userPlayList');
-  userPlayList.forEach(item => {
-    item.classList.remove('removePlayList');
+        showData.musicsAlbum = musicsAlbumAfterRemove;
+        ////////////////////////////////////////////////////////
+        removeWrapper.classList.replace('flex', 'hidden');
+        deleteAlbumsBtn.classList.replace('hidden', 'flex');
+        ////////////////////////////////////////////////////////
+        const removeItemPlayList = document.querySelectorAll('#removeItemPlayList');
+        removeItemPlayList.forEach(item => {
+          item.classList.replace('flex', 'hidden')
+        })
+        const userPlayList = document.querySelectorAll('#userPlayList');
+        userPlayList.forEach(item => {
+          item.classList.remove('removePlayList');
 
-  })
-  ////////////////////////////////////////////////////////
-  const ourPlayList = document.querySelectorAll('#ourPlayList');
-  ourPlayList.forEach(item => {
-    item.classList.remove('hidden');
-  })
-  ////////////////////////////////////////////////////////
-  newPlayListBtn.disabled = false
-  newPlayListBtn.style = 'opacity:100%'
-  ////////////////////////////////////////////////////////
-  updateData(showData);
-  loadData();
-  /////////////////////////////////////////////////////////////
-  removeAlbum = []
+        })
+        ////////////////////////////////////////////////////////
+        const ourPlayList = document.querySelectorAll('#ourPlayList');
+        ourPlayList.forEach(item => {
+          item.classList.remove('hidden');
+        })
+        ////////////////////////////////////////////////////////
+        newPlayListBtn.disabled = false
+        newPlayListBtn.style = 'opacity:100%'
+        ////////////////////////////////////////////////////////
+        updateData(showData);
+        loadData();
+      } else {
+        iziToast.show({
+          message: 'موردی برای حذف انتخاب نشده است',
+          rtl: true,
+        })
+      }
 
+    } else {
+      cancelBtnHandler()
+    }
+  }
+  )
 })

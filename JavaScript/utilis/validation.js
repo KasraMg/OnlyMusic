@@ -14,11 +14,14 @@ const validation = (data, type, mainCaptcha, submitFlag) => {
         delete errors.emailError;
     }
 
+    const localData = getData('mainData')
+
+
     if (!data.password.trim()) {
         errors.passwordError = "گذرواژه الزامی می باشد";
     } else if (data.password.length < 6) {
         errors.passwordError = "گذرواژه باید بیشتر از 6 کارکتر باشد"
-    } else if (atob(emailExist(data.email)[1].password) !== data.password && type === 'login' && submitFlag) {
+    } else if (type === 'login' && localData && submitFlag && atob(emailExist(data.email)[1].password) !== data.password) {
         errors.passwordError = 'رمز عبور نامعتبر است'
     } else {
         delete errors.passwordError;
@@ -67,6 +70,9 @@ const validation = (data, type, mainCaptcha, submitFlag) => {
         } else {
             delete errors.nameError;
         }
+
+      console.log(data.password);
+      console.log(data.confirmPassword);
 
         if (!data.confirmPassword.trim()) {
             errors.confirmPasswordError = "نکرار گذرواژه الزامی می باشد"

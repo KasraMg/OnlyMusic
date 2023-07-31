@@ -75,7 +75,7 @@ if (type === 'userPanel') {
     data = {
         name: userInfo.name,
         email: userInfo.email,
-        password: userInfo.password,
+        password: atob(userInfo.password),
         confirmPassword: ''
     }
 
@@ -104,6 +104,8 @@ allInputs.forEach(element => {
             data = { ...data, [event.target.id]: event.target.value.trim() }
             element.value = data[element.id]
         }
+
+    
 
         setError(validation(data, type, rightCode))
 

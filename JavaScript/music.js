@@ -187,7 +187,7 @@ window.addEventListener('load', () => {
   </svg>
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-    class="w-6 h-6 text-white hidden cursor-pointer" id="savePlayList-more" data-id='${music.id}'>
+    class="w-6 h-6 dark:text-white hidden cursor-pointer" id="savePlayList-more" data-id='${music.id}'>
     <path fill-rule="evenodd"
       d="M6.32 2.577a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93V21a.75.75 0 01-1.085.67L12 18.089l-7.165 3.583A.75.75 0 013.75 21V5.507c0-1.47 1.073-2.756 2.57-2.93z"
       clip-rule="evenodd" />
@@ -199,27 +199,7 @@ window.addEventListener('load', () => {
 
       ////////////////////////////////////////////////////////////////////
       // save  or like
-      if (!!showData && !Object.keys(showData).length) {
-        noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'));
-        noSavePlayList.addEventListener('click', () => noLoginSwal('برای افزودن به پلی لیست ابتدا وارد شوید.'))
-        let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more');
-        noSavePlayListMore.forEach(item => {
-          item.addEventListener('click', () => {
-            Swal.fire({
-              title: 'برای افزودن به پلی لیست ابتدا وارد شوید.',
-              icon: 'warning',
-              confirmButtonText: 'ورود',
-
-            }).then((result) => {
-
-              if (result.isConfirmed) {
-                location.href = 'login.html'
-              }
-            })
-
-          })
-        });
-      } else {
+      if (showData && showData.id) {
         let likeFlag = showData.favorite.some(item => item.id == getParamToUrl('id'));
         if (likeFlag) {
           likeMedia.classList.remove('hidden');
@@ -270,7 +250,13 @@ window.addEventListener('load', () => {
 
           })
         })
-
+      } else {
+        noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'));
+        noSavePlayList.addEventListener('click', () => noLoginSwal('برای افزودن به پلی لیست ابتدا وارد شوید.'))
+        let noSavePlayListMore = document.querySelectorAll('#noSavePlayList-more');
+        noSavePlayListMore.forEach(item => {
+          item.addEventListener('click', () => noLoginSwal('برای افزودن به پلی لیست ابتدا وارد شوید.'))
+        });
       }
       ////////////////////////////////////////////////////////////////////
 
@@ -338,13 +324,16 @@ window.addEventListener('load', () => {
 
 
     const template = `
- <div class="mx-auto w-2/3 p-4 rounded-lg bg-[#00000045] dark:bg-[#ffffff45] flex flex-col justify-center items-center gap-6" id='alertModalMore'>
-   <div class="w-full rounded-md p-2 bg-sky-500 cursor-pointer flex justify-center items-center">+</div>
-</div>`
+ <div class="mx-auto w-2/3 p-4 rounded-lg dark:text-white bg-[#00000045] dark:bg-[#ffffff45] flex flex-col justify-center items-center gap-6" id='alertModalMoreWrapper'>
+ <div class="w-full grid grid-cols-2 sm-x2:grid-cols-1 gap-4" id='alertModalMore'>
 
+ </div>
+   <button class="w-full rounded-md p-2 text-white bg-[#800080] cursor-pointer flex justify-center items-center">+</button>
+</div>`
+    console.log(template);
     let arr = findInPlayList(data.id);
     Swal.fire({
-      title: 'پلی لیست',
+      title: 'پلی لیست ها',
       html: template,
       focusConfirm: false,
       showConfirmButton: false,
@@ -353,8 +342,9 @@ window.addEventListener('load', () => {
     });
 
     let alertModalMore = document.querySelector('#alertModalMore');
+    console.log(alertModalMore);
     showData.musicsAlbum.forEach((item, index) => {
-      alertModalMore.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? '!bg-green-500' : ''}" id='${item.id}'>${item.name}</p>`)
+      alertModalMore.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? '!bg-[#00cc00]' : ''}" id='${item.id}'>${item.name}</p>`)
     });
 
 
@@ -365,9 +355,9 @@ window.addEventListener('load', () => {
 
 
         let index = showData.musicsAlbum.findIndex(item => item.id == event.target.id);
-        if (event.target.classList.contains('!bg-green-500')) {
+        if (event.target.classList.contains('!bg-[#00cc00]')) {
 
-          event.target.classList.remove('!bg-green-500');
+          event.target.classList.remove('!bg-[#00cc00]');
           let indexInPlayList = showData.musicsAlbum[index].data.findIndex(item => item.id == data.id);
           showData.musicsAlbum[index].data.splice(indexInPlayList, 1);
           updateData(showData);
@@ -381,13 +371,18 @@ window.addEventListener('load', () => {
             noSavePlayListMore[indexInWrapper].classList.remove('hidden');
           }
 
+          iziToast.show({
+            message: `موزیک از آلبوم ${showData.musicsAlbum[index].name} حذف شد`,
+            rtl: true,
+          });
+
         } else {
 
 
 
           if (showData.musicsAlbum[index].data.findIndex(item => item.id == data) == -1) {
             showData.musicsAlbum[index].data.unshift(destructorData(data));
-            event.target.classList.add('!bg-green-500')
+            event.target.classList.add('!bg-[#00cc00]')
             updateData(showData);
             let changeSaveIcon = findInPlayList(data.id).some(item => item.flag === true);
 
@@ -400,6 +395,11 @@ window.addEventListener('load', () => {
             }
           }
 
+          iziToast.show({
+            message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
+            rtl: true,
+          });
+
 
         }
         Swal.close()
@@ -407,40 +407,62 @@ window.addEventListener('load', () => {
       })
     })
 
-    let newPlayListBtn = document.querySelector('#alertModalMore div')
+    let newPlayListBtn = document.querySelector('#alertModalMoreWrapper button')
     newPlayListBtn.addEventListener('click', () => {
-      Swal.fire({
-        title: 'آلبوم جدید',
-        html: `<input id="textInput1" class="swal2-input mb-5" placeholder="نام آلبوم" required> `,
-        focusConfirm: false,
-        showCancelButton: true,
-        confirmButtonText: 'ایجاد',
-        cancelButtonText: 'لغو',
-        preConfirm: () => {
-          const inputValue = document.getElementById('textInput1').value;
 
-          if (!inputValue || inputValue.trim() === '') {
-            Swal.showValidationMessage('لطفاً نام آلبوم را وارد کنید');
 
-          } else {
-
-            const showData = getData('showData');
-            const newMusicAlbum = {
-              id: idCreator(showData.musicsAlbum),
-              name: inputValue.trim(),
-              type: 'musicsAlbum',
-              data: []
-            }
-
-            showData.musicsAlbum.unshift(newMusicAlbum);
-            updateData(showData)
-
-            saveHandler()
+      let showData = getData('showData')
+      if (showData.musicsAlbum.length >= 4) {
+        Swal.fire({
+          title: 'بیشتر از 4 پلی لیست نمیتوان ساخت! برای خرید اشتراک ویژه با ما تماس بگیرید',
+          icon: 'error',
+          showCancelButton: true,
+          confirmButtonText: 'تماس با ما',
+          confirmButtonColor: 'red',
+          cancelButtonText: 'لغو',
+        }).then(result => {
+          if (result.isConfirmed) {
+            location.href = 'contactUs.html'
           }
 
+        })
+      } else {
+        Swal.fire({
+          title: 'آلبوم جدید',
+          html: `<input id="textInput1" class="swal2-input mb-5" placeholder="نام آلبوم" required> `,
+          focusConfirm: false,
+          showCancelButton: true,
+          confirmButtonText: 'ایجاد',
+          cancelButtonText: 'لغو',
+          preConfirm: () => {
+            const inputValue = document.getElementById('textInput1').value;
 
-        }
-      });
+            if (!inputValue || inputValue.trim() === '') {
+              Swal.showValidationMessage('لطفاً نام آلبوم را وارد کنید');
+
+            } else {
+
+              const showData = getData('showData');
+              const newMusicAlbum = {
+                id: idCreator(showData.musicsAlbum),
+                name: inputValue.trim(),
+                type: 'musicsAlbum',
+                data: []
+              }
+
+              showData.musicsAlbum.unshift(newMusicAlbum);
+              updateData(showData)
+
+              saveHandler()
+            }
+
+
+          }
+        });
+      }
+
+
+
     })
 
 
@@ -487,7 +509,7 @@ function updateProgressBar(e) {
       musicTime.textContent = durationMinutes + ":" + durationSeconds;
     }
     // Calculate display for currentTime
-    
+
 
 
     currentMinutes = Math.floor(currentTime / 60);
@@ -632,6 +654,10 @@ const noLikeMediaHandler = () => {
   showData.favorite.unshift(destructorData(sendData));
   updateData(showData);
 
+  iziToast.show({
+    message: 'موزیک به لیست مورد علاقه ها اضافه شد :)',
+    rtl: true,
+  });
 
 
 }
@@ -647,6 +673,10 @@ const likeMediaHandler = () => {
     updateData(showData)
 
   }
+  iziToast.show({
+    message: 'موزیک از لیست مورد علاقه ها حذف شد :(',
+    rtl: true,
+  });
 }
 
 const findInPlayListMain = () => {
@@ -671,13 +701,16 @@ function saveHandler() {
 
 
   const template = `
-<div class="mx-auto w-2/3 p-4 rounded-lg bg-[#00000045] dark:bg-[#ffffff45] flex flex-col justify-center items-center gap-6" id='alertModal'>
- <div class="w-full rounded-md p-2 bg-sky-500 cursor-pointer flex justify-center items-center">+</div>
+<div class="mx-auto w-2/3 p-4 rounded-lg dark:text-white bg-[#00000045] dark:bg-[#ffffff45] flex flex-col justify-center items-center gap-6" id='alertModalWrapper'>
+<div class="w-full grid grid-cols-2 sm-x2:grid-cols-1 gap-4" id='alertModal'>
+
+</div>
+  <button class="w-full rounded-md p-2 text-white bg-[#800080] cursor-pointer flex justify-center items-center">+</button>
 </div>`
 
   let arr = findInPlayListMain();
   Swal.fire({
-    title: 'پلی لیست',
+    title: 'پلی لیست ها',
     html: template,
     focusConfirm: false,
     showConfirmButton: false,
@@ -686,7 +719,7 @@ function saveHandler() {
 
   let alertModal = document.querySelector('#alertModal');
   showData.musicsAlbum.forEach((item, index) => {
-    alertModal.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? '!bg-green-500' : ''}" id='${item.id}'>${item.name}</p>`)
+    alertModal.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? '!bg-[#00cc00]' : ''}" id='${item.id}'>${item.name}</p>`)
   });
 
 
@@ -698,9 +731,9 @@ function saveHandler() {
 
       let index = showData.musicsAlbum.findIndex(item => item.id == event.target.id);
 
-      if (event.target.classList.contains('!bg-green-500')) {
+      if (event.target.classList.contains('!bg-[#00cc00]')) {
 
-        event.target.classList.remove('!bg-green-500');
+        event.target.classList.remove('!bg-[#00cc00]');
         let indexInPlayList = showData.musicsAlbum[index].data.findIndex(item => item.id == getParamToUrl('id'));
         showData.musicsAlbum[index].data.splice(indexInPlayList, 1);
         updateData(showData);
@@ -713,12 +746,18 @@ function saveHandler() {
           noSavePlayList.classList.remove('hidden');
         }
 
+        iziToast.show({
+          message: `موزیک از آلبوم ${showData.musicsAlbum[index].name} حذف شد`,
+          rtl: true,
+        });
+
+
       } else {
 
 
         if (showData.musicsAlbum[index].data.findIndex(item => item.id == sendData.id) == -1) {
           showData.musicsAlbum[index].data.unshift(destructorData(sendData));
-          event.target.classList.add('!bg-green-500');
+          event.target.classList.add('!bg-[#00cc00]');
           updateData(showData);
 
 
@@ -732,7 +771,10 @@ function saveHandler() {
           }
         }
 
-
+        iziToast.show({
+          message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
+          rtl: true,
+        });
 
       }
       Swal.close()
@@ -740,40 +782,63 @@ function saveHandler() {
     })
   })
 
-  let newPlayListBtn = document.querySelector('#alertModal div')
+  let newPlayListBtn = document.querySelector('#alertModalWrapper button')
+
+
   newPlayListBtn.addEventListener('click', () => {
-    Swal.fire({
-      title: 'آلبوم جدید',
-      html: `<input id="textInput" class="swal2-input mb-5" placeholder="نام آلبوم" required> `,
-      focusConfirm: false,
-      showCancelButton: true,
-      confirmButtonText: 'ایجاد',
-      cancelButtonText: 'لغو',
-      preConfirm: () => {
-        const inputValue = document.getElementById('textInput').value;
 
-        if (!inputValue || inputValue.trim() === '') {
-          Swal.showValidationMessage('لطفاً نام آلبوم را وارد کنید');
-
-        } else {
-
-          const showData = getData('showData');
-          const newMusicAlbum = {
-            id: idCreator(showData.musicsAlbum),
-            name: inputValue.trim(),
-            type: 'musicsAlbum',
-            data: []
-          }
-
-          showData.musicsAlbum.unshift(newMusicAlbum);
-          updateData(showData)
-
-          saveHandler()
+    let showData = getData('showData')
+    if (showData.musicsAlbum.length >= 4) {
+      Swal.fire({
+        title: 'بیشتر از 4 پلی لیست نمیتوان ساخت! برای خرید اشتراک ویژه با ما تماس بگیرید',
+        icon: 'error',
+        showCancelButton: true,
+        confirmButtonText: 'تماس با ما',
+        confirmButtonColor: 'red',
+        cancelButtonText: 'لغو',
+      }).then(result => {
+        if (result.isConfirmed) {
+          location.href = 'contactUs.html'
         }
 
+      })
+    } else {
 
-      }
-    });
+      Swal.fire({
+        title: 'آلبوم جدید',
+        html: `<input id="textInput" class="swal2-input mb-5" placeholder="نام آلبوم" required> `,
+        focusConfirm: false,
+        showCancelButton: true,
+        confirmButtonText: 'ایجاد',
+        cancelButtonText: 'لغو',
+        preConfirm: () => {
+          const inputValue = document.getElementById('textInput').value;
+
+          if (!inputValue || inputValue.trim() === '') {
+            Swal.showValidationMessage('لطفاً نام آلبوم را وارد کنید');
+
+          } else {
+
+            const showData = getData('showData');
+            const newMusicAlbum = {
+              id: idCreator(showData.musicsAlbum),
+              name: inputValue.trim(),
+              type: 'musicsAlbum',
+              data: []
+            }
+
+            showData.musicsAlbum.unshift(newMusicAlbum);
+            updateData(showData)
+
+            saveHandler()
+          }
+
+
+        }
+      });
+    }
+
+
   })
 
 

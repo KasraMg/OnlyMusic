@@ -73,11 +73,11 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 
 /*start btn */
 .btn {
-  background: #e3e3e3;
+  background-color: #e3e3e3;
 }
 
 .dark .btn {
-  background: #1c1c24;
+  background-color: #1c1c24;
 }
 
 .dark .active__Btn {

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پنل کاربر</title>
     <link rel="stylesheet" href="../Styles/output.css">
+    <link rel="stylesheet" href="../node_modules/izitoast/dist/css/iziToast.css">
+
 
 </head>
 
@@ -63,10 +65,10 @@
                     src="https://musicfa.co/images/search.svg?a477b581a8a60e79604e1b0323e9916d" alt="">
             </div>
 
-                  <a href="Index.html" class="hidden dark:block"><img src="../Images/logo-removebg-preview.png" class="w-32 sm:!w-[6rem] object-scale-down  h-16"
-      alt="topBarLogo"> </a>
-  <a href="Index.html" class="dark:hidden"><img src="../Images/logo2-removebg-preview.png" class="w-32 sm:!w-[6rem] object-scale-down  h-16"
-      alt="topBarLogo"> </a>
+            <a href="Index.html" class="hidden dark:block"><img src="../Images/logo-removebg-preview.png"
+                    class="w-32 sm:!w-[6rem] object-scale-down  h-16" alt="topBarLogo"> </a>
+            <a href="Index.html" class="dark:hidden"><img src="../Images/logo2-removebg-preview.png"
+                    class="w-32 sm:!w-[6rem] object-scale-down  h-16" alt="topBarLogo"> </a>
         </div>
 
 
@@ -195,10 +197,10 @@
             tabindex="-1" aria-labelledby="drawer-label">
             <div class="flex px-4 justify-between items-center py-3   border-b dark:border-gray-700">
 
-                       <a href="Index.html" class="hidden dark:block"><img src="../Images/logo-removebg-preview.png" class="w-32 sm:!w-[6rem] object-scale-down  h-16"
-      alt="topBarLogo"> </a>
-  <a href="Index.html" class="dark:hidden"><img src="../Images/logo2-removebg-preview.png" class="w-32 sm:!w-[6rem] object-scale-down  h-16"
-      alt="topBarLogo"> </a>
+                <a href="Index.html" class="hidden dark:block"><img src="../Images/logo-removebg-preview.png"
+                        class="w-32 sm:!w-[6rem] object-scale-down  h-16" alt="topBarLogo"> </a>
+                <a href="Index.html" class="dark:hidden"><img src="../Images/logo2-removebg-preview.png"
+                        class="w-32 sm:!w-[6rem] object-scale-down  h-16" alt="topBarLogo"> </a>
 
                 <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example">
                     <svg class=" h-[20px] w-[14px] relative bottom-1 dark:text-white text-black" width="8" height="8"
@@ -385,9 +387,9 @@
                     <div class="flex items-center justify-between">
                         <span>پلی لیست </span>
                         <div class="flex items-center gap-1">
-                            
-                                <span id="musicPlayListCount"></span>
-                           
+
+                            <span id="musicPlayListCount"></span>
+
                         </div>
                     </div>
                 </div>
@@ -469,7 +471,7 @@
                     </svg>
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 cursor-pointer text-white absolute top-5 left-4 hidden"
+                        stroke="currentColor" class="w-6 h-6 cursor-pointer dark:text-white absolute top-5 left-4 hidden"
                         id="eyePassword">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
@@ -495,7 +497,7 @@
                     </svg>
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6 cursor-pointer text-white absolute top-5 left-4 hidden"
+                        stroke="currentColor" class="w-6 h-6 cursor-pointer dark:text-white absolute top-5 left-4 hidden"
                         id="eyeConfirmPassword">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
@@ -536,8 +538,10 @@
 
                 <div class="mt-16 hidden grid-cols-2 lg:grid-cols-1 gap-6 md:px-24 sm:!px-0" id="favorite">
 
-                
-           
+                    <div class="text-orange-400 md:-mr-24 sm:!mr-0">
+                        هنوز موزیک یا موزیک ویدویی اضافه نشده :(
+                    </div>
+
 
 
                 </div>
@@ -553,6 +557,7 @@
     </div>
 
 
+    <script src="../node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
     <script src="../JavaScript/userPanel.js" type="module"></script>
     <script src="../JavaScript/utilis/shared.js"></script>
     <script src="../vendor/sweetalert2/sweetalert2.js"></script>

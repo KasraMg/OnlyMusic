@@ -57,7 +57,7 @@ ourPlayList.forEach(item =>
   playListContent.insertAdjacentHTML(
     "beforeend", `
         
-        <a href='#' class="w-full cursor-pointer">
+        <a href='mPlayList.html?type=ourPlayList&plId=${item.id}&id=${item.data[0].id}' class="w-full cursor-pointer">
         <div class="relative ">
           <img src=${item.data[0].photo} alt="cover" class="rounded-lg w-full h-full">
 
@@ -91,7 +91,7 @@ window.addEventListener('load', () => {
   getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => {
     loader.classList.add('hidden')
     if (data.status == 200) {
-     
+
       let resultFilter = data.result.filter(data => {
         return data.artist_farsi && data.song_farsi
       })

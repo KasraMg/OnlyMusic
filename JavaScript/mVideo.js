@@ -60,7 +60,7 @@ window.addEventListener('load', () => {
         location.href = `mVideo.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
       })
 
-      videos = { 
+      videos = {
         path: data.result.link,
         displayName: data.result.song_farsi ? data.result.song_farsi : data.result.song,
         artist: data.result.artist_farsi ? data.result.artist_farsi : data.result.artist,
@@ -70,7 +70,7 @@ window.addEventListener('load', () => {
       }
 
 
-    
+
 
       loadVideo(videos);
 
@@ -161,9 +161,7 @@ window.addEventListener('load', () => {
       //////////////////////////////////////////////////////////////////////////
       const showData = getData('showData');
 
-      if (!!showData && !Object.keys(showData).length) {
-        noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'));
-      } else {
+      if (showData && showData.id) {
         let likeFlag = showData.favorite.some(item => item.id == getParamToUrl('id'));
         if (likeFlag) {
           likeMedia.classList.remove('hidden');
@@ -171,6 +169,8 @@ window.addEventListener('load', () => {
         }
         noLikeMedia.addEventListener('click', noLikeMediaHandler)
         likeMedia.addEventListener('click', likeMediaHandler);
+      } else {
+        noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'));
       }
       //////////////////////////////////////////////////////////////////////////
 
@@ -202,10 +202,10 @@ window.addEventListener('load', () => {
       mainSection.style.gridTemplateColumns = 'auto'
     }
 
-    
+
   })
 
-  
+
 })
 
 const getInfoes = async (id) => {
@@ -275,7 +275,7 @@ function loadVideo(videoData) {
   ArtistName.textContent = videoData.artist;
   video.src = videoData.path;
   video.poster = videoData.cover
-  
+
 }
 
 
@@ -299,7 +299,7 @@ function updateProgressBar(e) {
       videoTime.innerHTML = durationMinutes + ":" + durationSeconds;
     }
     // Calculate display for currentTime
-   
+
 
 
     currentMinutes = Math.floor(currentTime / 60);
@@ -308,7 +308,7 @@ function updateProgressBar(e) {
       currentSeconds = "0" + currentSeconds;
     }
 
-    if (progress.style.width > '99%') {
+    if (progress.style.width === '100%') {
       location.href = `mVideo.html?artist=${allDatas.artist}&id=${allDatas.related[4].id}`
       pauseVideo()
 
@@ -364,12 +364,15 @@ const noLikeMediaHandler = () => {
   likeMedia.classList.remove('hidden');
   noLikeMedia.classList.add('hidden');
   likeMedia.style.pointerEvents = 'none';
-console.log(sendVideoData);
+  console.log(sendVideoData);
   showData.favorite.unshift(destructorData(sendVideoData));
   updateData(showData);
   likeMedia.style.pointerEvents = 'auto'
 
-
+  iziToast.show({
+    message: 'موزیک ویدیو به لیست مورد علاقه ها اضافه شد :)',
+    rtl: true,
+  });
 
 }
 
@@ -380,22 +383,27 @@ const likeMediaHandler = () => {
   const showData = getData('showData');
   let mediaExistenceIndex = showData.favorite.findIndex(item => item.id === +getParamToUrl('id'));
   if (mediaExistenceIndex !== -1) {
-      showData.favorite.splice(mediaExistenceIndex, 1);
-      updateData(showData)
+    showData.favorite.splice(mediaExistenceIndex, 1);
+    updateData(showData)
 
   }
+
+  iziToast.show({
+    message: 'موزیک ویدیو از لیست مورد علاقه ها حذف شد :(',
+    rtl: true,
+  });
 }
 
 const noLoginSwal = text => {
   Swal.fire({
-      title: text,
-      icon: 'warning',
-      confirmButtonText: 'ورود',
+    title: text,
+    icon: 'warning',
+    confirmButtonText: 'ورود',
 
   }).then((result) => {
 
-      if (result.isConfirmed) {
-          location.href = 'login.html'
-      }
+    if (result.isConfirmed) {
+      location.href = 'login.html'
+    }
   })
 }

@@ -38,8 +38,21 @@ joinToSite.innerHTML = checkEmailUser.userInfo.registerDate;
 
 
 logoutBtn.addEventListener('click', () => {
-    setData('showData', {});
-    location.href = 'index.html'
+    Swal.fire({
+        title: 'آیا می خواهید از حساب کاربری خود خارج شوید؟',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText:'بله',
+        confirmButtonColor: 'red',
+        cancelButtonText: 'لغو',
+        preConfirm: (result) => {
+            if (result) {
+                setData('showData', {});
+                location.href = 'index.html'
+            }
+        }
+    })
+
 
 });
 
@@ -49,7 +62,10 @@ editIcon.addEventListener('click', () => {
     mainPanel.classList.add('hidden');
     allInputs.forEach((element, index) => {
         if (index !== 3) {
+
             element.value = data[element.id]
+
+
         }
     });
 
@@ -64,7 +80,7 @@ backToMain.addEventListener('click', () => {
 
 editInfoBtn.addEventListener('click', (event) => submitHandler(event, () => {
     let { name, email, password } = data
-    let editUser = { ...checkEmailUser, userInfo: { ...checkEmailUser.userInfo, name, email, password } }
+    let editUser = { ...checkEmailUser, userInfo: { ...checkEmailUser.userInfo, name, email, password: btoa(password) } }
 
     localData[checkEmailUser.id - 1] = editUser;
 
@@ -72,10 +88,16 @@ editInfoBtn.addEventListener('click', (event) => submitHandler(event, () => {
     setData('showData', editUser);
     setData('mainData', localData);
 
-    location.reload()
-    alert('با موفقیت انجام شد');
-}
-));
+    Swal.fire({
+        title: 'اطلاعات شما با موفقیت به روز رسانی شد :)',
+        icon: 'success',
+        confirmButtonText: 'عالی!',
+
+    }).then((result) => {
+        location.reload()
+
+    })
+}));
 
 chooseBtn.forEach(element => {
     element.addEventListener('click', event => {
@@ -108,6 +130,11 @@ window.addEventListener('load', () => {
         recent.insertAdjacentHTML(
             "beforeend", mediaHtmlTemplate(item, 'all'))));
 
+    !showData.recentMedia.length && recent.insertAdjacentHTML('beforeend', `  <div class="text-orange-400">
+            هنوز موزیک یا موزیک ویدیویی دیده نشده :(
+        </div>`)
+
+
 
     favoriteShow();
 
@@ -122,7 +149,7 @@ const favoriteShow = () => {
         favorite.insertAdjacentHTML(
             "beforeend",
             ` <section class=" bg-lightBg flex justify-between dark:bg-[#18191d]  items-center p-3 rounded-md">
-            <a href="${item.type === 'mp3'?'music':'mVideo'}.html?artist=${item.artist}&id=${item.id}" class="flex gap-4 items-center">
+            <a href="${item.type === 'mp3' ? 'music' : 'mVideo'}.html?artist=${item.artist}&id=${item.id}" class="flex gap-4 items-center">
                 <img src="${item.photo}" class=" w-16 h-16 rounded" alt="">
                 <div>
                     <p class=" font-vazirBold text-[18px]">${item.song_farsi}</p>
@@ -141,6 +168,11 @@ const favoriteShow = () => {
         )));
 
 
+    !showData.favorite.length && favorite.insertAdjacentHTML('beforeend', `  <div class="text-orange-400 md:-mr-24 sm:!mr-0">
+    هنوز موزیک یا موزیک ویدیویی اضافه نشده :(
+</div>`)
+
+
     const likeMedia = document.querySelectorAll('#likeMedia');
 
     likeMedia.forEach(item => {
@@ -151,16 +183,18 @@ const favoriteShow = () => {
                 svgElement = event.target.parentNode;
             }
 
-            console.log(+svgElement.dataset.id);
-
             const showData = getData('showData');
-            let mediaExistenceIndex = showData.favorite.findIndex(item => item.id === +svgElement.dataset.id);
-            console.log(mediaExistenceIndex);
+            let mediaExistenceIndex = showData.favorite.findIndex(item => +item.id === +svgElement.dataset.id);
             if (mediaExistenceIndex !== -1) {
                 showData.favorite.splice(mediaExistenceIndex, 1);
                 updateData(showData)
                 favoriteShow()
             }
+
+            iziToast.show({
+                message: 'موزیک از لیست مورد علاقه ها حذف شد :(',
+                rtl: true,
+            });
 
         })
 
