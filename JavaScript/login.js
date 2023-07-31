@@ -39,8 +39,7 @@ loginBtn.addEventListener('click', (event) => submitHandler(event, () => {
     showSwal(  ' با موفقیت لاگین شدید!' ,'success',  'بزن بریم',(result) => {
         location.href = "userPanel.html";
       }  )
-    // window.location.reload();
-    // window.location.href = 'userPanel.html'
+
 }
 ))
 

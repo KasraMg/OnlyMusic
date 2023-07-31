@@ -1,4 +1,12 @@
-import { getData } from "./helper/serviceData.js"
+import { recentMediaHandler } from "./helper/recentMedia.js"
+import { idCreator } from "./helper/idCreator.js"
+import { getData, updateData } from "./helper/serviceData.js"
+import { destructorData } from "./helper/destructorData.js"
+import { getParamToUrl } from "./utilis/utils.js"
+
+const noLikeMedia = document.querySelector('#noLikeMedia')
+const likeMedia = document.querySelector('#likeMedia')
+
 const playIcon = document.querySelector('#play')
 const nextIcon = document.querySelector('#next')
 const speakerIcon = document.querySelector('#speaker')
@@ -24,9 +32,9 @@ let musicUrl;
 let results;
 let listType;
 
-
+let sendData = null
 window.addEventListener('load', () => {
- 
+
 
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
@@ -34,8 +42,20 @@ window.addEventListener('load', () => {
   const typeResult = params.get('plId');
   const musicResult = params.get('type');
 
+  const showData = getData('showData')
+  if (!!showData && !Object.keys(showData).length) {
+    noLikeMedia.addEventListener('click', () => noLoginSwal('برای لایک کردن ابتدا وارد شوید.'));
 
+  } else {
+    let likeFlag = showData.favorite.some(item => item.id == getParamToUrl('id'));
+    if (likeFlag) {
+      likeMedia.classList.remove('hidden');
+      noLikeMedia.classList.add('hidden');
+    }
+    noLikeMedia.addEventListener('click', noLikeMediaHandler)
+    likeMedia.addEventListener('click', likeMediaHandler);
 
+  }
 
 
 
@@ -48,10 +68,10 @@ window.addEventListener('load', () => {
       confirmButtonText: 'افزودن',
 
     }).then((result) => {
-     
+
       if (result.isConfirmed) {
         location.href = 'musics.html?type=newMusic&page=1'
-      }else{
+      } else {
         history.back()
       }
     })
@@ -66,56 +86,56 @@ window.addEventListener('load', () => {
       const playListActive = showData.musicsAlbum.find(item => item.id == typeResult)
       const song2 = playListActive.data
 
-     const musicResult= song2.filter(music=>{
-        return music.id ==urlResult
-      })
-      let musicIndex=  song2.findIndex((music)=>{ 
+      const musicResult = song2.filter(music => {
         return music.id == urlResult
       })
+      let musicIndex = song2.findIndex((music) => {
+        return music.id == urlResult
+      })
+      sendData = musicResult[0]
       loadSong(musicResult[0]);
-      console.log(musicResult);
 
       nextIcon.addEventListener('click', () => {
         pauseSong()
         console.log(musicIndex);
-        if (musicIndex + 1 == song2.length) { 
+        if (musicIndex + 1 == song2.length) {
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${song2[0].id}`
-        }else{
-          let nextMusic =song2[musicIndex + 1]
+        } else {
+          let nextMusic = song2[musicIndex + 1]
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${nextMusic.id}`
         }
-     
-            
-  
+
+
+
       })
-  
+
       prevIcon.addEventListener('click', () => {
         pauseSong()
-       
-        if (musicIndex  !== 0) {
-          let nextMusic =song2[musicIndex - 1]
+
+        if (musicIndex !== 0) {
+          let nextMusic = song2[musicIndex - 1]
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${nextMusic.id}`
-           
-     
-        }else{ 
+
+
+        } else {
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${song2[song2.length - 1].id}`
         }
-     
+
       })
-  
+
       roundomIcon.addEventListener('click', () => {
         pauseSong()
         let number = [1, 2, 3, 4];
-  
+
         let randomIndex = Math.floor(Math.random() * number.length);
         let selectedNumber = number[randomIndex];
-  
+
         let res = listType[0].data.filter(datas => {
-  
+
           return datas.current == selectedNumber
-  
+
         })
-  
+
         location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
       })
 
@@ -137,7 +157,7 @@ window.addEventListener('load', () => {
               artist_farsi: "پیشرو",
               current: 1
             },
-    
+
             {
               id: '76394',
               photo: "../Images/pishroPlayList.jpg",
@@ -160,7 +180,7 @@ window.addEventListener('load', () => {
               artist_farsi: "مجنون شهر",
               current: 3
             },
-    
+
             {
               id: '22417',
               photo: "https://assets.rjassets.com/static/mp3/ali-sorena-nemitarsam/68eba671e2b61c2.jpg",
@@ -173,7 +193,7 @@ window.addEventListener('load', () => {
               current: 4
             }
           ]
-    
+
         },
         {
           id: 2,
@@ -201,7 +221,7 @@ window.addEventListener('load', () => {
             artist_farsi: "همایون شجریان",
             current: 2
           },
-    
+
           {
             id: '98183',
             photo: "https://assets.rjassets.com/static/mp3/homayoun-shajarian-havaye-zemzemehayet/a4bf9281bfa5b7d.jpg",
@@ -225,7 +245,7 @@ window.addEventListener('load', () => {
             current: 4
           }]
         },
-    
+
         {
           id: 3,
           name: 'پاپ v1',
@@ -275,7 +295,7 @@ window.addEventListener('load', () => {
             current: 4
           }]
         },
-    
+
         {
           id: 4,
           name: 'پاپ v2',
@@ -329,106 +349,107 @@ window.addEventListener('load', () => {
         },
       ]
 
-        listType = songs.filter(playLists => {
-      return playLists.id == typeResult
-    })
+      listType = songs.filter(playLists => {
+        return playLists.id == typeResult
+      })
 
-    songs.filter(song => {
-      if (song.id == typeResult) {
-        results = song.data.filter(res => {
-          return res.id == urlResult
-        })
+      songs.filter(song => {
+        if (song.id == typeResult) {
+          results = song.data.filter(res => {
+            return res.id == urlResult
+          })
 
-      }
+        }
 
-
-    })
-
-    loadSong(results[0]);
-
-
-
-    nextIcon.addEventListener('click', () => {
-      pauseSong()
-      if (results[0].current !== listType[0].data.length) {
-        let res = listType[0].data.filter(datas => {
-          return datas.current == results[0].current + 1
-
-        })
-        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-
-      } else {
-        let res = listType[0].data.filter(datas => {
-          return datas.current == results[0].current - 3
-
-        })
-        console.log(res);
-        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-      }
-
-
-    })
-
-    prevIcon.addEventListener('click', () => {
-      pauseSong()
-      if (results[0].current !== 1) {
-        let res = listType[0].data.filter(datas => {
-          return datas.current == results[0].current - 1
-
-        })
-        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-
-      } else {
-        let res = listType[0].data.filter(datas => {
-          return datas.current == results[0].current + 3
-
-        })
-        console.log(res);
-        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-      }
-    })
-
-    roundomIcon.addEventListener('click', () => {
-      pauseSong()
-      let number = [1, 2, 3, 4];
-
-      let randomIndex = Math.floor(Math.random() * number.length);
-      let selectedNumber = number[randomIndex];
-
-      let res = listType[0].data.filter(datas => {
-
-        return datas.current == selectedNumber
 
       })
 
-      location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
-    })
-
-    shereIcon.addEventListener('click', () => {
-      let link = location.href
-      navigator.clipboard.writeText(link)
-      iziToast.show({
-        message: 'آدرس سایت با موفقیت در کلیپ بورد شما کپی شد',
-        rtl: true,
-      });
-    })
+      sendData = results[0]
+      loadSong(results[0]);
 
 
-    downloadBtn.forEach(btn => {
-      btn.addEventListener('click', () => {
-        download(musicUrl);
+
+      nextIcon.addEventListener('click', () => {
+        pauseSong()
+        if (results[0].current !== listType[0].data.length) {
+          let res = listType[0].data.filter(datas => {
+            return datas.current == results[0].current + 1
+
+          })
+          location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+
+        } else {
+          let res = listType[0].data.filter(datas => {
+            return datas.current == results[0].current - 3
+
+          })
+          console.log(res);
+          location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+        }
+
+
       })
-    })
 
-    function download(url) {
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = true;
-      link.click();
-    }
+      prevIcon.addEventListener('click', () => {
+        pauseSong()
+        if (results[0].current !== 1) {
+          let res = listType[0].data.filter(datas => {
+            return datas.current == results[0].current - 1
+
+          })
+          location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+
+        } else {
+          let res = listType[0].data.filter(datas => {
+            return datas.current == results[0].current + 3
+
+          })
+          console.log(res);
+          location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+        }
+      })
+
+      roundomIcon.addEventListener('click', () => {
+        pauseSong()
+        let number = [1, 2, 3, 4];
+
+        let randomIndex = Math.floor(Math.random() * number.length);
+        let selectedNumber = number[randomIndex];
+
+        let res = listType[0].data.filter(datas => {
+
+          return datas.current == selectedNumber
+
+        })
+
+        location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+      })
+
+      shereIcon.addEventListener('click', () => {
+        let link = location.href
+        navigator.clipboard.writeText(link)
+        iziToast.show({
+          message: 'آدرس سایت با موفقیت در کلیپ بورد شما کپی شد',
+          rtl: true,
+        });
+      })
+
+
+      downloadBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+          download(musicUrl);
+        })
+      })
+
+      function download(url) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = true;
+        link.click();
+      }
     }
 
-  
+
 
   }
 
@@ -446,7 +467,7 @@ function loadSong(song) {
   cover.style.background = `url(${song.photo})`
   musicUrl = song.link;
   console.log(cover);
-  firstDetails.innerHTML=''
+  firstDetails.innerHTML = ''
   firstDetails.insertAdjacentHTML('beforeend',
     `
       
@@ -604,5 +625,49 @@ speakerIcon.addEventListener('click', (e) => {
 
 music.addEventListener("timeupdate", updateProgressBar);
 progressContainer.addEventListener("click", setProgressBar);
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+const noLikeMediaHandler = () => {
 
+console.log(sendData);
+
+  const showData = getData('showData');
+
+  likeMedia.classList.remove('hidden');
+  noLikeMedia.classList.add('hidden');
+
+  showData.favorite.unshift(destructorData(sendData));
+  updateData(showData);
+
+
+
+}
+
+const likeMediaHandler = () => {
+
+  likeMedia.classList.add('hidden');
+  noLikeMedia.classList.remove('hidden');
+  const showData = getData('showData');
+  let mediaExistenceIndex = showData.favorite.findIndex(item => item.id == getParamToUrl('id'));
+  if (mediaExistenceIndex !== -1) {
+    showData.favorite.splice(mediaExistenceIndex, 1);
+    updateData(showData)
+
+  }
+}
+
+const noLoginSwal = text => {
+  Swal.fire({
+    title: text,
+    icon: 'warning',
+    confirmButtonText: 'ورود',
+
+  }).then((result) => {
+
+    if (result.isConfirmed) {
+      location.href = 'login.html'
+    }
+  })
+}
 

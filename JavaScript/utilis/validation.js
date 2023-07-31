@@ -1,6 +1,6 @@
 import { getData } from "../helper/serviceData.js";
 
-const validation = (data, type, mainCaptcha) => {
+const validation = (data, type, mainCaptcha, submitFlag) => {
 
     const errors = {};
 
@@ -14,12 +14,12 @@ const validation = (data, type, mainCaptcha) => {
         delete errors.emailError;
     }
 
-
+console.log(emailExist(data.email)[1].password !== data.password && type === 'login' && submitFlag);
     if (!data.password.trim()) {
         errors.passwordError = "گذرواژه الزامی می باشد";
     } else if (data.password.length < 6) {
         errors.passwordError = "گذرواژه باید بیشتر از 6 کارکتر باشد"
-    } else if (emailExist(data.email)[1].password !== data.password && type === 'login') {
+    } else if (emailExist(data.email)[1].password !== data.password && type === 'login' && submitFlag) {
         errors.passwordError = 'رمز عبور نامعتبر است'
     } else {
         delete errors.passwordError;
