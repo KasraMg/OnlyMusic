@@ -37,7 +37,7 @@ const playListContent = document.querySelector('#playListContent')
 const artistsDev = document.querySelector('#allArtist')
 const loader = document.querySelector('.loader')
 
-artists.map(info => (
+artists.slice(0,6).map(info => (
   artistsDev.insertAdjacentHTML('beforeend',
     `
     <div class="w-full cursor-pointer">

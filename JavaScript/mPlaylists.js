@@ -3,7 +3,9 @@ import { idCreator } from "./helper/idCreator.js"
 import { getData, updateData } from "./helper/serviceData.js"
 import { destructorData } from "./helper/destructorData.js"
 import { getParamToUrl } from "./utilis/utils.js"
+import { ourPlayList } from "./helper/server.js"
 
+console.log(ourPlayList);
 const noLikeMedia = document.querySelector('#noLikeMedia')
 const likeMedia = document.querySelector('#likeMedia')
 

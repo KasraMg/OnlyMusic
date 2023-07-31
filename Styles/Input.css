@@ -385,6 +385,9 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   #searchInput:focus {
     box-shadow: none !important;
   }
+  #searchInputMd:focus {
+    box-shadow: none !important;
+  }  
 
   .dark .waviy span {
     color: white !important;
@@ -413,7 +416,19 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   .dark #searchInput::placeholder{
     color: rgba(255, 255, 255, 0.727) !important;
   }
+  .dark #searchInputMd::placeholder{
+    color: rgba(255, 255, 255, 0.727) !important;
+  }
   #searchInput::placeholder{
     color: rgba(0, 0, 0, 0.727) !important;
   }
-}    
+  #searchInputMd::placeholder{
+    color: rgba(0, 0, 0, 0.727) !important;
+  }
+
+  @media (max-width:400px) {
+    .waviy {
+      width: 280px;
+    }
+  }
+}                
