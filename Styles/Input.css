@@ -340,7 +340,7 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   .errorInput:focus {
     box-shadow: 0 0 0 4px #d3282842;
 
-  }
+  }   
 
   .vjs-control-bar {
     display: none !important;
@@ -410,5 +410,10 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     }
   }
 
-
+  .dark #searchInput::placeholder{
+    color: rgba(255, 255, 255, 0.727) !important;
+  }
+  #searchInput::placeholder{
+    color: rgba(0, 0, 0, 0.727) !important;
+  }
 }

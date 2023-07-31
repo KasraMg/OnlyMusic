@@ -60,8 +60,7 @@ window.addEventListener('load', () => {
         location.href = `mVideo.html?artist=${data.result.artist}&id=${data.result.related[0].id}`
       })
 
-      videos = {
-
+      videos = { 
         path: data.result.link,
         displayName: data.result.song_farsi ? data.result.song_farsi : data.result.song,
         artist: data.result.artist_farsi ? data.result.artist_farsi : data.result.artist,
