@@ -487,7 +487,7 @@ function updateProgressBar(e) {
       musicTime.textContent = durationMinutes + ":" + durationSeconds;
     }
     // Calculate display for currentTime
-
+    
 
 
     currentMinutes = Math.floor(currentTime / 60);
