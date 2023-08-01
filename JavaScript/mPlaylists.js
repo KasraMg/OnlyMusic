@@ -35,7 +35,8 @@ let musicUrl;
 let results;
 let listType;
 
-let sendData = null
+let sendData = null;
+let recentData = null
 window.addEventListener('load', () => {
 
 
@@ -88,10 +89,11 @@ window.addEventListener('load', () => {
       const showData = getData('showData');
       const playListActive = showData.musicsAlbum.find(item => item.id == typeResult)
       const song2 = playListActive.data
-
       const musicResult = song2.filter(music => {
         return music.id == urlResult
       })
+
+      recentMediaHandler(musicResult[0]);
       let musicIndex = song2.findIndex((music) => {
         return music.id == urlResult
       })
@@ -361,11 +363,9 @@ window.addEventListener('load', () => {
           results = song.data.filter(res => {
             return res.id == urlResult
           })
-
         }
-
-
       })
+      recentMediaHandler(results[0]);
 
       sendData = results[0]
       loadSong(results[0]);
