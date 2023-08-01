@@ -1492,6 +1492,10 @@ input:checked + .toggle-bg {
   width: 1rem;
 }
 
+.w-44 {
+  width: 11rem;
+}
+
 .w-5 {
   width: 1.25rem;
 }
@@ -2966,6 +2970,12 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   color: #ff4242;
 }
 
+.pre1 {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 /* end btn */
 
 .loaderSong {
@@ -3457,6 +3467,26 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     width: 7rem !important;
   }
 
+  .sm-x3\:w-3 {
+    width: 0.75rem;
+  }
+
+  .sm-x3\:w-32 {
+    width: 8rem;
+  }
+
+  .sm-x3\:w-2 {
+    width: 0.5rem;
+  }
+
+  .sm-x3\:w-28 {
+    width: 7rem;
+  }
+
+  .sm-x3\:w-24 {
+    width: 6rem;
+  }
+
   .sm-x3\:px-3 {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
@@ -3627,9 +3657,19 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     font-size: 16px;
   }
 
+  .sm\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
   .sm\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .sm\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
 

@@ -71,8 +71,6 @@ const validation = (data, type, mainCaptcha, submitFlag) => {
             delete errors.nameError;
         }
 
-      console.log(data.password);
-      console.log(data.confirmPassword);
 
         if (!data.confirmPassword.trim()) {
             errors.confirmPasswordError = "نکرار گذرواژه الزامی می باشد"

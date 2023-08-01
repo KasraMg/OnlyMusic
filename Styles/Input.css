@@ -90,6 +90,12 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   color: #ff4242;
 }
 
+.pre1 {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 /* end btn */
 
 .loaderSong {
