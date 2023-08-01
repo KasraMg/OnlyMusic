@@ -431,4 +431,11 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
       width: 280px;
     }
   }
+  @media (max-width:500px) {
+    #mainSection {
+      padding-right: .5rem !important;
+      padding-left: .5rem !important;  
+    }     
+  }
+  
 }                

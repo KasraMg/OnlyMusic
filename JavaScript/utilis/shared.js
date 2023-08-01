@@ -60,7 +60,18 @@ window.addEventListener('load', () => {
         });
     } else {
         loginBtn.innerHTML = '';
-        loginBtn.innerHTML = showData.userInfo.name;
+        if (window.innerWidth < 901) {
+            loginBtn.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" style="width:1.2rem;height:1.25rem">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+           </svg>
+
+            `;
+
+        } else {
+            loginBtn.innerHTML = showData.userInfo.name;
+        }
+
         loginBtn.addEventListener('click', () => {
             location.href = 'userPanel.html'
 
@@ -113,33 +124,33 @@ const dateToDay = () => {
 }
 
 
-searchIcon.addEventListener('click',()=>{
+searchIcon.addEventListener('click', () => {
     if (searchInput.value) {
-        location.href=`search.html?param=${searchInput.value}`
+        location.href = `search.html?param=${searchInput.value}`
     }
-    
+
 })
 
 
-searchInput.addEventListener("keydown",(e)=>{
-   if (e.key == 'Enter') {
-    if (e.target.value) {
-        location.href=`search.html?param=${e.target.value}`
-    } 
-   }
+searchInput.addEventListener("keydown", (e) => {
+    if (e.key == 'Enter') {
+        if (e.target.value) {
+            location.href = `search.html?param=${e.target.value}`
+        }
+    }
 })
-searchIconMd.addEventListener('click',()=>{
+searchIconMd.addEventListener('click', () => {
     if (searchInputMd.value) {
-        location.href=`search.html?param=${searchInputMd.value}`
+        location.href = `search.html?param=${searchInputMd.value}`
     }
-    
+
 })
 
 
-searchInputMd.addEventListener("keydown",(e)=>{
-   if (e.key == 'Enter') {
-    if (e.target.value) {
-        location.href=`search.html?param=${e.target.value}`
-    } 
-   }
+searchInputMd.addEventListener("keydown", (e) => {
+    if (e.key == 'Enter') {
+        if (e.target.value) {
+            location.href = `search.html?param=${e.target.value}`
+        }
+    }
 })

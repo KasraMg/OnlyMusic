@@ -26,6 +26,8 @@ const relatedVideos = document.getElementById('relatedVideos')
 const downloadBtn = document.querySelectorAll('#downloadBtn')
 const mainSection = document.querySelector('#mainSection')
 const loader = document.querySelector('.loader')
+const searchInput = document.querySelector('#searchInput') 
+const searchInputMd = document.querySelector('#searchInputMd')
 
 let videos;
 let allDatas;
@@ -217,9 +219,29 @@ const getInfoes = async (id) => {
 
 
 let isPlaying = false;
+let focus =false
+
+searchInput.addEventListener("focus",()=>{
+focus=true
+   })
+   searchInput.addEventListener("blur",()=>{
+    focus=false
+       })
+searchInputMd.addEventListener("focus",()=>{
+focus=true
+   })
+   searchInputMd.addEventListener("blur",()=>{
+    focus=false
+       })
 document.body.addEventListener('keydown', (e) => {
   if (e.code === "Space") {
-    e.preventDefault()
+
+    if (focus) {
+      
+    }else{
+      e.preventDefault()
+    }
+   
 
     if (isPlaying) {
       pauseVideo()
