@@ -22,8 +22,7 @@ const music = document.querySelector('audio')
 const cover = document.querySelector('#cover')
 const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
-const firstDetails = document.getElementById('firstDetails')
-const artistName = document.getElementById('artistName')
+const firstDetails = document.getElementById('firstDetails') 
 const lyric = document.getElementById('lyric')
 const relatedMusic = document.getElementById('relatedMusic')
 const shereIcon = document.getElementById('shereIcon')
@@ -31,7 +30,8 @@ const downloadBtn = document.querySelectorAll('#downloadBtn')
 const mainSection = document.querySelector('#mainSection')
 const loader = document.querySelector('.loader')
 const loopIcon = document.querySelector('#loopIcon')
-
+const searchInput = document.querySelector('#searchInput') 
+const searchInputMd = document.querySelector('#searchInputMd')
 
 let songs;
 let allDatas;
@@ -531,9 +531,29 @@ function updateProgressBar(e) {
   }
 }
 
+let focus =false
+
+searchInput.addEventListener("focus",()=>{
+focus=true
+   })
+   searchInput.addEventListener("blur",()=>{
+    focus=false
+       })
+searchInputMd.addEventListener("focus",()=>{
+focus=true
+   })
+   searchInputMd.addEventListener("blur",()=>{
+    focus=false
+       })
 document.body.addEventListener('keydown', (e) => {
   if (e.code === "Space") {
-    e.preventDefault()
+
+    if (focus) {
+      
+    }else{
+      e.preventDefault()
+    }
+   
 
     if (isPlaying) {
       pauseSong()
@@ -544,12 +564,12 @@ document.body.addEventListener('keydown', (e) => {
     }
   }
   if (e.code === "ArrowRight") {
-    newTime = music.currentTime + 10
-    music.currentTime = newTime
+    newTime = audio.currentTime + 10
+    audio.currentTime = newTime
   }
   if (e.code === "ArrowLeft") {
-    newTime = music.currentTime - 10
-    music.currentTime = newTime
+    newTime = audio.currentTime - 10
+    audio.currentTime = newTime
   }
 })
 

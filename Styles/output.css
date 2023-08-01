@@ -2898,6 +2898,13 @@ input[data-autocompleted] {
   }
 }
 
+@media (max-width:500px) {
+  #mainSection {
+    padding-right: .5rem !important;
+    padding-left: .5rem !important;
+  }
+}
+
 .errorInput {
   box-shadow: 0 0 0 4px #d3282842 !important;
 }
@@ -3473,6 +3480,11 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 }
 
 @media (max-width: 500px) {
+  .sm-x2\:\!mx-\[1\.25rem\] {
+    margin-left: 1.25rem !important;
+    margin-right: 1.25rem !important;
+  }
+
   .sm-x2\:my-10 {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
@@ -3498,6 +3510,10 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     flex-direction: column;
   }
 
+  .sm-x2\:\!gap-\[2px\] {
+    gap: 2px !important;
+  }
+
   .sm-x2\:p-3 {
     padding: 0.75rem;
   }
@@ -3505,6 +3521,11 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   .sm-x2\:\!px-0 {
     padding-left: 0px !important;
     padding-right: 0px !important;
+  }
+
+  .sm-x2\:\!px-3 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
   }
 }
 
