@@ -105,7 +105,7 @@ const deleteHandler = id => {
         icon: 'question',
         showCancelButton: true,
         confirmButtonText: 'حذف شود',
-        confirmButtonColor: 'red',
+        customClass: 'deleteClassSwal',
         cancelButtonText: 'لغو',
         preConfirm: (result) => {
             if (result) {

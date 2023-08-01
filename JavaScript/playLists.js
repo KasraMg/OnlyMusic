@@ -161,7 +161,7 @@ const showToDOM = (array) => {
             </div >
 
   <div class="mt-4">
-    <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white">${item.name}</h3>
+    <h3 class="font-bold text-lg md:text-md mb-1 text-darkBg dark:text-white pre1">${item.name}</h3>
 
   </div>
     
@@ -272,7 +272,7 @@ confirmBtn.addEventListener('click', () => {
     icon: 'question',
     showCancelButton: true,
     confirmButtonText: 'حذف شود',
-    confirmButtonColor: 'red',
+    customClass: 'deleteClassSwal',
     cancelButtonText: 'لغو',
   }).then((result) => {
     console.log(result)
@@ -319,4 +319,5 @@ confirmBtn.addEventListener('click', () => {
     }
   }
   )
+  swal.getConfirmButton().style.backgroundColor = 'green';
 })

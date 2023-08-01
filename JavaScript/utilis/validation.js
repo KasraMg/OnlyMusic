@@ -73,7 +73,7 @@ const validation = (data, type, mainCaptcha, submitFlag) => {
 
 
         if (!data.confirmPassword.trim()) {
-            errors.confirmPasswordError = "نکرار گذرواژه الزامی می باشد"
+            errors.confirmPasswordError = "تکرار گذرواژه الزامی می باشد"
         } else if (data.password !== data.confirmPassword) {
             errors.confirmPasswordError = "گذرواژه مطابقت ندارد"
         } else {
