@@ -2407,10 +2407,6 @@ input:checked + .toggle-bg {
   font-family: vazirLight;
 }
 
-.font-vazirMedium {
-  font-family: vazirMedium;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -2598,6 +2594,10 @@ input:checked + .toggle-bg {
 
 .opacity-100 {
   opacity: 1;
+}
+
+.opacity-20 {
+  opacity: 0.2;
 }
 
 .shadow {
@@ -3467,22 +3467,6 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     width: 7rem !important;
   }
 
-  .sm-x3\:w-3 {
-    width: 0.75rem;
-  }
-
-  .sm-x3\:w-32 {
-    width: 8rem;
-  }
-
-  .sm-x3\:w-2 {
-    width: 0.5rem;
-  }
-
-  .sm-x3\:w-28 {
-    width: 7rem;
-  }
-
   .sm-x3\:w-24 {
     width: 6rem;
   }
@@ -3655,11 +3639,6 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 
   .sm\:text-\[16px\] {
     font-size: 16px;
-  }
-
-  .sm\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
   }
 
   .sm\:text-xl {
