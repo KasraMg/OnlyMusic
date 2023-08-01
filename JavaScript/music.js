@@ -378,32 +378,46 @@ window.addEventListener('load', () => {
 
         } else {
 
+          if (showData.musicsAlbum[index].data.length < 10) {
 
+            if (showData.musicsAlbum[index].data.findIndex(item => item.id == data) == -1) {
+              showData.musicsAlbum[index].data.unshift(destructorData(data));
+              event.target.classList.add('!bg-[#00cc00]')
+              updateData(showData);
+              let changeSaveIcon = findInPlayList(data.id).some(item => item.flag === true);
 
-          if (showData.musicsAlbum[index].data.findIndex(item => item.id == data) == -1) {
-            showData.musicsAlbum[index].data.unshift(destructorData(data));
-            event.target.classList.add('!bg-[#00cc00]')
-            updateData(showData);
-            let changeSaveIcon = findInPlayList(data.id).some(item => item.flag === true);
+              if (changeSaveIcon) {
+                savePlayListMore[indexInWrapper].classList.remove('hidden');
+                !noSavePlayListMore[indexInWrapper].classList.contains('hidden') && noSavePlayListMore[indexInWrapper].classList.add('hidden');
+              } else {
+                !savePlayListMore[indexInWrapper].classList.contains('hidden') && savePlayListMore[indexInWrapper].classList.add('hidden');
+                noSavePlayListMore[indexInWrapper].classList.remove('hidden');
+              }
 
-            if (changeSaveIcon) {
-              savePlayListMore[indexInWrapper].classList.remove('hidden');
-              !noSavePlayListMore[indexInWrapper].classList.contains('hidden') && noSavePlayListMore[indexInWrapper].classList.add('hidden');
-            } else {
-              !savePlayListMore[indexInWrapper].classList.contains('hidden') && savePlayListMore[indexInWrapper].classList.add('hidden');
-              noSavePlayListMore[indexInWrapper].classList.remove('hidden');
+              iziToast.show({
+                message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
+                rtl: true,
+              });
             }
+
+
+
+
+          }else{
+            Swal.fire({
+              title: 'بیشتر از 10 موزیک نمیتوان به این پلی لیست اضافه کرد! برای خرید اشتراک ویژه با ما تماس بگیرید',
+              icon: 'error',
+              showCancelButton: true,
+              confirmButtonText: 'تماس با ما',
+              confirmButtonColor: 'red',
+              cancelButtonText: 'لغو',
+            }).then(result => {
+              if (result.isConfirmed) {
+                location.href = 'contactUs.html'
+              }
+            })
           }
-
-          iziToast.show({
-            message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
-            rtl: true,
-          });
-
-
         }
-        Swal.close()
-
       })
     })
 
@@ -754,30 +768,44 @@ function saveHandler() {
 
       } else {
 
+        if (showData.musicsAlbum[index].data.length < 10) {
 
-        if (showData.musicsAlbum[index].data.findIndex(item => item.id == sendData.id) == -1) {
-          showData.musicsAlbum[index].data.unshift(destructorData(sendData));
-          event.target.classList.add('!bg-[#00cc00]');
-          updateData(showData);
+          if (showData.musicsAlbum[index].data.findIndex(item => item.id == sendData.id) == -1) {
+            showData.musicsAlbum[index].data.unshift(destructorData(sendData));
+            event.target.classList.add('!bg-[#00cc00]');
+            updateData(showData);
 
 
-          let changeSaveIcon = findInPlayListMain().some(item => item.flag === true);
-          if (changeSaveIcon) {
-            savePlayList.classList.remove('hidden');
-            !noSavePlayList.classList.contains('hidden') && noSavePlayList.classList.add('hidden');
-          } else {
-            !savePlayList.classList.contains('hidden') && savePlayList.classList.add('hidden');
-            noSavePlayList.classList.remove('hidden');
+            let changeSaveIcon = findInPlayListMain().some(item => item.flag === true);
+            if (changeSaveIcon) {
+              savePlayList.classList.remove('hidden');
+              !noSavePlayList.classList.contains('hidden') && noSavePlayList.classList.add('hidden');
+            } else {
+              !savePlayList.classList.contains('hidden') && savePlayList.classList.add('hidden');
+              noSavePlayList.classList.remove('hidden');
+            }
+            iziToast.show({
+              message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
+              rtl: true,
+            });
           }
+
+        } else {
+          Swal.fire({
+            title: 'بیشتر از 10 موزیک نمیتوان به این پلی لیست اضافه کرد! برای خرید اشتراک ویژه با ما تماس بگیرید',
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: 'تماس با ما',
+            confirmButtonColor: 'red',
+            cancelButtonText: 'لغو',
+          }).then(result => {
+            if (result.isConfirmed) {
+              location.href = 'contactUs.html'
+            }
+          })
         }
 
-        iziToast.show({
-          message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
-          rtl: true,
-        });
-
       }
-      Swal.close()
 
     })
   })

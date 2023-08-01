@@ -168,18 +168,18 @@ const ourPlayList = [
                 "current": 1
             },
             {
-                "id": 97284,
-                "photo": "https://assets.rjassets.com/static/mp3/homayoun-shajarian-asemane-abri/d3d91b20e3e12ca.jpg",
-                "link": "https://host2.mediacon-rj.app/media/mp3/mp3-256/97284-282b44b8917942d.mp3",
-                "plays": "15,950,191",
-                "likes": "18,262",
-                "downloads": "15,950,191",
-                "song_farsi": "آسمان ابری",
-                "artist_farsi": "همایون شجریان",
-                "artist": "Homayoun Shajarian",
+                "id": 21805,
+                "photo": "https://assets.rjassets.com/static/mp3/shajarian-baroon/a11f03a4367454d.jpg",
+                "link": "https://host1.mediacon-rj.app/media/mp3/mp3-256/21805-da7f56aa2681ae2.mp3",
+                "plays": "9,564,859",
+                "likes": "14,763",
+                "downloads": "9,564,859",
+                "song_farsi": "بارون",
+                "artist_farsi": "شجریان",
+                "artist": "Shajarian",
                 "type": "mp3",
                 "current": 2
-            },
+              },
             {
                 "id": 20169,
                 "photo": "https://assets.rjassets.com/static/mp3/homayoun-shajarian-havaye-geryeh/2a9977cb7f7eda3.jpg",
