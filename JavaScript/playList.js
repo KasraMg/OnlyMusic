@@ -152,6 +152,8 @@ const deleteHandler = id => {
 window.deleteHandler = deleteHandler
 
 const showToDom = (array) => {
+    console.log(array);
+    console.log(songId);
     array.map(item => {
         moreAlbum.insertAdjacentHTML(
             "beforeend",
@@ -160,7 +162,7 @@ const showToDom = (array) => {
         <a href="mPlayList.html?type=${type}&plId=${playListId}&id=${item.id}"  class="relative flex gap-4 items-center" id='musicMoreLink'>
           <img src='${item.photo}'
             class="w-16 h-16 rounded" alt="">
-            <div class="loaderSong absolute top-5 right-1 ${item.id === songId ? `` : `!hidden`}">
+            <div class="loaderSong absolute top-5 right-1 ${item.id === +songId ? `` : `!hidden`}">
             <span class="stroke"></span>
             <span class="stroke"></span>
             <span class="stroke"></span>

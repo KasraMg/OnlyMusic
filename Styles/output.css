@@ -1356,6 +1356,10 @@ input:checked + .toggle-bg {
   display: grid;
 }
 
+.\!hidden {
+  display: none !important;
+}
+
 .hidden {
   display: none;
 }
@@ -1438,6 +1442,10 @@ input:checked + .toggle-bg {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-3 {
+  height: 0.75rem;
 }
 
 .w-1\/2 {
@@ -1558,6 +1566,10 @@ input:checked + .toggle-bg {
 
 .w-full {
   width: 100%;
+}
+
+.w-3 {
+  width: 0.75rem;
 }
 
 .flex-1 {
@@ -3516,12 +3528,20 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 }
 
 @media (max-width: 390px) {
+  .sm-x3\:h-4 {
+    height: 1rem;
+  }
+
   .sm-x3\:\!w-28 {
     width: 7rem !important;
   }
 
   .sm-x3\:w-24 {
     width: 6rem;
+  }
+
+  .sm-x3\:w-4 {
+    width: 1rem;
   }
 
   .sm-x3\:px-3 {
@@ -3536,6 +3556,16 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 
   .sm-x3\:\!text-\[10px\] {
     font-size: 10px !important;
+  }
+
+  .sm-x3\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .sm-x3\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 }
 
