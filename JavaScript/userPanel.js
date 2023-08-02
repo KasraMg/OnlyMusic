@@ -189,12 +189,13 @@ const favoriteShow = () => {
                 showData.favorite.splice(mediaExistenceIndex, 1);
                 updateData(showData)
                 favoriteShow()
+                iziToast.show({
+                    message: 'موزیک از لیست مورد علاقه ها حذف شد :(',
+                    rtl: true,
+                });
             }
 
-            iziToast.show({
-                message: 'موزیک از لیست مورد علاقه ها حذف شد :(',
-                rtl: true,
-            });
+          
 
         })
 

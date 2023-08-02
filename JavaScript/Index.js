@@ -106,13 +106,13 @@ window.addEventListener('load', () => {
           "beforeend", `
 
                           <a  href='music.html?artist=${music.artist}&id=${music.id}'  class="swiper-slide" style=' height:288px; background-repeat: no-repeat; background-position: center; background-size: cover;   border-radius: 10px;'>
-                          <img src='${music.photo}' class=' absolute w-full rounded-xl ' style='    top: -140px;'/>
+                          <img src='${music.photo}' class=' absolute w-full rounded-xl ' style='  height: 300px;    -o-object-fit: cover;    object-fit: cover;    border-radius: 5px;'/>
                               <div class=" font-vazirLight absolute w-full right-5 space-y-2 text-right text-white bottom-5" style='position:absolute; right:30px; bottom:30px;'>
                               <p style=" width: fit-content;  padding-left: 0.75rem; padding-right: 0.75rem;  padding-top: 0.25rem ;  padding-bottom: 0.25rem ; border-radius: 0.15rem;  background: #ffffff38;"  class="  text-black text-2xl !font-vazirMedium"> ${music.song_farsi} </p>
                                   <p style=" width: fit-content;  padding-left: 0.75rem; padding-right: 0.75rem;  padding-top: 0.25rem ;  padding-bottom: 0.25rem ; border-radius: 0.15rem;" class='bg-white rounded-xl text-black w-fit px-3 py-1'>${music.artist_farsi}</p>
                               </div>
 
-                          </a>
+                          </a>   
 
                   `)
       ))

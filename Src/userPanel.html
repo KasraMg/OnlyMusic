@@ -237,7 +237,7 @@
                     </li>
 
                     <li>
-                        <a href="musics.html" class="flex items-center  p-4" id="musics">
+                        <a href="musics.html?type=newMusic&page=1" class="flex items-center  p-4" id="musics">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
@@ -252,7 +252,7 @@
                     </li>
 
                     <li>
-                        <a href="musicVideo.html" class="flex items-center  p-4" id="musicVideo">
+                        <a href="musicVideo.html?type=newVideo&page=1" class="flex items-center  p-4" id="musicVideo">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
@@ -268,7 +268,7 @@
                     </li>
 
                     <li>
-                        <a href="playlists.html" class="flex items-center  p-4" id="playlists">
+                        <a href="playlists.html?type=ourPlayList" class="flex items-center  p-4" id="playlists">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
@@ -284,7 +284,7 @@
                     </li>
 
                     <li>
-                        <a href="artists.html" class="flex items-center  p-4" id="artists">
+                        <a href="artists.html?page=1" class="flex items-center  p-4" id="artists">
 
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
@@ -371,7 +371,7 @@
                                     d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                             </svg>
                         </div>
-                        <span class="font-vazirMedium" id="nameUser"></span>
+                        <span class="font-vazirBold pre1 w-44 sm-x3:w-24 sm:text-xs" id="nameUser"></span>
                     </div>
 
                     <div class="p-2 rounded-lg bg-slate-100 dark:bg-[#303034] cursor-pointer" id="editIcon">
@@ -450,15 +450,15 @@
 
                 <div class="w-full">
                     <input type="text" placeholder="نام و نام خانوادگی"
-                        class="w-full p-5 rounded-md bg-slate-200 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31]  focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
-                        id="name">
+                        class="w-full p-5 rounded-md bg-slate-100 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31]  focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                        id="name" maxlength="38">
                     <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="nameError"></p>
                 </div>
 
 
                 <div class="w-full">
                     <input type="text" placeholder="ایمیل"
-                        class="w-full p-5 rounded-md bg-slate-200 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                        class="w-full p-5 rounded-md bg-slate-100 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
                         id="email">
 
                     <p class="text-red-600 text-xs mt-2 mr-3 hidden" id="emailError"></p>
@@ -466,7 +466,7 @@
 
                 <div class="w-full relative">
                     <input type="password" placeholder="گذرواژه"
-                        class="w-full p-5 rounded-md bg-slate-200 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                        class="w-full p-5 rounded-md bg-slate-100 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
                         id="password">
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -492,7 +492,7 @@
 
                 <div class="w-full relative">
                     <input type="password" placeholder="تکرار گذرواژه"
-                        class="w-full p-5 rounded-md bg-slate-200 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
+                        class="w-full p-5 rounded-md bg-slate-100 dark:bg-darkBg text-darkBg dark:text-white font-vazirLight border-1 border-solid border-[#2b2b31] focus:border-[#2b2b31] focus:ring-4 focus:ring-[#285ed342]"
                         id="confirmPassword">
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -517,9 +517,9 @@
                 </div>
 
 
-                <div class="flex flex-col space-y-4 w-full text-[#50b5ff] ">
+                <div class="flex flex-col space-y-4 w-full text-white dark:text-[#50b5ff] ">
                     <button
-                        class="w-fll border-1 border-solid border-[#50b6ff2a] rounded-md p-4 bg-[#50b6ff2a] hover:brightness-[0.85] transition-all duration-200"
+                        class="w-fll border-1 border-solid border-[#50b6ff] dark:border-[#50b6ff2a] rounded-md p-4 bg-[#50b6ff] dark:bg-[#50b6ff2a] hover:brightness-[0.85] transition-all duration-200"
                         id="editInfoBtn">ویرایش اطلاعات</button>
 
                 </div>
@@ -531,8 +531,8 @@
         <div class="h-scree w-full mr-[26rem] md:mr-0  py-2 px-20 lg:px-10 md:px-36 sm-x2:!px-0 " id="mainPanel">
 
             <div class="flex gap-6 text-secondText" id="chooseBtn">
-                <p class="active__Btn  rounded-lg  px-5 py-2 cursor-pointer" id="recentBtn">اخیرا</p>
-                <p class="rounded-lg  px-5 py-2 cursor-pointer" id="favoriteBtn">مورد علاقه ها</p>
+                <p class="btn active__Btn  rounded-lg  px-5 py-2 cursor-pointer" id="recentBtn">اخیرا</p>
+                <p class="btn rounded-lg  px-5 py-2 cursor-pointer" id="favoriteBtn">مورد علاقه ها</p>
             </div>
 
             <div id="showBody">

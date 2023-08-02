@@ -3,6 +3,7 @@ import { idCreator } from "./helper/idCreator.js"
 import { getData, updateData } from "./helper/serviceData.js"
 import { destructorData } from "./helper/destructorData.js"
 import { getParamToUrl } from "./utilis/utils.js"
+import { sliceCounter } from "./helper/sliceCounter.js"
 
 const noLikeMedia = document.querySelector('#noLikeMedia')
 const likeMedia = document.querySelector('#likeMedia')
@@ -85,25 +86,25 @@ window.addEventListener('load', () => {
       firstDetails.insertAdjacentHTML('beforeend',
         `
       
-      <section class="flex justify-center items-center">
-      <p>${data.result.plays}</p>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+      <section class="flex justify-center items-center sm-x3:text-xs">
+      <p>${sliceCounter(data.result.plays)}</p>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 sm-x3:w-4 h-5 sm-x3:h-4 mr-2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
         </svg>
         
   </section>
 
-  <section class="flex justify-center items-center border-solid border-r-1 border-[#292932]">
-      <p>${data.result.downloads}</p> 
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+  <section class="flex justify-center items-center border-solid border-r-1 border-[#292932] sm-x3:text-xs">
+      <p>${sliceCounter(data.result.downloads)}</p> 
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 sm-x3:w-4 h-5 sm-x3:h-4 mr-2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
         </svg>
         
   </section>
 
-  <section class="flex justify-center items-center border-solid border-r-1 border-[#292932]">
-      <p>${data.result.likes}</p>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5  mr-2">
+  <section class="flex justify-center items-center border-solid border-r-1 border-[#292932] sm-x3:text-xs">
+      <p >${sliceCounter(data.result.likes)}</p>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 sm-x3:w-4 h-5 sm-x3:h-4  mr-2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
         </svg>
         
@@ -378,32 +379,46 @@ window.addEventListener('load', () => {
 
         } else {
 
+          if (showData.musicsAlbum[index].data.length < 10) {
 
+            if (showData.musicsAlbum[index].data.findIndex(item => item.id == data) == -1) {
+              showData.musicsAlbum[index].data.unshift(destructorData(data));
+              event.target.classList.add('!bg-[#00cc00]')
+              updateData(showData);
+              let changeSaveIcon = findInPlayList(data.id).some(item => item.flag === true);
 
-          if (showData.musicsAlbum[index].data.findIndex(item => item.id == data) == -1) {
-            showData.musicsAlbum[index].data.unshift(destructorData(data));
-            event.target.classList.add('!bg-[#00cc00]')
-            updateData(showData);
-            let changeSaveIcon = findInPlayList(data.id).some(item => item.flag === true);
+              if (changeSaveIcon) {
+                savePlayListMore[indexInWrapper].classList.remove('hidden');
+                !noSavePlayListMore[indexInWrapper].classList.contains('hidden') && noSavePlayListMore[indexInWrapper].classList.add('hidden');
+              } else {
+                !savePlayListMore[indexInWrapper].classList.contains('hidden') && savePlayListMore[indexInWrapper].classList.add('hidden');
+                noSavePlayListMore[indexInWrapper].classList.remove('hidden');
+              }
 
-            if (changeSaveIcon) {
-              savePlayListMore[indexInWrapper].classList.remove('hidden');
-              !noSavePlayListMore[indexInWrapper].classList.contains('hidden') && noSavePlayListMore[indexInWrapper].classList.add('hidden');
-            } else {
-              !savePlayListMore[indexInWrapper].classList.contains('hidden') && savePlayListMore[indexInWrapper].classList.add('hidden');
-              noSavePlayListMore[indexInWrapper].classList.remove('hidden');
+              iziToast.show({
+                message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
+                rtl: true,
+              });
             }
+
+
+
+
+          } else {
+            Swal.fire({
+              title: 'بیشتر از 10 موزیک نمیتوان به این پلی لیست اضافه کرد! برای خرید اشتراک ویژه با ما تماس بگیرید',
+              icon: 'error',
+              showCancelButton: true,
+              confirmButtonText: 'تماس با ما',
+              confirmButtonColor: 'red',
+              cancelButtonText: 'لغو',
+            }).then(result => {
+              if (result.isConfirmed) {
+                location.href = 'contactUs.html'
+              }
+            })
           }
-
-          iziToast.show({
-            message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
-            rtl: true,
-          });
-
-
         }
-        Swal.close()
-
       })
     })
 
@@ -552,16 +567,17 @@ document.body.addEventListener('keydown', (e) => {
       
     }else{
       e.preventDefault()
+      if (isPlaying) {
+        pauseSong()
+  
+      } else {
+        playSong()
+  
+      }
     }
    
 
-    if (isPlaying) {
-      pauseSong()
-
-    } else {
-      playSong()
-
-    }
+   
   }
   if (e.code === "ArrowRight") {
     newTime = audio.currentTime + 10
@@ -774,30 +790,44 @@ function saveHandler() {
 
       } else {
 
+        if (showData.musicsAlbum[index].data.length < 10) {
 
-        if (showData.musicsAlbum[index].data.findIndex(item => item.id == sendData.id) == -1) {
-          showData.musicsAlbum[index].data.unshift(destructorData(sendData));
-          event.target.classList.add('!bg-[#00cc00]');
-          updateData(showData);
+          if (showData.musicsAlbum[index].data.findIndex(item => item.id == sendData.id) == -1) {
+            showData.musicsAlbum[index].data.unshift(destructorData(sendData));
+            event.target.classList.add('!bg-[#00cc00]');
+            updateData(showData);
 
 
-          let changeSaveIcon = findInPlayListMain().some(item => item.flag === true);
-          if (changeSaveIcon) {
-            savePlayList.classList.remove('hidden');
-            !noSavePlayList.classList.contains('hidden') && noSavePlayList.classList.add('hidden');
-          } else {
-            !savePlayList.classList.contains('hidden') && savePlayList.classList.add('hidden');
-            noSavePlayList.classList.remove('hidden');
+            let changeSaveIcon = findInPlayListMain().some(item => item.flag === true);
+            if (changeSaveIcon) {
+              savePlayList.classList.remove('hidden');
+              !noSavePlayList.classList.contains('hidden') && noSavePlayList.classList.add('hidden');
+            } else {
+              !savePlayList.classList.contains('hidden') && savePlayList.classList.add('hidden');
+              noSavePlayList.classList.remove('hidden');
+            }
+            iziToast.show({
+              message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
+              rtl: true,
+            });
           }
+
+        } else {
+          Swal.fire({
+            title: 'بیشتر از 10 موزیک نمیتوان به این پلی لیست اضافه کرد! برای خرید اشتراک ویژه با ما تماس بگیرید',
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: 'تماس با ما',
+            confirmButtonColor: 'red',
+            cancelButtonText: 'لغو',
+          }).then(result => {
+            if (result.isConfirmed) {
+              location.href = 'contactUs.html'
+            }
+          })
         }
 
-        iziToast.show({
-          message: `موزیک به آلبوم ${showData.musicsAlbum[index].name} اضافه شد`,
-          rtl: true,
-        });
-
       }
-      Swal.close()
 
     })
   })
