@@ -27,7 +27,7 @@ const relatedVideos = document.getElementById('relatedVideos')
 const downloadBtn = document.querySelectorAll('#downloadBtn')
 const mainSection = document.querySelector('#mainSection')
 const loader = document.querySelector('.loader')
-const searchInput = document.querySelector('#searchInput') 
+const searchInput = document.querySelector('#searchInput')
 const searchInputMd = document.querySelector('#searchInputMd')
 
 let videos;
@@ -220,60 +220,58 @@ const getInfoes = async (id) => {
 
 
 let isPlaying = false;
-let focus =false
-let speaker = true
-searchInput.addEventListener("focus",()=>{
-focus=true
-   })
-   searchInput.addEventListener("blur",()=>{
-    focus=false
-       })
-searchInputMd.addEventListener("focus",()=>{
-focus=true
-   })
-   searchInputMd.addEventListener("blur",()=>{
-    focus=false
-       })
-document.body.addEventListener('keydown', (e) => {
-  console.log(e);
-  if (e.code === "Space") {
+let focus = false
+let speaker = true;
 
-    if (focus) {
-      
-    }else{
+searchInput.addEventListener("focus", () => {
+  focus = true
+})
+searchInput.addEventListener("blur", () => {
+  focus = false
+})
+searchInputMd.addEventListener("focus", () => {
+  focus = true
+})
+searchInputMd.addEventListener("blur", () => {
+  focus = false
+})
+document.body.addEventListener('keydown', (e) => {
+  if (!focus) {
+
+    if (e.code === "Space") {
+
       e.preventDefault()
       if (isPlaying) {
         pauseVideo()
-  
+
       } else {
         playVideo()
-  
+
       }
     }
-   
 
-    
-  }
-  if (e.code === "ArrowRight") {
-    newTime = video.currentTime + 10
-    video.currentTime = newTime
-  }
-  if (e.code === "ArrowLeft") {
-    newTime = video.currentTime - 10
-    video.currentTime = newTime
-  }
-  if (e.key === "m") {
-    if (speaker) {
-      video.volume = 0
-      speaker = false
-      speakerIcon.innerHTML = ''
-      speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[8px]"style="top:2px;cursor:pointer" ></i>'
-    } else {
-      video.volume = 1
-      speakerIcon.innerHTML = ''
-      speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2px;cursor:pointer" ></i>'
-      speaker = true
+    if (e.code === "ArrowRight") {
+      newTime = video.currentTime + 10
+      video.currentTime = newTime
     }
+    if (e.code === "ArrowLeft") {
+      newTime = video.currentTime - 10
+      video.currentTime = newTime
+    }
+    if (e.keyCode === 77) {
+      if (speaker) {
+        video.volume = 0
+        speaker = false
+        speakerIcon.innerHTML = ''
+        speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[8px]"style="top:2px;cursor:pointer" ></i>'
+      } else {
+        video.volume = 1
+        speakerIcon.innerHTML = ''
+        speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2px;cursor:pointer" ></i>'
+        speaker = true
+      }
+    }
+
   }
 })
 

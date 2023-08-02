@@ -28,6 +28,8 @@ const artistName = document.getElementById('artistName')
 const shereIcon = document.getElementById('shereIcon')
 const downloadBtn = document.querySelectorAll('#downloadBtn')
 const loopIcon = document.querySelector('#loopIcon')
+const searchInput = document.querySelector('#searchInput') 
+const searchInputMd = document.querySelector('#searchInputMd')
 
 
 
@@ -42,14 +44,15 @@ let song2;
 let musicIndex;
 let nextMusic
 let typeResult;
+let newTime 
 window.addEventListener('load', () => {
 
 
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
   const urlResult = params.get('id');
-    typeResult = params.get('plId');
-   musicResult = params.get('type');
+  typeResult = params.get('plId');
+  musicResult = params.get('type');
 
   const showData = getData('showData')
   if (showData && showData.id) {
@@ -93,13 +96,13 @@ window.addEventListener('load', () => {
     if (musicResult == 'musicsAlbum') {
       const showData = getData('showData');
       const playListActive = showData.musicsAlbum.find(item => item.id == typeResult)
-        song2 = playListActive.data
+      song2 = playListActive.data
       const musicResult = song2.filter(music => {
         return music.id == urlResult
       })
 
       recentMediaHandler(musicResult[0]);
-        musicIndex = song2.findIndex((music) => {
+      musicIndex = song2.findIndex((music) => {
         return music.id == urlResult
       })
       sendData = musicResult[0]
@@ -111,7 +114,7 @@ window.addEventListener('load', () => {
         if (musicIndex + 1 == song2.length) {
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${song2[0].id}`
         } else {
-           nextMusic = song2[musicIndex + 1]
+          nextMusic = song2[musicIndex + 1]
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${nextMusic.id}`
         }
 
@@ -798,7 +801,7 @@ window.addEventListener('load', () => {
       loadSong(results[0]);
 
 
-  listLength =listType[0].data.length - 1
+      listLength = listType[0].data.length - 1
 
       nextIcon.addEventListener('click', () => {
         pauseSong()
@@ -957,7 +960,7 @@ function updateProgressBar(e) {
     }
     // Calculate display for currentTime
 
- 
+
     currentMinutes = Math.floor(currentTime / 60);
     currentSeconds = Math.floor(currentTime % 60);
     if (currentSeconds < 10) {
@@ -983,7 +986,7 @@ function updateProgressBar(e) {
           console.log(res);
           location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
         }
-      }else{
+      } else {
         if (musicIndex + 1 == song2.length) {
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${song2[0].id}`
         } else {
@@ -1001,25 +1004,60 @@ function updateProgressBar(e) {
   }
 }
 
+
+let focus = false
+
+searchInput.addEventListener("focus", () => {
+  focus = true
+})
+searchInput.addEventListener("blur", () => {
+  focus = false
+})
+searchInputMd.addEventListener("focus", () => {
+  focus = true
+})
+searchInputMd.addEventListener("blur", () => {
+  focus = false
+})
 document.body.addEventListener('keydown', (e) => {
-  if (e.code === "Space") {
-    e.preventDefault()
+  if (!focus) {
 
-    if (isPlaying) {
-      pauseSong()
+    if (e.code === "Space") {
+      e.preventDefault()
+      if (isPlaying) {
+        pauseSong()
 
-    } else {
-      playSong()
-
+      } else {
+        playSong()
+      }
     }
-  }
-  if (e.code === "ArrowRight") {
-    newTime = music.currentTime + 10
-    music.currentTime = newTime
-  }
-  if (e.code === "ArrowLeft") {
-    newTime = music.currentTime - 10
-    music.currentTime = newTime
+
+    if (e.code === "ArrowRight") {
+      newTime = audio.currentTime + 10
+      audio.currentTime = newTime
+    }
+    if (e.code === "ArrowLeft") {
+      newTime = audio.currentTime - 10
+      audio.currentTime = newTime
+    }
+    if (e.keyCode === 77) {
+      if (speaker) {
+        music.volume = 0
+        speaker = false
+        speakerIcon.innerHTML = ''
+        speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[8px]" style="top:2.8px;cursor:pointer" ></i>'
+      } else {
+        music.volume = 1
+        speakerIcon.innerHTML = ''
+        speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2.8px;cursor:pointer" ></i>'
+        speaker = true
+      }
+    }
+    
+    if (e.keyCode === 76) {
+      const loopIcon = document.querySelector('#loopIcon');
+      loopHandler(loopIcon)
+    }
   }
 })
 
@@ -1089,6 +1127,12 @@ loopIcon.addEventListener('click', event => {
   if (event.target.tagName === 'path') {
     svgIcon = event.target.parentNode
   }
+
+  loopHandler(svgIcon);
+})
+
+
+const loopHandler = (svgIcon) => {
   if (svgIcon.classList.contains('text-secondText')) {
     music.loop = true;
     loopIcon.classList.replace('text-secondText', 'text-white')
@@ -1097,7 +1141,7 @@ loopIcon.addEventListener('click', event => {
     music.loop = false;
     loopIcon.classList.replace('text-white', 'text-secondText')
   }
-})
+}
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////

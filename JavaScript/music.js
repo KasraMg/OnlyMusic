@@ -23,7 +23,7 @@ const music = document.querySelector('audio')
 const cover = document.querySelector('#cover')
 const progress = document.getElementById("progress");
 const progressContainer = document.getElementById("progress-container");
-const firstDetails = document.getElementById('firstDetails') 
+const firstDetails = document.getElementById('firstDetails')
 const lyric = document.getElementById('lyric')
 const relatedMusic = document.getElementById('relatedMusic')
 const shereIcon = document.getElementById('shereIcon')
@@ -31,7 +31,7 @@ const downloadBtn = document.querySelectorAll('#downloadBtn')
 const mainSection = document.querySelector('#mainSection')
 const loader = document.querySelector('.loader')
 const loopIcon = document.querySelector('#loopIcon')
-const searchInput = document.querySelector('#searchInput') 
+const searchInput = document.querySelector('#searchInput')
 const searchInputMd = document.querySelector('#searchInputMd')
 
 let songs;
@@ -345,7 +345,7 @@ window.addEventListener('load', () => {
     let alertModalMore = document.querySelector('#alertModalMore');
     console.log(alertModalMore);
     showData.musicsAlbum.forEach((item, index) => {
-      alertModalMore.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? '!bg-[#00cc00]' : ''}" id='${item.id}'>${item.name}</p>`)
+      alertModalMore.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? 'playListBtnActive' : ''}" id='${item.id}'>${item.name}</p>`)
     });
 
 
@@ -356,9 +356,9 @@ window.addEventListener('load', () => {
 
 
         let index = showData.musicsAlbum.findIndex(item => item.id == event.target.id);
-        if (event.target.classList.contains('!bg-[#00cc00]')) {
+        if (event.target.classList.contains('playListBtnActive')) {
 
-          event.target.classList.remove('!bg-[#00cc00]');
+          event.target.classList.remove('playListBtnActive');
           let indexInPlayList = showData.musicsAlbum[index].data.findIndex(item => item.id == data.id);
           showData.musicsAlbum[index].data.splice(indexInPlayList, 1);
           updateData(showData);
@@ -383,7 +383,7 @@ window.addEventListener('load', () => {
 
             if (showData.musicsAlbum[index].data.findIndex(item => item.id == data) == -1) {
               showData.musicsAlbum[index].data.unshift(destructorData(data));
-              event.target.classList.add('!bg-[#00cc00]')
+              event.target.classList.add('playListBtnActive')
               updateData(showData);
               let changeSaveIcon = findInPlayList(data.id).some(item => item.flag === true);
 
@@ -546,58 +546,58 @@ function updateProgressBar(e) {
   }
 }
 
-let focus =false
+let focus = false
 
-searchInput.addEventListener("focus",()=>{
-focus=true
-   })
-   searchInput.addEventListener("blur",()=>{
-    focus=false
-       })
-searchInputMd.addEventListener("focus",()=>{
-focus=true
-   })
-   searchInputMd.addEventListener("blur",()=>{
-    focus=false
-       })
+searchInput.addEventListener("focus", () => {
+  focus = true
+})
+searchInput.addEventListener("blur", () => {
+  focus = false
+})
+searchInputMd.addEventListener("focus", () => {
+  focus = true
+})
+searchInputMd.addEventListener("blur", () => {
+  focus = false
+})
 document.body.addEventListener('keydown', (e) => {
-  if (e.code === "Space") {
+  if (!focus) {
 
-    if (focus) {
-      
-    }else{
+    if (e.code === "Space") {
       e.preventDefault()
       if (isPlaying) {
         pauseSong()
-  
+
       } else {
         playSong()
-  
       }
     }
-   
 
-   
-  }
-  if (e.code === "ArrowRight") {
-    newTime = audio.currentTime + 10
-    audio.currentTime = newTime
-  }
-  if (e.code === "ArrowLeft") {
-    newTime = audio.currentTime - 10
-    audio.currentTime = newTime
-  }
-  if (e.key === "m") {
-    if (speaker) {
-      video.volume = 0
-      speaker = false
-      speakerIcon.innerHTML = ''
-      speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[8px]" style="top:2.8px;cursor:pointer" ></i>'
-    } else {
-      video.volume = 1
-      speakerIcon.innerHTML = ''
-      speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2.8px;cursor:pointer" ></i>'
-      speaker = true
+    if (e.code === "ArrowRight") {
+      newTime = audio.currentTime + 10
+      audio.currentTime = newTime
+    }
+    if (e.code === "ArrowLeft") {
+      newTime = audio.currentTime - 10
+      audio.currentTime = newTime
+    }
+    if (e.keyCode === 77) {
+      if (speaker) {
+        music.volume = 0
+        speaker = false
+        speakerIcon.innerHTML = ''
+        speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[8px]" style="top:2.8px;cursor:pointer" ></i>'
+      } else {
+        music.volume = 1
+        speakerIcon.innerHTML = ''
+        speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2.8px;cursor:pointer" ></i>'
+        speaker = true
+      }
+    }
+
+    if (e.keyCode === 76) {
+      const loopIcon = document.querySelector('#loopIcon');
+      loopHandler(loopIcon)
     }
   }
 })
@@ -677,6 +677,11 @@ loopIcon.addEventListener('click', event => {
   if (event.target.tagName === 'path') {
     svgIcon = event.target.parentNode
   }
+  loopHandler(svgIcon)
+})
+
+
+const loopHandler = (svgIcon) => {
   if (svgIcon.classList.contains('text-secondText')) {
     music.loop = true;
     loopIcon.classList.replace('text-secondText', 'text-white')
@@ -685,7 +690,7 @@ loopIcon.addEventListener('click', event => {
     music.loop = false;
     loopIcon.classList.replace('text-white', 'text-secondText')
   }
-})
+}
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -754,7 +759,7 @@ function saveHandler() {
 <div class="w-full grid grid-cols-2 sm-x2:grid-cols-1 gap-4" id='alertModal'>
 
 </div>
-  <button class="w-full rounded-md p-2 text-white bg-[#800080] cursor-pointer flex justify-center items-center">+</button>
+  <button class="w-full rounded-md p-2 text-white bg-[#4CBB17] cursor-pointer flex justify-center items-center">+</button>
 </div>`
 
   let arr = findInPlayListMain();
@@ -768,7 +773,7 @@ function saveHandler() {
 
   let alertModal = document.querySelector('#alertModal');
   showData.musicsAlbum.forEach((item, index) => {
-    alertModal.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? '!bg-[#00cc00]' : ''}" id='${item.id}'>${item.name}</p>`)
+    alertModal.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? 'playListBtnActive' : ''}" id='${item.id}'>${item.name}</p>`)
   });
 
 
@@ -780,9 +785,9 @@ function saveHandler() {
 
       let index = showData.musicsAlbum.findIndex(item => item.id == event.target.id);
 
-      if (event.target.classList.contains('!bg-[#00cc00]')) {
+      if (event.target.classList.contains('playListBtnActive')) {
 
-        event.target.classList.remove('!bg-[#00cc00]');
+        event.target.classList.remove('playListBtnActive');
         let indexInPlayList = showData.musicsAlbum[index].data.findIndex(item => item.id == getParamToUrl('id'));
         showData.musicsAlbum[index].data.splice(indexInPlayList, 1);
         updateData(showData);
@@ -807,7 +812,7 @@ function saveHandler() {
 
           if (showData.musicsAlbum[index].data.findIndex(item => item.id == sendData.id) == -1) {
             showData.musicsAlbum[index].data.unshift(destructorData(sendData));
-            event.target.classList.add('!bg-[#00cc00]');
+            event.target.classList.add('playListBtnActive');
             updateData(showData);
 
 
