@@ -37,7 +37,7 @@ const searchInputMd = document.querySelector('#searchInputMd')
 let songs;
 let allDatas;
 let newTime;
-
+let speaker = true;
 let sendData = null;
 window.addEventListener('load', () => {
   const url = new URL(window.location.href);
@@ -587,6 +587,19 @@ document.body.addEventListener('keydown', (e) => {
     newTime = audio.currentTime - 10
     audio.currentTime = newTime
   }
+  if (e.key === "m") {
+    if (speaker) {
+      video.volume = 0
+      speaker = false
+      speakerIcon.innerHTML = ''
+      speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[8px]" style="top:2.8px;cursor:pointer" ></i>'
+    } else {
+      video.volume = 1
+      speakerIcon.innerHTML = ''
+      speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2.8px;cursor:pointer" ></i>'
+      speaker = true
+    }
+  }
 })
 
 
@@ -638,18 +651,18 @@ function setProgressBar(e) {
 
 }
 
-let speaker = true;
+
 
 speakerIcon.addEventListener('click', (e) => {
   if (speaker) {
     music.volume = 0
     speaker = false
     speakerIcon.innerHTML = ''
-    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[3px]" ></i>'
+    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[3px]"style="top:2.8px;cursor:pointer"  ></i>'
   } else {
     music.volume = 1
     speakerIcon.innerHTML = ''
-    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[3px]" ></i>'
+    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[3px]"style="top:2.8px;cursor:pointer"  ></i>'
     speaker = true
   }
   fa - volume - xmark
