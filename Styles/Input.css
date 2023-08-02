@@ -21,7 +21,7 @@
 
 .errorInput {
   box-shadow: 0 0 0 4px #d3282842 !important;
- 
+
 }
 
 .errorInput:focus {
@@ -29,14 +29,42 @@
 
 }
 
+/* start izitoast */
+.iziToast-message {
+  font-family: vazirlight !important;
+}
+
+/* end izitoast */
+
+
+/* start swal */
+
 .dark div:where(.swal2-container).swal2-center>.swal2-popup {
   font-family: vazirlight !important;
   background: #222222 !important;
-
 }
+
+.swal2-confirm:focus,
+.swal2-cancel:focus,
+.swal2-close:focus {
+  box-shadow: none !important;
+}
+
+.dark .swal2-confirm {
+  background-color: #d49605 !important;
+}
+
+.swal2-confirm {
+  background-color: #50b6ff !important;
+}
+
 
 .dark .swal2-title {
   color: white !important;
+}
+
+.deleteClassSwal .swal2-confirm {
+  background-color: #ff4242 !important;
 }
 
 .dark .swal2-success-circular-line-left,
@@ -53,6 +81,27 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 
 .swal2-title {
   color: black !important;
+  font-size: 1.25rem;
+}
+
+.dark .swal2-input {
+  color: #fff !important;
+  border-color: #fff !important
+}
+
+.swal2-input {
+  color: #1c1c24 !important;
+  border-color: #1c1c24 !important
+}
+
+.dark .swal2-input::placeholder {
+  color: #ffffff82 !important;
+
+}
+
+.swal2-input::placeholder {
+  color: #1c1c2499 !important;
+
 }
 
 .swal2-success-circular-line-left,
@@ -60,6 +109,8 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 .swal2-success-circular-line-right {
   display: none !important;
 }
+
+/* end swal */
 
 .dark .active_Link {
   background-color: #d49605;
@@ -88,6 +139,12 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 .active__Btn {
   background: #ff424257;
   color: #ff4242;
+}
+
+.pre1 {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* end btn */
@@ -340,7 +397,7 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   .errorInput:focus {
     box-shadow: 0 0 0 4px #d3282842;
 
-  }   
+  }
 
   .vjs-control-bar {
     display: none !important;
@@ -385,9 +442,10 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   #searchInput:focus {
     box-shadow: none !important;
   }
+
   #searchInputMd:focus {
     box-shadow: none !important;
-  }  
+  }
 
   .dark .waviy span {
     color: white !important;
@@ -413,16 +471,19 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     }
   }
 
-  .dark #searchInput::placeholder{
+  .dark #searchInput::placeholder {
     color: rgba(255, 255, 255, 0.727) !important;
   }
-  .dark #searchInputMd::placeholder{
+
+  .dark #searchInputMd::placeholder {
     color: rgba(255, 255, 255, 0.727) !important;
   }
-  #searchInput::placeholder{
+
+  #searchInput::placeholder {
     color: rgba(0, 0, 0, 0.727) !important;
   }
-  #searchInputMd::placeholder{
+
+  #searchInputMd::placeholder {
     color: rgba(0, 0, 0, 0.727) !important;
   }
 
@@ -437,5 +498,4 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
       padding-left: .5rem !important;  
     }     
   }
-  
 }                
