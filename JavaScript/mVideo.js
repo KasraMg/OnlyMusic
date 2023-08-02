@@ -221,7 +221,7 @@ const getInfoes = async (id) => {
 
 let isPlaying = false;
 let focus =false
-
+let speaker = true
 searchInput.addEventListener("focus",()=>{
 focus=true
    })
@@ -235,6 +235,7 @@ focus=true
     focus=false
        })
 document.body.addEventListener('keydown', (e) => {
+  console.log(e);
   if (e.code === "Space") {
 
     if (focus) {
@@ -260,6 +261,19 @@ document.body.addEventListener('keydown', (e) => {
   if (e.code === "ArrowLeft") {
     newTime = video.currentTime - 10
     video.currentTime = newTime
+  }
+  if (e.key === "m") {
+    if (speaker) {
+      video.volume = 0
+      speaker = false
+      speakerIcon.innerHTML = ''
+      speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[8px]"style="top:2px;cursor:pointer" ></i>'
+    } else {
+      video.volume = 1
+      speakerIcon.innerHTML = ''
+      speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2px;cursor:pointer" ></i>'
+      speaker = true
+    }
   }
 })
 
@@ -354,17 +368,17 @@ function setProgressBar(e) {
 
 }
 
-let speaker = true
+
 speakerIcon.addEventListener('click', (e) => {
   if (speaker) {
     video.volume = 0
     speaker = false
     speakerIcon.innerHTML = ''
-    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[3px]" ></i>'
+    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-xmark relative top-[8px]"style="top:2px;cursor:pointer" ></i>'
   } else {
     video.volume = 1
     speakerIcon.innerHTML = ''
-    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[3px]" ></i>'
+    speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2px;cursor:pointer" ></i>'
     speaker = true
   }
   fa - volume - xmark
