@@ -35,17 +35,21 @@ let songs;
 let musicUrl;
 let results;
 let listType;
-
+let musicResult;
 let sendData = null;
-let recentData = null
+let listLength;
+let song2;
+let musicIndex;
+let nextMusic
+let typeResult;
 window.addEventListener('load', () => {
 
 
   const url = new URL(window.location.href);
   const params = new URLSearchParams(url.search);
   const urlResult = params.get('id');
-  const typeResult = params.get('plId');
-  const musicResult = params.get('type');
+    typeResult = params.get('plId');
+   musicResult = params.get('type');
 
   const showData = getData('showData')
   if (showData && showData.id) {
@@ -89,13 +93,13 @@ window.addEventListener('load', () => {
     if (musicResult == 'musicsAlbum') {
       const showData = getData('showData');
       const playListActive = showData.musicsAlbum.find(item => item.id == typeResult)
-      const song2 = playListActive.data
+        song2 = playListActive.data
       const musicResult = song2.filter(music => {
         return music.id == urlResult
       })
 
       recentMediaHandler(musicResult[0]);
-      let musicIndex = song2.findIndex((music) => {
+        musicIndex = song2.findIndex((music) => {
         return music.id == urlResult
       })
       sendData = musicResult[0]
@@ -107,7 +111,7 @@ window.addEventListener('load', () => {
         if (musicIndex + 1 == song2.length) {
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${song2[0].id}`
         } else {
-          let nextMusic = song2[musicIndex + 1]
+           nextMusic = song2[musicIndex + 1]
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${nextMusic.id}`
         }
 
@@ -794,6 +798,7 @@ window.addEventListener('load', () => {
       loadSong(results[0]);
 
 
+  listLength =listType[0].data.length - 1
 
       nextIcon.addEventListener('click', () => {
         pauseSong()
@@ -806,7 +811,7 @@ window.addEventListener('load', () => {
 
         } else {
           let res = listType[0].data.filter(datas => {
-            return datas.current == results[0].current - 3
+            return datas.current == results[0].current - listLength
 
           })
           console.log(res);
@@ -827,7 +832,7 @@ window.addEventListener('load', () => {
 
         } else {
           let res = listType[0].data.filter(datas => {
-            return datas.current == results[0].current + 3
+            return datas.current == results[0].current + listLength
 
           })
           console.log(res);
@@ -952,8 +957,7 @@ function updateProgressBar(e) {
     }
     // Calculate display for currentTime
 
-
-
+ 
     currentMinutes = Math.floor(currentTime / 60);
     currentSeconds = Math.floor(currentTime % 60);
     if (currentSeconds < 10) {
@@ -962,6 +966,30 @@ function updateProgressBar(e) {
     if (progress.style.width === '100%') {
       if (loopIcon.classList.contains('text-secondText')) {
         pauseSong()
+      }
+      if (musicResult == 'ourPlayList') {
+        if (results[0].current !== listType[0].data.length) {
+          let res = listType[0].data.filter(datas => {
+            return datas.current == results[0].current + 1
+
+          })
+          location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+
+        } else {
+          let res = listType[0].data.filter(datas => {
+            return datas.current == results[0].current - listLength
+
+          })
+          console.log(res);
+          location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
+        }
+      }else{
+        if (musicIndex + 1 == song2.length) {
+          location.href = `?type=musicsAlbum&plId=${typeResult}&id=${song2[0].id}`
+        } else {
+          let nextMusic = song2[musicIndex + 1]
+          location.href = `?type=musicsAlbum&plId=${typeResult}&id=${nextMusic.id}`
+        }
       }
 
 
