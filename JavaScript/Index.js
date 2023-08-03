@@ -13,11 +13,11 @@ artists.slice(0, 6).map(info => (
   artistsDev.insertAdjacentHTML('beforeend',
     `
     <div class="w-full cursor-pointer">
-    <a href='artist.html?artist=${info.name}&type=all&page=1' class="">
+    <a href='artist.html?artist=${info.englishName}&type=all&page=1' class="">
       <img src="${info.photo}" alt="cover" class="rounded-full mx-auto " style='height:140px;width:140px'>
     </a>
 
-    <a href='artist.html?artist=${info.name}&type=all&page=1''  >
+    <a href='artist.html?artist=${info.englishName}&type=all&page=1''  >
       <h3 class="font-bold mt-4 text-center text-lg md:text-md text-darkBg dark:text-white">${info.name} </h3>
     </a>
 
@@ -63,7 +63,7 @@ window.addEventListener('load', () => {
   const newMusicVideo = document.querySelector('#newMusicVideo')
 
   getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => {
-    // loader.classList.add('hidden')
+    loader.classList.add('hidden')
     if (data.status == 200) {
 
       let resultFilter = data.result.filter(data => {
@@ -98,15 +98,17 @@ window.addEventListener('load', () => {
           "beforeend", mediaHtmlTemplate(music))
       ))
 
+      let randomArray = createRandomArray(resultFilter.length);
 
-      resultFilter.slice(9, 28).map(music => (
+      let sliderToShow = randomArray.map(item => resultFilter[item])
+      sliderToShow.map(music => (
         mySwiper1.insertAdjacentHTML(
           "beforeend", `
                           <a  href='music.html?artist=${music.artist}&id=${music.id}'  class="relative swiper-slide">
                           <img src='${music.photo}' class=' w-full rounded-xl'/>
-                          <div class="absolute right-4 bottom-6" id="textCap">
-                          <p>${music.song_farsi.length > 10 ?'...'+ music.song_farsi.slice(0,13)   : music.song_farsi}</p>
+                          <div class="absolute" id="textCap">
                           <p>${music.artist_farsi}</p>
+                          <p>${music.song_farsi.length > 10 ? '...' + music.song_farsi.slice(0, 13) : music.song_farsi}</p>
                         </div>
                           </a>   
 
@@ -165,10 +167,10 @@ var swiper = new Swiper(".mySwiper", {
   spaceBetween: 30,
   centeredSlides: true,
   loop: true,
-  // autoplay: {
-  //   delay: 2500,
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -179,6 +181,20 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
+function createRandomArray(length) {
+  let randomArray = [];
+
+  while (randomArray.length < 12) {
+    var randomNumber = Math.floor(Math.random() * length);
+
+
+    if (randomArray.indexOf(randomNumber) === -1) {
+      randomArray.push(randomNumber);
+    }
+  }
+
+  return randomArray;
+}
 
 
 

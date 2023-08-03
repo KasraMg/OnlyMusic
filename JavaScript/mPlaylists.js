@@ -1,13 +1,9 @@
 import { recentMediaHandler } from "./helper/recentMedia.js"
-import { idCreator } from "./helper/idCreator.js"
 import { getData, updateData } from "./helper/serviceData.js"
 import { destructorData } from "./helper/destructorData.js"
 import { getParamToUrl } from "./utilis/utils.js"
-import { ourPlayList } from "./helper/server.js"
 import { sliceCounter } from "./helper/sliceCounter.js"
 
-console.log(ourPlayList);
-const noLikeMedia = document.querySelector('#noLikeMedia')
 const likeMedia = document.querySelector('#likeMedia')
 
 const playIcon = document.querySelector('#play')
@@ -110,7 +106,6 @@ window.addEventListener('load', () => {
 
       nextIcon.addEventListener('click', () => {
         pauseSong()
-        console.log(musicIndex);
         if (musicIndex + 1 == song2.length) {
           location.href = `?type=musicsAlbum&plId=${typeResult}&id=${song2[0].id}`
         } else {
@@ -817,7 +812,6 @@ window.addEventListener('load', () => {
             return datas.current == results[0].current - listLength
 
           })
-          console.log(res);
           location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
         }
 
@@ -838,7 +832,6 @@ window.addEventListener('load', () => {
             return datas.current == results[0].current + listLength
 
           })
-          console.log(res);
           location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
         }
       })
@@ -900,7 +893,6 @@ function loadSong(song) {
   music.src = song.link;
   cover.style.background = `url(${song.photo})`
   musicUrl = song.link;
-  console.log(cover);
   firstDetails.innerHTML = ''
   firstDetails.insertAdjacentHTML('beforeend',
     `
@@ -983,7 +975,6 @@ function updateProgressBar(e) {
             return datas.current == results[0].current - listLength
 
           })
-          console.log(res);
           location.href = `?type=ourPlayList&plId=${listType[0].id}&id=${res[0].id}`
         }
       } else {
@@ -1033,12 +1024,12 @@ document.body.addEventListener('keydown', (e) => {
     }
 
     if (e.code === "ArrowRight") {
-      newTime = audio.currentTime + 10
-      audio.currentTime = newTime
+      newTime = music.currentTime + 10
+      music.currentTime = newTime
     }
     if (e.code === "ArrowLeft") {
-      newTime = audio.currentTime - 10
-      audio.currentTime = newTime
+      newTime = music.currentTime - 10
+      music.currentTime = newTime
     }
     if (e.keyCode === 77) {
       if (speaker) {
@@ -1147,7 +1138,6 @@ const loopHandler = (svgIcon) => {
 /////////////////////////////////////////////////////////////////////////
 const noLikeMediaHandler = () => {
 
-  console.log(sendData);
 
   const showData = getData('showData');
 

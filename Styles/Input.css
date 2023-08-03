@@ -282,10 +282,12 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   background-color: #000000;
 
 }
+
 .swiper-pagination-bullet {
   opacity: .7 !important;
-  
-} 
+
+}
+
 #textCap {
   text-align: right;
   background-color: #0000007d;
@@ -298,11 +300,17 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   right: 0px;
   justify-content: space-between;
   font-size: 1rem;
-  /* mix-blend-mode: difference; */
   color: #fff;
   display: flex;
 }
 
+
+
+@media (min-width:480px) and (max-width: 530px) {
+  #textCap {
+    font-size: 0.75rem;
+  }
+}
 
 
 @layer utilities {
@@ -553,8 +561,8 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
       padding-left: .5rem !important;
     }
   }
- 
-.swiper-pagination-bullet-active{
-  background:blue !important;
-}
+
+  .swiper-pagination-bullet-active {
+    background: blue !important;
+  }
 }

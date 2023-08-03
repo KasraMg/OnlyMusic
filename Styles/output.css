@@ -3174,9 +3174,14 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   right: 0px;
   justify-content: space-between;
   font-size: 1rem;
-  /* mix-blend-mode: difference; */
   color: #fff;
   display: flex;
+}
+
+@media (min-width:480px) and (max-width: 530px) {
+  #textCap {
+    font-size: 0.75rem;
+  }
 }
 
 .placeholder\:text-\[\#00000058\]::-moz-placeholder {

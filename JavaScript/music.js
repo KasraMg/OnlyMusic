@@ -212,9 +212,7 @@ window.addEventListener('load', () => {
 
         noSavePlayList.addEventListener('click', saveHandler);
         savePlayList.addEventListener('click', saveHandler);
-        console.log(noSavePlayList);
         let changeSaveIcon = findInPlayListMain().some(item => item.flag === true);
-        console.log(changeSaveIcon);
         if (changeSaveIcon) {
           savePlayList.classList.remove('hidden');
           noSavePlayList.classList.add('hidden');
@@ -329,9 +327,8 @@ window.addEventListener('load', () => {
  <div class="w-full grid grid-cols-2 sm-x2:grid-cols-1 gap-4" id='alertModalMore'>
 
  </div>
-   <button class="w-full rounded-md p-2 text-white bg-[#800080] cursor-pointer flex justify-center items-center">+</button>
+   <button class="w-full rounded-md p-2 text-white bg-[#4CBB17] cursor-pointer flex justify-center items-center">+</button>
 </div>`
-    console.log(template);
     let arr = findInPlayList(data.id);
     Swal.fire({
       title: 'پلی لیست ها',
@@ -343,7 +340,6 @@ window.addEventListener('load', () => {
     });
 
     let alertModalMore = document.querySelector('#alertModalMore');
-    console.log(alertModalMore);
     showData.musicsAlbum.forEach((item, index) => {
       alertModalMore.insertAdjacentHTML('afterbegin', `<p class="w-full rounded-md p-2 btn cursor-pointer ${arr.length && arr[index].flag ? 'playListBtnActive' : ''}" id='${item.id}'>${item.name}</p>`)
     });
@@ -419,6 +415,8 @@ window.addEventListener('load', () => {
             })
           }
         }
+        Swal.close()
+
       })
     })
 
@@ -574,12 +572,12 @@ document.body.addEventListener('keydown', (e) => {
     }
 
     if (e.code === "ArrowRight") {
-      newTime = audio.currentTime + 10
-      audio.currentTime = newTime
+      newTime = music.currentTime + 10
+      music.currentTime = newTime
     }
     if (e.code === "ArrowLeft") {
-      newTime = audio.currentTime - 10
-      audio.currentTime = newTime
+      newTime = music.currentTime - 10
+      music.currentTime = newTime
     }
     if (e.keyCode === 77) {
       if (speaker) {
@@ -637,7 +635,7 @@ playIcon.addEventListener("click", function () {
 
 
 function loadSong(song) {
-  document.title=song.displayName;
+  document.title = song.displayName;
   songName.textContent = song.displayName;
   ArtistName.textContent = song.artist;
   music.src = song.path;
@@ -847,7 +845,7 @@ function saveHandler() {
         }
 
       }
-
+      Swal.close()
     })
   })
 

@@ -147,7 +147,6 @@ const setError = (errors) => {
             allInputs[index].classList.remove('focus:ring-[#285ed342]');
             allInputs[index].classList.remove('focus:ring-4');
             allInputs[index].classList.add('errorInput');
-            console.log(allInputs[index]);
         }
 
     })

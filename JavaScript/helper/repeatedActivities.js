@@ -18,11 +18,10 @@ buttonsWrapper.forEach(element => {
     })
 });
 //////////////////////////////////////////////////////////////////////////////////
-const getData = async (url, key, type) => {
+const getData = async (url, key, type, artistFilter) => {
     let mainData = null;
 
     let a = await getInfoes(url);
-    console.log(a);
     if (a.status !== 200) {
         alert('403')
     } else {
@@ -32,13 +31,13 @@ const getData = async (url, key, type) => {
 
 
         if (type === 'all') {
-            let allData = [...filterPersianData(mainData.videos), ...filterPersianData(mainData.mp3s)];
+            let allData = [...filterPersianData(mainData.videos,artistFilter), ...filterPersianData(mainData.mp3s,artistFilter)];
             showToDOM(allData, 'all')
         } else if (key) {
-            showToDOM(filterPersianData(mainData[key]));
+            showToDOM(filterPersianData(mainData[key], artistFilter));
 
         } else {
-            showToDOM(filterPersianData(mainData));
+            showToDOM(filterPersianData(mainData, artistFilter));
 
         }
     }
@@ -59,9 +58,14 @@ const showToDOM = (resultFilter, type) => {
     loader.classList.add('hidden')
 
 }
-const filterPersianData = array => {
+const filterPersianData = (array, artistFilter) => {
     let showArray = array.filter(data => {
-        return data.artist_farsi && data.song_farsi
+        if (artistFilter) {
+
+            return data.artist_farsi && data.song_farsi && data.artist_farsi.includes(artistFilter)
+        } else {
+            return data.artist_farsi && data.song_farsi
+        }
     });
 
 

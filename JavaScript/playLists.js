@@ -275,7 +275,6 @@ confirmBtn.addEventListener('click', () => {
     customClass: 'deleteClassSwal',
     cancelButtonText: 'لغو',
   }).then((result) => {
-    console.log(result)
     if (result.isConfirmed) {
       if (removeAlbum.length) {
         let showData = getData('showData');
