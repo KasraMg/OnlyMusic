@@ -1,34 +1,7 @@
 import { ourPlayList, artists } from "./helper/server.js";
 import { getInfoes, mediaHtmlTemplate } from "./utilis/utils.js";
 
-let swiper = new Swiper(".mySwiper", {
-  rewind: true,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
 
-let introSwiper2 = new Swiper(".introSwiper2", {
-  rewind: true,
-  slidesPerView: 2,
-  spaceBetween: 10,
-
-  breakpoints: {
-    300: {
-      slidesPerView: 1,
-      spaceBetween: 10,
-    },
-    500: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-    },
-    900: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-    }
-  },
-});
 
 
 
@@ -80,15 +53,17 @@ ourPlayList.forEach(item =>
 
 
 
+
+
+
 window.addEventListener('load', () => {
-  const indexSwiper1 = document.querySelector('#indexSwiper1')
-  const indexSwiper2 = document.querySelector('#indexSwiper2')
+  const mySwiper1 = document.querySelector('#mySwiper1')
   const specialMusics = document.querySelector('#specialMusics')
   const newSong = document.querySelector('#newSong')
   const newMusicVideo = document.querySelector('#newMusicVideo')
 
   getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=new_songs').then(data => {
-    loader.classList.add('hidden')
+    // loader.classList.add('hidden')
     if (data.status == 200) {
 
       let resultFilter = data.result.filter(data => {
@@ -100,32 +75,16 @@ window.addEventListener('load', () => {
           "beforeend", mediaHtmlTemplate(music))
       ))
 
-      resultFilter.slice(9, 15).map(music => (
-        indexSwiper1.insertAdjacentHTML(
-          "beforeend", `
 
-                          <a  href='music.html?artist=${music.artist}&id=${music.id}'  class="swiper-slide">
-                          <img src='${music.photo}' class=' w-full rounded-xl'/>
-                          </a>   
 
-                  `)
-      ))
 
-      resultFilter.slice(1, 16).map(music => (
-        indexSwiper2.insertAdjacentHTML(
-          "beforeend", `
-
-                          <a  href='music.html?artist=${music.artist}&id=${music.id}'  class="swiper-slide">
-                          <img src='${music.photo}' class=' w-full rounded-xl '/>
-                         
-
-                          </a>
-
-                  `)
-      ))
     }
 
   })
+
+
+
+
 
 
   getInfoes('https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=hot_songs').then(data => {
@@ -138,6 +97,53 @@ window.addEventListener('load', () => {
         specialMusics.insertAdjacentHTML(
           "beforeend", mediaHtmlTemplate(music))
       ))
+
+
+      resultFilter.slice(9, 28).map(music => (
+        mySwiper1.insertAdjacentHTML(
+          "beforeend", `
+                          <a  href='music.html?artist=${music.artist}&id=${music.id}'  class="relative swiper-slide">
+                          <img src='${music.photo}' class=' w-full rounded-xl'/>
+                          <div class="absolute right-4 bottom-6" id="textCap">
+                          <p>${music.song_farsi.length > 10 ?'...'+ music.song_farsi.slice(0,13)   : music.song_farsi}</p>
+                          <p>${music.artist_farsi}</p>
+                        </div>
+                          </a>   
+
+                  `)
+      ))
+
+
+
+      var mySwiperWrapper1 = new Swiper("#mySwiperWrapper1", {
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          400: {
+            slidesPerView: 1,
+          },
+          480: {
+            slidesPerView: 2,
+          },
+          850: {
+            slidesPerView: 3,
+          },
+          900: {
+            slidesPerView: 2,
+          },
+          1050: {
+            slidesPerView: 3,
+          },
+          1200: {
+            slidesPerView: 4,
+          },
+        }
+
+      });
     }
   })
 
@@ -154,4 +160,29 @@ window.addEventListener('load', () => {
     }
   })
 })
+
+var swiper = new Swiper(".mySwiper", {
+  spaceBetween: 30,
+  centeredSlides: true,
+  loop: true,
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: false,
+  // },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+
+
+
+
+
+
 
