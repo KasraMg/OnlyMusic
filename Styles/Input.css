@@ -282,12 +282,25 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
   background-color: #000000;
 
 }
-
+.swiper-pagination-bullet {
+  opacity: .7 !important;
+  
+} 
 #textCap {
   text-align: right;
-  background-color: #000000;
-  mix-blend-mode: difference;
+  background-color: #0000007d;
+  font-weight: 900;
+  width: 100%;
+  border-top-right-radius: 10px;
+  padding: 1rem;
+  border-top-left-radius: 10px;
+  bottom: 0px;
+  right: 0px;
+  justify-content: space-between;
+  font-size: 1rem;
+  /* mix-blend-mode: difference; */
   color: #fff;
+  display: flex;
 }
 
 
@@ -540,5 +553,8 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
       padding-left: .5rem !important;
     }
   }
-
+ 
+.swiper-pagination-bullet-active{
+  background:blue !important;
+}
 }

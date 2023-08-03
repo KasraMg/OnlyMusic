@@ -105,7 +105,7 @@ window.addEventListener('load', () => {
                           <a  href='music.html?artist=${music.artist}&id=${music.id}'  class="relative swiper-slide">
                           <img src='${music.photo}' class=' w-full rounded-xl'/>
                           <div class="absolute right-4 bottom-6" id="textCap">
-                          <p>${music.song_farsi}</p>
+                          <p>${music.song_farsi.length > 10 ?'...'+ music.song_farsi.slice(0,13)   : music.song_farsi}</p>
                           <p>${music.artist_farsi}</p>
                         </div>
                           </a>   
@@ -165,10 +165,10 @@ var swiper = new Swiper(".mySwiper", {
   spaceBetween: 30,
   centeredSlides: true,
   loop: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
+  // autoplay: {
+  //   delay: 2500,
+  //   disableOnInteraction: false,
+  // },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
