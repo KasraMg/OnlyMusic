@@ -10,7 +10,8 @@ let artistActive = artists.find(artist => {
     if (artist.name === getParamToUrl('artist')) {
         return artist
     }
-})
+}) 
+document.title=artistActive.name
 ////////////////////////////////////////////////////////////////////////////////
 window.addEventListener('load', () => {
     artistName.innerHTML = artistActive.name;

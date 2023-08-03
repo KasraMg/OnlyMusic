@@ -1988,14 +1988,14 @@ input:checked + .toggle-bg {
   background-color: rgb(43 43 49 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#4CBB17\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(76 187 23 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#50b6ff\] {
   --tw-bg-opacity: 1;
   background-color: rgb(80 182 255 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#800080\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(128 0 128 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#c5c4c4\] {
@@ -2702,9 +2702,9 @@ header label:after {
 }
 
 .music-controll-bg {
-  background-color: rgba(0, 0, 0, .5);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, .2);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 .play-icon-bg:hover {
@@ -3081,6 +3081,15 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 
 /* loader */
 
+.dark .playListBtnActive {
+  background-color: #d49605;
+}
+
+.playListBtnActive {
+  background-color: #ff4242;
+  color: #fff;
+}
+
 /* drag drop */
 
 .activeEdit section,
@@ -3115,6 +3124,42 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 
   100% {
     transform: rotate(0deg)
+  }
+}
+
+.swiper-slide {
+  height: 90vh;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  border-radius: .5rem !important;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover
+}
+
+#indexSwiper2 {
+  height: 50vh;
+}
+
+#introSwiper2 img {
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain
+}
+
+@media (max-width:600px) {
+  .swiper-slide {
+    height: 70vh;
+  }
+}
+
+@media (max-width:1017px) {
+  #indexSwiper2 {
+    display: none;
   }
 }
 
@@ -3789,10 +3834,6 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     display: none;
   }
 
-  .md\:\!w-\[100\%\] {
-    width: 100% !important;
-  }
-
   .md\:w-full {
     width: 100%;
   }
@@ -3890,10 +3931,6 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     height: 70vh;
   }
 
-  .lg\:w-\[700px\] {
-    width: 700px;
-  }
-
   .lg\:grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -3940,4 +3977,4 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}                
+}
