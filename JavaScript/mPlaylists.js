@@ -100,7 +100,7 @@ window.addEventListener('load', () => {
       const musicResult = song2.filter(music => {
         return music.id == urlResult
       })
-
+      document.title=musicResult[0].song_farsi; 
       recentMediaHandler(musicResult[0]);
       musicIndex = song2.findIndex((music) => {
         return music.id == urlResult
@@ -799,7 +799,7 @@ window.addEventListener('load', () => {
 
       sendData = results[0]
       loadSong(results[0]);
-
+      document.title=results[0].song_farsi; 
 
       listLength = listType[0].data.length - 1
 

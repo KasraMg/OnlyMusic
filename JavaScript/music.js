@@ -637,6 +637,7 @@ playIcon.addEventListener("click", function () {
 
 
 function loadSong(song) {
+  document.title=song.displayName;
   songName.textContent = song.displayName;
   ArtistName.textContent = song.artist;
   music.src = song.path;

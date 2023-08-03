@@ -307,6 +307,7 @@ playIcon.addEventListener("click", function () {
 
 
 function loadVideo(videoData) {
+  document.title=videoData.displayName;
   videoName.textContent = videoData.displayName;
   ArtistName.textContent = videoData.artist;
   video.src = videoData.path;

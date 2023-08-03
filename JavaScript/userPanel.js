@@ -33,7 +33,7 @@ const checkEmailUser = localData.find(item => item.userInfo.email === data.email
 
 nameUser.innerHTML = checkEmailUser.userInfo.name;
 joinToSite.innerHTML = checkEmailUser.userInfo.registerDate;
-
+document.title=checkEmailUser.userInfo.name
 
 
 
