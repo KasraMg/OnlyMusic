@@ -255,42 +255,41 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 }
 
 
-.swiper-slide {
-  height: 90vh;
-  overflow: hidden;
-}
-
-.swiper-slide img {
-  border-radius: .5rem !important;
-  height: 100%;
-  object-fit: cover
-}
-
-#indexSwiper2 {
-  height: 50vh;
+#mySwiperWrapper {
+  width: 100%;
+  height: 55vh;
 
 }
 
-#introSwiper2 img {
-  border-radius: 0.5rem;
+#mySwiperWrapper a {}
+
+#mySwiperWrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain
+  object-fit: cover;
+  background-color: #000000;
 }
 
-@media (max-width:600px) {
-  .swiper-slide {
-    height: 70vh;
+#mySwiperWrapper1 {
+  width: 100%;
+  height: 34vh;
+}
 
-  }
+#mySwiperWrapper1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #000000;
 
 }
 
-@media (max-width:1017px) {
-  #indexSwiper2 {
-    display: none;
-  }
+#textCap {
+  text-align: right;
+  background-color: #000000;
+  mix-blend-mode: difference;
+  color: #fff;
 }
+
 
 
 @layer utilities {
@@ -325,14 +324,14 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 
 
 
-  .introSwiper .swiper-button-prev:after,
-  .introSwiper .swiper-button-next:after {
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
     font-size: 20px;
     color: white;
   }
 
-  .introSwiper2 .swiper-button-prev:after,
-  .introSwiper2 .swiper-button-next:after {
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
     font-size: 20px;
     color: white;
   }
@@ -541,5 +540,5 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
       padding-left: .5rem !important;
     }
   }
-   
+
 }
