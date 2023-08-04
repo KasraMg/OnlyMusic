@@ -7,33 +7,32 @@ const imagesArtistWrapper = document.querySelectorAll('#imagesArtistWrapper img'
 const explainArtist = document.querySelector('#explainArtist');
 /////////////////////////////////////////////////////////////////////////////////
 let artistActive = artists.find(artist => {
-    if (artist.name === getParamToUrl('artist')) {
+    if (artist.englishName === getParamToUrl('artist')) {
         return artist
     }
-}) 
-document.title=artistActive.name
+})
 ////////////////////////////////////////////////////////////////////////////////
 window.addEventListener('load', () => {
-    artistName.innerHTML = artistActive.name;
-    console.log(artistActive.text);
-    console.log(explainArtist);
     explainArtist.innerText = artistActive.text
+    artistName.innerText = artistActive.name
     imagesArtistWrapper.forEach(img => {
         img.src = artistActive.photo
     });
 
+
     const paramsType = getParamToUrl('type');
     const baseUrl = `https://one-api.ir/radiojavan/?token=677668:64ae5b9d7c848&action=search&q=${getParamToUrl('artist')}`
-    // loader.classList.add('hidden')
 
 
     if (paramsType === 'all') {
-        getData(baseUrl, null, paramsType)
+        getData(baseUrl, null, paramsType, artistActive.name)
     } else if (paramsType === 'music') {
-        getData(baseUrl, 'mp3s')
+        getData(baseUrl, 'mp3s', null, artistActive.name)
     } else {
-        getData(baseUrl, 'videos')
+        getData(baseUrl, 'videos', null, artistActive.name)
     }
+    document.title = artistActive.name
+
 })
 
 

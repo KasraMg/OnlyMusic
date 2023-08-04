@@ -10,9 +10,9 @@ window.addEventListener('load', () => {
       allArtist.insertAdjacentHTML(
             "beforeend", `
             
-            <a href='artist.html?artist=${artist.name}&type=all&page=1' class="w-full">
+            <a href='artist.html?artist=${artist.englishName}&type=all&page=1' class="w-full">
             <div class="">
-              <img src=${artist.photo} alt="cover" class="rounded-full mx-auto " style='height:140px;width:140px'>
+              <img src='${artist.photo}' alt="cover" class="rounded-full mx-auto " style='height:140px;width:140px'>
             </div>
   
             <div class="mt-4">

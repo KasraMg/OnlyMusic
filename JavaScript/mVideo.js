@@ -43,7 +43,6 @@ window.addEventListener('load', () => {
 
 
   getInfoes(urlResult).then(data => {
-    console.log(data);
     loader.classList.add('hidden')
     if (data.status == 200 && data.result.link) {
 
@@ -380,7 +379,7 @@ speakerIcon.addEventListener('click', (e) => {
     speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2px;cursor:pointer" ></i>'
     speaker = true
   }
-  fa - volume - xmark
+ 
 })
 
 
@@ -401,7 +400,6 @@ const noLikeMediaHandler = () => {
   likeMedia.classList.remove('hidden');
   noLikeMedia.classList.add('hidden');
   likeMedia.style.pointerEvents = 'none';
-  console.log(sendVideoData);
   showData.favorite.unshift(destructorData(sendVideoData));
   updateData(showData);
   likeMedia.style.pointerEvents = 'auto'

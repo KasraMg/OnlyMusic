@@ -10,7 +10,6 @@ if (type === 'login') {
 
     toggleBtn.addEventListener('click', function () {
         getImgValiCode();
-        console.log(rightCode);
     }, false);
 
 

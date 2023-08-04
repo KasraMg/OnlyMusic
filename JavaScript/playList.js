@@ -152,8 +152,7 @@ const deleteHandler = id => {
 window.deleteHandler = deleteHandler
 
 const showToDom = (array) => {
-    console.log(array);
-    console.log(songId);
+
     array.map(item => {
         moreAlbum.insertAdjacentHTML(
             "beforeend",

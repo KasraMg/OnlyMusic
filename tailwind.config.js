@@ -23,7 +23,7 @@ module.exports = {
       "vazirMedium": 'vazirMedium',
       "vazirLight": 'vazirLight',
       "cursive":"cursive"
-    },
+    },           
     extend: {
       colors: {             
         'secondText': '#8d8d8d',

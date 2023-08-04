@@ -1,7 +1,6 @@
 const sliceCounter = count => {
     const countToNumber = +count.replaceAll(',', '')
 
-console.log(countToNumber);
 
     const abbreviations = [
         { value: 1e18, symbol: "E" },
