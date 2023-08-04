@@ -1216,6 +1216,10 @@ input:checked + .toggle-bg {
   margin-bottom: 2rem;
 }
 
+.\!mt-8 {
+  margin-top: 2rem !important;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1326,6 +1330,10 @@ input:checked + .toggle-bg {
 
 .mt-5 {
   margin-top: 1.25rem;
+}
+
+.mt-56 {
+  margin-top: 14rem;
 }
 
 .mt-6 {
@@ -1721,6 +1729,10 @@ input:checked + .toggle-bg {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .gap-6 {
@@ -3677,6 +3689,10 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
     padding-left: 0.75rem !important;
     padding-right: 0.75rem !important;
   }
+
+  .sm-x2\:text-\[13px\] {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -3932,6 +3948,10 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 }
 
 @media (max-width: 1200px) {
+  .lg\:\!mt-16 {
+    margin-top: 4rem !important;
+  }
+
   .lg\:mb-10 {
     margin-bottom: 2.5rem;
   }

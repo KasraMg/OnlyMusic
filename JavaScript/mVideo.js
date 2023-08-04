@@ -379,7 +379,7 @@ speakerIcon.addEventListener('click', (e) => {
     speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[8px]" style="top:2px;cursor:pointer" ></i>'
     speaker = true
   }
-  fa - volume - xmark
+ 
 })
 
 

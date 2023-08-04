@@ -1106,7 +1106,7 @@ speakerIcon.addEventListener('click', (e) => {
     speakerIcon.innerHTML = ' <i class="fa-solid fa-volume-high relative top-[3px]" style="top:3px"  ></i>'
     speaker = true
   }
-  fa - volume - xmark
+ 
 })
 
 music.addEventListener("timeupdate", updateProgressBar);

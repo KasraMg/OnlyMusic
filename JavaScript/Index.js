@@ -78,6 +78,8 @@ window.addEventListener('load', () => {
 
 
 
+    }else{
+      location.href='error.html'
     }
 
   })
@@ -146,6 +148,8 @@ window.addEventListener('load', () => {
         }
 
       });
+    }else{
+      location.href='error.html'
     }
   })
 
@@ -159,6 +163,8 @@ window.addEventListener('load', () => {
         newMusicVideo.insertAdjacentHTML(
           "beforeend", mediaHtmlTemplate(music))
       ))
+    }else{
+      location.href='error.html'
     }
   })
 })

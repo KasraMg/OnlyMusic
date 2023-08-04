@@ -23,7 +23,7 @@ const getData = async (url, key, type, artistFilter) => {
 
     let a = await getInfoes(url);
     if (a.status !== 200) {
-        alert('403')
+          location.href='error.html' 
     } else {
         mainData = a.result
 
