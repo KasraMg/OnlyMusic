@@ -126,7 +126,7 @@ const dateToDay = () => {
 
 searchIcon.addEventListener('click', () => {
     if (searchInput.value) {
-        location.href = `search.html?param=${searchInput.value}`
+        location.href = `/Src/search.html?param=${searchInput.value}`
     }
 
 })
@@ -135,13 +135,13 @@ searchIcon.addEventListener('click', () => {
 searchInput.addEventListener("keydown", (e) => {
     if (e.key == 'Enter') {
         if (e.target.value) {
-            location.href = `search.html?param=${e.target.value}`
+            location.href = `/Src/search.html?param=${e.target.value}`
         }
     }
 })
 searchIconMd.addEventListener('click', () => {
     if (searchInputMd.value) {
-        location.href = `search.html?param=${searchInputMd.value}`
+        location.href = `/Src/search.html?param=${searchInputMd.value}`
     }
 
 })
@@ -150,7 +150,7 @@ searchIconMd.addEventListener('click', () => {
 searchInputMd.addEventListener("keydown", (e) => {
     if (e.key == 'Enter') {
         if (e.target.value) {
-            location.href = `search.html?param=${e.target.value}`
+            location.href = `/Src/search.html?param=${e.target.value}`
         }
     }
 })
