@@ -105,7 +105,7 @@ allInputs.forEach(element => {
             element.value = data[element.id]
         }
 
-    
+
 
         setError(validation(data, type, rightCode))
 

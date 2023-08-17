@@ -33,7 +33,7 @@ const checkEmailUser = localData.find(item => item.userInfo.email === data.email
 
 nameUser.innerHTML = checkEmailUser.userInfo.name;
 joinToSite.innerHTML = checkEmailUser.userInfo.registerDate;
-document.title=checkEmailUser.userInfo.name
+document.title = checkEmailUser.userInfo.name
 
 
 
@@ -42,7 +42,7 @@ logoutBtn.addEventListener('click', () => {
         title: 'آیا می خواهید از حساب کاربری خود خارج شوید؟',
         icon: 'question',
         showCancelButton: true,
-        confirmButtonText:'بله',
+        confirmButtonText: 'بله',
         confirmButtonColor: 'red',
         cancelButtonText: 'لغو',
         preConfirm: (result) => {
@@ -195,7 +195,7 @@ const favoriteShow = () => {
                 });
             }
 
-          
+
 
         })
 

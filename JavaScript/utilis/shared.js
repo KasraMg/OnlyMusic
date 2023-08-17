@@ -55,7 +55,12 @@ window.addEventListener('load', () => {
     if (showData === null || Object.keys(showData).length === 0) {
         loginBtn.innerHTML = `ورود / عضویت`
         loginBtn.addEventListener('click', () => {
-            location.href = 'login.html'
+            if (route === 'index') {
+                location.href = '../../index.html'
+
+            } else {
+                location.href = 'login.html'
+            }
 
         });
     } else {
@@ -73,7 +78,12 @@ window.addEventListener('load', () => {
         }
 
         loginBtn.addEventListener('click', () => {
-            location.href = 'userPanel.html'
+            if (route === 'index') {
+                location.href = '../../Src/userPanel.html'
+
+            } else {
+                location.href = 'userPanel.html'
+            }
 
         });
     }
@@ -126,7 +136,12 @@ const dateToDay = () => {
 
 searchIcon.addEventListener('click', () => {
     if (searchInput.value) {
-        location.href = `search.html?param=${searchInput.value}`
+        if (route === 'index') {
+            location.href = `../../Src/search.html?param=${searchInput.value}`
+
+        } else {
+            location.href = `search.html?param=${searchInput.value}`
+        }
     }
 
 })
@@ -135,7 +150,12 @@ searchIcon.addEventListener('click', () => {
 searchInput.addEventListener("keydown", (e) => {
     if (e.key == 'Enter') {
         if (e.target.value) {
-            location.href = `search.html?param=${e.target.value}`
+            if (route === 'index') {
+                location.href = `../../Src/search.html?param=${e.target.value}`
+
+            } else {
+                location.href = `search.html?param=${e.target.value}`
+            }
         }
     }
 })
@@ -149,8 +169,11 @@ searchIconMd.addEventListener('click', () => {
 
 searchInputMd.addEventListener("keydown", (e) => {
     if (e.key == 'Enter') {
-        if (e.target.value) {
-            location.href = `search.html?param=${e.target.value}`
+        if (route === 'index') {
+            location.href = `../../Src/search.html?param=${searchInput.value}`
+
+        } else {
+            location.href = `search.html?param=${searchInput.value}`
         }
     }
 })
