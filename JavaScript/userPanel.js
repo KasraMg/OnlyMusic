@@ -48,7 +48,7 @@ logoutBtn.addEventListener('click', () => {
         preConfirm: (result) => {
             if (result) {
                 setData('showData', {});
-                location.href = 'index.html'
+                location.href = '../index.html'
             }
         }
     })

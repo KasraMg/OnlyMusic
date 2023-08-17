@@ -55,12 +55,9 @@ window.addEventListener('load', () => {
     if (showData === null || Object.keys(showData).length === 0) {
         loginBtn.innerHTML = `ورود / عضویت`
         loginBtn.addEventListener('click', () => {
-            if (route === 'index') {
-                location.href = '../../index.html'
 
-            } else {
-                location.href = 'login.html'
-            }
+            location.href = '/Src/login.html'
+
 
         });
     } else {
@@ -78,12 +75,9 @@ window.addEventListener('load', () => {
         }
 
         loginBtn.addEventListener('click', () => {
-            if (route === 'index') {
-                location.href = '../../Src/userPanel.html'
 
-            } else {
-                location.href = 'userPanel.html'
-            }
+            location.href = '/Src/userPanel.html'
+
 
         });
     }
@@ -136,12 +130,9 @@ const dateToDay = () => {
 
 searchIcon.addEventListener('click', () => {
     if (searchInput.value) {
-        if (route === 'index') {
-            location.href = `../../Src/search.html?param=${searchInput.value}`
 
-        } else {
-            location.href = `search.html?param=${searchInput.value}`
-        }
+        location.href = `/Src/search.html?param=${searchInput.value}`
+
     }
 
 })
@@ -150,18 +141,15 @@ searchIcon.addEventListener('click', () => {
 searchInput.addEventListener("keydown", (e) => {
     if (e.key == 'Enter') {
         if (e.target.value) {
-            if (route === 'index') {
-                location.href = `../../Src/search.html?param=${e.target.value}`
 
-            } else {
-                location.href = `search.html?param=${e.target.value}`
-            }
+            location.href = `/Src/search.html?param=${e.target.value}`
+
         }
     }
 })
 searchIconMd.addEventListener('click', () => {
     if (searchInputMd.value) {
-        location.href = `search.html?param=${searchInputMd.value}`
+        location.href = `/Src/search.html?param=${searchInputMd.value}`
     }
 
 })
@@ -169,11 +157,8 @@ searchIconMd.addEventListener('click', () => {
 
 searchInputMd.addEventListener("keydown", (e) => {
     if (e.key == 'Enter') {
-        if (route === 'index') {
-            location.href = `../../Src/search.html?param=${searchInput.value}`
 
-        } else {
-            location.href = `search.html?param=${searchInput.value}`
-        }
+        location.href = `/Src/search.html?param=${searchInput.value}`
+
     }
 })
