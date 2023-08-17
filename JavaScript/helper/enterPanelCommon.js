@@ -50,7 +50,7 @@ if (type === 'userPanel') {
         let show = getData('showData');
 
         if (show === null || Object.keys(show).length === 0) {
-            location.href = 'index.html'
+            location.href = '../index.html'
         }
     })
 }
@@ -105,7 +105,7 @@ allInputs.forEach(element => {
             element.value = data[element.id]
         }
 
-    
+
 
         setError(validation(data, type, rightCode))
 

@@ -23,7 +23,7 @@ let albumDetails = {};
 window.addEventListener('load', () => {
     if (getParamToUrl('type') !== 'ourPlayList') {
         if (!!showData && !Object.keys(showData).length) {
-            location.href = 'index.html'
+            location.href = '../index.html'
         }
     }
     if (type === 'ourPlayList') {
