@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
     const param = getParamToUrl('param')
     searchInput.value=param
     searchInputMd.value=param
-
+    document.title=param
     const SearchMusics = document.querySelector('#SearchMusics')
     const SearchVideos = document.querySelector('#SearchVideos') 
     const musicSearchParent = document.querySelector('#musicSearchParent') 
