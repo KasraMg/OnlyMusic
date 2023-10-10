@@ -4,7 +4,7 @@
 </br>
 
  ## 📛📛 Use Vpn to see the site
-<div align="center">
+<div>
 
   [View Online](https://onlymusic.iran.liara.run/)
  
