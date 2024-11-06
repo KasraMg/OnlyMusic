@@ -6,6 +6,6 @@
  ## 📛📛 Use Vpn to see the site
 <div>
 
-  [View Online](https://onlymusic.iran.liara.run/)
+  [View Online](https://onlymusic2024.netlify.app/)
  
  </div>
